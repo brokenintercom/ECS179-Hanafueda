@@ -1,2 +1,2 @@
 # ECS179-Hanafuda
-ECS179 FQ24 Group Project!
+A card game (possibly rouge-like) inspired Hanafuda, Pokemon, and Inscryption!
