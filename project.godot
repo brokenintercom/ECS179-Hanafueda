@@ -18,8 +18,8 @@ config/icon="res://assets/icon.svg"
 [autoload]
 
 damage_engine="*res://scripts/damage_engine.gd"
-player_party="*res://scripts/player_party.gd"
 signals="*res://scripts/signals.gd"
+card_spec_factory="*res://scripts/card_spec_factory.gd"
 
 [rendering]
 

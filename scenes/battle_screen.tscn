@@ -1,13 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=4 format=3 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/battle_screen.gd" id="1_m0yuu"]
+[ext_resource type="PackedScene" uid="uid://cteoy7ongb50t" path="res://scenes/enemy.tscn" id="2_t5xab"]
+[ext_resource type="PackedScene" uid="uid://dj5id2qqtq3h4" path="res://scenes/player.tscn" id="4_okrt5"]
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_m0yuu")
 
+[node name="Enemy" parent="." instance=ExtResource("2_t5xab")]
+num_turns_left = 5
+
+[node name="Player" parent="." instance=ExtResource("4_okrt5")]
+
 [node name="AttackButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 169.0
+offset_top = 57.0
+offset_right = 227.0
+offset_bottom = 88.0
 text = "Attack"
 
 [connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]

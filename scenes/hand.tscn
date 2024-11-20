@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://b37px5yamuk8i"]
+
+[ext_resource type="Script" path="res://scripts/hand.gd" id="1_u8mbn"]
+[ext_resource type="PackedScene" uid="uid://mnmhxw1j0krl" path="res://scenes/card.tscn" id="2_dgr5s"]
+
+[node name="Hand" type="CanvasLayer"]
+script = ExtResource("1_u8mbn")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Card0" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card1" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card2" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card3" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card4" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card5" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card6" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
+
+[node name="Card7" parent="GridContainer" instance=ExtResource("2_dgr5s")]
+layout_mode = 2
