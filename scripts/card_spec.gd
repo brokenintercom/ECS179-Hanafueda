@@ -22,7 +22,7 @@ enum Synergy {
 var month:Month
 var type:Type
 var synergy:Synergy
-var texture:Texture
+var texture:Texture2D
 
 
 func _init(new_month:Month, new_type:Type, new_synergy:Synergy, new_texture:Texture) -> void:

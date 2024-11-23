@@ -4,7 +4,8 @@ extends Control
 @export var month:CardSpec.Month
 @export var type:CardSpec.Type
 @export var synergy:CardSpec.Synergy
-@export var texture:Texture
+
+@onready var sprite:Sprite2D = $Sprite2D
 
 # TODO @Jamie: empty cards cannot be selected
 
@@ -13,10 +14,11 @@ var is_selected := false
 
 
 func update_card(spec:CardSpec) -> void:
+	# Use the given spec to update the card's attributes
 	month = spec.month
 	type = spec.type
 	synergy = spec.synergy
-	texture = spec.texture
+	sprite.texture = spec.sprite.texture
 # TODO look for an InputEvent for when the card is clicked on (need collision shape)
 # TODO then the card should be outlined in blue to indicate it's selected (and set is_selected)
 

@@ -6,3 +6,6 @@ extends Character
 
 
 # TODO signals.character_hit.emit(_player, dmg)
+
+func temp_func():
+	signals.switch_battle_phase.emit()

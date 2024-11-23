@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mnmhxw1j0krl"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_r3fpk"]
-[ext_resource type="Texture2D" uid="uid://bp1iqfjbt1bmh" path="res://assets/icon.svg" id="2_crbqs"]
+[ext_resource type="Texture2D" uid="uid://66nx5yusiem6" path="res://assets/temp.png" id="2_obmrq"]
 
 [node name="Card" type="Control"]
 layout_mode = 3
@@ -9,4 +9,5 @@ anchors_preset = 0
 script = ExtResource("1_r3fpk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_crbqs")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_obmrq")

@@ -19,4 +19,13 @@ offset_right = 227.0
 offset_bottom = 88.0
 text = "Attack"
 
+[node name="PlayCardsButton" type="Button" parent="."]
+offset_left = 415.0
+offset_top = 61.0
+offset_right = 504.0
+offset_bottom = 92.0
+text = "Play Cards
+"
+
 [connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
