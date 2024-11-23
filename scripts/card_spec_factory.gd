@@ -6,6 +6,6 @@ static var empty_card_spec := CardSpec.new(CardSpec.Month.EMPTY, CardSpec.Type.E
 
 
 static func card_to_spec(card:Card) -> CardSpec:
-	return CardSpec.new(card.month, card.type, card.synergy, card.sprite)
+	return CardSpec.new(card.month, card.type, card.synergy, card.sprite.texture)
 	
 	
