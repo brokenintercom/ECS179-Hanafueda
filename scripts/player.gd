@@ -1,13 +1,22 @@
 class_name Player
 extends Character
 
+enum Match {
+	MONTH,
+	TYPE,
+}
+
 # TODO modify _deck to be initialized and shuffled, reading a TXT file
 # TODO delete the crane card later
 var _crane_card := CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.ANIMAL, CardSpec.Synergy.NONE, preload("res://assets/icon.svg"))
 var _deck:Array[CardSpec] = [_crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card]
 var _discard_pile:Array[CardSpec]
+var _category_match:Match  # TODO Jamie modifies this value. Determines what's grayed out. Ongoing
+
+
 @onready var hand := $Hand  # Hand of cards
 @onready var _enemy := $"../Enemy"
+
 
 
 func _ready():
@@ -71,15 +80,40 @@ func play_cards():
 	
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack(selected_cards)
+	_apply_synergy(selected_cards)
 	
 	signals.switch_battle_phase.emit()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
 func _attack(selected_cards:Array[CardSpec]) -> void:
-	var dmg = DamageEngine.calc_dmg(selected_cards)
+	var dmg = DamageEngine.calc_dmg(selected_cards, _category_match)
 	print("Damage:", dmg)
 	signals.character_hit.emit(_enemy, dmg)
+
+
+func _apply_synergy(selected_cards:Array[CardSpec]) -> void:
+	var num_selected := len(selected_cards)
+	
+	# TODO may have to modify if no longer synergies that are only 3 cards
+	if num_selected != CardSpec.MAX_SYNERGY_CARDS:
+		return
+	
+	var _synergy_match := selected_cards[0].synergy
+	
+	for i in range(1, num_selected):
+		if _synergy_match != selected_cards[i].synergy:
+			return
+	
+	match _synergy_match:
+		CardSpec.Synergy.BLUE_RIBBON:
+			print("nullify damage")  # TODO enemy's next turn
+		CardSpec.Synergy.POETRY_RIBBON:
+			print("heal 20% of health back, with floor for integer values")  # TODO current turn
+		CardSpec.Synergy.INO_SHIKA_CHO:
+			print("apply x2 damage for next attack")  # TODO player's next turn
+	# TODO in battle_screen, there's a variable for "current synergy effect" for the player
+	# TODO then pass in that variable whenever doing the player turn or enemy turn
 
 
 func _draw_card(card:Card) -> bool:

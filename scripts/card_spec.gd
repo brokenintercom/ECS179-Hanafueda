@@ -1,22 +1,39 @@
 class_name CardSpec
 extends Node
 
+const MAX_MONTH_CARDS := 4
+const MAX_SYNERGY_CARDS := 3
+
 enum Month {
-	JAN,
-	FEB,  # TODO add more
 	EMPTY,
+	JAN,
+	FEB,
+	MAR,
+	APR,
+	MAY,
+	JUN,
+	JUL,
+	AUG,
+	SEP,
+	OCT,
+	NOV,
+	DEC,
 }
 
+# Values are the dmg points values
 enum Type {
-	NORMAL,
-	RIBBON,
-	ANIMAL,
-	BRIGHT,  # TODO add more
-	EMPTY,
+	EMPTY = 0,
+	NORMAL = 1,
+	RIBBON = 2,
+	ANIMAL = 3,
+	BRIGHT = 5,
 }
 
 enum Synergy {
-	NONE,  # TODO add more
+	NONE,
+	BLUE_RIBBON,
+	POETRY_RIBBON,
+	INO_SHIKA_CHO,  # Butterfly, Deer, Boar
 }
 
 var month:Month
