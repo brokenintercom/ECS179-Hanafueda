@@ -6,10 +6,13 @@ enum PhaseType {
 	ENEMY,
 }
 
+@export var _num_turns_left:int
+
 @onready var _player := $Player
 @onready var _enemy := $Enemy
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -48,13 +51,15 @@ func _process(_delta: float) -> void:
 			_drew_cards = true
 
 
-
 func _on_switch_battle_phase() -> void:
+	# Player turn just ended
 	if _curr_phase == PhaseType.PLAYER:
 		_curr_phase = PhaseType.ENEMY
 		# TODO @Jamie: Disable player input.
-	else:
+	else:  # Enemy turn just ended
 		_curr_phase = PhaseType.PLAYER
+		# TODO Jamie: update UI too
+		_num_turns_left -= 1
 
 
 # TODO modify later
