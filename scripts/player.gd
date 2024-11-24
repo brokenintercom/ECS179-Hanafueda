@@ -8,15 +8,13 @@ enum Match {
 
 # TODO modify _deck to be initialized and shuffled, reading a TXT file
 # TODO delete the crane card later
-var _crane_card := CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.ANIMAL, CardSpec.Synergy.NONE, preload("res://assets/icon.svg"))
+var _crane_card := CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.ANIMAL, CardSpec.Synergy.NONE, preload("res://assets/temp.png"))
 var _deck:Array[CardSpec] = [_crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card]
 var _discard_pile:Array[CardSpec]
 var _category_match:Match  # TODO Jamie modifies this value. Determines what's grayed out. Ongoing
 
-
 @onready var hand := $Hand  # Hand of cards
 @onready var _enemy := $"../Enemy"
-
 
 
 func _ready():
@@ -28,10 +26,8 @@ func _ready():
 
 
 func draw_cards(num_draw:int):
-	# Clamp upper limit of num cards to draw
-	if hand.num_cards + num_draw > hand.max_hand_size:
-		# TODO debuff variable possibly
-		num_draw = hand.max_hand_size - hand.num_cards
+	num_draw = clampi(num_draw, 0, hand.max_hand_size - hand.num_cards)
+	print("Drawing %d cards..." % num_draw)
 	
 	# Update the displayed cards
 	var card_nodes := hand.get_node("GridContainer").get_children()
@@ -55,8 +51,8 @@ func draw_cards(num_draw:int):
 	print("_deck:", _deck)
 
 
-
-func play_cards():
+func _on_play_cards_button_pressed() -> void:
+	print("Playing cards...")
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	var selected_cards:Array[CardSpec]
 	
@@ -80,14 +76,14 @@ func play_cards():
 	
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack(selected_cards)
-	_apply_synergy(selected_cards)
+	_apply_synergy(selected_cards)  # Synergies are applied right before the end of the turn
 	
-	signals.switch_battle_phase.emit()
+	_cleanup()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
 func _attack(selected_cards:Array[CardSpec]) -> void:
-	var dmg = DamageEngine.calc_dmg(selected_cards, _category_match)
+	var dmg = DamageEngine.calc_dmg(selected_cards, _category_match, atk_multiplier)
 	print("Damage:", dmg)
 	signals.character_hit.emit(_enemy, dmg)
 
@@ -108,12 +104,13 @@ func _apply_synergy(selected_cards:Array[CardSpec]) -> void:
 	match _synergy_match:
 		CardSpec.Synergy.BLUE_RIBBON:
 			print("nullify damage")  # TODO enemy's next turn
+			_enemy.atk_multiplier = 0.0
 		CardSpec.Synergy.POETRY_RIBBON:
-			print("heal 20% of health back, with floor for integer values")  # TODO current turn
+			print("heal 20% of health back, with floor for integer values")
+			signals.recover_hp.emit(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
 			print("apply x2 damage for next attack")  # TODO player's next turn
-	# TODO in battle_screen, there's a variable for "current synergy effect" for the player
-	# TODO then pass in that variable whenever doing the player turn or enemy turn
+			atk_multiplier = 2.0
 
 
 func _draw_card(card:Card) -> bool:
@@ -124,4 +121,6 @@ func _draw_card(card:Card) -> bool:
 	
 	# Wrapper function
 	card.update_card(_deck.pop_back())
+	hand.num_cards += 1
+	
 	return true

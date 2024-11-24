@@ -18,7 +18,7 @@ func update_card(spec:CardSpec) -> void:
 	month = spec.month
 	type = spec.type
 	synergy = spec.synergy
-	sprite.texture = spec.sprite.texture
+	sprite.texture = spec.texture
 # TODO look for an InputEvent for when the card is clicked on (need collision shape)
 # TODO then the card should be outlined in blue to indicate it's selected (and set is_selected)
 

@@ -6,17 +6,18 @@
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_m0yuu")
+_num_turns_left = 10
 
 [node name="Enemy" parent="." instance=ExtResource("2_t5xab")]
 
 [node name="Player" parent="." instance=ExtResource("4_okrt5")]
 
-[node name="AttackButton" type="Button" parent="."]
+[node name="TitleScreenButton" type="Button" parent="."]
 offset_left = 169.0
 offset_top = 57.0
 offset_right = 227.0
 offset_bottom = 88.0
-text = "Attack"
+text = "Return to Title Screen"
 
 [node name="PlayCardsButton" type="Button" parent="."]
 offset_left = 415.0
@@ -26,5 +27,5 @@ offset_bottom = 92.0
 text = "Play Cards
 "
 
-[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]
-[connection signal="pressed" from="PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
+[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="PlayCardsButton" to="Player" method="_on_play_cards_button_pressed"]
