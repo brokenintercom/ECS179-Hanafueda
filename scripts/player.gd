@@ -9,7 +9,7 @@ enum Match {
 # TODO modify _deck to be initialized and shuffled, reading a TXT file
 # TODO delete the crane card later
 var _crane_card := CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.ANIMAL, CardSpec.Synergy.NONE, preload("res://assets/temp.png"))
-var _deck:Array[CardSpec] = [_crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card]
+var _deck:Array[CardSpec] = Deck.new().deck_creator()
 var _discard_pile:Array[CardSpec]
 var _category_match:Match  # TODO Jamie modifies this value. Determines what's grayed out. Ongoing
 
