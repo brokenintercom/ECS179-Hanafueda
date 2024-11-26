@@ -18,6 +18,7 @@ var _category_match:Match  # TODO Jamie modifies this value. Determines what's g
 
 
 func _ready():
+	print("hi ", CardSpec.Month.keys()[0])
 	# TODO initialize deck...Shuffle...
 	# TODO something in the card spec factory...
 	# TODO read text file, create spec, add to deck, then shuffle at the end
