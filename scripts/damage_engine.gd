@@ -3,7 +3,7 @@ extends Node
 
 
 # TODO
-static func calc_dmg(selected_cards:Array[CardSpec], category:Player.Match, atk_multiplier:float) -> int:
+static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_multiplier:float) -> int:
 	# If you match by month, you can get an effect multipler
 	# If you match by type, you can get a flat bonus dmg increase
 	var num_selected := len(selected_cards)
@@ -17,7 +17,7 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Player.Match, atk_
 	var bonus_dmg := 0 
 	
 	# Matching by month
-	if category == Player.Match.MONTH:
+	if category == Hand.Match.MONTH:
 		if num_selected == CardSpec.MAX_MONTH_CARDS:
 			effect_multiplier = 2
 		
@@ -37,7 +37,7 @@ static func _calc_bonus_dmg(type:CardSpec.Type, num_selected:int) -> int:
 	var threshold := 0
 	
 	match type:
-		CardSpec.Type.EMPTY:
+		CardSpec.Type.NONE:
 			return 0
 		CardSpec.Type.NORMAL:
 			threshold = 3

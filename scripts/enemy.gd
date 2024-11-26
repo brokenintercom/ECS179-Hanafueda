@@ -1,9 +1,9 @@
 class_name Enemy
 extends Character
 
-@onready var _player := $"../Player"
 
-# TODO signals.character_hit.emit(_player, dmg)
+# TODO signals.character_hit.emit(player, dmg)
+# TODO can access player as a global -- simplpy do "player"
 
 func temp_func():
 	signals.switch_battle_phase.emit()

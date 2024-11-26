@@ -5,7 +5,7 @@ const MAX_MONTH_CARDS := 4
 const MAX_SYNERGY_CARDS := 3
 
 enum Month {
-	EMPTY,
+	NONE,
 	JAN,
 	FEB,
 	MAR,
@@ -22,7 +22,7 @@ enum Month {
 
 # Values are the dmg points values
 enum Type {
-	EMPTY = 0,
+	NONE = 0,
 	NORMAL = 1,
 	RIBBON = 2,
 	ANIMAL = 3,

@@ -3,7 +3,7 @@ extends Node
 
 @export var init_state:CardState
 
-var curr_state:CardState
+var curr_card_state:CardState
 var states := {}
 
 func init(card:Card) -> void:
@@ -15,26 +15,27 @@ func init(card:Card) -> void:
 	
 	if init_state:
 		init_state.enter()
-		curr_state = init_state
+		curr_card_state = init_state
 
 
 func on_gui_input(event:InputEvent) -> void:
-	if curr_state:
-		curr_state.on_gui_input(event)
+	if curr_card_state:
+		curr_card_state.on_gui_input(event)
 
 
 func _on_transition_requested(from:CardState, to:CardState.State) -> void:
-	print("transitioning to...  ", to)
+	print("transitioning to...  ", CardState.State.keys()[to])
 	
-	if from != curr_state:
+	if from != curr_card_state:
+		return
+
+	var new_card_state:CardState = states[to]
+	
+	if not new_card_state:
 		return
 	
-	var new_state:CardState = states[to]
-	if not new_state:
-		return
+	if curr_card_state:
+		curr_card_state.exit()
 	
-	if curr_state:
-		curr_state.exit()
-	
-	new_state.enter()
-	curr_state = new_state
+	new_card_state.enter()
+	curr_card_state = new_card_state

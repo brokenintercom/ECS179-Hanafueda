@@ -9,8 +9,10 @@ script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
 [node name="Enemy" parent="." instance=ExtResource("2_t5xab")]
+unique_name_in_owner = true
 
 [node name="Player" parent="." instance=ExtResource("4_okrt5")]
+unique_name_in_owner = true
 
 [node name="TitleScreenButton" type="Button" parent="."]
 offset_left = 169.0
