@@ -8,7 +8,8 @@ extends Control
 signal reparent_requested(which_card_ui: Card)
 
 #@onready var sprite:Sprite2D = $Sprite2D
-@onready var highlight:ColorRect = $ColorRect
+@onready var highlight:ColorRect = $Highlight
+@onready var greyout:ColorRect = $Greyout
 @onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
 # TODO @Jamie: empty cards cannot be selected
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 func _on_gui_input(event:InputEvent) -> void:
 	card_state_machine.on_gui_input(event)
 
+
 func update_card(spec:CardSpec) -> void:
 	# Use the given spec to update the card's attributes
 	month = spec.month
@@ -33,3 +35,7 @@ func update_card(spec:CardSpec) -> void:
 
 # TODO also, look for an InputEvent for when the mouse hovers over a card
 # TODO on_mouse_entered and on_mouse_exited signals
+
+func set_greyout(is_disabled:bool) -> void:
+	greyout.visible= is_disabled
+	
