@@ -1,7 +1,7 @@
 class_name Enemy
 extends Character
 
-@onready var _player := $"../Player"
+@onready var _player := %Player
 
 # TODO signals.character_hit.emit(_player, dmg)
 

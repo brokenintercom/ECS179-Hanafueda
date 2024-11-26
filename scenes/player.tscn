@@ -8,3 +8,4 @@ script = ExtResource("1_bs5ar")
 max_health = 100
 
 [node name="Hand" parent="." instance=ExtResource("1_5gh7w")]
+unique_name_in_owner = true
