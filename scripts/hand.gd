@@ -34,7 +34,12 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 		elif selected_cards[1].type != running_type:
 			category_match = Match.MONTH
 	
-	print("Category match is: ", category_match)
+	print("--> Category match is: ", Match.keys()[category_match])
+	
+	if category_match == Match.MONTH:
+		print("--> Month: ", CardSpec.Month.keys()[selected_cards[0].month])
+	elif category_match == Match.TYPE:
+		print("--> Type: ", CardSpec.Type.keys()[selected_cards[0].type])
 
 
 func update_matches(selected_cards:Array[CardSpec]) -> void:
@@ -42,9 +47,16 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	
 	var card_nodes := get_node("GridContainer").get_children()
 	
+	print("updating matches...")
+	
 	for card in card_nodes:
+		# TODO: Yoobin -- says false even tho the state makes it true
+		print("highlighted? ", card.highlight.visible)
+		
 		# Only look at non-selected cards
 		if card.is_selected():
+			# TODO Yoobin: doesn't seem like this is being entered
+			print("skipping selected card...")
 			continue
 		
 		# Update the card's state

@@ -46,8 +46,9 @@ func enable_input() -> void:
 
 
 func is_selected() -> bool:
-	# Synonymous with checking self.state_machine.curr_card_state.state == CardState.SELECTED
-	return highlight.visible  
+	# TODO: Checking highlight.visible didn't work
+	print("curr_card state:", CardState.State.keys()[state_machine.curr_card_state.state])
+	return state_machine.curr_card_state.state == CardState.State.SELECTED
 
 
 func is_empty() -> bool:
