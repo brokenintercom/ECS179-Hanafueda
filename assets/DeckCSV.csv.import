@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://5j54rcho35ml"
+
+[deps]
+
+files=["res://assets/DeckCSV.5.translation", "res://assets/DeckCSV.0.translation", "res://assets/DeckCSV.temp.translation"]
+
+source_file="res://assets/DeckCSV.csv"
+dest_files=["res://assets/DeckCSV.5.translation", "res://assets/DeckCSV.0.translation", "res://assets/DeckCSV.temp.translation"]
+
+[params]
+
+compress=true
+delimiter=0

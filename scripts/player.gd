@@ -6,10 +6,9 @@ enum Match {
 	TYPE,
 }
 
-# TODO modify _deck to be initialized and shuffled, reading a TXT file
 # TODO delete the crane card later
 var _crane_card := CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.ANIMAL, CardSpec.Synergy.NONE, preload("res://assets/temp.png"))
-var _deck:Array[CardSpec] = [_crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card, _crane_card]
+var _deck:Array[CardSpec]
 var _discard_pile:Array[CardSpec]
 var _category_match:Match  # TODO Jamie modifies this value. Determines what's grayed out. Ongoing
 
@@ -18,8 +17,9 @@ var _category_match:Match  # TODO Jamie modifies this value. Determines what's g
 
 
 func _ready():
-	print("hi ", CardSpec.Month.keys()[0])
-	# TODO initialize deck...Shuffle...
+	# Create and shuffle the deck
+	_deck = Deck.new().deck_creator() 
+	_deck.shuffle()
 	# TODO something in the card spec factory...
 	# TODO read text file, create spec, add to deck, then shuffle at the end
 	super()
