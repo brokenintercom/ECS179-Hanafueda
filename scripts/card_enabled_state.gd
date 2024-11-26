@@ -1,3 +1,4 @@
+class_name EnabledState
 extends CardState
 
 
@@ -5,14 +6,19 @@ func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 	
+	# TODO delete this later, probably
 	card_ui.reparent_requested.emit(card_ui)
-	card_ui.is_selected = false
-	card_ui.highlight.visible = false
-	
-	print("entered base state")
+	card_ui.enable_input()
 
 
 func on_gui_input(event:InputEvent) -> void:
 	if event.is_action_pressed("click"):
-		print("leaving base")
 		transition_requested.emit(self, CardState.State.SELECTED)
+
+
+func exit() -> void:
+	pass
+
+
+func transition_to_disabled() -> void:
+	transition_requested.emit(self, CardState.State.DISABLED)
