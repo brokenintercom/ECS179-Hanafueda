@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://mnmhxw1j0krl"]
+[gd_scene load_steps=6 format=3 uid="uid://mnmhxw1j0krl"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_r3fpk"]
 [ext_resource type="Texture2D" uid="uid://66nx5yusiem6" path="res://assets/temp.png" id="2_obmrq"]
+[ext_resource type="Script" path="res://scripts/card_state_machine.gd" id="3_xl3h2"]
+[ext_resource type="Script" path="res://scripts/card_base_state.gd" id="4_21qlp"]
+[ext_resource type="Script" path="res://scripts/card_selected_state.gd" id="5_h3esh"]
 
-[node name="Card" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Card" type="TextureButton"]
+texture_normal = ExtResource("2_obmrq")
 script = ExtResource("1_r3fpk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_obmrq")
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = -22.0
+offset_top = -34.0
+offset_right = 564.0
+offset_bottom = 869.0
+mouse_filter = 2
+color = Color(0, 0.597299, 0.597681, 1)
+
+[node name="CardStateMachine" type="Node" parent="." node_paths=PackedStringArray("init_state")]
+script = ExtResource("3_xl3h2")
+init_state = NodePath("BaseState")
+
+[node name="BaseState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_21qlp")
+
+[node name="SelectedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_h3esh")
+state = 1
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
