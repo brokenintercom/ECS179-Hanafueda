@@ -9,9 +9,9 @@ func _init() -> void:
 	# Go through each row in the file and create a CardSpec object from it
 	while !deck_file.eof_reached():
 		var curr_specs := Array(deck_file.get_csv_line())
-		var month:CardSpec.Month = int(curr_specs[0])
-		var type:CardSpec.Type = int(curr_specs[1])
-		var synergy:CardSpec.Synergy = int(curr_specs[2])
+		var month:CardSpec.Month = int(curr_specs[0]) as CardSpec.Month
+		var type:CardSpec.Type = int(curr_specs[1]) as CardSpec.Type
+		var synergy:CardSpec.Synergy = int(curr_specs[2]) as CardSpec.Synergy
 		var texture:Texture2D = load("res://assets/" + curr_specs[3] + ".png")
 		
 		var curr_card_spec:CardSpec = CardSpec.new(month, type, synergy, texture)

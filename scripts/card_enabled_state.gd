@@ -25,8 +25,3 @@ func exit() -> void:
 
 func transition_to_disabled() -> void:
 	transition_requested.emit(self, CardState.State.DISABLED)
-
-
-# The only way to go to the empty state is to be in the enabled state
-func transition_to_empty() -> void:
-	transition_requested.emit(self, CardState.State.EMPTY)

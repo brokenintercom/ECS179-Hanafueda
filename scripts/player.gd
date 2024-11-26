@@ -12,7 +12,6 @@ var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be Car
 
 
 @onready var hand := %Hand  # Hand of cards
-@onready var _enemy := %Enemy
 
 func _ready():
 	# Shuffle the deck
@@ -59,7 +58,7 @@ func _on_play_cards_button_pressed() -> void:
 			
 			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
 			
-			card.state_machine.curr_state.transition_to_empty()  # Change this card to empty state
+			card.state_machine.curr_card_state.transition_to_empty()  # Change this card to empty state
 			# TODO could turn the above line inton another function
 			
 			# Deselect the card since we will play it now
@@ -79,7 +78,7 @@ func _on_play_cards_button_pressed() -> void:
 func _attack() -> void:
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 	print("Damage:", dmg)
-	signals.character_hit.emit(_enemy, dmg)
+	signals.character_hit.emit(enemy, dmg)
 
 
 func _apply_synergy() -> void:
@@ -98,7 +97,7 @@ func _apply_synergy() -> void:
 	match _synergy_match:
 		CardSpec.Synergy.BLUE_RIBBON:
 			print("nullify damage")  # TODO enemy's next turn
-			_enemy.atk_multiplier = 0.0
+			enemy.atk_multiplier = 0.0
 		CardSpec.Synergy.POETRY_RIBBON:
 			print("heal 20% of health back, with floor for integer values")
 			signals.recover_hp.emit(self, 0.2)

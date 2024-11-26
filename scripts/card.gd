@@ -30,6 +30,7 @@ func update_card(spec:CardSpec) -> void:
 	month = spec.month
 	type = spec.type
 	synergy = spec.synergy
+	texture_normal = spec.texture
 
 
 func disable_input() -> void:

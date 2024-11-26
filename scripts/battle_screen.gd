@@ -17,6 +17,7 @@ var _drew_cards := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
+	player.hand.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
