@@ -20,6 +20,8 @@ config/icon="res://assets/icon.svg"
 damage_engine="*res://scripts/damage_engine.gd"
 signals="*res://scripts/signals.gd"
 card_spec_factory="*res://scripts/card_spec_factory.gd"
+player="*res://scenes/player.tscn"
+enemy="*res://scenes/enemy.tscn"
 
 [input]
 

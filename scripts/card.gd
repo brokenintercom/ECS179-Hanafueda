@@ -1,5 +1,5 @@
 class_name Card
-extends Control
+extends TextureButton
 
 @export var month:CardSpec.Month
 @export var type:CardSpec.Type
@@ -7,21 +7,27 @@ extends Control
 
 signal reparent_requested(which_card_ui: Card)
 
-#@onready var sprite:Sprite2D = $Sprite2D
-@onready var highlight:ColorRect = $Highlight
-@onready var greyout:ColorRect = $Greyout
-@onready var card_state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
+
 # TODO @Jamie: empty cards cannot be selected
 
-var is_selected := false
+const WHITE := Color.WHITE
+const GRAY := Color.WEB_GRAY
+
+@onready var highlight:ColorRect = $ColorRect
+@onready var state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
+
+
 # TODO attach this script to every instance of this card? or it can have a path to its image
 
 func _ready() -> void:
-	card_state_machine.init(self)
+	# TODO says the base is NIL when I change init() to _init()
+	state_machine.init(self)
+	highlight.visible = false
 
 
 func _on_gui_input(event:InputEvent) -> void:
-	card_state_machine.on_gui_input(event)
+	state_machine.on_gui_input(event)
+
 
 
 func update_card(spec:CardSpec) -> void:
@@ -29,6 +35,36 @@ func update_card(spec:CardSpec) -> void:
 	month = spec.month
 	type = spec.type
 	synergy = spec.synergy
+	texture_normal = spec.texture
+
+
+func disable_input() -> void:
+	disabled = true
+	modulate = GRAY
+	highlight.visible = false
+
+
+func enable_input() -> void:
+	disabled = false
+	modulate = WHITE
+	highlight.visible = false
+
+
+func is_selected() -> bool:
+	# TODO: Checking highlight.visible didn't work
+	print("curr_card state:", CardState.State.keys()[state_machine.curr_card_state.state])
+	return state_machine.curr_card_state.state == CardState.State.SELECTED
+
+
+func is_empty() -> bool:
+	return modulate == GRAY
+
+
+func does_match(category_match:Hand.Match) -> bool:
+	return (
+		(category_match == Hand.Match.MONTH and month == category_match) 
+		or (category_match == Hand.Match.TYPE and type == category_match)
+	)
 	#sprite.texture = spec.texture
 # TODO look for an InputEvent for when the card is clicked on (need collision shape)
 # TODO then the card should be outlined in blue to indicate it's selected (and set is_selected)
