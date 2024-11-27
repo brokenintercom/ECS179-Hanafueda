@@ -16,7 +16,6 @@ enum State {
 
 func setup(card:Card) -> void:
 	if card.is_empty():
-		print("changing to empty state...")
 		init_state = $EmptyState
 	
 	

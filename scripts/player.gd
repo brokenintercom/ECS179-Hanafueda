@@ -46,14 +46,23 @@ func draw_cards(num_draw:int):
 	print("_deck length:", len(_deck._cards))
 
 
-func _on_play_cards_button_pressed() -> void:
+func play_cards() -> void:
 	print("Playing cards...")
+	# Actually use the selected cards to perform the attack on the enemy
+	_attack()
+	_apply_synergy()  # Synergies are applied right before the end of the turn
 	
+	_cleanup()
+	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
+
+
+func _cleanup() -> void:
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
-	# Only play the selected cards
+	# Handle the selected cards
 	for card in card_nodes:
 		if card.is_selected():
+			print("playing the card...")
 			# Extract the spec form of the card
 			var spec_version := CardSpecFactory.card_to_spec(card)
 			
@@ -68,17 +77,11 @@ func _on_play_cards_button_pressed() -> void:
 	print("_selected_cards should be empty:", selected_cards)
 	print("_discard_pile:", _discard_pile)
 	
-	# Actually use the selected cards to perform the attack on the enemy
-	_attack()
-	_apply_synergy()  # Synergies are applied right before the end of the turn
+	super()
 	
-	_cleanup()
-	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
-
-
 func _attack() -> void:
+	print("attacking...")
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
-	print("Damage:", dmg)
 	signals.character_hit.emit(enemy, dmg)
 
 
@@ -89,21 +92,23 @@ func _apply_synergy() -> void:
 	if num_selected != CardSpec.MAX_SYNERGY_CARDS:
 		return
 	
-	var _synergy_match := selected_cards[0].synergy
+	var synergy_to_match := selected_cards[0].synergy
+	print("synergy_to_match: ", synergy_to_match)
 	
 	for i in range(1, num_selected):
-		if not selected_cards[i].matches_synergy(_synergy_match):
+		if not selected_cards[i].matches_synergy(synergy_to_match):
+			print("No synergy")
 			return
 	
-	match _synergy_match:
+	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
-			print("nullify damage")  # TODO enemy's next turn
+			print("BLUE RIBBON SYNERGY: nullify damage")  # TODO enemy's next turn
 			enemy.atk_multiplier = 0.0
 		CardSpec.Synergy.POETRY_RIBBON:
-			print("heal 20% of health back, with floor for integer values")
+			print("POETRY RIBBON SYNERGY: heal 20% of health back, with floor for integer values")
 			signals.recover_hp.emit(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
-			print("apply x2 damage for next attack")  # TODO player's next turn
+			print("INO SHIKA CHO SYNERGY: apply x2 damage for next attack")  # TODO player's next turn
 			atk_multiplier = 2.0
 
 

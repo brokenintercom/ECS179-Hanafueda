@@ -22,3 +22,4 @@ text = "Play Cards
 "
 
 [connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="PlayCardsButton" to="." method="_on_play_cards_button_pressed"]

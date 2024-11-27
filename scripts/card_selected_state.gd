@@ -37,7 +37,6 @@ func on_gui_input(event:InputEvent) -> void:
 
 
 func transition_to_enabled() -> void:
-	print("hi there")
 	# Card is now a possible match -- check/update the cards!
 	player.hand.update_matches(player.selected_cards)
 	transition_requested.emit(self, CardState.State.ENABLED)
@@ -45,4 +44,6 @@ func transition_to_enabled() -> void:
 
 # The only way to go to the empty state is to be in the selected state
 func transition_to_empty() -> void:
+	# Just played the card, so it's no longer selected
+	player.selected_cards.erase(spec_version)
 	transition_requested.emit(self, CardState.State.EMPTY)

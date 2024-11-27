@@ -17,10 +17,8 @@ const GRAY := Color.WEB_GRAY
 
 func _ready() -> void:
 	if texture_normal == CardSpecFactory.empty_card_spec.texture:
-		print("Gray")
 		modulate = GRAY
 	else:
-		print("White")
 		modulate = WHITE
 	
 	state_machine.setup(self)
@@ -79,5 +77,4 @@ func matches_type(type_to_match:CardSpec.Type) -> bool:
 
 
 func matches_synergy(synergy_to_match:CardSpec.Synergy) -> bool:
-	print("synergy_to_match: ", synergy_to_match)
 	return synergy == synergy_to_match

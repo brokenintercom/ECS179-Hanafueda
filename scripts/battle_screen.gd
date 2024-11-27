@@ -64,3 +64,7 @@ func _on_switch_battle_phase() -> void:
 func _on_title_screen_button_pressed() -> void:
 	print("Switching to title screen...")
 	signals.switch_scene.emit("title_screen")
+
+
+func _on_play_cards_button_pressed() -> void:
+	player.play_cards()
