@@ -2,6 +2,10 @@ class_name EnabledState
 extends CardState
 
 
+func _ready() -> void:
+	state = CardState.State.ENABLED
+
+
 func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
@@ -12,6 +16,9 @@ func enter() -> void:
 
 
 func on_gui_input(event:InputEvent) -> void:
+	# TODO also, look for an InputEvent for when the mouse hovers over a card
+	# TODO on_mouse_entered and on_mouse_exited signals
+
 	if event.is_action_pressed("click"):
 		transition_requested.emit(self, CardState.State.SELECTED)
 

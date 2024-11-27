@@ -5,7 +5,7 @@ extends Character
 const WHITE = Color.WHITE
 const GRAY = Color.GRAY
 
-# TODO delete the crane card later
+
 var _deck := Deck.new()
 var _discard_pile:Array[CardSpec]
 var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
@@ -16,6 +16,7 @@ var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be Car
 func _ready():
 	# Shuffle the deck
 	_deck.shuffle()
+	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	super()
 
 
@@ -58,7 +59,7 @@ func _on_play_cards_button_pressed() -> void:
 			
 			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
 			
-			card.state_machine.curr_card_state.transition_to_empty()  # Change this card to empty state
+			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
 			# TODO could turn the above line inton another function
 			
 			# Deselect the card since we will play it now
@@ -91,7 +92,7 @@ func _apply_synergy() -> void:
 	var _synergy_match := selected_cards[0].synergy
 	
 	for i in range(1, num_selected):
-		if _synergy_match != selected_cards[i].synergy:
+		if not selected_cards[i].matches_synergy(_synergy_match):
 			return
 	
 	match _synergy_match:
@@ -112,8 +113,12 @@ func _draw_card(card:Card) -> bool:
 	if _deck.is_empty():
 		return false
 	
+	var new_card = _deck.draw_card()
+	
 	# Wrapper function
-	card.update_card(_deck.draw_card())
+	if card.is_empty():
+		card.get_curr_card_state().transition_to_enabled(new_card)
+		
 	hand.num_cards += 1
 	
 	return true
