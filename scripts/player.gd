@@ -42,7 +42,7 @@ func draw_cards(num_draw:int):
 			# Successfully drew a card
 			num_draw -= 1
 	
-	print("_deck:", _deck)
+	print("_deck length:", len(_deck._cards))
 
 
 func _on_play_cards_button_pressed() -> void:
@@ -64,7 +64,7 @@ func _on_play_cards_button_pressed() -> void:
 			# Deselect the card since we will play it now
 			hand.num_cards -= 1
 	
-	print("_selected_cards:", selected_cards)
+	print("_selected_cards should be empty:", selected_cards)
 	print("_discard_pile:", _discard_pile)
 	
 	# Actually use the selected cards to perform the attack on the enemy

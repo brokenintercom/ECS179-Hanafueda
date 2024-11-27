@@ -10,7 +10,10 @@ func enter() -> void:
 	player.selected_cards.append(spec_version)
 	
 	player.hand.update_matches(player.selected_cards)
-	print("entered selected state")
+	
+	print("--SELECTED CARD ATTRIBUTES--")
+	print("Month: ", CardSpec.Month.keys()[spec_version.month])
+	print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
 
 
 func on_gui_input(event:InputEvent) -> void:
@@ -22,7 +25,7 @@ func on_gui_input(event:InputEvent) -> void:
 		else:
 			# Card was deselected, so erase from selected_cards array
 			# and transition this card's state to ENABLED
-			player.selected_cards.erase(index)
+			player.selected_cards.erase(spec_version)
 			transition_requested.emit(self, CardState.State.ENABLED)
 
 
