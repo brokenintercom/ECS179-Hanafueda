@@ -7,6 +7,9 @@ extends TextureButton
 
 signal reparent_requested(which_card_ui: Card)
 
+
+# TODO @Jamie: empty cards cannot be selected
+
 const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 
