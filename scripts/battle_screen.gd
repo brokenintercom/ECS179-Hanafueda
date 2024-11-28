@@ -10,6 +10,7 @@ enum PhaseType {
 
 @onready var _player := $Player
 @onready var _enemy := $Enemy
+@onready var playbtn := $PlayCardsButton
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
 
@@ -22,6 +23,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if len(player.selected_cards) == 0:
+		playbtn.disabled = true
+	else:
+		playbtn.disabled = false
+	
 	if _curr_phase == PhaseType.ENEMY:
 		# TODO Maybe some state machine stuff bc drawing cards is only for the player...emit signal?
 		# TODO Jamie: disable player button input (this can also be done during the battle phase switch signal, probably a better idea)
