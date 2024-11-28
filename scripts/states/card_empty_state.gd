@@ -8,7 +8,6 @@ func _ready() -> void:
 
 func enter() -> void:
 	card_ui.update_card(CardSpecFactory.empty_card_spec)
-	print("disabling input in empty spot...")
 	card_ui.disable_input()
 
 

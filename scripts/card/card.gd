@@ -7,6 +7,9 @@ extends TextureButton
 
 signal reparent_requested(which_card_ui: Card)
 
+
+# TODO @Jamie: empty cards cannot be selected
+
 const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 
@@ -37,7 +40,6 @@ func _on_gui_input(event:InputEvent) -> void:
 
 func get_curr_card_state() -> CardState:
 	return state_machine.curr_card_state
-
 
 func update_card(spec:CardSpec) -> void:
 	# Use the given spec to update the card's attributes

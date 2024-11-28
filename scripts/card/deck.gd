@@ -3,13 +3,13 @@ extends CardPile
 
 
 func _init() -> void:
-	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.BRIGHT, CardSpec.Synergy.NONE, load("res://assets/temp_bright_jan.png")))
-	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/temp_ribbon_jan.png")))
-	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/temp_normal_1_jan.png")))
-	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/temp_normal_2_jan.png")))
-	_cards.append(CardSpec.new(CardSpec.Month.FEB, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/temp_feb_normal.jpeg")))
+	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.BRIGHT, CardSpec.Synergy.NONE, load("res://assets/card_sprites/temp_bright_jan.png")))
+	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/card_sprites/temp_ribbon_jan.png")))
+	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/card_sprites/temp_normal_1_jan.png")))
+	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/card_sprites/temp_normal_2_jan.png")))
+	_cards.append(CardSpec.new(CardSpec.Month.FEB, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/card_sprites/temp_feb_normal.jpeg")))
 	# TODO for testing, pretend January has 3 normals
-	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/temp_normal_2_jan.png")))
+	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/card_sprites/temp_normal_2_jan.png")))
 
 	#TODO bring back this deck initialization later
 	## Access the CSV file containing the cards in the deck

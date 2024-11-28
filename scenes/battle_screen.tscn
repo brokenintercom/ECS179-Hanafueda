@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dsrai2qw7g6sb"]
 
-[ext_resource type="Script" path="res://scripts/battle_screen.gd" id="1_m0yuu"]
+[ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_m0yuu")

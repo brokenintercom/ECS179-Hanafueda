@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b37px5yamuk8i"]
 
-[ext_resource type="Script" path="res://scripts/cards/hand.gd" id="1_u8mbn"]
+[ext_resource type="Script" path="res://scripts/card/hand.gd" id="1_u8mbn"]
 [ext_resource type="PackedScene" uid="uid://mnmhxw1j0krl" path="res://scenes/card.tscn" id="2_dgr5s"]
 
 [node name="Hand" type="CanvasLayer"]

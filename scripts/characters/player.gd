@@ -45,7 +45,6 @@ func draw_cards(num_draw:int):
 
 
 func play_cards() -> void:
-	print("Playing cards...")
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack()
 	_apply_synergy()  # Synergies are applied right before the end of the turn
@@ -60,7 +59,6 @@ func _cleanup() -> void:
 	# Handle the selected cards
 	for card in card_nodes:
 		if card.is_selected():
-			print("playing the card...")
 			# Extract the spec form of the card
 			var spec_version := CardSpecFactory.card_to_spec(card)
 			
@@ -95,7 +93,8 @@ func _apply_synergy() -> void:
 	print("synergy_to_match: ", synergy_to_match)
 	
 	for i in range(1, num_selected):
-		if not selected_cards[i].matches_synergy(synergy_to_match):
+		# TODO there's no matches_syergy for CardSpec, only for Card
+		if not selected_cards[i].synergy == synergy_to_match:
 			print("No synergy")
 			return
 	
