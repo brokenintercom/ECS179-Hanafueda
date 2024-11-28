@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do57ywl88u5bv"
-path="res://.godot/imported/temp_ribbon_jan.png-7bf7cb8c3349c21e8357c22ed852945b.ctex"
+uid="uid://kl1hi5eg7c88"
+path="res://.godot/imported/temp_feb_normal.jpeg-6229a13d7b8b26cc99f2403d13c30a4c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_ribbon_jan.png"
-dest_files=["res://.godot/imported/temp_ribbon_jan.png-7bf7cb8c3349c21e8357c22ed852945b.ctex"]
+source_file="res://assets/card_sprites/temp_feb_normal.jpeg"
+dest_files=["res://.godot/imported/temp_feb_normal.jpeg-6229a13d7b8b26cc99f2403d13c30a4c.ctex"]
 
 [params]
 
