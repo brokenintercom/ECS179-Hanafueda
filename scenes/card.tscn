@@ -8,14 +8,12 @@
 [ext_resource type="Script" path="res://scripts/states/card_disabled_state.gd" id="6_fwfhy"]
 [ext_resource type="Script" path="res://scripts/states/card_empty_state.gd" id="7_jlodc"]
 
-
 [node name="Card" type="TextureButton"]
 texture_normal = ExtResource("1_g0mvx")
 script = ExtResource("1_r3fpk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-
 z_index = -1
 layout_mode = 0
 offset_left = -12.0

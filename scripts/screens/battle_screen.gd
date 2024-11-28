@@ -8,8 +8,6 @@ enum PhaseType {
 
 @export var _num_turns_left:int
 
-@onready var _player := $Player
-@onready var _enemy := $Enemy
 @onready var playbtn := $PlayCardsButton
 
 var _curr_phase := PhaseType.PLAYER

@@ -13,5 +13,6 @@ func enter() -> void:
 func exit() -> void:
 	pass
 
+
 func transition_to_enabled() -> void:
 	transition_requested.emit(self, CardState.State.ENABLED)

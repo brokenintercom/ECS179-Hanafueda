@@ -36,7 +36,6 @@ enum Synergy {
 	INO_SHIKA_CHO,  # Butterfly, Deer, Boar
 }
 
-
 var month:Month
 var type:Type
 var synergy:Synergy

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_bi4tv"]
 
-
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_bi4tv")
 max_health = 500

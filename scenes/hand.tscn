@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/card/hand.gd" id="1_u8mbn"]
 [ext_resource type="PackedScene" uid="uid://mnmhxw1j0krl" path="res://scenes/card.tscn" id="2_dgr5s"]
 
-
 [node name="Hand" type="CanvasLayer"]
 script = ExtResource("1_u8mbn")
 
