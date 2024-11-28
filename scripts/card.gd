@@ -16,7 +16,6 @@ const GRAY := Color.WEB_GRAY
 @onready var highlight:ColorRect = $ColorRect
 @onready var state_machine:CardStateMachine = $CardStateMachine
 
-
 # TODO attach this script to every instance of this card? or it can have a path to its image
 
 func _ready() -> void:
