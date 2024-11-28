@@ -1,12 +1,24 @@
 class_name CardStateMachine
 extends Node
 
-@export var init_state:CardState
+@onready var init_state:CardState = $EnabledState
 
 var curr_card_state:CardState
 var states := {}
 
-func init(card:Card) -> void:
+
+enum State {
+	ENABLED,
+	SELECTED,
+	DISABLED,
+	EMPTY,
+}
+
+func setup(card:Card) -> void:
+	if card.is_empty():
+		init_state = $EmptyState
+	
+	
 	for child in get_children():
 		if child is CardState:
 			states[child.state] = child
@@ -17,6 +29,12 @@ func init(card:Card) -> void:
 		init_state.enter()
 		curr_card_state = init_state
 
+# TODO possibly delete this func later
+# Connect state with the card and the transition
+#func _connect_state(state:CardState, card:Card) -> void:
+	#state.transition_requested.connect(_on_transition_requested)
+	#state.card_ui = card
+
 
 func on_gui_input(event:InputEvent) -> void:
 	if curr_card_state:
@@ -24,7 +42,7 @@ func on_gui_input(event:InputEvent) -> void:
 
 
 func _on_transition_requested(from:CardState, to:CardState.State) -> void:
-	print("transitioning to...  ", CardState.State.keys()[to])
+	#TODO print("transitioning to...  ", CardState.State.keys()[to])
 	
 	if from != curr_card_state:
 		return
@@ -37,5 +55,5 @@ func _on_transition_requested(from:CardState, to:CardState.State) -> void:
 	if curr_card_state:
 		curr_card_state.exit()
 	
-	new_card_state.enter()
 	curr_card_state = new_card_state
+	curr_card_state.enter()
