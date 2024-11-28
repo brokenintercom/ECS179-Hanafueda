@@ -14,19 +14,32 @@ const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 
 @onready var highlight:ColorRect = $ColorRect
-@onready var state_machine: CardStateMachine = $CardStateMachine as CardStateMachine
+@onready var state_machine:CardStateMachine = $CardStateMachine
 
 # TODO attach this script to every instance of this card? or it can have a path to its image
 
 func _ready() -> void:
-	# TODO says the base is NIL when I change init() to _init()
-	state_machine.init(self)
-	highlight.visible = false
+	if texture_normal == CardSpecFactory.empty_card_spec.texture:
+		modulate = GRAY
+	else:
+		modulate = WHITE
+	
+	state_machine.setup(self)
+
+
+#func _input(event:InputEvent) -> void:
+	##print("event is ", event)
+	#if event is InputEventMouseButton:
+		#if event.button_index == MOUSE_BUTTON_LEFT:
+			#print("do something")
 
 
 func _on_gui_input(event:InputEvent) -> void:
 	state_machine.on_gui_input(event)
 
+
+func get_curr_card_state() -> CardState:
+	return state_machine.curr_card_state
 
 func update_card(spec:CardSpec) -> void:
 	# Use the given spec to update the card's attributes
@@ -49,27 +62,21 @@ func enable_input() -> void:
 
 
 func is_selected() -> bool:
-	# TODO: Checking highlight.visible didn't work
-	print("curr_card state:", CardState.State.keys()[state_machine.curr_card_state.state])
-	return state_machine.curr_card_state.state == CardState.State.SELECTED
+	# Same as checking state_machine.curr_card_state.state == CardState.State.SELECTED
+	return highlight.visible
 
 
 func is_empty() -> bool:
-	return modulate == GRAY
+	return modulate.is_equal_approx(GRAY)
 
 
-func does_match(category_match:Hand.Match) -> bool:
-	return (
-		(category_match == Hand.Match.MONTH and month == category_match) 
-		or (category_match == Hand.Match.TYPE and type == category_match)
-	)
-	#sprite.texture = spec.texture
-# TODO look for an InputEvent for when the card is clicked on (need collision shape)
-# TODO then the card should be outlined in blue to indicate it's selected (and set is_selected)
+func matches_month(month_to_match:CardSpec.Month) -> bool:
+	return month == month_to_match
 
-# TODO also, look for an InputEvent for when the mouse hovers over a card
-# TODO on_mouse_entered and on_mouse_exited signals
 
-func set_greyout(is_disabled:bool) -> void:
-	greyout.visible= is_disabled
-	
+func matches_type(type_to_match:CardSpec.Type) -> bool:
+	return type == type_to_match
+
+
+func matches_synergy(synergy_to_match:CardSpec.Synergy) -> bool:
+	return synergy == synergy_to_match

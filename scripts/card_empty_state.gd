@@ -2,8 +2,13 @@ class_name EmptyState
 extends CardState
 
 
+func _ready() -> void:
+	state = CardState.State.EMPTY
+
+
 func enter() -> void:
 	card_ui.update_card(CardSpecFactory.empty_card_spec)
+	print("disabling input in empty spot...")
 	card_ui.disable_input()
 
 
@@ -11,5 +16,6 @@ func exit() -> void:
 	pass
 
 
-func transition_to_enabled() -> void:
+func transition_to_enabled(spec:CardSpec) -> void:
+	card_ui.update_card(spec)
 	transition_requested.emit(self, CardState.State.ENABLED)
