@@ -1,17 +1,15 @@
 class_name Player
 extends Character
 
-
 const WHITE = Color.WHITE
-const GRAY = Color.GRAY
+const GRAY = Color.WEB_GRAY
 
-
+var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
 var _deck := Deck.new()
 var _discard_pile:Array[CardSpec]
-var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
-
 
 @onready var hand := %Hand  # Hand of cards
+
 
 func _ready():
 	# Shuffle the deck
@@ -78,7 +76,8 @@ func _cleanup() -> void:
 	print("_discard_pile:", _discard_pile)
 	
 	super()
-	
+
+
 func _attack() -> void:
 	print("attacking...")
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
@@ -120,7 +119,7 @@ func _draw_card(card:Card) -> bool:
 	
 	var new_card = _deck.draw_card()
 	
-	# Wrapper function
+	# Fill in empty spot with the new card spec
 	if card.is_empty():
 		card.get_curr_card_state().transition_to_enabled(new_card)
 		

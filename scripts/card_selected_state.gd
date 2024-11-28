@@ -3,6 +3,7 @@ extends CardState
 
 var spec_version:CardSpec
 
+
 func _ready() -> void:
 	state = CardState.State.SELECTED
 

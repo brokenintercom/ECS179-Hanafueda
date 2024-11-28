@@ -3,7 +3,6 @@ extends CardPile
 
 
 func _init() -> void:
-	
 	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.BRIGHT, CardSpec.Synergy.NONE, load("res://assets/temp_bright_jan.png")))
 	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/temp_ribbon_jan.png")))
 	_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/temp_normal_1_jan.png")))

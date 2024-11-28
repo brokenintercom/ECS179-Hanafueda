@@ -5,6 +5,7 @@ extends Node2D
 var curr_health:int
 var atk_multiplier := 1.0
 
+
 func _ready() -> void:
 	curr_health = max_health
 	print("curr_health is ", curr_health)
