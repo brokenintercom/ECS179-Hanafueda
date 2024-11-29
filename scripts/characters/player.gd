@@ -1,21 +1,20 @@
 class_name Player
 extends Character
 
-
 const WHITE = Color.WHITE
-const GRAY = Color.GRAY
+const GRAY = Color.WEB_GRAY
 
-# TODO delete the crane card later
+var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
 var _deck := Deck.new()
 var _discard_pile:Array[CardSpec]
-var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
-
 
 @onready var hand := %Hand  # Hand of cards
+
 
 func _ready():
 	# Shuffle the deck
 	_deck.shuffle()
+	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	super()
 
 
@@ -45,28 +44,7 @@ func draw_cards(num_draw:int):
 	print("_deck length:", len(_deck._cards))
 
 
-func _on_play_cards_button_pressed() -> void:
-	print("Playing cards...")
-	
-	var card_nodes := hand.get_node("GridContainer").get_children()
-	
-	# Only play the selected cards
-	for card in card_nodes:
-		if card.is_selected():
-			# Extract the spec form of the card
-			var spec_version := CardSpecFactory.card_to_spec(card)
-			
-			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
-			
-			card.state_machine.curr_card_state.transition_to_empty()  # Change this card to empty state
-			# TODO could turn the above line inton another function
-			
-			# Deselect the card since we will play it now
-			hand.num_cards -= 1
-	
-	print("_selected_cards should be empty:", selected_cards)
-	print("_discard_pile:", _discard_pile)
-	
+func play_cards() -> void:
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack()
 	_apply_synergy()  # Synergies are applied right before the end of the turn
@@ -75,9 +53,32 @@ func _on_play_cards_button_pressed() -> void:
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
+func _cleanup() -> void:
+	var card_nodes := hand.get_node("GridContainer").get_children()
+	
+	# Handle the selected cards
+	for card in card_nodes:
+		if card.is_selected():
+			# Extract the spec form of the card
+			var spec_version := CardSpecFactory.card_to_spec(card)
+			
+			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
+			
+			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
+			# TODO could turn the above line inton another function
+			
+			# Deselect the card since we will play it now
+			hand.num_cards -= 1
+	
+	print("_selected_cards should be empty:", selected_cards)
+	print("_discard_pile:", _discard_pile)
+	
+	super()
+
+
 func _attack() -> void:
+	print("attacking...")
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
-	print("Damage:", dmg)
 	signals.character_hit.emit(enemy, dmg)
 
 
@@ -88,21 +89,24 @@ func _apply_synergy() -> void:
 	if num_selected != CardSpec.MAX_SYNERGY_CARDS:
 		return
 	
-	var _synergy_match := selected_cards[0].synergy
+	var synergy_to_match := selected_cards[0].synergy
+	print("synergy_to_match: ", synergy_to_match)
 	
 	for i in range(1, num_selected):
-		if _synergy_match != selected_cards[i].synergy:
+		# TODO there's no matches_syergy for CardSpec, only for Card
+		if not selected_cards[i].synergy == synergy_to_match:
+			print("No synergy")
 			return
 	
-	match _synergy_match:
+	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
-			print("nullify damage")  # TODO enemy's next turn
+			print("BLUE RIBBON SYNERGY: nullify damage")  # TODO enemy's next turn
 			enemy.atk_multiplier = 0.0
 		CardSpec.Synergy.POETRY_RIBBON:
-			print("heal 20% of health back, with floor for integer values")
+			print("POETRY RIBBON SYNERGY: heal 20% of health back, with floor for integer values")
 			signals.recover_hp.emit(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
-			print("apply x2 damage for next attack")  # TODO player's next turn
+			print("INO SHIKA CHO SYNERGY: apply x2 damage for next attack")  # TODO player's next turn
 			atk_multiplier = 2.0
 
 
@@ -112,8 +116,12 @@ func _draw_card(card:Card) -> bool:
 	if _deck.is_empty():
 		return false
 	
-	# Wrapper function
-	card.update_card(_deck.draw_card())
+	var new_card = _deck.draw_card()
+	
+	# Fill in empty spot with the new card spec
+	if card.is_empty():
+		card.get_curr_card_state().transition_to_enabled(new_card)
+		
 	hand.num_cards += 1
 	
 	return true
