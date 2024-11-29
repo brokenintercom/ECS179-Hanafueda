@@ -12,13 +12,6 @@
 texture_normal = ExtResource("2_obmrq")
 script = ExtResource("1_r3fpk")
 
-[node name="Greyout" type="ColorRect" parent="."]
-visible = false
-layout_mode = 0
-offset_right = 544.0
-offset_bottom = 832.0
-color = Color(0.0156863, 0.0117647, 0.027451, 0.776471)
-
 [node name="Highlight" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
