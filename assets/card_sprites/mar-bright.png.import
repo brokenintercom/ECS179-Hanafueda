@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chu3liyjbtsyx"
-path="res://.godot/imported/temp_normal_1_jan.png-89babe6d1f1c6eaa69729d21598cd3c6.ctex"
+uid="uid://dy8jdemy47oje"
+path="res://.godot/imported/mar-bright.png-86f2312d743c9e2665511b67a19c48db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_sprites/temp_normal_1_jan.png"
-dest_files=["res://.godot/imported/temp_normal_1_jan.png-89babe6d1f1c6eaa69729d21598cd3c6.ctex"]
+source_file="res://assets/card_sprites/mar-bright.png"
+dest_files=["res://.godot/imported/mar-bright.png-86f2312d743c9e2665511b67a19c48db.ctex"]
 
 [params]
 

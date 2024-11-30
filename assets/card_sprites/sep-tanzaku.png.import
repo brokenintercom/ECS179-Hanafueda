@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do57ywl88u5bv"
-path="res://.godot/imported/temp_ribbon_jan.png-8c8e3cbf5a73c8aedb0c62c99efe0095.ctex"
+uid="uid://bop0f0inmeyfk"
+path="res://.godot/imported/sep-tanzaku.png-5c0245d41d769471d4595a809cac2d70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_sprites/temp_ribbon_jan.png"
-dest_files=["res://.godot/imported/temp_ribbon_jan.png-8c8e3cbf5a73c8aedb0c62c99efe0095.ctex"]
+source_file="res://assets/card_sprites/sep-tanzaku.png"
+dest_files=["res://.godot/imported/sep-tanzaku.png-5c0245d41d769471d4595a809cac2d70.ctex"]
 
 [params]
 
