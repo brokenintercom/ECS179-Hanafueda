@@ -12,7 +12,7 @@
 texture_normal = ExtResource("1_g0mvx")
 script = ExtResource("1_r3fpk")
 
-[node name="Highlight" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = -1
 layout_mode = 0
