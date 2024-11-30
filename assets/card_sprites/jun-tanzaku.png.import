@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyrnrhf1hblf0"
-path="res://.godot/imported/temp_bright_jan.png-10919c3435944598a976e575e16c723e.ctex"
+uid="uid://cp3eitdhyuio3"
+path="res://.godot/imported/jun-tanzaku.png-7042606d00e2e280dd60b741ee1d72f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_sprites/temp_bright_jan.png"
-dest_files=["res://.godot/imported/temp_bright_jan.png-10919c3435944598a976e575e16c723e.ctex"]
+source_file="res://assets/card_sprites/jun-tanzaku.png"
+dest_files=["res://.godot/imported/jun-tanzaku.png-7042606d00e2e280dd60b741ee1d72f9.ctex"]
 
 [params]
 
