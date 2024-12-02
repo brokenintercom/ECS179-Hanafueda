@@ -9,6 +9,7 @@ extends Node2D
 func _ready() -> void:
 	# Hide the player's canvas layer when starting
 	player.hand.visible = false
+	player.healthbar.visible = false
 	signals.switch_scene.connect(_on_switch_scene)
 
 

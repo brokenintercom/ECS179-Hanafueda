@@ -9,6 +9,7 @@ var _deck := Deck.new()
 var _discard_pile:Array[CardSpec]
 
 @onready var hand := %Hand  # Hand of cards
+@onready var healthbar := $HealthBar
 
 
 func _ready():

@@ -18,6 +18,7 @@ var _drew_cards := false
 func _ready() -> void:
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 	player.hand.visible = true
+	player.healthbar.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
