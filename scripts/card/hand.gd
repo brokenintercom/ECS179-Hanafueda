@@ -52,10 +52,10 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 	
 	print("--> Final chosen category match is: ", Match.keys()[category_match])
 	
-	if category_match == Match.MONTH:
+	if category_match == Match.BOTH or category_match == Match.MONTH:
 		print("--> Month: ", CardSpec.Month.keys()[selected_cards[0].month])
-	elif category_match == Match.TYPE:
-		print("--> Type: ", CardSpec.Type.keys()[selected_cards[0].type])
+	if category_match == Match.BOTH or category_match == Match.TYPE:
+		print("--> Type: ", selected_cards[0].type)
 
 
 func update_matches(selected_cards:Array[CardSpec]) -> void:
@@ -71,10 +71,10 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 		if card.is_selected():
 			continue
 		
-		#print("--CARD ATTRIBUTES--")
-		#print("Month: ", CardSpec.Month.keys()[card.month])
-		#print("Type: ", card.type)  # Using type directly here since we use custom values for type
-		#print("Synergy: ", CardSpec.Synergy.keys()[card.synergy])
+		print("--CARD ATTRIBUTES--")
+		print("Month: ", CardSpec.Month.keys()[card.month])
+		print("Type: ", card.type)  # Using type directly here since we use custom values for type
+		print("Synergy: ", CardSpec.Synergy.keys()[card.synergy])
 		
 		# Update the card's state
 		var curr_card_state:CardState = card.get_curr_card_state()
@@ -83,17 +83,28 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 			# Matches the category -- transition to ENABLED state as needed
 			if curr_card_state.state == CardState.State.DISABLED:
 				curr_card_state.transition_to_enabled()
+				print("transitioning to enabled...")
 		elif curr_card_state.state == CardState.State.ENABLED:
 			# Doesn't match the category -- transition to DISABLED state
 			curr_card_state.transition_to_disabled()
+			print("transitioning to disabled...")
 
 
 func _does_match(card:Card) -> bool:
-	# TODO code style
-	if category_match == Hand.Match.BOTH or category_match == Hand.Match.MONTH:
-		return card.matches_month(running_month)
-	elif category_match == Hand.Match.BOTH or category_match == Hand.Match.TYPE:
-		return card.matches_type(running_type)
+	if category_match == Match.NONE:
+		# category_match == Match.NONE, so no cards have been selected yet -- no cards to match with yet!
+		return true
 	
-	# category_match == Hand.Match.NONE, so no cards have been selected yet -- no cards to match with yet!
-	return true
+	# TODO code style
+	var does_match := false
+	
+	if category_match == Match.BOTH or category_match == Match.MONTH:
+		does_match = card.matches_month(running_month)
+		print("Matches month?: ", does_match)
+	
+	if not does_match and (category_match == Match.BOTH or category_match == Match.TYPE):
+		does_match = card.matches_type(running_type)
+		print("Matches type?: ", does_match)
+	
+	
+	return does_match
