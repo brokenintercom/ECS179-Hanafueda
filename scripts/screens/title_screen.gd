@@ -3,7 +3,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	pass
+	player.healthbar.visible = false
+	enemy.healthbar.visible = false
 
 
 func _process(_delta):
