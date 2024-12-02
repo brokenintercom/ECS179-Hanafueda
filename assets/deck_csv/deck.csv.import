@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cooqvcaxrdj18"
+
+[deps]
+
+files=["res://assets/deck_csv/deck.5.translation", "res://assets/deck_csv/deck.0.translation", "res://assets/deck_csv/deck.jan.translation"]
+
+source_file="res://assets/deck_csv/deck.csv"
+dest_files=["res://assets/deck_csv/deck.5.translation", "res://assets/deck_csv/deck.0.translation", "res://assets/deck_csv/deck.jan.translation"]
+
+[params]
+
+compress=true
+delimiter=0
