@@ -8,22 +8,10 @@ var atk_multiplier := 1.0
 
 func _ready() -> void:
 	curr_health = max_health
-	signals.character_hit.connect(_on_character_hit)
-	signals.recover_hp.connect(_on_recover_hp)
+	
 
 
 func _cleanup():
 	# Reset atk multiplier and signal to switch scenes
 	atk_multiplier = 1.0
 	signals.switch_battle_phase.emit()
-
-
-func _on_character_hit(target:Character, dmg:int) -> void:
-	# Internally update health
-	target.curr_health = clampi(target.curr_health - dmg, 0, target.max_health)
-
-
-func _on_recover_hp(target:Character, amount:float) -> void:
-	if 0.0 < amount and amount < 1.0:
-		# Increase by integer amount, not float
-		target.curr_health = clampi(target.current_health * (1.0 + amount), curr_health, target.max_health)

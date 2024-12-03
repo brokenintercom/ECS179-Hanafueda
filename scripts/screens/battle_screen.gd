@@ -32,7 +32,6 @@ func _process(_delta: float) -> void:
 		# TODO Maybe some state machine stuff bc drawing cards is only for the player...emit signal?
 		# TODO Jamie: disable player button input (this can also be done during the battle phase switch signal, probably a better idea)
 		_drew_cards = false
-		print("Enemy current health:", enemy.curr_health)
 		
 		if enemy.curr_health <= 0:
 			print("Switching to win screen...")
