@@ -12,3 +12,7 @@ max_health = 100
 unique_name_in_owner = true
 
 [node name="HealthBar" parent="." instance=ExtResource("3_jfvdn")]
+offset_left = 50.0
+offset_top = 1010.0
+offset_right = 450.0
+offset_bottom = 1037.0

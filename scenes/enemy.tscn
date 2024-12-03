@@ -8,7 +8,7 @@ script = ExtResource("1_bi4tv")
 max_health = 500
 
 [node name="HealthBar" parent="." instance=ExtResource("2_ug75x")]
-offset_left = 512.0
-offset_top = 45.0
-offset_right = 1098.0
-offset_bottom = 72.0
+offset_left = 50.0
+offset_top = 70.0
+offset_right = 450.0
+offset_bottom = 97.0
