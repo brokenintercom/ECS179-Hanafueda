@@ -8,6 +8,17 @@ func _ready() -> void:
 	signals.enemy_hit.connect(_on_enemy_hit)
 
 
+@onready var healthbar = $HealthBar
+
+func _ready() -> void:
+	# reset enemy healthbar color to red
+	var sb = StyleBoxFlat.new()
+	healthbar.add_theme_stylebox_override("fill", sb)
+	sb.bg_color = Color("f44355")
+	
+	healthbar.init_health(max_health)
+	print("enemy starting health ", max_health)
+
 func temp_func():
 	signals.player_hit.emit(10.0)
 	signals.switch_battle_phase.emit()

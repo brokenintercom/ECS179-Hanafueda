@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://c17fwhtxhkg51"]
+[gd_scene load_steps=3 format=3 uid="uid://c17fwhtxhkg51"]
+
+[ext_resource type="Script" path="res://scripts/screens/win_screen.gd" id="1_7cvmh"]
+[ext_resource type="PackedScene" uid="uid://cfmunflda7188" path="res://scenes/end_screen.tscn" id="2_wsvrc"]
 
 [node name="Win" type="Node2D"]
+script = ExtResource("1_7cvmh")
+
+[node name="EndScreen" parent="." instance=ExtResource("2_wsvrc")]
