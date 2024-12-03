@@ -1,12 +1,15 @@
+# CREDITS: code based on [some youtube video input here i think?]
+
 extends ProgressBar
 
 @onready var timer := $Timer
 @onready var dmg_bar = $DamageBar
 
-var health = 0 : set = _update_health
+var health:int
 
-func _update_health(new_health):
-	var prev_health = new_health
+func update_health(new_health):
+	var prev_health = health
+	
 	health = min(max_value, new_health)
 	value = health
 	

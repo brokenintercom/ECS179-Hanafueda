@@ -9,17 +9,23 @@ var _deck := Deck.new()
 var _discard_pile:Array[CardSpec]
 
 @onready var hand := %Hand  # Hand of cards
-@onready var healthbar := $HealthBar
+@onready var healthbar = $HealthBar
 
 
 func _ready():
-	super()
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
 	
 	# Shuffle the deck
 	_deck.shuffle()
+
+
+	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
+	healthbar.init_health(max_health)
+	print("player starting health ", max_health)
+
+	super()
 
 
 func draw_cards(num_draw:int):
@@ -90,6 +96,7 @@ func _cleanup() -> void:
 func _attack() -> void:
 	print("Player attacking...")
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
+
 	signals.enemy_hit.emit(dmg)
 
 
@@ -143,6 +150,7 @@ func _on_player_hit(dmg:int) -> void:
 	# Internally update health
 	print("Player health before: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
+	healthbar.update_health(curr_health)
 	print("Target health after: ", curr_health)
 
 
