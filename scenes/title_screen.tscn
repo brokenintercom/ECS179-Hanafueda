@@ -6,8 +6,10 @@
 script = ExtResource("1_i2f2q")
 
 [node name="StartButton" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 513.0
+offset_top = 312.0
+offset_right = 604.0
+offset_bottom = 365.0
 text = "Start"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
