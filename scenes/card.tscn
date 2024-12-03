@@ -1,13 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://mnmhxw1j0krl"]
+[gd_scene load_steps=7 format=3 uid="uid://mnmhxw1j0krl"]
 
-[ext_resource type="Script" path="res://scripts/card.gd" id="1_r3fpk"]
-[ext_resource type="Texture2D" uid="uid://66nx5yusiem6" path="res://assets/temp.png" id="2_obmrq"]
+[ext_resource type="Script" path="res://scripts/card/card.gd" id="1_r3fpk"]
+[ext_resource type="Script" path="res://scripts/card/card_state_machine.gd" id="3_xl3h2"]
+[ext_resource type="Script" path="res://scripts/states/card_enabled_state.gd" id="4_21qlp"]
+[ext_resource type="Script" path="res://scripts/states/card_selected_state.gd" id="5_h3esh"]
+[ext_resource type="Script" path="res://scripts/states/card_disabled_state.gd" id="6_fwfhy"]
+[ext_resource type="Script" path="res://scripts/states/card_empty_state.gd" id="7_jlodc"]
 
-[node name="Card" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="Card" type="TextureButton"]
 script = ExtResource("1_r3fpk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_obmrq")
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = -1
+layout_mode = 0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 180.0
+offset_bottom = 278.0
+mouse_filter = 2
+color = Color(0, 0.597299, 0.597681, 1)
+
+[node name="CardStateMachine" type="Node" parent="."]
+script = ExtResource("3_xl3h2")
+
+[node name="EnabledState" type="Node" parent="CardStateMachine"]
+script = ExtResource("4_21qlp")
+
+[node name="SelectedState" type="Node" parent="CardStateMachine"]
+script = ExtResource("5_h3esh")
+
+[node name="DisabledState" type="Node" parent="CardStateMachine"]
+script = ExtResource("6_fwfhy")
+
+[node name="EmptyState" type="Node" parent="CardStateMachine"]
+script = ExtResource("7_jlodc")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -2,10 +2,7 @@ class_name DamageEngine
 extends Node
 
 
-# TODO
-static func calc_dmg(selected_cards:Array[CardSpec], category:Player.Match, atk_multiplier:float) -> int:
-	# If you match by month, you can get an effect multipler
-	# If you match by type, you can get a flat bonus dmg increase
+static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_multiplier:float) -> int:
 	var num_selected := len(selected_cards)
 	
 	# Sanity check
@@ -16,19 +13,28 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Player.Match, atk_
 	var effect_multiplier := 1
 	var bonus_dmg := 0 
 	
-	# Matching by month
-	if category == Player.Match.MONTH:
+	# Matching by month -- you can also get an effect multiplier
+	if category == Hand.Match.MONTH:
+		print("Calculating by month...")
 		if num_selected == CardSpec.MAX_MONTH_CARDS:
 			effect_multiplier = 2
 		
 		# Depending on the card's type, we add a diff amount of dmg
 		for card in selected_cards:
 			base_dmg += card.type  # Under the hood, the type has an integer value representing its dmg
-	else:  # Matching by type instead
-		# All the same type, so they all add the same amount of dmg
+	else:  
+		# Matching by type instead. Also includes Hand.Match.BOTH, where you prioritize matching by type
+		# All the same type, so they all add the same amount of dmg, so you can get flat bonus dmg increase
+		print("Calculating by type...")
 		base_dmg = selected_cards[0].type * num_selected
 		
 		bonus_dmg = _calc_bonus_dmg(selected_cards[0].type, num_selected)
+	
+	print("Base damage: ", base_dmg)
+	print("Effect multiplier: ", effect_multiplier)
+	print("Attack multiplier: ", atk_multiplier)
+	print("Bonus damage: ", bonus_dmg)
+	print("Result: ", (base_dmg * effect_multiplier * atk_multiplier) + bonus_dmg)
 	
 	return (base_dmg * effect_multiplier * atk_multiplier) + bonus_dmg
 
@@ -37,7 +43,7 @@ static func _calc_bonus_dmg(type:CardSpec.Type, num_selected:int) -> int:
 	var threshold := 0
 	
 	match type:
-		CardSpec.Type.EMPTY:
+		CardSpec.Type.NONE:
 			return 0
 		CardSpec.Type.NORMAL:
 			threshold = 3
@@ -50,12 +56,12 @@ static func _calc_bonus_dmg(type:CardSpec.Type, num_selected:int) -> int:
 	
 	var bonus_dmg = num_selected - threshold
 	
-	# If you have more than 1 bright, multiply the bonus dmg by 2
-	if type == CardSpec.Type.BRIGHT:
-		bonus_dmg *= 2
-	
 	# If less than threshold, no bonus
 	if bonus_dmg < 0:
 		bonus_dmg = 0
+	
+	# If you have more than 1 bright, multiply the bonus dmg by 2
+	if type == CardSpec.Type.BRIGHT:
+		bonus_dmg *= 2
 	
 	return bonus_dmg

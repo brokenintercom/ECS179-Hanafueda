@@ -3,5 +3,6 @@ extends Node
 
 signal switch_scene(next_scene:String)
 signal switch_battle_phase
-signal character_hit(target:Character, dmg:float)
-signal recover_hp(target:Character, dmg:float)
+signal player_hit(dmg:float)
+signal enemy_hit(dmg:float)
+signal player_recover_hp(dmg:float)

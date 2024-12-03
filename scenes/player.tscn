@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj5id2qqtq3h4"]
+[gd_scene load_steps=4 format=3 uid="uid://dj5id2qqtq3h4"]
 
 [ext_resource type="PackedScene" uid="uid://b37px5yamuk8i" path="res://scenes/hand.tscn" id="1_5gh7w"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_bs5ar"]
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_bs5ar"]
+[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/healthbar.tscn" id="3_jfvdn"]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_bs5ar")
 max_health = 100
 
 [node name="Hand" parent="." instance=ExtResource("1_5gh7w")]
+unique_name_in_owner = true
+
+[node name="HealthBar" parent="." instance=ExtResource("3_jfvdn")]

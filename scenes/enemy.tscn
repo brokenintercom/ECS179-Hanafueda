@@ -1,7 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cteoy7ongb50t"]
+[gd_scene load_steps=3 format=3 uid="uid://cteoy7ongb50t"]
 
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_bi4tv"]
+[ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_bi4tv"]
+[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/healthbar.tscn" id="2_ug75x"]
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_bi4tv")
 max_health = 500
+
+[node name="HealthBar" parent="." instance=ExtResource("2_ug75x")]
+offset_left = 512.0
+offset_top = 45.0
+offset_right = 1098.0
+offset_bottom = 72.0
