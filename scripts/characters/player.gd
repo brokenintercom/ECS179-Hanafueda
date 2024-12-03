@@ -42,7 +42,7 @@ func draw_cards(num_draw:int):
 			break
 		
 		# This spot is already filled with a card
-		if card.type != CardSpec.Type.NONE:
+		if not card.is_empty():
 			continue
 		
 		# This spot is an empty spot -- we want to fill in with a card from deck
