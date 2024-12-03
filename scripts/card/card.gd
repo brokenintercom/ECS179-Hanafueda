@@ -17,7 +17,7 @@ const GRAY := Color.WEB_GRAY
 # TODO attach this script to every instance of this card? or it can have a path to its image
 
 func _ready() -> void:
-	if texture_normal == CardSpecFactory.empty_card_spec.texture:
+	if month == CardSpec.Month.NONE:
 		modulate = GRAY
 	else:
 		modulate = WHITE
@@ -37,7 +37,11 @@ func update_card(spec:CardSpec) -> void:
 	month = spec.month
 	type = spec.type
 	synergy = spec.synergy
-	texture_normal = spec.texture
+	
+	if spec.month == CardSpec.Month.NONE:
+		texture_normal = null
+	else:
+		texture_normal = spec.texture
 
 
 func disable_input() -> void:
