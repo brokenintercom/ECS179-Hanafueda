@@ -15,10 +15,12 @@ var _discard_pile:Array[CardSpec]
 func _ready():
 	# Shuffle the deck
 	_deck.shuffle()
+
 	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
 	healthbar.init_health(max_health)
 	print("player starting health ", max_health)
+
 	super()
 
 
@@ -69,7 +71,7 @@ func _cleanup() -> void:
 			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
 			
 			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
-			# TODO could turn the above line inton another function
+			# TODO could turn the above line inton another wrapper function
 			
 			# Deselect the card since we will play it now
 			hand.num_cards -= 1
