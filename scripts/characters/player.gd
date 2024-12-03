@@ -13,7 +13,6 @@ var _discard_pile:Array[CardSpec]
 
 
 func _ready():
-	super()
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
 	
@@ -151,6 +150,7 @@ func _on_player_hit(dmg:int) -> void:
 	# Internally update health
 	print("Player health before: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
+	healthbar.update_health(curr_health)
 	print("Target health after: ", curr_health)
 
 

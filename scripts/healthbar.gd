@@ -1,3 +1,5 @@
+# CREDITS: code based on [some youtube video input here i think?]
+
 extends ProgressBar
 
 @onready var timer := $Timer
@@ -7,8 +9,7 @@ var health:int
 
 func update_health(new_health):
 	var prev_health = health
-	print("prev health ", prev_health)
-	print("new health ", new_health)
+	
 	health = min(max_value, new_health)
 	value = health
 	
@@ -27,9 +28,6 @@ func init_health(_health):
 	value = health
 	dmg_bar.max_value = health
 	dmg_bar.value = health
-	print("max value = ", max_value)
-	print("value = ", value)
-	print("health = ", _health)
 
 func _on_timer_timeout() -> void:
 	dmg_bar.value = health
