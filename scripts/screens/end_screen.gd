@@ -25,11 +25,7 @@ func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
 
-func game_over_text() -> void:
-	if lost_game:
-		message.text = "YOU LOSE!"
-	
-	if not lost_game:
-		message.text = "YOU WIN!"
+func set_message(msg:String) -> void:
+	message.text = msg
 	
 	
