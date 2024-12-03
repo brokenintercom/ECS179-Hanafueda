@@ -9,9 +9,11 @@ var atk_multiplier := 1.0
 
 func _ready() -> void:
 	curr_health = max_health
+
 	print("curr health = ", curr_health)
 	signals.character_hit.connect(_on_character_hit)
 	signals.recover_hp.connect(_on_recover_hp)
+
 
 
 func _cleanup():

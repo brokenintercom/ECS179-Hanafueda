@@ -13,8 +13,13 @@ var _discard_pile:Array[CardSpec]
 
 
 func _ready():
+	super()
+	signals.player_hit.connect(_on_player_hit)
+	signals.player_recover_hp.connect(_on_player_recover_hp)
+	
 	# Shuffle the deck
 	_deck.shuffle()
+
 
 	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
@@ -26,7 +31,7 @@ func _ready():
 
 func draw_cards(num_draw:int):
 	num_draw = clampi(num_draw, 0, hand.max_hand_size - hand.num_cards)
-	print("Drawing %d cards..." % num_draw)
+	print("Attempting to draw %d cards..." % num_draw)
 	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
@@ -75,6 +80,13 @@ func _cleanup() -> void:
 			
 			# Deselect the card since we will play it now
 			hand.num_cards -= 1
+		else:
+			# Update the card's state
+			var curr_card_state:CardState = card.get_curr_card_state()
+			
+			# Matches the category -- transition to ENABLED state as needed
+			if curr_card_state.state == CardState.State.DISABLED:
+				curr_card_state.transition_to_enabled()
 	
 	print("_selected_cards should be empty:", selected_cards)
 	print("_discard_pile:", _discard_pile)
@@ -83,10 +95,10 @@ func _cleanup() -> void:
 
 
 func _attack() -> void:
-	print("attacking...")
+	print("Player attacking...")
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
-	print("dmg = ", dmg)
-	signals.character_hit.emit(enemy, dmg)
+
+	signals.enemy_hit.emit(dmg)
 
 
 func _apply_synergy() -> void:
@@ -108,10 +120,11 @@ func _apply_synergy() -> void:
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
 			print("BLUE RIBBON SYNERGY: nullify damage")  # TODO enemy's next turn
+			# TODO ideally we can have a signal that modifies the multiplier rather than directly modifying another character's stuff
 			enemy.atk_multiplier = 0.0
 		CardSpec.Synergy.POETRY_RIBBON:
 			print("POETRY RIBBON SYNERGY: heal 20% of health back, with floor for integer values")
-			signals.recover_hp.emit(self, 0.2)
+			signals.player_recover_hp.emit(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
 			print("INO SHIKA CHO SYNERGY: apply x2 damage for next attack")  # TODO player's next turn
 			atk_multiplier = 2.0
@@ -132,3 +145,16 @@ func _draw_card(card:Card) -> bool:
 	hand.num_cards += 1
 	
 	return true
+
+
+func _on_player_hit(dmg:int) -> void:
+	# Internally update health
+	print("Player health before: ", curr_health)
+	curr_health = clampi(curr_health - dmg, 0, max_health)
+	print("Target health after: ", curr_health)
+
+
+func _on_player_recover_hp(amount:float) -> void:
+	if 0.0 < amount and amount < 1.0:
+		# Increase by integer amount, not float
+		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
