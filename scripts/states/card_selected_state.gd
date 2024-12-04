@@ -13,10 +13,11 @@ func enter() -> void:
 	
 	spec_version = CardSpecFactory.card_to_spec(card_ui)
 	
-	print("--SELECTED CARD ATTRIBUTES--")
-	print("Month: ", CardSpec.Month.keys()[spec_version.month])
-	print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
-	print("Synergy: ", CardSpec.Synergy.keys()[spec_version.synergy])
+	# TODO
+	#print("--SELECTED CARD ATTRIBUTES--")
+	#print("Month: ", CardSpec.Month.keys()[spec_version.month])
+	#print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
+	#print("Synergy: ", CardSpec.Synergy.keys()[spec_version.synergy])
 	
 	player.selected_cards.append(spec_version)
 	
@@ -43,8 +44,7 @@ func transition_to_enabled() -> void:
 	transition_requested.emit(self, CardState.State.ENABLED)
 
 
-# The only way to go to the empty state is to be in the selected state
 func transition_to_empty() -> void:
 	# Just played the card, so it's no longer selected
 	player.selected_cards.erase(spec_version)
-	transition_requested.emit(self, CardState.State.EMPTY)
+	super()

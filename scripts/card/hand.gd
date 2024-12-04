@@ -8,7 +8,7 @@ enum Match {
 	BOTH,
 }
 
-@export var max_hand_size := 8
+var max_hand_size := 8
 var num_cards := 0
 var category_match:Match  
 var running_month := CardSpec.Month.NONE
@@ -48,14 +48,14 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 			elif month_match:
 				category_match = Match.MONTH
 				break
-		
 	
-	print("--> Final chosen category match is: ", Match.keys()[category_match])
-	
-	if category_match == Match.BOTH or category_match == Match.MONTH:
-		print("--> Month: ", CardSpec.Month.keys()[selected_cards[0].month])
-	if category_match == Match.BOTH or category_match == Match.TYPE:
-		print("--> Type: ", selected_cards[0].type)
+	#TODO
+	#print("--> Final chosen category match is: ", Match.keys()[category_match])
+	#
+	#if category_match == Match.BOTH or category_match == Match.MONTH:
+		#print("--> Month: ", CardSpec.Month.keys()[selected_cards[0].month])
+	#if category_match == Match.BOTH or category_match == Match.TYPE:
+		#print("--> Type: ", selected_cards[0].type)
 
 
 func update_matches(selected_cards:Array[CardSpec]) -> void:
@@ -63,8 +63,8 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	
 	var card_nodes := get_node("GridContainer").get_children()
 	
-	print("--------UPDATING MATCHES--------")
-	print("Category match: ", Match.keys()[category_match])
+	# TODO print("--------UPDATING MATCHES--------")
+	# TODO print("Category match: ", Match.keys()[category_match])
 	
 	for card in card_nodes:
 		# Only look at non-selected cards

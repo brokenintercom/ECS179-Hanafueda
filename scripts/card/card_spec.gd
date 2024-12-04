@@ -20,13 +20,12 @@ enum Month {
 	DEC,
 }
 
-# Values are the dmg points values
 enum Type {
-	NONE = 0,
-	NORMAL = 1,
-	RIBBON = 2,
-	ANIMAL = 3,
-	BRIGHT = 5,
+	NONE,
+	NORMAL,
+	RIBBON,
+	ANIMAL,
+	BRIGHT,
 }
 
 enum Synergy {

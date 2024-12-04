@@ -18,3 +18,8 @@ func exit() -> void:
 func transition_to_enabled(spec:CardSpec) -> void:
 	card_ui.update_card(spec)
 	transition_requested.emit(self, CardState.State.ENABLED)
+
+
+func transition_to_empty() -> void:
+	# Do nothing
+	pass

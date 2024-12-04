@@ -3,4 +3,5 @@ extends Effect
 
 
 func apply(target:Character, amount:float) -> void:
-	target.block_amount = max(floor(amount), 0)
+	print("Nullifying...")
+	target.atk_multiplier = 0.0

@@ -1,4 +1,4 @@
-class_name DamageMultiplierEffect
+class_name AttackBuffEffect
 extends Effect
 
 
