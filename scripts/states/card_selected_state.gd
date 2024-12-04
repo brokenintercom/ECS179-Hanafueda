@@ -13,10 +13,11 @@ func enter() -> void:
 	
 	spec_version = CardSpecFactory.card_to_spec(card_ui)
 	
-	print("--SELECTED CARD ATTRIBUTES--")
-	print("Month: ", CardSpec.Month.keys()[spec_version.month])
-	print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
-	print("Synergy: ", CardSpec.Synergy.keys()[spec_version.synergy])
+	# TODO
+	#print("--SELECTED CARD ATTRIBUTES--")
+	#print("Month: ", CardSpec.Month.keys()[spec_version.month])
+	#print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
+	#print("Synergy: ", CardSpec.Synergy.keys()[spec_version.synergy])
 	
 	player.selected_cards.append(spec_version)
 	

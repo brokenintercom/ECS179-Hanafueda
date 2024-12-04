@@ -10,14 +10,14 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_mu
 		return 0
 	
 	var base_dmg := 0
-	var effect_multiplier := 1
+	var month_multiplier := 1
 	var bonus_dmg := 0 
 	
 	# Matching by month -- you can also get an effect multiplier
 	if category == Hand.Match.MONTH:
 		print("Calculating by month...")
 		if num_selected == CardSpec.MAX_MONTH_CARDS:
-			effect_multiplier = 2
+			month_multiplier = 2
 		
 		# Depending on the card's type, we add a diff amount of dmg
 		for card in selected_cards:
@@ -31,12 +31,12 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_mu
 		bonus_dmg = _calc_bonus_dmg(selected_cards[0].type, num_selected)
 	
 	print("Base damage: ", base_dmg)
-	print("Effect multiplier: ", effect_multiplier)
+	print("Month multiplier: ", month_multiplier)
 	print("Attack multiplier: ", atk_multiplier)
 	print("Bonus damage: ", bonus_dmg)
-	print("Result: ", (base_dmg * effect_multiplier * atk_multiplier) + bonus_dmg)
+	print("Result: ", (base_dmg * month_multiplier * atk_multiplier) + bonus_dmg)
 	
-	return (base_dmg * effect_multiplier * atk_multiplier) + bonus_dmg
+	return (base_dmg * month_multiplier * atk_multiplier) + bonus_dmg
 
 
 static func _calc_bonus_dmg(type:CardSpec.Type, num_selected:int) -> int:

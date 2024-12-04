@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://blnhmx3jd02uc"]
+
+[ext_resource type="Script" path="res://scripts/screens/lose_screen.gd" id="1_q8ukc"]
+[ext_resource type="PackedScene" uid="uid://cfmunflda7188" path="res://scenes/end_screen.tscn" id="2_mo82n"]
+
+[node name="Lose" type="Node2D"]
+script = ExtResource("1_q8ukc")
+
+[node name="EndScreen" parent="." instance=ExtResource("2_mo82n")]

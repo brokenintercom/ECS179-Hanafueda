@@ -5,11 +5,12 @@ const WHITE = Color.WHITE
 const GRAY = Color.WEB_GRAY
 
 var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
-var _deck := Deck.new()
+var deck := Deck.new()
 var _discard_pile:Array[CardSpec]
+var ino_shika_cho_active := false
 
 @onready var hand := %Hand  # Hand of cards
-@onready var healthbar = $HealthBar
+@onready var health_bar = $HealthBar
 
 
 func _ready():
@@ -17,12 +18,17 @@ func _ready():
 	signals.player_recover_hp.connect(_on_player_recover_hp)
 	
 	# Shuffle the deck
-	_deck.shuffle()
+	deck.shuffle()
+	
+	# Set up effects
+	heal_eff = HealEffect.new()
+	atk_buff_eff = AttackBuffEffect.new()
+	block_eff = BlockEffect.new()
 
 
 	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
-	healthbar.init_health(max_health)
+	health_bar.init_health(max_health)
 	print("player starting health ", max_health)
 
 	super()
@@ -51,7 +57,7 @@ func draw_cards(num_draw:int):
 			# Successfully drew a card
 			num_draw -= 1
 	
-	print("_deck length:", len(_deck._cards))
+	print("deck length:", len(deck._cards))
 
 
 func play_cards() -> void:
@@ -87,14 +93,16 @@ func _cleanup() -> void:
 			if curr_card_state.state == CardState.State.DISABLED:
 				curr_card_state.transition_to_enabled()
 	
-	print("_selected_cards should be empty:", selected_cards)
-	print("_discard_pile:", _discard_pile)
-	
 	super()
 
 
 func _attack() -> void:
 	print("Player attacking...")
+	if ino_shika_cho_active:
+		print("Applying ino_shika_cho synergy from previous turn...")
+		atk_buff_eff.apply(self, 2.0)
+		ino_shika_cho_active = false
+	
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 
 	signals.enemy_hit.emit(dmg)
@@ -108,7 +116,7 @@ func _apply_synergy() -> void:
 		return
 	
 	var synergy_to_match := selected_cards[0].synergy
-	print("synergy_to_match: ", synergy_to_match)
+	print("synergy_to_match: ", CardSpec.Synergy.keys()[synergy_to_match])
 	
 	for i in range(1, num_selected):
 		# TODO there's no matches_syergy for CardSpec, only for Card
@@ -116,26 +124,27 @@ func _apply_synergy() -> void:
 			print("No synergy")
 			return
 	
+
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
-			print("BLUE RIBBON SYNERGY: nullify damage")  # TODO enemy's next turn
-			# TODO ideally we can have a signal that modifies the multiplier rather than directly modifying another character's stuff
-			enemy.atk_multiplier = 0.0
+			print("BLUE RIBBON SYNERGY: nullify damage")
+			block_eff.apply(enemy, 0.0)
 		CardSpec.Synergy.POETRY_RIBBON:
 			print("POETRY RIBBON SYNERGY: heal 20% of health back, with floor for integer values")
-			signals.player_recover_hp.emit(self, 0.2)
+			heal_eff.apply(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
-			print("INO SHIKA CHO SYNERGY: apply x2 damage for next attack")  # TODO player's next turn
-			atk_multiplier = 2.0
+			print("INO SHIKA CHO SYNERGY: apply x2 damage for *next* attack")  # TODO player's next turn
+			ino_shika_cho_active = true
+
 
 
 func _draw_card(card:Card) -> bool:
 	# Double-check before trying to taking an element from the deck
 	# Return whether or not drawing the card was successful
-	if _deck.is_empty():
+	if deck.is_empty():
 		return false
 	
-	var new_card = _deck.draw_card()
+	var new_card = deck.draw_card()
 	
 	# Fill in empty spot with the new card spec
 	if card.is_empty():
@@ -148,13 +157,16 @@ func _draw_card(card:Card) -> bool:
 
 func _on_player_hit(dmg:int) -> void:
 	# Internally update health
-	print("Player health before: ", curr_health)
+	print("Before player hit: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
-	healthbar.update_health(curr_health)
-	print("Target health after: ", curr_health)
+	health_bar.update_health(curr_health)
+	print("After player hit: ", curr_health)
 
 
 func _on_player_recover_hp(amount:float) -> void:
 	if 0.0 < amount and amount < 1.0:
 		# Increase by integer amount, not float
+		print("Before player heal: ", curr_health)
 		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
+		health_bar.health = curr_health
+		print("After player heal: ", curr_health)

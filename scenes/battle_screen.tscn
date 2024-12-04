@@ -7,6 +7,10 @@
 script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
+[node name="Table" parent="." instance=ExtResource("2_udycx")]
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
 [node name="TitleScreenButton" type="Button" parent="."]
 offset_left = 24.0
 offset_top = 858.0
@@ -21,9 +25,6 @@ offset_right = 378.0
 offset_bottom = 889.0
 text = "Play Cards
 "
-
-[node name="Table" parent="." instance=ExtResource("2_udycx")]
-metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
 [connection signal="pressed" from="PlayCardsButton" to="." method="_on_play_cards_button_pressed"]

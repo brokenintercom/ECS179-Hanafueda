@@ -5,8 +5,10 @@ extends Node2D
 
 var curr_health:int
 var atk_multiplier := 1.0
-var block_amount := 0
 
+var heal_eff:Effect
+var atk_buff_eff:Effect
+var block_eff:Effect
 
 func _ready() -> void:
 	curr_health = max_health
@@ -15,13 +17,6 @@ func _ready() -> void:
 
 
 func _cleanup():
-	# Reset atk multiplier and signal to switch scenes
+	# Reset atk multiplier (i.e., remove buffs/debuffs on it) and signal to switch scenes
 	atk_multiplier = 1.0
 	signals.switch_battle_phase.emit()
-
-
-func _on_recover_hp(target:Character, amount:float) -> void:
-	if 0.0 < amount and amount < 1.0:
-		# Increase by integer amount, not float
-		target.curr_health = clampi(target.current_health * (1.0 + amount), curr_health, target.max_health)
-		#target.healthbar.health = target.curr_health

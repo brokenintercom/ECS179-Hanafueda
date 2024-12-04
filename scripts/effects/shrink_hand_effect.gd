@@ -7,6 +7,7 @@ func apply(target:Character, amount:float) -> void:
 	assert(target is Player, "Error: Target is not Player")
 	
 	var player := target as Player
+	
 	if not player:
 		return
 	
