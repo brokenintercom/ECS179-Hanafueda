@@ -7,7 +7,7 @@ var current_slide:int = 0
 
 func _ready():
 	
-	signals.next_page.connect(_on_next_page)
+	signals.next_page.connect(_next_page)
 	
 	for slide in slides:
 		if null!= slide:
@@ -15,7 +15,7 @@ func _ready():
 	if(len(slides) > current_slide + 1):
 		slides[current_slide].visible = true
 				
-func _on_next_page() -> void:
+func _next_page() -> void:
 	current_slide += 1
 	if len(slides) < current_slide + 1:
 		pass

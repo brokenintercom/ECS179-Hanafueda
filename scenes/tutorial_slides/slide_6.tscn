@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=6 format=3 uid="uid://byfmfsrm2q7ar"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2t0a3"]
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r02at"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_wih8n"]
 
 [sub_resource type="Animation" id="Animation_hrrya"]
 resource_name = "show"
@@ -39,14 +39,14 @@ _data = {
 "show": SubResource("Animation_hrrya")
 }
 
-[node name="Slide2" type="Control"]
+[node name="Slide6" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h12yl")
+script = ExtResource("1_r02at")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -69,10 +69,9 @@ offset_top = 627.0
 offset_right = 1170.5
 offset_bottom = 799.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("1_wih8n")
 theme_override_font_sizes/font_size = 35
-text = "You deal damage by selecting cards and clicking the play button! 
-"
+text = "This card in particular is Normal type January card! Normals are the most common card in the deck."
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -82,12 +81,11 @@ libraries = {
 }
 
 [node name="Next" type="Button" parent="."]
-layout_mode = 0
 offset_left = 1424.0
 offset_top = 797.0
 offset_right = 1655.0
 offset_bottom = 914.0
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("1_wih8n")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
