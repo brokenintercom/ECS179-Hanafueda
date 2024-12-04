@@ -17,6 +17,7 @@ var _drew_cards := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
+	tutorial.visible = true
 	player.hand.visible = true
 	player.health_bar.visible = true
 	enemy.health_bar.visible = true
