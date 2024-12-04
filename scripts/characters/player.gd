@@ -10,15 +10,11 @@ var _discard_pile:Array[CardSpec]
 var ino_shika_cho_active := false
 
 @onready var hand := %Hand  # Hand of cards
-@onready var health_bar = $HealthBar
 
 
 func _ready():
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
-	
-	# Shuffle the deck
-	deck.shuffle()
 	
 	# Set up effects
 	heal_eff = HealEffect.new()
@@ -170,3 +166,26 @@ func _on_player_recover_hp(amount:float) -> void:
 		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
 		health_bar.health = curr_health
 		print("After player heal: ", curr_health)
+
+
+func reset() -> void:
+	# Update health
+	super()
+	
+	# Update hand
+	hand.max_hand_size = 8
+	hand.num_cards = 0
+	hand.category_match = Hand.Match.NONE
+	hand.running_month = CardSpec.Month.NONE
+	hand.running_type = CardSpec.Type.NONE
+	hand.visible = false
+	
+	var card_nodes := hand.get_node("GridContainer").get_children()
+	
+	for card in card_nodes:
+		if not card.is_empty():
+			card.get_curr_card_state().transition_to_empty()
+	
+	# Update deck
+	deck = Deck.new()
+	

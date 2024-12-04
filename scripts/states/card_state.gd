@@ -25,3 +25,7 @@ func exit() -> void:
 
 func on_gui_input(_event:InputEvent) -> void:
 	pass
+
+
+func transition_to_empty() -> void:
+	transition_requested.emit(self, CardState.State.EMPTY)

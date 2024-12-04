@@ -44,8 +44,7 @@ func transition_to_enabled() -> void:
 	transition_requested.emit(self, CardState.State.ENABLED)
 
 
-# The only way to go to the empty state is to be in the selected state
 func transition_to_empty() -> void:
 	# Just played the card, so it's no longer selected
 	player.selected_cards.erase(spec_version)
-	transition_requested.emit(self, CardState.State.EMPTY)
+	super()

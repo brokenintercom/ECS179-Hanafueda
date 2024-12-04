@@ -20,6 +20,9 @@ func _ready() -> void:
 	player.hand.visible = true
 	player.health_bar.visible = true
 	enemy.health_bar.visible = true
+	
+	# Shuffle the player's deck at the beginning of every battle
+	player.deck.shuffle()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -64,6 +67,11 @@ func _on_switch_battle_phase() -> void:
 # TODO modify later
 func _on_title_screen_button_pressed() -> void:
 	print("Switching to title screen...")
+	# TODO: reset the player's and enemy's curr_health, cards, hand_size, etc. to their base values
+	print("Resetting...")
+	player.reset()
+	enemy.reset()
+	
 	signals.switch_scene.emit("title_screen")
 
 
@@ -72,11 +80,13 @@ func _on_play_cards_button_pressed() -> void:
 
 
 func _cleanup(player_won:bool) -> void:
-	player.hand.visible = false
-	player.health_bar.visible = false
-	# TODO it claims this was freed already, so it's commented out...: enemy.health_bar.visible = false
-	
 	if player_won:
 		signals.switch_scene.emit("win_screen")
 	else:
 		signals.switch_scene.emit("lose_screen")
+	
+	# TODO: reset the player's and enemy's curr_health, cards, hand_size, etc. to their base values
+	print("Resetting...")
+	player.reset()
+	enemy.reset()
+	

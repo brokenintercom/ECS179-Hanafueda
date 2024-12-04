@@ -1,4 +1,4 @@
-1,5,0,jan-bright
+1,4,0,jan-bright
 1,2,2,jan-tanzaku
 1,1,0,jan-normal-1
 1,1,0,jan-normal-2
@@ -6,7 +6,7 @@
 2,2,2,feb-tanzaku
 2,1,0,feb-normal-1
 2,1,0,feb-normal-2
-3,5,0,mar-bright
+3,4,0,mar-bright
 3,2,2,mar-tanzaku
 3,1,0,mar-normal-1
 3,1,0,mar-normal-2
@@ -26,7 +26,7 @@
 7,2,0,jul-tanzaku
 7,1,0,jul-normal-1
 7,1,0,jul-normal-2
-8,5,0,aug-bright
+8,4,0,aug-bright
 8,3,0,aug-animal
 8,1,0,aug-normal-1
 8,1,0,aug-normal-2
@@ -38,11 +38,11 @@
 10,2,1,oct-tanzaku
 10,1,0,oct-normal-1
 10,1,0,oct-normal-2
-11,5,0,nov-bright
+11,4,0,nov-bright
 11,3,0,nov-animal
 11,2,0,nov-tanzaku
 11,1,0,nov-normal
-12,5,0,dec-bright
+12,4,0,dec-bright
 12,1,0,dec-normal-1
 12,1,0,dec-normal-2
 12,1,0,dec-normal-3
