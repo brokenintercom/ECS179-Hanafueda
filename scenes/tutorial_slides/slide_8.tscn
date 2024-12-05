@@ -1,7 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvxvoe4gg6qga"]
+[gd_scene load_steps=14 format=3 uid="uid://dvxvoe4gg6qga"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_nxcs5"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wbeyk"]
+[ext_resource type="Texture2D" uid="uid://dkn306au380cn" path="res://assets/card_sprites/jun-animal.png" id="3_6ipr7"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="4_pnd70"]
+[ext_resource type="Texture2D" uid="uid://b383e1o5p1iu6" path="res://assets/card_sprites/jun-normal-1.png" id="5_tcqkx"]
+[ext_resource type="Texture2D" uid="uid://pqkfioyi6qiv" path="res://assets/card_sprites/jun-normal-2.png" id="6_8fxxo"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="7_3dbxn"]
+[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="8_bt1e8"]
+[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="9_afmt6"]
+[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="10_ixfkj"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -50,16 +58,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -447.5
-offset_top = -143.0
-offset_right = 448.5
-offset_bottom = -8.0
+offset_left = -448.0
+offset_top = -151.0
+offset_right = 448.0
+offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_nxcs5")
 theme_override_font_sizes/font_size = 42
-text = "Not all months have an animal or a ribbon card, making these cards rarer!
+text = "Not all months have the same number of type cards, with Normals being more common than animal and ribbon cards.
 
 "
 horizontal_alignment = 1
@@ -85,6 +93,96 @@ offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("1_nxcs5")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(524, 323.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("3_6ipr7")
+metadata/_edit_group_ = true
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(708, 323.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("4_pnd70")
+metadata/_edit_group_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(892, 323.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("5_tcqkx")
+metadata/_edit_group_ = true
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(1076, 323.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("6_8fxxo")
+metadata/_edit_group_ = true
+
+[node name="card5" type="Sprite2D" parent="."]
+position = Vector2(524, 619.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("7_3dbxn")
+metadata/_edit_group_ = true
+
+[node name="card6" type="Sprite2D" parent="."]
+position = Vector2(708, 619.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("8_bt1e8")
+metadata/_edit_group_ = true
+
+[node name="card7" type="Sprite2D" parent="."]
+position = Vector2(892, 619.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("9_afmt6")
+metadata/_edit_group_ = true
+
+[node name="card8" type="Sprite2D" parent="."]
+position = Vector2(1076, 619.454)
+scale = Vector2(1, 0.981)
+texture = ExtResource("10_ixfkj")
+metadata/_edit_group_ = true
+
+[node name="selected" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = -824.0
+offset_right = 599.0
+offset_bottom = -710.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_nxcs5")
+theme_override_font_sizes/font_size = 35
+text = "June Cards have 2 normals, 1 animal, and 1 Ribbon Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="selected2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_top = -496.0
+offset_right = 599.0
+offset_bottom = -382.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_nxcs5")
+theme_override_font_sizes/font_size = 35
+text = "November Cards have 1 normal, 1 Ribbon, 1 Animal, and 1 Bright Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

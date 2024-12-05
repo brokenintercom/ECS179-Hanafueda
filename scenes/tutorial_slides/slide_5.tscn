@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://y1n6ywnolwxr"]
+[gd_scene load_steps=8 format=3 uid="uid://y1n6ywnolwxr"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_c66k8"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wjc3w"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="3_5hta0"]
+[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="4_qpnlc"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -59,10 +61,20 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 42
-text = "This card in particular is Normal type January card! Normals are the most common card in the deck."
+text = "Both of these cards are Normal-Type January Cards!All January Cards have a similar background, with Normal Cards only having the background."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="card1" type="Sprite2D" parent="Panel"]
+position = Vector2(560.5, 351)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_5hta0")
+
+[node name="card2" type="Sprite2D" parent="Panel"]
+position = Vector2(920.5, 351)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("4_qpnlc")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0

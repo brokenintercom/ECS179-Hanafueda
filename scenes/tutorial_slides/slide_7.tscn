@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8bhhhofiptj1"]
+[gd_scene load_steps=7 format=3 uid="uid://c8bhhhofiptj1"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_8hj1k"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_pbnud"]
+[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="3_sqfao"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -64,6 +65,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -440.0
+offset_top = -727.0
+offset_right = 456.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_8hj1k")
+theme_override_font_sizes/font_size = 42
+text = "November Animal Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1424.0
@@ -83,6 +105,11 @@ offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("1_8hj1k")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(960, 488)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_sqfao")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

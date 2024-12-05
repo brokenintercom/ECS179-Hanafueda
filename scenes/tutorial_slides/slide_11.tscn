@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ek31jvy8oco6"]
+[gd_scene load_steps=7 format=3 uid="uid://ek31jvy8oco6"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_5ytgk"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_thoxc"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="3_5yt6n"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -84,6 +85,32 @@ offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("1_5ytgk")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(840, 480)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_5yt6n")
+
+[node name="selected" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -776.0
+offset_right = 248.0
+offset_bottom = -394.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_font_sizes/font_size = 381
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

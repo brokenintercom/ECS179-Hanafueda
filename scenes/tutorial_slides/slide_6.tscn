@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://byfmfsrm2q7ar"]
+[gd_scene load_steps=7 format=3 uid="uid://byfmfsrm2q7ar"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r02at"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_wih8n"]
+[ext_resource type="Texture2D" uid="uid://dye4skkapqudh" path="res://assets/card_sprites/jul-tanzaku.png" id="3_wh8hy"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -60,6 +61,32 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_wih8n")
 theme_override_font_sizes/font_size = 42
 text = "There are also Ribbon cards that have a ribbon on them…"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card1" type="Sprite2D" parent="Panel"]
+position = Vector2(744.5, 359)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_wh8hy")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -440.0
+offset_top = -727.0
+offset_right = 456.0
+offset_bottom = -568.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_wih8n")
+theme_override_font_sizes/font_size = 42
+text = "July Ribbon Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

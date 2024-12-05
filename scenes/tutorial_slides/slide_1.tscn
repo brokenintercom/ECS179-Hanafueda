@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://8eep0f7l71kk"]
+[gd_scene load_steps=8 format=3 uid="uid://8eep0f7l71kk"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_4ynjf"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_u24fd"]
+[ext_resource type="Texture2D" uid="uid://ceaii0dr7vpjr" path="res://assets/tutorial/Player Health.PNG" id="3_5h1lc"]
+[ext_resource type="Texture2D" uid="uid://cgdfhh3qqkuh5" path="res://assets/tutorial/Enemy Health.PNG" id="4_sxmkj"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -88,6 +90,58 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
+
+[node name="Player health" type="Sprite2D" parent="Panel"]
+position = Vector2(720.5, 535)
+texture = ExtResource("3_5h1lc")
+
+[node name="Enemy health" type="Sprite2D" parent="Panel"]
+position = Vector2(721.438, 94.1875)
+scale = Vector2(1.31893, 1.22304)
+texture = ExtResource("4_sxmkj")
+
+[node name="enemy health" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -719.0
+offset_right = 136.0
+offset_bottom = -592.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_4ynjf")
+theme_override_font_sizes/font_size = 35
+text = "enemy health"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="your health" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -391.0
+offset_right = 128.0
+offset_bottom = -264.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_4ynjf")
+theme_override_font_sizes/font_size = 35
+text = "your health
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0

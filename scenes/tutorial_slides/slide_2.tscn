@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=8 format=3 uid="uid://dhdw8hgrbvxvi"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2t0a3"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
+[ext_resource type="Texture2D" uid="uid://ob75eelns2hl" path="res://assets/tutorial/Board.PNG" id="3_iywd5"]
+[ext_resource type="Texture2D" uid="uid://bmil7lw6bw5tb" path="res://assets/tutorial/play button.PNG" id="4_adxpc"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -65,6 +67,16 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
+
+[node name="Board" type="Sprite2D" parent="Panel"]
+position = Vector2(912.5, 327)
+scale = Vector2(1.15882, 1.12469)
+texture = ExtResource("3_iywd5")
+
+[node name="Play Button" type="Sprite2D" parent="Panel"]
+position = Vector2(288.5, 359)
+scale = Vector2(3.80667, 3.65789)
+texture = ExtResource("4_adxpc")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0

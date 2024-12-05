@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://xwqtlogjmebe"]
+[gd_scene load_steps=7 format=3 uid="uid://xwqtlogjmebe"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_jxo7w"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_l5shl"]
+[ext_resource type="Texture2D" uid="uid://ob75eelns2hl" path="res://assets/tutorial/Board.PNG" id="3_1jjjy"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -65,6 +66,54 @@ autowrap_mode = 2
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
+
+[node name="Board" type="Sprite2D" parent="Panel"]
+position = Vector2(716.516, 316.484)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_1jjjy")
+
+[node name="selected" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -746.0
+offset_top = -391.0
+offset_right = -403.0
+offset_bottom = -279.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_l5shl")
+theme_override_font_sizes/font_size = 35
+text = "Selected cards are Highlighted in blue"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="greyed" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 342.0
+offset_top = -655.0
+offset_right = 685.0
+offset_bottom = -543.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_l5shl")
+theme_override_font_sizes/font_size = 35
+text = "Greyed out cards
+can't be chosen"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0

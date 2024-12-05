@@ -1,7 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://fgyvbmstf5ml"]
+[gd_scene load_steps=18 format=3 uid="uid://fgyvbmstf5ml"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_cfham"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="2_15y71"]
+[ext_resource type="Texture2D" uid="uid://d0embhatd2frk" path="res://assets/card_sprites/apr-animal.png" id="3_10320"]
+[ext_resource type="Texture2D" uid="uid://bx6i8lydad5cw" path="res://assets/card_sprites/aug-normal-1.png" id="4_q4a1f"]
+[ext_resource type="Texture2D" uid="uid://doquaikhlaied" path="res://assets/card_sprites/feb-tanzaku.png" id="5_xvdhr"]
+[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="6_5v10g"]
+[ext_resource type="Texture2D" uid="uid://bnm0tu3fjgcdu" path="res://assets/card_sprites/jul-normal-1.png" id="7_ro523"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="8_vdex1"]
+[ext_resource type="Texture2D" uid="uid://dy8jdemy47oje" path="res://assets/card_sprites/mar-bright.png" id="9_kulcm"]
+[ext_resource type="Texture2D" uid="uid://beoep5l6nwtea" path="res://assets/card_sprites/may-animal.png" id="10_b35mm"]
+[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="11_t1lrr"]
+[ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="12_lyp58"]
+[ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="13_2augi"]
+[ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="14_42ank"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -64,6 +76,77 @@ text = "The deck is made up of 48 cards, each one assigned with a Month of the y
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(152.5, 423)
+rotation = -0.523599
+texture = ExtResource("3_10320")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Panel"]
+position = Vector2(224.5, 375)
+rotation = -0.436332
+texture = ExtResource("4_q4a1f")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Panel"]
+position = Vector2(328.5, 327)
+rotation = -0.349066
+texture = ExtResource("5_xvdhr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Panel"]
+position = Vector2(440.5, 295)
+rotation = -0.261799
+texture = ExtResource("6_5v10g")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Panel"]
+position = Vector2(544.5, 271)
+rotation = -0.174533
+texture = ExtResource("7_ro523")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Panel"]
+position = Vector2(640.5, 255)
+rotation = -0.0872665
+texture = ExtResource("8_vdex1")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Panel"]
+position = Vector2(728.5, 247)
+texture = ExtResource("9_kulcm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D8" type="Sprite2D" parent="Panel"]
+position = Vector2(864.5, 263)
+rotation = 0.174533
+texture = ExtResource("10_b35mm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D9" type="Sprite2D" parent="Panel"]
+position = Vector2(992.5, 287)
+rotation = 0.261799
+texture = ExtResource("11_t1lrr")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D10" type="Sprite2D" parent="Panel"]
+position = Vector2(1104.5, 319)
+rotation = 0.349066
+texture = ExtResource("12_lyp58")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D12" type="Sprite2D" parent="Panel"]
+position = Vector2(1208.5, 367)
+rotation = 0.436332
+texture = ExtResource("13_2augi")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D11" type="Sprite2D" parent="Panel"]
+position = Vector2(1312.5, 431)
+rotation = 0.523599
+texture = ExtResource("14_42ank")
+metadata/_edit_group_ = true
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0

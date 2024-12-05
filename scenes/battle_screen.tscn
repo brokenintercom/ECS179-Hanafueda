@@ -8,7 +8,8 @@
 script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
-[node name="tutorial" parent="." instance=ExtResource("3_g6onw")]
+[node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12"), null]
 
 [node name="Table" parent="." instance=ExtResource("2_udycx")]
 mouse_filter = 1

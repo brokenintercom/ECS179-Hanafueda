@@ -1,7 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bag2adxxdkftd"]
+[gd_scene load_steps=24 format=3 uid="uid://bag2adxxdkftd"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2oupu"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_twjpw"]
+[ext_resource type="Texture2D" uid="uid://cmk7inwjll7yk" path="res://assets/card_sprites/feb-normal-2.png" id="3_6xr36"]
+[ext_resource type="Texture2D" uid="uid://dgxqddwmu8if7" path="res://assets/card_sprites/mar-tanzaku.png" id="4_wpwve"]
+[ext_resource type="Texture2D" uid="uid://xfg0asyi4n1l" path="res://assets/card_sprites/oct-animal.png" id="5_tbr76"]
+[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="6_jm3yq"]
+[ext_resource type="Texture2D" uid="uid://d01ur1mqdxhv2" path="res://assets/card_sprites/mar-normal-1.png" id="7_tk7lk"]
+[ext_resource type="Texture2D" uid="uid://dadu4ai5gt8cq" path="res://assets/card_sprites/mar-normal-2.png" id="8_d47hc"]
+[ext_resource type="Texture2D" uid="uid://dgmcaxjw0pmdn" path="res://assets/card_sprites/jul-normal-2.png" id="9_i3kta"]
+[ext_resource type="Texture2D" uid="uid://btgvk2xwg7x2d" path="res://assets/card_sprites/dec-normal-3.png" id="10_7p2er"]
+[ext_resource type="Texture2D" uid="uid://cecpejvexq4hh" path="res://assets/card_sprites/jan-tanzaku.png" id="11_bq4ew"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="12_vcdsx"]
+[ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="13_fp7wc"]
+[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/feb-animal.png" id="14_4xm7f"]
+[ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="15_rhj7d"]
+[ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="16_705au"]
+[ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="17_0wnoo"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="18_b8sje"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="19_l6cc7"]
+[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="20_n3gxv"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -84,6 +102,333 @@ offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(296, 232)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("3_6xr36")
+metadata/_edit_group_ = true
+
+[node name="card5" type="Sprite2D" parent="."]
+position = Vector2(296, 384)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("4_wpwve")
+metadata/_edit_group_ = true
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(296, 536)
+scale = Vector2(0.495595, 0.477612)
+texture = ExtResource("5_tbr76")
+metadata/_edit_group_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(296, 688)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("6_jm3yq")
+metadata/_edit_group_ = true
+
+[node name="selected" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -912.0
+offset_right = -464.0
+offset_bottom = -779.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Normals: 
+1 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="selected2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -760.0
+offset_right = -464.0
+offset_bottom = -627.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Ribbons: 
+2 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="selected3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -616.0
+offset_right = -464.0
+offset_bottom = -483.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Animals:
+3 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="selected4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -456.0
+offset_right = -464.0
+offset_bottom = -323.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Brights: 
+5 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(616, 232)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("7_tk7lk")
+metadata/_edit_group_ = true
+
+[node name="card6" type="Sprite2D" parent="."]
+position = Vector2(656, 232)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("8_d47hc")
+metadata/_edit_group_ = true
+
+[node name="card7" type="Sprite2D" parent="."]
+position = Vector2(696, 232)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("9_i3kta")
+metadata/_edit_group_ = true
+
+[node name="card8" type="Sprite2D" parent="."]
+position = Vector2(736, 232)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("10_7p2er")
+metadata/_edit_group_ = true
+
+[node name="selected5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -912.0
+offset_right = 136.0
+offset_bottom = -779.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Playing more than 3 Normals deals +1 Bonus Damage!
+Ex: 4 Normals = 4 (Base) + 
+1 (Bonus) Total Damage!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card9" type="Sprite2D" parent="."]
+position = Vector2(659.26, 387.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("11_bq4ew")
+metadata/_edit_group_ = true
+
+[node name="card10" type="Sprite2D" parent="."]
+position = Vector2(699.26, 387.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("12_vcdsx")
+metadata/_edit_group_ = true
+
+[node name="card11" type="Sprite2D" parent="."]
+position = Vector2(739.26, 387.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("13_fp7wc")
+metadata/_edit_group_ = true
+
+[node name="selected6" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -756.0
+offset_right = 136.0
+offset_bottom = -623.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Playing more than 2 Ribbons deals +1 Bonus Damage!
+Ex: 3 Ribbons = 6 (Base) + 
+1 (Bonus) Total Damage!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card12" type="Sprite2D" parent="."]
+position = Vector2(659.26, 539.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("14_4xm7f")
+metadata/_edit_group_ = true
+
+[node name="card13" type="Sprite2D" parent="."]
+position = Vector2(699.26, 539.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("15_rhj7d")
+metadata/_edit_group_ = true
+
+[node name="card14" type="Sprite2D" parent="."]
+position = Vector2(739.26, 539.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("16_705au")
+metadata/_edit_group_ = true
+
+[node name="selected7" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -604.0
+offset_right = 136.0
+offset_bottom = -471.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Playing more than 2 Ribbons deals +1 Bonus Damage!
+Ex: 3 Ribbons = 6 (Base) + 
+1 (Bonus) Total Damage!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card15" type="Sprite2D" parent="."]
+position = Vector2(699.26, 691.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("17_0wnoo")
+metadata/_edit_group_ = true
+
+[node name="card16" type="Sprite2D" parent="."]
+position = Vector2(739.26, 691.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("18_b8sje")
+metadata/_edit_group_ = true
+
+[node name="selected8" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -452.0
+offset_right = 136.0
+offset_bottom = -319.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Playing more than 1 Bright deals +2 Bonus Damage!
+Ex: 3 Ribbons = 6 (Base) + 
+1 (Bonus) Total Damage!
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card17" type="Sprite2D" parent="."]
+position = Vector2(1203.26, 227.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("19_l6cc7")
+metadata/_edit_group_ = true
+
+[node name="card18" type="Sprite2D" parent="."]
+position = Vector2(1243.26, 227.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("20_n3gxv")
+metadata/_edit_group_ = true
+
+[node name="card19" type="Sprite2D" parent="."]
+position = Vector2(1283.26, 227.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("11_bq4ew")
+metadata/_edit_group_ = true
+
+[node name="card20" type="Sprite2D" parent="."]
+position = Vector2(1323.26, 227.67)
+scale = Vector2(0.515, 0.505)
+texture = ExtResource("6_jm3yq")
+metadata/_edit_group_ = true
+
+[node name="selected9" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 403.0
+offset_top = -916.0
+offset_right = 720.0
+offset_bottom = -783.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 25
+text = "Playing 4 Cards of the Same Month Deals Double Damage!
+Ex: 4 Jan Cards = 
+ 9 (Base) * 2 Damage!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
