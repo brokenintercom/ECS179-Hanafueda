@@ -69,16 +69,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -447.5
-offset_top = -172.0
+offset_left = -703.5
+offset_top = -170.0
 offset_right = 448.5
+offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_4ynjf")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "Looks like you found yourself in a high-risk game of HanaFEUDa, where you gotta defeat your opponent before THEY defeat YOU! 
 "
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 

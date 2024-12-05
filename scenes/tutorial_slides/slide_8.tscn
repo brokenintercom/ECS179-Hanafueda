@@ -5,33 +5,9 @@
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
 
 [sub_resource type="Animation" id="Animation_hrrya"]
 resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
 _data = {
@@ -62,24 +38,33 @@ offset_bottom = 403.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 23.5
-offset_top = 627.0
-offset_right = 1170.5
-offset_bottom = 799.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_nxcs5")
-theme_override_font_sizes/font_size = 35
-text = "And Animal Cards that have an animal on them!
-"
-vertical_alignment = 1
-autowrap_mode = 2
-
 [node name="show_text" type="AnimationPlayer" parent="Panel"]
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -447.5
+offset_top = -143.0
+offset_right = 448.5
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_nxcs5")
+theme_override_font_sizes/font_size = 42
+text = "Not all months have an animal or a ribbon card, making these cards rarer!
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
@@ -91,4 +76,15 @@ theme_override_fonts/font = ExtResource("1_nxcs5")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 800.0
+offset_right = 480.0
+offset_bottom = 917.0
+theme_override_fonts/font = ExtResource("1_nxcs5")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

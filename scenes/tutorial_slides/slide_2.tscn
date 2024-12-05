@@ -38,7 +38,7 @@ offset_bottom = 403.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -46,16 +46,18 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -447.5
-offset_top = -172.0
+offset_top = -143.0
 offset_right = 448.5
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_2t0a3")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 50
 text = "You deal damage by selecting cards and clicking the play button! 
 
 "
+horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -66,15 +68,16 @@ libraries = {
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
-offset_top = 797.0
+offset_left = 1440.0
+offset_top = 800.0
 offset_right = 1655.0
-offset_bottom = 914.0
+offset_bottom = 917.0
 theme_override_fonts/font = ExtResource("1_2t0a3")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 800.0
 offset_right = 480.0
