@@ -105,3 +105,7 @@ func _does_match(card:Card) -> bool:
 	
 	
 	return does_match
+
+
+func is_empty() -> bool:
+	return num_cards == 0

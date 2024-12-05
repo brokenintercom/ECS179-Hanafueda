@@ -11,20 +11,38 @@ _num_turns_left = 10
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="TitleScreenButton" type="Button" parent="."]
-offset_left = 24.0
-offset_top = 858.0
-offset_right = 200.0
-offset_bottom = 889.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_right = 40.0
+offset_bottom = 1120.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 90.0
+offset_top = -240.0
+offset_right = 430.0
+offset_bottom = -200.0
+grow_vertical = 0
+theme_override_constants/separation = 75
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleScreenButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
 text = "Return to Title Screen"
 
-[node name="PlayCardsButton" type="Button" parent="."]
-offset_left = 289.0
-offset_top = 858.0
-offset_right = 378.0
-offset_bottom = 889.0
+[node name="PlayCardsButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
 text = "Play Cards
 "
 
-[connection signal="pressed" from="TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
-[connection signal="pressed" from="PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]

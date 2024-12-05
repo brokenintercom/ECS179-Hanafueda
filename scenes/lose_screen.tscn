@@ -1,9 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://blnhmx3jd02uc"]
+[gd_scene load_steps=3 format=3 uid="uid://dp0gl5ccjhhs0"]
 
-[ext_resource type="Script" path="res://scripts/screens/lose_screen.gd" id="1_q8ukc"]
-[ext_resource type="PackedScene" uid="uid://cfmunflda7188" path="res://scenes/end_screen.tscn" id="2_mo82n"]
+[ext_resource type="PackedScene" uid="uid://cfmunflda7188" path="res://scenes/results_screen.tscn" id="2_mo82n"]
+
+[sub_resource type="GDScript" id="GDScript_jlra0"]
+script/source = "extends Node2D
+
+@onready var endscreen:CanvasLayer = $EndScreen
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	#pass # Replace with function body.
+	endscreen.set_message(\"YOU LOST\")
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+"
 
 [node name="Lose" type="Node2D"]
-script = ExtResource("1_q8ukc")
+script = SubResource("GDScript_jlra0")
 
 [node name="EndScreen" parent="." instance=ExtResource("2_mo82n")]

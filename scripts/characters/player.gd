@@ -8,6 +8,7 @@ var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be Car
 var deck := Deck.new()
 var _discard_pile:Array[CardSpec]
 var ino_shika_cho_active := false
+var did_win := false
 
 @onready var hand := %Hand  # Hand of cards
 
@@ -61,11 +62,11 @@ func play_cards() -> void:
 	_attack()
 	_apply_synergy()  # Synergies are applied right before the end of the turn
 	
-	_cleanup()
+	_finish_turn()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
-func _cleanup() -> void:
+func _finish_turn() -> void:
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
 	# Handle the selected cards
@@ -77,7 +78,7 @@ func _cleanup() -> void:
 			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
 			
 			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
-			# TODO could turn the above line inton another wrapper function
+			# TODO could turn the above line into another wrapper function
 			
 			# Deselect the card since we will play it now
 			hand.num_cards -= 1
@@ -85,7 +86,7 @@ func _cleanup() -> void:
 			# Update the card's state
 			var curr_card_state:CardState = card.get_curr_card_state()
 			
-			# Matches the category -- transition to ENABLED state as needed
+			# Set the not-selected card back to enabled
 			if curr_card_state.state == CardState.State.DISABLED:
 				curr_card_state.transition_to_enabled()
 	
@@ -188,4 +189,6 @@ func reset() -> void:
 	
 	# Update deck
 	deck = Deck.new()
+	
+	player.did_win = false
 	
