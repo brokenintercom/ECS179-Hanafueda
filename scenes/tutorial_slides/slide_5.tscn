@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://y1n6ywnolwxr"]
+
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_c66k8"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wjc3w"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="3_5hta0"]
+[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="4_qpnlc"]
+
+[sub_resource type="Animation" id="Animation_hhevb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_hrrya"]
+resource_name = "show"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
+_data = {
+"RESET": SubResource("Animation_hhevb"),
+"show": SubResource("Animation_hrrya")
+}
+
+[node name="Slide5" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wjc3w")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -736.5
+offset_top = -403.0
+offset_right = 736.5
+offset_bottom = 403.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="show_text" type="AnimationPlayer" parent="Panel"]
+libraries = {
+"": SubResource("AnimationLibrary_k3ci4")
+}
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -167.0
+offset_right = 448.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 42
+text = "Both of these cards are Normal-Type January Cards!All January Cards have a similar background, with Normal Cards only having the background."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="card1" type="Sprite2D" parent="Panel"]
+position = Vector2(560.5, 351)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_5hta0")
+
+[node name="card2" type="Sprite2D" parent="Panel"]
+position = Vector2(920.5, 351)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("4_qpnlc")
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1424.0
+offset_top = 797.0
+offset_right = 1655.0
+offset_bottom = 914.0
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 800.0
+offset_right = 480.0
+offset_bottom = 917.0
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

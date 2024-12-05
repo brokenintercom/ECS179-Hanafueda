@@ -1,0 +1,44 @@
+[gd_scene load_steps=14 format=3 uid="uid://clp5io7nkgngh"]
+
+[ext_resource type="PackedScene" uid="uid://8eep0f7l71kk" path="res://scenes/tutorial_slides/slide_1.tscn" id="1_6v7yi"]
+[ext_resource type="Script" path="res://scripts/tutorial/tutorial_slide_selector.gd" id="1_27bve"]
+[ext_resource type="PackedScene" uid="uid://dhdw8hgrbvxvi" path="res://scenes/tutorial_slides/slide_2.tscn" id="2_rvcf5"]
+[ext_resource type="PackedScene" uid="uid://xwqtlogjmebe" path="res://scenes/tutorial_slides/slide_3.tscn" id="4_flwvy"]
+[ext_resource type="PackedScene" uid="uid://fgyvbmstf5ml" path="res://scenes/tutorial_slides/slide_4.tscn" id="5_jp0wl"]
+[ext_resource type="PackedScene" uid="uid://y1n6ywnolwxr" path="res://scenes/tutorial_slides/slide_5.tscn" id="6_32mpq"]
+[ext_resource type="PackedScene" uid="uid://byfmfsrm2q7ar" path="res://scenes/tutorial_slides/slide_6.tscn" id="7_yysrm"]
+[ext_resource type="PackedScene" uid="uid://c8bhhhofiptj1" path="res://scenes/tutorial_slides/slide_7.tscn" id="8_jbyjm"]
+[ext_resource type="PackedScene" uid="uid://dvxvoe4gg6qga" path="res://scenes/tutorial_slides/slide_8.tscn" id="9_ul41w"]
+[ext_resource type="PackedScene" uid="uid://dgfh4bygff62d" path="res://scenes/tutorial_slides/slide_9.tscn" id="10_s6erx"]
+[ext_resource type="PackedScene" uid="uid://bag2adxxdkftd" path="res://scenes/tutorial_slides/slide_10.tscn" id="11_rc2t0"]
+[ext_resource type="PackedScene" uid="uid://ek31jvy8oco6" path="res://scenes/tutorial_slides/slide_11.tscn" id="12_nd2vf"]
+[ext_resource type="PackedScene" uid="uid://spec6vmqwom4" path="res://scenes/tutorial_slides/slide_12.tscn" id="13_wjmy8"]
+
+[node name="tutorial" type="CanvasLayer" node_paths=PackedStringArray("slides")]
+layer = 5
+script = ExtResource("1_27bve")
+slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12"), null]
+
+[node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
+
+[node name="Slide2" parent="." instance=ExtResource("2_rvcf5")]
+
+[node name="Slide3" parent="." instance=ExtResource("4_flwvy")]
+
+[node name="Slide4" parent="." instance=ExtResource("5_jp0wl")]
+
+[node name="Slide5" parent="." instance=ExtResource("6_32mpq")]
+
+[node name="Slide6" parent="." instance=ExtResource("7_yysrm")]
+
+[node name="Slide7" parent="." instance=ExtResource("8_jbyjm")]
+
+[node name="Slide8" parent="." instance=ExtResource("9_ul41w")]
+
+[node name="Slide9" parent="." instance=ExtResource("10_s6erx")]
+
+[node name="Slide10" parent="." instance=ExtResource("11_rc2t0")]
+
+[node name="Slide11" parent="." instance=ExtResource("12_nd2vf")]
+
+[node name="Slide12" parent="." instance=ExtResource("13_wjmy8")]
