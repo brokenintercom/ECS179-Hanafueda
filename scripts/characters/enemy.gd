@@ -22,7 +22,7 @@ func enemy_actions():
 	signals.player_hit.emit(base_atk * atk_multiplier)
 	# TODO Chris: enemy needs to randomly decide whether to do an effect or not
 	# TODO if yes, then pick between debuffing attack, damage it takes next turn, shrink hand, etc.
-	_cleanup()
+	_finish_turn()
 
 
 func _on_enemy_hit(dmg:int) -> void:

@@ -8,7 +8,7 @@ enum PhaseType {
 
 @export var _num_turns_left:int
 
-@onready var playbtn := $PlayCardsButton
+@onready var _play_btn := $Control/HBoxContainer/PlayCardsButton
 
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
@@ -28,27 +28,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if len(player.selected_cards) == 0:
-		playbtn.disabled = true
+		_play_btn.disabled = true
 	else:
-		playbtn.disabled = false
+		_play_btn.disabled = false
 	
+	# TODO technically it's repeatedly calling either _enemy_phase or _player_phase unnecessarily
 	if _curr_phase == PhaseType.ENEMY:
-		if enemy.curr_health <= 0:
-			_cleanup(true)
-		else:
-			enemy.enemy_actions()
+		_enemy_phase()
 	elif _curr_phase == PhaseType.PLAYER:
-		# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
-		
-		# TODO could do "else" but technically for future development I am putting an elif...
-		if _num_turns_left == 0 or player.curr_health <= 0 or player.deck.is_empty():
-			print("Number of turns left:", _num_turns_left)
-			_cleanup(false)
-		elif not _drew_cards:
-			# Draw enough cards such that the player's hand would have max_hand_size cards
-			var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
-			player.draw_cards(num_draw)
-			_drew_cards = true
+		_player_phase()
 
 
 func _on_switch_battle_phase() -> void:
@@ -67,26 +55,56 @@ func _on_switch_battle_phase() -> void:
 # TODO modify later
 func _on_title_screen_button_pressed() -> void:
 	print("Switching to title screen...")
-	# TODO: reset the player's and enemy's curr_health, cards, hand_size, etc. to their base values
-	print("Resetting...")
-	player.reset()
-	enemy.reset()
+	
+	_reset_battle()
 	
 	signals.switch_scene.emit("title_screen")
+
+
+func _player_phase() -> void:
+	# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
+	
+	# TODO code style 
+	if _lose_condition():
+		print("Number of turns left:", _num_turns_left)
+		player.did_win = false
+		_show_results()
+	elif not _drew_cards:
+		# Draw enough cards such that the player's hand would have max_hand_size cards
+		var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
+		player.draw_cards(num_draw)
+		_drew_cards = true
+
+
+func _enemy_phase() -> void:
+	if _win_condition():
+		player.did_win = true
+		_show_results()
+	else:
+		enemy.enemy_actions()
 
 
 func _on_play_cards_button_pressed() -> void:
 	player.play_cards()
 
 
-func _cleanup(player_won:bool) -> void:
-	if player_won:
-		signals.switch_scene.emit("win_screen")
-	else:
-		signals.switch_scene.emit("lose_screen")
+func _show_results() -> void:
+	_reset_battle()
 	
-	# TODO: reset the player's and enemy's curr_health, cards, hand_size, etc. to their base values
+	signals.switch_scene.emit("results_screen")
+
+
+func _reset_battle() -> void:
 	print("Resetting...")
 	player.reset()
 	enemy.reset()
-	
+
+
+func _win_condition() -> bool:
+	return enemy.curr_health <= 0
+
+
+func _lose_condition() -> bool:
+	# TODO code style
+	return (_num_turns_left == 0 or player.curr_health <= 0
+			or (player.hand.is_empty() and player.deck.is_empty()))

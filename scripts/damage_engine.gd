@@ -16,6 +16,9 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_mu
 	var month_multiplier := 1
 	var bonus_dmg := 0 
 	
+	# TODO delete print statements
+	print("--------DAMAGE ENGINE--------")
+	
 	# Matching by month -- you can also get an effect multiplier
 	if category == Hand.Match.MONTH:
 		print("Calculating by month...")

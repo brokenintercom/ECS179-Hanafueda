@@ -1,10 +1,8 @@
 class_name EndScreen
 extends Node
 
-
-@onready var message:Label = $Label
-
-@export var lost_game:bool # TODO need to create a var lost_game (global or nah?)
+@onready var small_message:Label = $SmallMessage
+@onready var big_message:Label = $BigMessage
 
 
 func _ready() -> void:
@@ -12,7 +10,12 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	pass
+	if player.did_win:
+		big_message.text = "WAHOO!!!"
+		small_message.text = "You won!"
+	else:
+		big_message.text = "GAME OVER..."
+		small_message.text = "You lost :("
 
 
 func _on_back_button_pressed() -> void:
@@ -23,9 +26,3 @@ func _on_back_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	print("quitting...")
 	get_tree().quit()
-
-
-func set_message(msg:String) -> void:
-	message.text = msg
-	
-	

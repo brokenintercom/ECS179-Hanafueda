@@ -1,7 +1,6 @@
 class_name SceneManager
 extends Node2D
 
-
 @onready var current_scene := $TitleScreen
 
 

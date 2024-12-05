@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 # Cleanup at the end of the turn
-func _cleanup():
+func _finish_turn():
 	# Reset atk multiplier (i.e., remove buffs/debuffs on it) and signal to switch scenes
 	atk_multiplier = 1.0
 	signals.switch_battle_phase.emit()
