@@ -3,21 +3,6 @@
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_4ynjf"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_u24fd"]
 
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible_ratio")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
 tracks/0/type = "value"
@@ -31,6 +16,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_hrrya"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
@@ -63,11 +63,17 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 23.5
-offset_top = 627.0
-offset_right = 1170.5
-offset_bottom = 799.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -447.5
+offset_top = -172.0
+offset_right = 448.5
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_4ynjf")
 theme_override_font_sizes/font_size = 35
@@ -83,9 +89,9 @@ libraries = {
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
+offset_left = 1440.0
 offset_top = 797.0
-offset_right = 1655.0
+offset_right = 1656.0
 offset_bottom = 914.0
 theme_override_fonts/font = ExtResource("1_4ynjf")
 theme_override_font_sizes/font_size = 45

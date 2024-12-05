@@ -23,7 +23,6 @@ slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("
 [node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
 
 [node name="Slide2" parent="." instance=ExtResource("2_rvcf5")]
-visible = false
 
 [node name="Slide3" parent="." instance=ExtResource("4_flwvy")]
 
