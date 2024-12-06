@@ -187,8 +187,6 @@ func reset() -> void:
 		if not card.is_empty():
 			card.get_curr_card_state().transition_to_empty()
 	
-	# Update deck
+	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
 	deck = Deck.new()
-	
-	player.did_win = false
 	

@@ -19,6 +19,7 @@ func _ready() -> void:
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 	tutorial.visible = true
 	player.hand.visible = true
+	player.did_win = false
 	player.health_bar.visible = true
 	enemy.health_bar.visible = true
 	
@@ -63,11 +64,13 @@ func _on_title_screen_button_pressed() -> void:
 
 
 func _player_phase() -> void:
+	print("START OF PLAYER PHASE")
+	print("Number of turns left:", _num_turns_left)
 	# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
 	
 	# TODO code style 
 	if _lose_condition():
-		print("Number of turns left:", _num_turns_left)
+		print("player lost")
 		player.did_win = false
 		_show_results()
 	elif not _drew_cards:
@@ -78,7 +81,9 @@ func _player_phase() -> void:
 
 
 func _enemy_phase() -> void:
+	print("START OF ENEMY PHASE")
 	if _win_condition():
+		print("player won")
 		player.did_win = true
 		_show_results()
 	else:
