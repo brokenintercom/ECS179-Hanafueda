@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfmunflda7188"]
 
-[ext_resource type="Script" path="res://scripts/screens/end_screen.gd" id="1_n660e"]
+[ext_resource type="Script" path="res://scripts/screens/results_screen.gd" id="1_n660e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2led"]
 bg_color = Color(0.249794, 0.331523, 0.581467, 1)
@@ -25,7 +25,7 @@ offset_right = 107.5
 offset_bottom = 573.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 70
-text = "TEXT
+text = "
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -40,7 +40,6 @@ offset_right = 102.0
 offset_bottom = 215.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 200
-text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
