@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://byfmfsrm2q7ar"]
+[gd_scene load_steps=10 format=3 uid="uid://byfmfsrm2q7ar"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r02at"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_wih8n"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_nw885"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_io6w1"]
 [ext_resource type="Texture2D" uid="uid://dye4skkapqudh" path="res://assets/card_sprites/jul-tanzaku.png" id="3_wh8hy"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="6_dcm7v"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -25,65 +28,68 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r02at")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -736.5
-offset_top = -403.0
-offset_right = 736.5
-offset_bottom = 403.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_nw885")
 
-[node name="show_text" type="AnimationPlayer" parent="Panel"]
+[node name="text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_io6w1")
+
+[node name="show_text" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -167.0
-offset_right = 448.0
-offset_bottom = -8.0
+offset_left = -416.0
+offset_top = -328.0
+offset_right = 408.0
+offset_bottom = -169.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_wih8n")
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 40
 text = "There are also Ribbon cards that have a ribbon on them…"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card1" type="Sprite2D" parent="Panel"]
-position = Vector2(744.5, 359)
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(968, 496)
 scale = Vector2(1.26717, 1.24189)
 texture = ExtResource("3_wh8hy")
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="skinny text box" type="Sprite2D" parent="."]
+position = Vector2(976, 272)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("6_dcm7v")
+
+[node name="july ribbon card" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -440.0
-offset_top = -727.0
-offset_right = 456.0
-offset_bottom = -568.0
+offset_left = -432.0
+offset_top = -888.0
+offset_right = 464.0
+offset_bottom = -729.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_wih8n")
 theme_override_font_sizes/font_size = 42
 text = "July Ribbon Card"

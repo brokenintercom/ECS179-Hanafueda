@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ob75eelns2hl"
-path="res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"
+uid="uid://dc4y3qct7ihfe"
+path="res://.godot/imported/skinny text box.png-e43af7c0b1f39491f65c5a2ca4888961.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/board.PNG"
-dest_files=["res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"]
+source_file="res://assets/tutorial/text boxes/skinny text box.png"
+dest_files=["res://.godot/imported/skinny text box.png-e43af7c0b1f39491f65c5a2ca4888961.ctex"]
 
 [params]
 

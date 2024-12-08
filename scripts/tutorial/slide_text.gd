@@ -9,7 +9,6 @@ extends Control
 	
 func _on_next_pressed() -> void:
 	signals.next_page.emit()     
-	$Panel/show_text.play('show')
 
 
 func _on_previous_pressed() -> void:

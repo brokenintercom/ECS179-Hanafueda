@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ob75eelns2hl"
-path="res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"
+uid="uid://dpsit3iavgavg"
+path="res://.godot/imported/Tutorial Square.png-fc3d579dcdbf7ce43efa808705e9b9e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/board.PNG"
-dest_files=["res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"]
+source_file="res://assets/tutorial/Tutorial Square.png"
+dest_files=["res://.godot/imported/Tutorial Square.png-fc3d579dcdbf7ce43efa808705e9b9e9.ctex"]
 
 [params]
 

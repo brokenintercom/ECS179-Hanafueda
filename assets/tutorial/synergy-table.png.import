@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ob75eelns2hl"
-path="res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"
+uid="uid://cm2wdtff88uvh"
+path="res://.godot/imported/synergy-table.png-0a3d375b837a11b0d845bc48b107c553.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tutorial/board.PNG"
-dest_files=["res://.godot/imported/board.PNG-b74ca580faa6d0c4eeee2ffd0ffe9622.ctex"]
+source_file="res://assets/tutorial/synergy-table.png"
+dest_files=["res://.godot/imported/synergy-table.png-0a3d375b837a11b0d845bc48b107c553.ctex"]
 
 [params]
 

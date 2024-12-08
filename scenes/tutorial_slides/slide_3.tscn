@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://xwqtlogjmebe"]
+[gd_scene load_steps=10 format=3 uid="uid://xwqtlogjmebe"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_jxo7w"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_l5shl"]
-[ext_resource type="Texture2D" uid="uid://ob75eelns2hl" path="res://assets/tutorial/Board.PNG" id="3_1jjjy"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_xenqw"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_rrjht"]
+[ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_rfb8q"]
+[ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="6_fl8gs"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -25,36 +28,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxo7w")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -736.5
-offset_top = -403.0
-offset_right = 736.5
-offset_bottom = 403.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_xenqw")
 
-[node name="Label" type="Label" parent="Panel"]
-layout_mode = 1
+[node name="text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_rrjht")
+
+[node name="Label" type="Label" parent="text box"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -447.5
-offset_top = -143.0
-offset_right = 448.5
-offset_bottom = 16.0
+offset_left = -890.0
+offset_top = -256.0
+offset_right = 6.0
+offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "However, cards have to Match with each other in order for them to be played
 
 "
@@ -62,53 +60,64 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="show_text" type="AnimationPlayer" parent="Panel"]
+[node name="show_text" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
 
-[node name="Board" type="Sprite2D" parent="Panel"]
-position = Vector2(716.516, 316.484)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_1jjjy")
+[node name="card_selected" type="Sprite2D" parent="."]
+position = Vector2(940.016, 431.834)
+scale = Vector2(0.732, 0.717)
+texture = ExtResource("5_rfb8q")
 
-[node name="selected" type="Label" parent="Panel"]
-layout_mode = 1
+[node name="small text box" type="Sprite2D" parent="."]
+position = Vector2(504, 560)
+texture = ExtResource("6_fl8gs")
+
+[node name="selected" type="Label" parent="small text box"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -746.0
-offset_top = -391.0
-offset_right = -403.0
-offset_bottom = -279.0
+offset_left = -229.0
+offset_top = -156.0
+offset_right = -19.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 25
 text = "Selected cards are Highlighted in blue"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="greyed" type="Label" parent="Panel"]
-layout_mode = 1
+[node name="small text box2" type="Sprite2D" parent="."]
+position = Vector2(1368, 344)
+rotation = -3.14336
+texture = ExtResource("6_fl8gs")
+
+[node name="greyed" type="Label" parent="small text box2"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 342.0
-offset_top = -655.0
-offset_right = 685.0
-offset_bottom = -543.0
+offset_left = 50.901
+offset_top = -43.6887
+offset_right = 393.901
+offset_bottom = 68.3113
 grow_horizontal = 2
 grow_vertical = 0
+rotation = -3.13997
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 25
 text = "Greyed out cards
 can't be chosen"
 horizontal_alignment = 1
@@ -118,9 +127,9 @@ autowrap_mode = 2
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1424.0
-offset_top = 797.0
+offset_top = 768.0
 offset_right = 1655.0
-offset_bottom = 914.0
+offset_bottom = 885.0
 theme_override_fonts/font = ExtResource("1_l5shl")
 theme_override_font_sizes/font_size = 45
 text = "Next"
@@ -128,9 +137,9 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 800.0
+offset_top = 771.0
 offset_right = 480.0
-offset_bottom = 917.0
+offset_bottom = 888.0
 theme_override_fonts/font = ExtResource("1_l5shl")
 theme_override_font_sizes/font_size = 45
 text = "Previous"

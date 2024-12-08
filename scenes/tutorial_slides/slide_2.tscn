@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=10 format=3 uid="uid://dhdw8hgrbvxvi"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2t0a3"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
-[ext_resource type="Texture2D" uid="uid://ob75eelns2hl" path="res://assets/tutorial/Board.PNG" id="3_iywd5"]
-[ext_resource type="Texture2D" uid="uid://bmil7lw6bw5tb" path="res://assets/tutorial/play button.PNG" id="4_adxpc"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_7lmxu"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="2_57ebi"]
+[ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_l7gkh"]
+[ext_resource type="Texture2D" uid="uid://82rabbn8og55" path="res://assets/tutorial/play_button.png" id="6_t6nv2"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -26,36 +28,32 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h12yl")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -736.5
-offset_top = -403.0
-offset_right = 736.5
-offset_bottom = 403.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_7lmxu")
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="big text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("2_57ebi")
+
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -447.5
-offset_top = -143.0
-offset_right = 448.5
-offset_bottom = 16.0
+offset_left = -448.0
+offset_top = -312.0
+offset_right = 448.0
+offset_bottom = -153.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2t0a3")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "You deal damage by selecting cards and clicking the play button! 
 
 "
@@ -63,27 +61,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="show_text" type="AnimationPlayer" parent="Panel"]
+[node name="show_text" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
 
-[node name="Board" type="Sprite2D" parent="Panel"]
-position = Vector2(912.5, 327)
-scale = Vector2(1.15882, 1.12469)
-texture = ExtResource("3_iywd5")
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(1168, 456)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("5_l7gkh")
 
-[node name="Play Button" type="Sprite2D" parent="Panel"]
-position = Vector2(288.5, 359)
-scale = Vector2(3.80667, 3.65789)
-texture = ExtResource("4_adxpc")
+[node name="Play Button" type="Sprite2D" parent="."]
+position = Vector2(472, 464)
+scale = Vector2(2.012, 1.933)
+texture = ExtResource("6_t6nv2")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1440.0
-offset_top = 800.0
+offset_top = 776.0
 offset_right = 1655.0
-offset_bottom = 917.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2t0a3")
 theme_override_font_sizes/font_size = 45
 text = "Next"
@@ -91,9 +90,9 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 800.0
+offset_top = 776.0
 offset_right = 480.0
-offset_bottom = 917.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2t0a3")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
