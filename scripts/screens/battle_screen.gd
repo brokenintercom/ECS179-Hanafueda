@@ -64,8 +64,6 @@ func _on_title_screen_button_pressed() -> void:
 
 
 func _player_phase() -> void:
-	print("START OF PLAYER PHASE")
-	print("Number of turns left:", _num_turns_left)
 	# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
 	
 	# TODO code style 
@@ -81,7 +79,6 @@ func _player_phase() -> void:
 
 
 func _enemy_phase() -> void:
-	print("START OF ENEMY PHASE")
 	if _win_condition():
 		print("player won")
 		player.did_win = true
