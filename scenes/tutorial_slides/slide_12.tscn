@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://spec6vmqwom4"]
+[gd_scene load_steps=5 format=3 uid="uid://spec6vmqwom4"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_oolrj"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r0t24"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_w7gni"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="3_yctfg"]
 
 [node name="Slide12" type="Control"]
 layout_mode = 3
@@ -18,6 +19,12 @@ position = Vector2(962.375, 538.75)
 scale = Vector2(0.531129, 0.369444)
 texture = ExtResource("2_w7gni")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(962, 462)
+rotation = 3.14387
+scale = Vector2(2.29833, 1.49)
+texture = ExtResource("3_yctfg")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -31,10 +38,10 @@ offset_right = 447.5
 offset_bottom = -550.5
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_oolrj")
 theme_override_font_sizes/font_size = 42
-text = "Aaaand that's about it... Good luck! :)"
+text = "Aaaand that's about it... Don't Die!~"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
