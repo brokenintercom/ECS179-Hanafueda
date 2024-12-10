@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://br1kcgfay4e0p"]
 
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_i2f2q"]
-[ext_resource type="Texture2D" uid="uid://bmbngqlp6yxcd" path="res://assets/title-screen/hanafeuda-logo.png" id="2_g6kbb"]
+[ext_resource type="Texture2D" uid="uid://c5486o7cbw0ly" path="res://assets/title-screen/hanafeuda-logo.png" id="2_g6kbb"]
 [ext_resource type="Texture2D" uid="uid://dl14dxan6wuao" path="res://assets/title-screen/title-text.png" id="2_onukv"]
 [ext_resource type="Texture2D" uid="uid://drbu8i0g1c06c" path="res://assets/title-screen/title-lines.png" id="4_ns4nn"]
 
@@ -40,14 +40,14 @@ position = Vector2(960, 767)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_5licv")
 autoplay = "default"
-frame_progress = 0.319242
-
-[node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(945, 480)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_g6kbb")
+frame_progress = 0.960573
 
 [node name="Lines" type="Sprite2D" parent="."]
 position = Vector2(960, 767)
 scale = Vector2(1.2, 1)
 texture = ExtResource("4_ns4nn")
+
+[node name="Hanafeuda-logo" type="Sprite2D" parent="."]
+position = Vector2(960, 457)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_g6kbb")
