@@ -1,15 +1,13 @@
-[gd_scene load_steps=32 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=30 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://dg3r32qr53ron" path="res://scenes/table.tscn" id="2_udycx"]
 [ext_resource type="PackedScene" uid="uid://clp5io7nkgngh" path="res://scenes/tutorial.tscn" id="3_g6onw"]
 [ext_resource type="PackedScene" uid="uid://byjdc0ucd0wx3" path="res://scenes/sidebar.tscn" id="4_j8tp3"]
 [ext_resource type="Texture2D" uid="uid://drpsgwx20w5xp" path="res://assets/battle_sprites/boss.png" id="5_cx8l7"]
-[ext_resource type="PackedScene" uid="uid://bbreec63ylm48" path="res://scenes/enemy_effect.tscn" id="5_puqc1"]
 [ext_resource type="Texture2D" uid="uid://dlr0eudm2wl45" path="res://assets/battle_sprites/buttons.png" id="5_rqr5q"]
 [ext_resource type="PackedScene" uid="uid://dym3lkpths880" path="res://scenes/synergy.tscn" id="5_yi53n"]
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
-[ext_resource type="PackedScene" uid="uid://bdi3ywqh32rxc" path="res://scenes/player_effect.tscn" id="9_vawi5"]
 
 [sub_resource type="Image" id="Image_17wjo"]
 data = {
@@ -1975,16 +1973,17 @@ animations = [{
 script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
-[node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+[node name="tutorial" parent="." instance=ExtResource("3_g6onw")]
 visible = false
-slides = []
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="SidebarBackground" type="ColorRect" parent="."]
+z_index = -1
 offset_right = 501.0
 offset_bottom = 1080.0
 color = Color(0.258824, 0.0117647, 0.00784314, 1)
@@ -2005,9 +2004,6 @@ offset_top = 1080.0
 offset_right = 40.0
 offset_bottom = 1120.0
 grow_vertical = 0
-
-[node name="EnemyEffect" parent="Control" instance=ExtResource("5_puqc1")]
-position = Vector2(246, -921)
 
 [node name="Synergy" parent="Control" instance=ExtResource("5_yi53n")]
 position = Vector2(246, -768)
@@ -2040,9 +2036,6 @@ text = "          "
 
 [node name="Deck" parent="Control" instance=ExtResource("6_chuoq")]
 position = Vector2(260, -426)
-
-[node name="PlayerEffect" parent="Control" instance=ExtResource("9_vawi5")]
-position = Vector2(244, -156)
 
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 position = Vector2(1185, 221)

@@ -60,6 +60,7 @@ func draw_cards(num_draw:int):
 func play_cards() -> void:
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack()
+	
 	_apply_synergy()  # Synergies are applied right before the end of the turn
 	
 	_finish_turn()
@@ -121,6 +122,9 @@ func _apply_synergy() -> void:
 			print("No synergy")
 			return
 	
+	print("waiting delay for synergy application...")
+	await get_tree().create_timer(0.7).timeout
+	# TODO Yujin: update the synergy text at this point
 
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
@@ -132,7 +136,9 @@ func _apply_synergy() -> void:
 		CardSpec.Synergy.INO_SHIKA_CHO:
 			print("INO SHIKA CHO SYNERGY: apply x2 damage for *next* attack")  # TODO player's next turn
 			ino_shika_cho_active = true
-
+	
+	print("waiting more delay after synergy was applied (and text updated?)")
+	await get_tree().create_timer(0.7).timeout
 
 
 func _draw_card(card:Card) -> bool:
@@ -153,11 +159,16 @@ func _draw_card(card:Card) -> bool:
 
 
 func _on_player_hit(dmg:int) -> void:
+	await get_tree().create_timer(0.7).timeout
+	
 	# Internally update health
 	print("Before player hit: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	health_bar.update_health(curr_health)
 	print("After player hit: ", curr_health)
+	
+	await get_tree().create_timer(0.7).timeout
+	
 
 
 func _on_player_recover_hp(amount:float) -> void:

@@ -31,11 +31,13 @@ animations = [{
 script = ExtResource("1_i2f2q")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Text" type="AnimatedSprite2D" parent="."]
+z_index = 2
 position = Vector2(960, 767)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_5licv")
@@ -43,11 +45,13 @@ autoplay = "default"
 frame_progress = 0.960573
 
 [node name="Lines" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(960, 767)
 scale = Vector2(1.2, 1)
 texture = ExtResource("4_ns4nn")
 
-[node name="Hanafeuda-logo" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(960, 457)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_g6kbb")

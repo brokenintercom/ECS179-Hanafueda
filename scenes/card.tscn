@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://mnmhxw1j0krl"]
+[gd_scene load_steps=8 format=3 uid="uid://mnmhxw1j0krl"]
 
 [ext_resource type="Script" path="res://scripts/card/card.gd" id="1_r3fpk"]
 [ext_resource type="Script" path="res://scripts/card/card_state_machine.gd" id="3_xl3h2"]
 [ext_resource type="Script" path="res://scripts/states/card_enabled_state.gd" id="4_21qlp"]
 [ext_resource type="Script" path="res://scripts/states/card_selected_state.gd" id="5_h3esh"]
 [ext_resource type="Script" path="res://scripts/states/card_disabled_state.gd" id="6_fwfhy"]
+[ext_resource type="Texture2D" uid="uid://dgroie7myf5gq" path="res://assets/battle_sprites/card-highlight.png" id="7_0l7m6"]
 [ext_resource type="Script" path="res://scripts/states/card_empty_state.gd" id="7_jlodc"]
 
 [node name="Card" type="TextureButton"]
+custom_minimum_size = Vector2(168, 268)
 script = ExtResource("1_r3fpk")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -35,5 +37,11 @@ script = ExtResource("6_fwfhy")
 
 [node name="EmptyState" type="Node" parent="CardStateMachine"]
 script = ExtResource("7_jlodc")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(83.5, 135.25)
+scale = Vector2(1.32639, 1.31279)
+texture = ExtResource("7_0l7m6")
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

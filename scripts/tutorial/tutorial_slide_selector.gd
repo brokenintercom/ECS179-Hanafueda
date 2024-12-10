@@ -15,12 +15,13 @@ func _ready():
 			slide.visible = false
 	if(len(slides) > current_slide + 1):
 		slides[current_slide].visible = true
-				
+
+
 func _next_page() -> void:
 	current_slide += 1
 	if len(slides) < current_slide + 1:
 		pass	
-		
+	
 	for index in len(slides):
 		if null != slides[index]:
 			if index == current_slide:

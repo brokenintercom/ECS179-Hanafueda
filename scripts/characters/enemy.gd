@@ -10,9 +10,9 @@ func _ready() -> void:
 	signals.enemy_hit.connect(_on_enemy_hit)
 	
 	# reset enemy healthbar color to red
-	var sb = StyleBoxFlat.new()
-	health_bar.add_theme_stylebox_override("fill", sb)
-	sb.bg_color = Color("f44355")
+	#var sb = StyleBoxFlat.new()
+	#health_bar.add_theme_stylebox_override("fill", sb)
+	#sb.bg_color = Color("f44355")
 	
 	health_bar.init_health(max_health)
 	print("enemy starting health ", max_health)
@@ -26,8 +26,12 @@ func enemy_actions():
 
 
 func _on_enemy_hit(dmg:int) -> void:
+	await get_tree().create_timer(0.7).timeout
+	
 	# Internally update health
 	print("Enemy health before: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	health_bar.update_health(curr_health)
 	print("Enemy health after: ", curr_health)
+	
+	await get_tree().create_timer(0.7).timeout
