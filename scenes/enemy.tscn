@@ -36,11 +36,10 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_0a3b7")
 
 [node name="HealthNumber" type="Label" parent="HealthBarBG"]
-z_index = 3
-offset_left = -71.6667
-offset_top = -85.0
-offset_right = 58.3333
-offset_bottom = -59.0
+z_index = 2
+offset_left = 2.5
+offset_right = 132.5
+offset_bottom = 26.0
 theme_override_colors/font_shadow_color = Color(0.443137, 0, 0, 1)
 theme_override_fonts/font = SubResource("FontVariation_50m07")
 theme_override_font_sizes/font_size = 25
