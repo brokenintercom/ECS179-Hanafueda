@@ -8,9 +8,11 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("ui_select"):
+		print("Switching to battle screen...")
+		signals.switch_scene.emit("battle_screen")
 
-
-func _on_start_button_pressed() -> void:
-	print("Switching to battle screen...")
-	signals.switch_scene.emit("battle_screen")
+func _switch_to_battle(event):
+	if Input.is_action_just_pressed("ui_select"):
+		print("Switching to battle screen...")
+		signals.switch_scene.emit("battle_screen")
