@@ -26,8 +26,12 @@ func enemy_actions():
 
 
 func _on_enemy_hit(dmg:int) -> void:
+	await get_tree().create_timer(0.7).timeout
+	
 	# Internally update health
 	print("Enemy health before: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	health_bar.update_health(curr_health)
 	print("Enemy health after: ", curr_health)
+	
+	await get_tree().create_timer(0.7).timeout

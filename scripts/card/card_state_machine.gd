@@ -15,7 +15,7 @@ enum State {
 }
 
 func setup(card:Card) -> void:
-	if card.is_empty():
+	if card.texture_normal == null:
 		init_state = $EmptyState
 	
 	
