@@ -1,15 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://br1kcgfay4e0p"]
+[gd_scene load_steps=8 format=3 uid="uid://br1kcgfay4e0p"]
 
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_i2f2q"]
+[ext_resource type="Texture2D" uid="uid://c5486o7cbw0ly" path="res://assets/title-screen/hanafeuda-logo.png" id="2_g6kbb"]
+[ext_resource type="Texture2D" uid="uid://dl14dxan6wuao" path="res://assets/title-screen/title-text.png" id="2_onukv"]
+[ext_resource type="Texture2D" uid="uid://drbu8i0g1c06c" path="res://assets/title-screen/title-lines.png" id="4_ns4nn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2qqt"]
+atlas = ExtResource("2_onukv")
+region = Rect2(0, 0, 432, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ve5yq"]
+atlas = ExtResource("2_onukv")
+region = Rect2(432, 0, 432, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5licv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2qqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ve5yq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_i2f2q")
 
-[node name="StartButton" type="Button" parent="."]
-offset_left = 513.0
-offset_top = 312.0
-offset_right = 604.0
-offset_bottom = 365.0
-text = "Start"
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="Text" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(960, 767)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_5licv")
+autoplay = "default"
+frame_progress = 0.960573
+
+[node name="Lines" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(960, 767)
+scale = Vector2(1.2, 1)
+texture = ExtResource("4_ns4nn")
+
+[node name="Logo" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(960, 457)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_g6kbb")

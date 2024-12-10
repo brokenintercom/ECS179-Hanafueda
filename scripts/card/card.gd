@@ -11,7 +11,7 @@ signal reparent_requested(which_card_ui: Card)
 const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 
-@onready var highlight:ColorRect = $ColorRect
+@onready var highlight:Sprite2D = $Highlight
 @onready var state_machine:CardStateMachine = $CardStateMachine
 
 # TODO attach this script to every instance of this card? or it can have a path to its image

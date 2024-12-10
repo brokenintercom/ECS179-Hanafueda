@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjdc0ucd0wx3"]
+
+[ext_resource type="Texture2D" uid="uid://ek7k3e8dok3y" path="res://assets/battle_sprites/sidebar.png" id="1_my8ya"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 489.0
+offset_bottom = 1080.0
+texture = ExtResource("1_my8ya")
+stretch_mode = 4
