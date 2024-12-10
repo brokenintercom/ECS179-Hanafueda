@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://bag2adxxdkftd"]
+[gd_scene load_steps=29 format=3 uid="uid://bag2adxxdkftd"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2oupu"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_twjpw"]
+[ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="2_kxdf1"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_vd24u"]
 [ext_resource type="Texture2D" uid="uid://cmk7inwjll7yk" path="res://assets/card_sprites/feb-normal-2.png" id="3_6xr36"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_ejs61"]
@@ -15,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cecpejvexq4hh" path="res://assets/card_sprites/jan-tanzaku.png" id="11_bq4ew"]
 [ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="12_vcdsx"]
 [ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="13_fp7wc"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="13_h78jn"]
 [ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/feb-animal.png" id="14_4xm7f"]
 [ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="15_rhj7d"]
 [ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="16_705au"]
@@ -22,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="18_b8sje"]
 [ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="19_l6cc7"]
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="20_n3gxv"]
+[ext_resource type="Texture2D" uid="uid://4efqyu13c2ny" path="res://assets/tutorial/info_button.png" id="23_caraq"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -84,10 +87,10 @@ autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
-offset_top = 797.0
-offset_right = 1655.0
-offset_bottom = 914.0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 45
 text = "Next"
@@ -95,18 +98,23 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 800.0
+offset_top = 776.0
 offset_right = 480.0
-offset_bottom = 917.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
-position = Vector2(453.8, 211.094)
+position = Vector2(420, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("3_6xr36")
 metadata/_edit_group_ = true
+
+[node name="small text box" type="Sprite2D" parent="."]
+position = Vector2(544, 210)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_kxdf1")
 
 [node name="selected" type="Label" parent="."]
 layout_mode = 1
@@ -122,6 +130,7 @@ offset_bottom = -803.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Normals: 
@@ -130,11 +139,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="small text box2" type="Sprite2D" parent="."]
+position = Vector2(544, 345)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_kxdf1")
+
 [node name="card5" type="Sprite2D" parent="."]
-position = Vector2(453.8, 347.094)
+position = Vector2(420, 347.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("4_wpwve")
 metadata/_edit_group_ = true
+
+[node name="small text box3" type="Sprite2D" parent="."]
+position = Vector2(544, 480.69)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_kxdf1")
 
 [node name="selected2" type="Label" parent="."]
 layout_mode = 1
@@ -150,6 +169,7 @@ offset_bottom = -667.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Ribbons: 
@@ -159,7 +179,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="card2" type="Sprite2D" parent="."]
-position = Vector2(456, 480)
+position = Vector2(420, 480)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("5_tbr76")
 metadata/_edit_group_ = true
@@ -178,6 +198,7 @@ offset_bottom = -531.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Animals:
@@ -187,10 +208,15 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="card3" type="Sprite2D" parent="."]
-position = Vector2(456, 616)
+position = Vector2(420, 616)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("6_jm3yq")
 metadata/_edit_group_ = true
+
+[node name="small text box4" type="Sprite2D" parent="."]
+position = Vector2(544, 618)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_kxdf1")
 
 [node name="selected4" type="Label" parent="."]
 layout_mode = 1
@@ -206,6 +232,7 @@ offset_bottom = -395.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Brights: 
@@ -238,6 +265,12 @@ scale = Vector2(0.45, 0.441)
 texture = ExtResource("10_7p2er")
 metadata/_edit_group_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(993, 221)
+rotation = -3.13636
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("13_h78jn")
+
 [node name="selected5" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -252,6 +285,7 @@ offset_bottom = -795.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Playing more than 3 Normals deals +1 Bonus Damage!
@@ -280,6 +314,13 @@ scale = Vector2(0.45, 0.441)
 texture = ExtResource("13_fp7wc")
 metadata/_edit_group_ = true
 
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(992, 346.325)
+rotation = 0.000335623
+scale = Vector2(0.645, 0.632)
+skew = 0.000211358
+texture = ExtResource("13_h78jn")
+
 [node name="selected6" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -287,13 +328,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.46
-offset_top = -796.0
-offset_right = 154.54
-offset_bottom = -663.0
+offset_left = -93.0
+offset_top = -797.0
+offset_right = 163.0
+offset_bottom = -664.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Playing more than 2 Ribbons deals +1 Bonus Damage!
@@ -322,6 +364,12 @@ scale = Vector2(0.45, 0.441)
 texture = ExtResource("16_705au")
 metadata/_edit_group_ = true
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(992, 487.19)
+rotation = -3.13754
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("13_h78jn")
+
 [node name="selected7" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -329,13 +377,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.46
-offset_top = -660.0
-offset_right = 154.54
-offset_bottom = -527.0
+offset_left = -96.0
+offset_top = -664.0
+offset_right = 160.0
+offset_bottom = -531.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Playing more than 2 Ribbons deals +1 Bonus Damage!
@@ -347,16 +396,21 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="card15" type="Sprite2D" parent="."]
-position = Vector2(784.34, 623.094)
+position = Vector2(778.165, 623.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("17_0wnoo")
 metadata/_edit_group_ = true
 
 [node name="card16" type="Sprite2D" parent="."]
-position = Vector2(824.34, 623.094)
+position = Vector2(815.625, 623.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("18_b8sje")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(990, 621)
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("13_h78jn")
 
 [node name="selected8" type="Label" parent="."]
 layout_mode = 1
@@ -365,13 +419,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.46
-offset_top = -524.0
-offset_right = 154.54
-offset_bottom = -391.0
+offset_left = -99.0
+offset_top = -523.0
+offset_right = 157.0
+offset_bottom = -390.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Playing more than 1 Bright deals +2 Bonus Damage!
@@ -383,28 +438,33 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="card17" type="Sprite2D" parent="."]
-position = Vector2(1203.26, 227.67)
+position = Vector2(1203.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("19_l6cc7")
 metadata/_edit_group_ = true
 
 [node name="card18" type="Sprite2D" parent="."]
-position = Vector2(1243.26, 227.67)
+position = Vector2(1243.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("20_n3gxv")
 metadata/_edit_group_ = true
 
 [node name="card19" type="Sprite2D" parent="."]
-position = Vector2(1283.26, 227.67)
+position = Vector2(1283.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("11_bq4ew")
 metadata/_edit_group_ = true
 
 [node name="card20" type="Sprite2D" parent="."]
-position = Vector2(1323.26, 227.67)
+position = Vector2(1323.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("6_jm3yq")
 metadata/_edit_group_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1501, 217)
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("13_h78jn")
 
 [node name="selected9" type="Label" parent="."]
 layout_mode = 1
@@ -413,18 +473,53 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 416.0
-offset_top = -920.0
-offset_right = 653.0
-offset_bottom = -787.0
+offset_left = 424.0
+offset_top = -927.0
+offset_right = 661.0
+offset_bottom = -794.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 20
 text = "Playing 4 Cards of the Same Month Deals Double Damage!
 Ex: 4 Jan Cards = 
  9 (Base) * 2 Damage!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1262, 501)
+scale = Vector2(2.03, 2.03)
+texture = ExtResource("23_caraq")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(1501, 492)
+scale = Vector2(0.645, 0.645)
+texture = ExtResource("13_h78jn")
+
+[node name="selected10" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 424.0
+offset_top = -653.0
+offset_right = 661.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 20
+text = "Click this for a quick guide
+on the cards in the deck, card damage,
+and combos!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

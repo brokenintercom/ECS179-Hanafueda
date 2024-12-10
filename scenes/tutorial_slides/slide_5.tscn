@@ -77,10 +77,10 @@ texture = ExtResource("4_qpnlc")
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
-offset_top = 797.0
-offset_right = 1655.0
-offset_bottom = 914.0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 45
 text = "Next"
@@ -88,9 +88,9 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 800.0
+offset_top = 776.0
 offset_right = 480.0
-offset_bottom = 917.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 45
 text = "Previous"

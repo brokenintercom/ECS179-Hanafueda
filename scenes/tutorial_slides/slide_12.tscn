@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://spec6vmqwom4"]
+[gd_scene load_steps=7 format=3 uid="uid://spec6vmqwom4"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_oolrj"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r0t24"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_w7gni"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
@@ -24,26 +25,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r0t24")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -388.5
-offset_top = -142.5
-offset_right = 388.5
-offset_bottom = 142.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(962.375, 538.75)
+scale = Vector2(0.531129, 0.369444)
+texture = ExtResource("2_w7gni")
 
-[node name="show_text" type="AnimationPlayer" parent="Panel"]
+[node name="show_text" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_k3ci4")
 }
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -51,16 +44,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -448.5
-offset_top = -288.0
+offset_top = -685.5
 offset_right = 447.5
-offset_bottom = -153.0
+offset_bottom = -550.5
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_oolrj")
 theme_override_font_sizes/font_size = 42
-text = "Aaanyhoo, enough yappin’. IT’S TIME FOR…
-"
+text = "Aaaand that's about it... Good luck! :)"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

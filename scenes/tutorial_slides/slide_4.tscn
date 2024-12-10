@@ -150,9 +150,9 @@ metadata/_edit_group_ = true
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
+offset_left = 1440.0
 offset_top = 776.0
-offset_right = 1655.0
+offset_right = 1656.0
 offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("2_15y71")
 theme_override_font_sizes/font_size = 45
@@ -161,9 +161,9 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 779.0
+offset_top = 776.0
 offset_right = 480.0
-offset_bottom = 896.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("2_15y71")
 theme_override_font_sizes/font_size = 45
 text = "Previous"

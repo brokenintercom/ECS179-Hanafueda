@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dvxvoe4gg6qga"]
+[gd_scene load_steps=17 format=3 uid="uid://dgfh4bygff62d"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2l5hc"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_q7r5k"]
@@ -76,10 +76,10 @@ autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1424.0
-offset_top = 797.0
-offset_right = 1655.0
-offset_bottom = 914.0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Next"
@@ -87,9 +87,9 @@ text = "Next"
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0
 offset_left = 264.0
-offset_top = 800.0
+offset_top = 776.0
 offset_right = 480.0
-offset_bottom = 917.0
+offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
