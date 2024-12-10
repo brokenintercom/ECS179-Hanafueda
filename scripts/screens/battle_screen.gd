@@ -8,7 +8,7 @@ enum PhaseType {
 
 @export var _num_turns_left:int
 
-@onready var _play_btn := $Control/HBoxContainer/PlayCardsButton
+@onready var _play_btn := $Control/PlayCardsButton
 
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
@@ -62,6 +62,9 @@ func _on_title_screen_button_pressed() -> void:
 	
 	signals.switch_scene.emit("title_screen")
 
+func _on_help_button_pressed() -> void:
+	print("Showing guide...")
+	signals.show_guide.emit()
 
 func _player_phase() -> void:
 	# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
