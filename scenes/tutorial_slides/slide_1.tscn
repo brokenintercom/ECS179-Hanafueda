@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://8eep0f7l71kk"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_4ynjf"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_4ynjf"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_u24fd"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_3nk8g"]
 [ext_resource type="Texture2D" uid="uid://ceaii0dr7vpjr" path="res://assets/tutorial/Player Health.PNG" id="3_5h1lc"]
