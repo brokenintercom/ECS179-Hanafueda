@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dwksrwu18cr6q"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_f2nw2"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_s0xwr"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_s0xwr"]
 
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001

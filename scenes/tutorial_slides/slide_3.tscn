@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xwqtlogjmebe"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_jxo7w"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_l5shl"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_l5shl"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_xenqw"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_rrjht"]
 [ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_rfb8q"]

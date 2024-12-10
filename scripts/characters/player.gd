@@ -11,7 +11,7 @@ var ino_shika_cho_active := false
 var did_win := false
 
 @onready var hand := %Hand  # Hand of cards
-
+@onready var health_number = $HealthBarBG/HealthNumber
 
 func _ready():
 	signals.player_hit.connect(_on_player_hit)
@@ -21,14 +21,25 @@ func _ready():
 	heal_eff = HealEffect.new()
 	atk_buff_eff = AttackBuffEffect.new()
 	block_eff = BlockEffect.new()
-
+	
+	# make player healthbar green
+	#health_bar.add_theme_stylebox_override("fill", sb)
 
 	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
 	health_bar.init_health(max_health)
 	print("player starting health ", max_health)
+	
+	format_health(max_health, max_health)
 
 	super()
+
+
+func format_health(health:int, max_health:int):
+	var health_number_format = "%s/%s"
+	var health_number_string = health_number_format % [str(health), str(max_health)]
+	health_number.text = health_number_string
+	print("player health number:", health_number_string)
 
 
 func actions() -> void:
@@ -182,10 +193,13 @@ func _enable_player() -> void:
 		if curr_card_state.state == CardState.State.DISABLED:
 			curr_card_state.transition_to_enabled()
 
+
 func _on_player_hit(dmg:int) -> void:
 	# Internally update health
 	print("Before player hit: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
+	health_bar.update_health(curr_health)
+	format_health(curr_health, max_health)
 	print("After player hit: ", curr_health)
 	
 	health_bar.update_health(curr_health)
