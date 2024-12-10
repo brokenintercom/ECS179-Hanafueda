@@ -16,6 +16,7 @@ var did_win := false
 func _ready():
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
+	signals.switch_scene.connect(_reset_hp)
 	
 	# Set up effects
 	heal_eff = HealEffect.new()
@@ -197,12 +198,20 @@ func _enable_player() -> void:
 func _on_player_hit(dmg:int) -> void:
 	# Internally update health
 	print("Before player hit: ", curr_health)
+	
 	curr_health = clampi(curr_health - dmg, 0, max_health)
+	
 	health_bar.update_health(curr_health)
 	format_health(curr_health, max_health)
+		
 	print("After player hit: ", curr_health)
 	
 	health_bar.update_health(curr_health)
+
+
+func _reset_hp(scene_name:String) -> void:
+	if scene_name == "results_screen":
+		format_health(max_health, max_health)
 
 
 func _on_player_recover_hp(amount:float) -> void:
