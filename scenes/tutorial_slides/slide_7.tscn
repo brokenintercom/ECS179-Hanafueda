@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8bhhhofiptj1"]
+[gd_scene load_steps=7 format=3 uid="uid://c8bhhhofiptj1"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_8hj1k"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_pbnud"]
@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_01p68"]
 [ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="3_sqfao"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="5_6ryn3"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide7" type="Control"]
 layout_mode = 3
@@ -36,12 +24,6 @@ texture = ExtResource("2_f54u0")
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
 texture = ExtResource("3_01p68")
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -64,6 +46,26 @@ text = "And Animal Cards that have an animal on them!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("1_8hj1k")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("1_8hj1k")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
 
 [node name="skinny text box" type="Sprite2D" parent="."]
 position = Vector2(976, 272)
@@ -91,26 +93,6 @@ text = "November Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="Next" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1440.0
-offset_top = 776.0
-offset_right = 1656.0
-offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_8hj1k")
-theme_override_font_sizes/font_size = 45
-text = "Next"
-
-[node name="Previous" type="Button" parent="."]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 776.0
-offset_right = 480.0
-offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_8hj1k")
-theme_override_font_sizes/font_size = 45
-text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
 position = Vector2(968, 496)

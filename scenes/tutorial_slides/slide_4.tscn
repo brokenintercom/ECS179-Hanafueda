@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://fgyvbmstf5ml"]
+[gd_scene load_steps=17 format=3 uid="uid://fgyvbmstf5ml"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_cfham"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="2_15y71"]
@@ -16,18 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="12_lyp58"]
 [ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="13_2augi"]
 [ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="14_42ank"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide4" type="Control"]
 layout_mode = 3
@@ -47,12 +35,6 @@ texture = ExtResource("2_pxc1u")
 position = Vector2(-8.40778, 271.935)
 scale = Vector2(0.989151, 0.967742)
 texture = ExtResource("3_ywqud")
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -76,6 +58,26 @@ text = "The deck is made up of 48 cards, each one assigned with a Month of the y
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(376, 560)
@@ -147,26 +149,6 @@ position = Vector2(1536, 568)
 rotation = 0.523599
 texture = ExtResource("14_42ank")
 metadata/_edit_group_ = true
-
-[node name="Next" type="Button" parent="."]
-layout_mode = 0
-offset_left = 1440.0
-offset_top = 776.0
-offset_right = 1656.0
-offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("2_15y71")
-theme_override_font_sizes/font_size = 45
-text = "Next"
-
-[node name="Previous" type="Button" parent="."]
-layout_mode = 0
-offset_left = 264.0
-offset_top = 776.0
-offset_right = 480.0
-offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("2_15y71")
-theme_override_font_sizes/font_size = 45
-text = "Previous"
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

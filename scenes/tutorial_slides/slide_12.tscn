@@ -1,20 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://spec6vmqwom4"]
+[gd_scene load_steps=4 format=3 uid="uid://spec6vmqwom4"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_oolrj"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r0t24"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_w7gni"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide12" type="Control"]
 layout_mode = 3
@@ -29,12 +17,6 @@ script = ExtResource("1_r0t24")
 position = Vector2(962.375, 538.75)
 scale = Vector2(0.531129, 0.369444)
 texture = ExtResource("2_w7gni")
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

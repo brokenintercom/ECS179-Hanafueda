@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://y1n6ywnolwxr"]
+[gd_scene load_steps=7 format=3 uid="uid://y1n6ywnolwxr"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_c66k8"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wjc3w"]
@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_3cbc6"]
 [ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="3_5hta0"]
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="4_qpnlc"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide5" type="Control"]
 layout_mode = 3
@@ -36,12 +24,6 @@ texture = ExtResource("2_04omg")
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
 texture = ExtResource("3_3cbc6")
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -65,16 +47,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card1" type="Sprite2D" parent="."]
-position = Vector2(784, 488)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_5hta0")
-
-[node name="card2" type="Sprite2D" parent="."]
-position = Vector2(1144, 488)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("4_qpnlc")
-
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1440.0
@@ -94,6 +66,16 @@ offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(784, 488)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("3_5hta0")
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(1144, 488)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("4_qpnlc")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

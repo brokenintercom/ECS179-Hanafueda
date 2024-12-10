@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=7 format=3 uid="uid://dhdw8hgrbvxvi"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2t0a3"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="2_57ebi"]
 [ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_l7gkh"]
 [ext_resource type="Texture2D" uid="uid://82rabbn8og55" path="res://assets/tutorial/play_button.png" id="6_t6nv2"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide2" type="Control"]
 layout_mode = 3
@@ -61,22 +49,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
-
-[node name="Board" type="Sprite2D" parent="."]
-position = Vector2(1168, 456)
-scale = Vector2(0.705, 0.705)
-texture = ExtResource("5_l7gkh")
-
-[node name="Play Button" type="Sprite2D" parent="."]
-position = Vector2(472, 464)
-scale = Vector2(2.012, 1.933)
-texture = ExtResource("6_t6nv2")
-
 [node name="Next" type="Button" parent="."]
 layout_mode = 0
 offset_left = 1440.0
@@ -96,6 +68,16 @@ offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_2t0a3")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(1168, 456)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("5_l7gkh")
+
+[node name="Play Button" type="Sprite2D" parent="."]
+position = Vector2(472, 464)
+scale = Vector2(2.012, 1.933)
+texture = ExtResource("6_t6nv2")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

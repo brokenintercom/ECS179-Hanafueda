@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xwqtlogjmebe"]
+[gd_scene load_steps=7 format=3 uid="uid://xwqtlogjmebe"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_jxo7w"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_l5shl"]
@@ -6,18 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_rrjht"]
 [ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_rfb8q"]
 [ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="6_fl8gs"]
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
 
 [node name="Slide3" type="Control"]
 layout_mode = 3
@@ -37,16 +25,17 @@ texture = ExtResource("2_xenqw")
 position = Vector2(952, 824)
 texture = ExtResource("3_rrjht")
 
-[node name="Label" type="Label" parent="text box"]
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -890.0
-offset_top = -256.0
-offset_right = 6.0
-offset_bottom = -97.0
+offset_left = -448.0
+offset_top = -312.0
+offset_right = 448.0
+offset_bottom = -153.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -56,70 +45,6 @@ theme_override_font_sizes/font_size = 40
 text = "However, cards have to Match with each other in order for them to be played
 
 "
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
-
-[node name="card_selected" type="Sprite2D" parent="."]
-position = Vector2(940.016, 431.834)
-scale = Vector2(0.732, 0.717)
-texture = ExtResource("5_rfb8q")
-
-[node name="small text box" type="Sprite2D" parent="."]
-position = Vector2(504, 560)
-texture = ExtResource("6_fl8gs")
-
-[node name="selected" type="Label" parent="small text box"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -229.0
-offset_top = -156.0
-offset_right = -19.0
-offset_bottom = -44.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 25
-text = "Selected cards are Highlighted in blue"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="small text box2" type="Sprite2D" parent="."]
-position = Vector2(1368, 344)
-rotation = -3.14336
-texture = ExtResource("6_fl8gs")
-
-[node name="greyed" type="Label" parent="small text box2"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 50.901
-offset_top = -43.6887
-offset_right = 393.901
-offset_bottom = 68.3113
-grow_horizontal = 2
-grow_vertical = 0
-rotation = -3.13997
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 25
-text = "Greyed out cards
-can't be chosen"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -143,6 +68,66 @@ offset_bottom = 893.0
 theme_override_fonts/font = ExtResource("1_l5shl")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
+
+[node name="card_selected" type="Sprite2D" parent="."]
+position = Vector2(940.016, 431.834)
+scale = Vector2(0.732, 0.717)
+texture = ExtResource("5_rfb8q")
+
+[node name="small text box" type="Sprite2D" parent="."]
+position = Vector2(504, 560)
+texture = ExtResource("6_fl8gs")
+
+[node name="selected" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -560.0
+offset_top = -576.0
+offset_right = -350.0
+offset_bottom = -464.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l5shl")
+theme_override_font_sizes/font_size = 25
+text = "Selected cards are Highlighted in blue"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="small text box2" type="Sprite2D" parent="."]
+position = Vector2(1368, 344)
+rotation = -3.14336
+texture = ExtResource("6_fl8gs")
+
+[node name="greyed" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 237.0
+offset_top = -793.0
+offset_right = 580.0
+offset_bottom = -681.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = -6.28319
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_l5shl")
+theme_override_font_sizes/font_size = 25
+text = "Greyed out cards
+can't be chosen"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
