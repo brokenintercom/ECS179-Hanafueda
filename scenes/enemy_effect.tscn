@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbreec63ylm48"]
+
+[ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="1_dilqn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6hyl"]
+atlas = ExtResource("1_dilqn")
+region = Rect2(24, 120, 297, 96)
+
+[node name="EnemyEffect" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_l6hyl")

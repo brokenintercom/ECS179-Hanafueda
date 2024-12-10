@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://e24whar4ha5u"]
+
+[ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="1_v0u4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1xer"]
+atlas = ExtResource("1_v0u4w")
+region = Rect2(411, 249, 144, 219)
+
+[node name="Deck" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_k1xer")

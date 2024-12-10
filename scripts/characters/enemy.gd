@@ -10,9 +10,9 @@ func _ready() -> void:
 	signals.enemy_hit.connect(_on_enemy_hit)
 	
 	# reset enemy healthbar color to red
-	var sb = StyleBoxFlat.new()
-	health_bar.add_theme_stylebox_override("fill", sb)
-	sb.bg_color = Color("f44355")
+	#var sb = StyleBoxFlat.new()
+	#health_bar.add_theme_stylebox_override("fill", sb)
+	#sb.bg_color = Color("f44355")
 	
 	health_bar.init_health(max_health)
 	print("enemy starting health ", max_health)
