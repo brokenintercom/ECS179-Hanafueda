@@ -14,10 +14,14 @@ func update_health(new_health):
 	health = min(max_value, new_health)
 	value = health
 	
+	await get_tree().create_timer(0.3).timeout
+	
 	if health < prev_health:
 		timer.start()
 	else: 
 		dmg_bar.value = health
+	
+	await get_tree().create_timer(0.3).timeout
 
 
 func init_health(_health):
