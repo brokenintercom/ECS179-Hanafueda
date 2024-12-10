@@ -1976,6 +1976,7 @@ script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+visible = false
 slides = []
 
 [node name="ColorRect" type="ColorRect" parent="."]
