@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
-[ext_resource type="PackedScene" path="res://scenes/table.tscn" id="2_udycx"]
+[ext_resource type="PackedScene" uid="uid://blx2s8so4so76" path="res://scenes/table.tscn" id="2_udycx"]
 [ext_resource type="PackedScene" uid="uid://clp5io7nkgngh" path="res://scenes/tutorial.tscn" id="3_g6onw"]
 
 [node name="BattleScreen" type="Node2D"]
@@ -9,6 +9,7 @@ script = ExtResource("1_m0yuu")
 _num_turns_left = 10
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+visible = false
 slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12"), null]
 
 [node name="Table" parent="." instance=ExtResource("2_udycx")]
@@ -47,6 +48,8 @@ text = "Return to Title Screen"
 layout_mode = 2
 text = "Play Cards
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="pressed" from="Control/HBoxContainer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
