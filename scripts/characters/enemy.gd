@@ -23,7 +23,7 @@ func format_health(health:int, max_health:int):
 	print("enemy health number:", health_number_string)
 
 
-func enemy_actions():
+func actions():
 	signals.player_hit.emit(base_atk * atk_multiplier)
 	# TODO Chris: enemy needs to randomly decide whether to do an effect or not
 	# TODO if yes, then pick between debuffing attack, damage it takes next turn, shrink hand, etc.
@@ -31,14 +31,12 @@ func enemy_actions():
 
 
 func _on_enemy_hit(dmg:int) -> void:
-	await get_tree().create_timer(0.7).timeout
-	
 	# Internally update health
 	print("Enemy health before: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
-	health_bar.update_health(curr_health)
 	print("Enemy health after: ", curr_health)
 	
+	health_bar.update_health(curr_health)
 	format_health(curr_health, max_health)
 	
 	await get_tree().create_timer(0.7).timeout
