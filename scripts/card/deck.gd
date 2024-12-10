@@ -4,7 +4,7 @@ extends CardPile
 
 func _init() -> void:
 	# Access the CSV file containing the cards in the deck
-	var deck_file = FileAccess.open("res://assets/deck_csv/deck.csv", FileAccess.READ)
+	var deck_file = FileAccess.open("res://resources/data/deck.csv", FileAccess.READ)
 	
 	# Go through each row in the file and create a CardSpec object from it
 	while !deck_file.eof_reached():
