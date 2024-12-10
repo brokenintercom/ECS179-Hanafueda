@@ -3,6 +3,12 @@ extends CardPile
 
 
 func _init() -> void:
+
+	#if FileAccess.file_exists("res://assets/deck_csv/deck.csv"):
+		#print("File Exists")
+	#else:
+		#print("oof")
+	
 	# Access the CSV file containing the cards in the deck
 	var deck_file = FileAccess.open("res://resources/data/deck.csv", FileAccess.READ)
 	

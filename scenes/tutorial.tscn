@@ -19,26 +19,26 @@ layer = 10
 script = ExtResource("1_27bve")
 slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12")]
 
-[node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
-
-[node name="Slide2" parent="." instance=ExtResource("2_rvcf5")]
-
-[node name="Slide3" parent="." instance=ExtResource("4_flwvy")]
-
-[node name="Slide4" parent="." instance=ExtResource("5_jp0wl")]
-
-[node name="Slide5" parent="." instance=ExtResource("6_32mpq")]
-
-[node name="Slide6" parent="." instance=ExtResource("7_yysrm")]
-
-[node name="Slide7" parent="." instance=ExtResource("8_jbyjm")]
-
-[node name="Slide8" parent="." instance=ExtResource("9_ul41w")]
-
-[node name="Slide9" parent="." instance=ExtResource("10_s6erx")]
-
-[node name="Slide10" parent="." instance=ExtResource("11_rc2t0")]
+[node name="Slide12" parent="." instance=ExtResource("13_wjmy8")]
 
 [node name="Slide11" parent="." instance=ExtResource("12_nd2vf")]
 
-[node name="Slide12" parent="." instance=ExtResource("13_wjmy8")]
+[node name="Slide10" parent="." instance=ExtResource("11_rc2t0")]
+
+[node name="Slide9" parent="." instance=ExtResource("10_s6erx")]
+
+[node name="Slide8" parent="." instance=ExtResource("9_ul41w")]
+
+[node name="Slide7" parent="." instance=ExtResource("8_jbyjm")]
+
+[node name="Slide6" parent="." instance=ExtResource("7_yysrm")]
+
+[node name="Slide5" parent="." instance=ExtResource("6_32mpq")]
+
+[node name="Slide4" parent="." instance=ExtResource("5_jp0wl")]
+
+[node name="Slide3" parent="." instance=ExtResource("4_flwvy")]
+
+[node name="Slide2" parent="." instance=ExtResource("2_rvcf5")]
+
+[node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
