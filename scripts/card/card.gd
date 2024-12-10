@@ -62,7 +62,7 @@ func is_selected() -> bool:
 
 
 func is_empty() -> bool:
-	return modulate.is_equal_approx(GRAY)
+	return get_curr_card_state().state == CardState.State.EMPTY
 
 
 func matches_month(month_to_match:CardSpec.Month) -> bool:

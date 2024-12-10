@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/states/card_empty_state.gd" id="7_jlodc"]
 
 [node name="Card" type="TextureButton"]
+custom_minimum_size = Vector2(168, 268)
 script = ExtResource("1_r3fpk")
 
 [node name="ColorRect" type="ColorRect" parent="."]

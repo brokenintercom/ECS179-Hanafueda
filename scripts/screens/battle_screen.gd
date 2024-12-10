@@ -25,6 +25,7 @@ func _ready() -> void:
 	
 	# Shuffle the player's deck at the beginning of every battle
 	player.deck.shuffle()
+	_player_phase()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,37 +36,43 @@ func _process(_delta: float) -> void:
 		_play_btn.disabled = false
 	
 	# TODO technically it's repeatedly calling either _enemy_phase or _player_phase unnecessarily
-	if _curr_phase == PhaseType.ENEMY:
-		_enemy_phase()
-	elif _curr_phase == PhaseType.PLAYER:
-		_player_phase()
+	#if _curr_phase == PhaseType.ENEMY:
+		#_enemy_phase()
+	#elif _curr_phase == PhaseType.PLAYER:
+		#_player_phase()
 
 
 func _on_switch_battle_phase() -> void:
+	print("switching phases")
 	# Player turn just ended
-	if _curr_phase == PhaseType.PLAYER:
+	if _curr_phase == PhaseType.PLAYER: # swtich to ENEMY TURN
 		_curr_phase = PhaseType.ENEMY
+		#_play_btn.disabled = true
+		print("Enemy turn, disabling player...")
+		_disable_player()
+		_enemy_phase()
 		# TODO @Jamie: Disable player input if needed
-	else:  # Enemy turn just ended
+	else:  # Enemy turn just ended # swtich to PLAYER TURN
 		# TODO re-enable player input if needed
 		_curr_phase = PhaseType.PLAYER
 		# TODO Jamie: update UI too
 		_num_turns_left -= 1
 		_drew_cards = false
+		print("Player turn, enabling player...")
+		await get_tree().create_timer(2.0).timeout
+		_enable_player()
+		_player_phase()
 
 
 # TODO modify later
 func _on_title_screen_button_pressed() -> void:
 	print("Switching to title screen...")
-	
 	_reset_battle()
-	
 	signals.switch_scene.emit("title_screen")
 
 
 func _player_phase() -> void:
 	# TODO Jamie: reenable player button input, or probably better to do in battle phase switch signal
-	
 	# TODO code style 
 	if _lose_condition():
 		print("player lost")
@@ -78,12 +85,39 @@ func _player_phase() -> void:
 		_drew_cards = true
 
 
+func _disable_player() -> void:
+	_play_btn.disabled = true
+	
+	var card_nodes := player.hand.get_node("GridContainer").get_children()
+	
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.ENABLED:
+			curr_card_state.transition_to_disabled()
+
+
+func _enable_player() -> void:
+	_play_btn.disabled = false
+	
+	var card_nodes := player.hand.get_node("GridContainer").get_children()
+	
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.DISABLED:
+			curr_card_state.transition_to_enabled()
+
+
 func _enemy_phase() -> void:
 	if _win_condition():
 		print("player won")
 		player.did_win = true
 		_show_results()
 	else:
+		print("before enemy timeout...")
+		await get_tree().create_timer(1.0).timeout
+		print("after enemy timeout...")
 		enemy.enemy_actions()
 
 
