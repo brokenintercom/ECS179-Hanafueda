@@ -15,9 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://spec6vmqwom4" path="res://scenes/tutorial_slides/slide_12.tscn" id="13_wjmy8"]
 
 [node name="tutorial" type="CanvasLayer" node_paths=PackedStringArray("slides")]
-layer = 5
+layer = 10
 script = ExtResource("1_27bve")
-slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12"), null]
+slides = [NodePath("Slide1"), NodePath("Slide2"), NodePath("Slide3"), NodePath("Slide4"), NodePath("Slide5"), NodePath("Slide6"), NodePath("Slide7"), NodePath("Slide8"), NodePath("Slide9"), NodePath("Slide10"), NodePath("Slide11"), NodePath("Slide12")]
 
 [node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
 
