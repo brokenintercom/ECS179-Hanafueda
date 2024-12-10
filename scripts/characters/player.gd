@@ -31,6 +31,14 @@ func _ready():
 	super()
 
 
+func actions() -> void:
+	_enable_player()
+	
+	# Draw enough cards such that the player's hand would have max_hand_size cards
+	var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
+	draw_cards(num_draw)
+
+
 func draw_cards(num_draw:int):
 	num_draw = clampi(num_draw, 0, hand.max_hand_size - hand.num_cards)
 	print("Attempting to draw %d cards..." % num_draw)
@@ -58,10 +66,12 @@ func draw_cards(num_draw:int):
 
 
 func play_cards() -> void:
-	# Actually use the selected cards to perform the attack on the enemy
-	_attack()
+	_disable_player()
 	
-	_apply_synergy()  # Synergies are applied right before the end of the turn
+	# Actually use the selected cards to perform the attack on the enemy
+	await _attack()
+	
+	await _apply_synergy()  # Synergies are applied right before the end of the turn
 	
 	_finish_turn()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
@@ -83,13 +93,6 @@ func _finish_turn() -> void:
 			
 			# Deselect the card since we will play it now
 			hand.num_cards -= 1
-		else:
-			# Update the card's state
-			var curr_card_state:CardState = card.get_curr_card_state()
-			
-			# Set the not-selected card back to enabled
-			if curr_card_state.state == CardState.State.DISABLED:
-				curr_card_state.transition_to_enabled()
 	
 	super()
 
@@ -102,7 +105,7 @@ func _attack() -> void:
 		ino_shika_cho_active = false
 	
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
-
+	
 	signals.enemy_hit.emit(dmg)
 
 
@@ -123,7 +126,7 @@ func _apply_synergy() -> void:
 			return
 	
 	print("waiting delay for synergy application...")
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.5).timeout
 	# TODO Yujin: update the synergy text at this point
 
 	match synergy_to_match:
@@ -138,7 +141,7 @@ func _apply_synergy() -> void:
 			ino_shika_cho_active = true
 	
 	print("waiting more delay after synergy was applied (and text updated?)")
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.5).timeout
 
 
 func _draw_card(card:Card) -> bool:
@@ -158,17 +161,34 @@ func _draw_card(card:Card) -> bool:
 	return true
 
 
-func _on_player_hit(dmg:int) -> void:
-	await get_tree().create_timer(0.7).timeout
+func _disable_player() -> void:
+	print("disabling player...")
+	var card_nodes := hand.get_node("GridContainer").get_children()
 	
+	# Make sure all enabled cards (cards the user could've selected, but didn't) become disabled
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.ENABLED:
+			curr_card_state.transition_to_disabled()
+
+
+func _enable_player() -> void:
+	var card_nodes := hand.get_node("GridContainer").get_children()
+	
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.DISABLED:
+			curr_card_state.transition_to_enabled()
+
+func _on_player_hit(dmg:int) -> void:
 	# Internally update health
 	print("Before player hit: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
-	health_bar.update_health(curr_health)
 	print("After player hit: ", curr_health)
 	
-	await get_tree().create_timer(0.7).timeout
-	
+	health_bar.update_health(curr_health)
 
 
 func _on_player_recover_hp(amount:float) -> void:
