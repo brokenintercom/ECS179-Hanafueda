@@ -10,3 +10,4 @@ signal player_recover_hp(amount:float)
 signal next_page
 signal previous_page
 signal show_guide
+signal display_jan

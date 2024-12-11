@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6kesiltr8mx8"]
+[gd_scene load_steps=5 format=3 uid="uid://b6kesiltr8mx8"]
 
+[ext_resource type="Script" path="res://scripts/help_manager.gd" id="1_2o423"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="1_do8if"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="2_pc7ap"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_o7flw"]
@@ -15,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_2o423")
 
 [node name="box" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -314,3 +316,5 @@ theme_override_fonts/font = ExtResource("3_o7flw")
 theme_override_font_sizes/font_size = 25
 text = "December"
 autowrap_mode = 3
+
+[connection signal="pressed" from="January" to="." method="_on_january_pressed"]

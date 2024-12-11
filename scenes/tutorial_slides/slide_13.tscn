@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_f2nw2"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_s0xwr"]
 
-
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
 
