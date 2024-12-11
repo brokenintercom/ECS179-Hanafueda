@@ -1,0 +1,466 @@
+[gd_scene load_steps=53 format=3 uid="uid://n0c1tyobnane"]
+
+[ext_resource type="Script" path="res://scripts/deck_view.gd" id="1_fi3wj"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="1_r7ntb"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_32scp"]
+[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="3_1xaad"]
+[ext_resource type="Texture2D" uid="uid://cij3htec6xd8o" path="res://assets/tutorial/skinny text box.png" id="3_7oi2s"]
+[ext_resource type="Texture2D" uid="uid://cecpejvexq4hh" path="res://assets/card_sprites/jan-tanzaku.png" id="4_s2flu"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="5_qjn44"]
+[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="6_wkrdj"]
+[ext_resource type="Texture2D" uid="uid://doquaikhlaied" path="res://assets/card_sprites/feb-tanzaku.png" id="8_fms87"]
+[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/feb-animal.png" id="8_p6rwl"]
+[ext_resource type="Texture2D" uid="uid://bci56xu8i4lyx" path="res://assets/card_sprites/feb-normal-1.png" id="9_hisph"]
+[ext_resource type="Texture2D" uid="uid://cmk7inwjll7yk" path="res://assets/card_sprites/feb-normal-2.png" id="10_0kckv"]
+[ext_resource type="Texture2D" uid="uid://dy8jdemy47oje" path="res://assets/card_sprites/mar-bright.png" id="11_apkq2"]
+[ext_resource type="Texture2D" uid="uid://dgxqddwmu8if7" path="res://assets/card_sprites/mar-tanzaku.png" id="12_aljnr"]
+[ext_resource type="Texture2D" uid="uid://d01ur1mqdxhv2" path="res://assets/card_sprites/mar-normal-1.png" id="13_hy48w"]
+[ext_resource type="Texture2D" uid="uid://dadu4ai5gt8cq" path="res://assets/card_sprites/mar-normal-2.png" id="14_3d0qc"]
+[ext_resource type="Texture2D" uid="uid://d0embhatd2frk" path="res://assets/card_sprites/apr-animal.png" id="15_ku00k"]
+[ext_resource type="Texture2D" uid="uid://8ob3nf73od80" path="res://assets/card_sprites/apr-tanzaku.png" id="16_hh076"]
+[ext_resource type="Texture2D" uid="uid://cjntkw3qdkvhq" path="res://assets/card_sprites/apr-normal-1.png" id="17_iduvj"]
+[ext_resource type="Texture2D" uid="uid://dr35g46fqdovt" path="res://assets/card_sprites/apr-normal-2.png" id="18_ewg8n"]
+[ext_resource type="Texture2D" uid="uid://csjlu8ux7n0u" path="res://assets/card_sprites/may-animal.png" id="19_cd11l"]
+[ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="20_0jmdl"]
+[ext_resource type="Texture2D" uid="uid://ci323ucbp1jxw" path="res://assets/card_sprites/may-normal-1.png" id="21_1f7dd"]
+[ext_resource type="Texture2D" uid="uid://b37s8vtpadefh" path="res://assets/card_sprites/may-normal-2.png" id="22_6fe5o"]
+[ext_resource type="Texture2D" uid="uid://dkn306au380cn" path="res://assets/card_sprites/jun-animal.png" id="22_w1a1g"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="23_c612i"]
+[ext_resource type="Texture2D" uid="uid://b383e1o5p1iu6" path="res://assets/card_sprites/jun-normal-1.png" id="24_3n5fl"]
+[ext_resource type="Texture2D" uid="uid://pqkfioyi6qiv" path="res://assets/card_sprites/jun-normal-2.png" id="25_ldlxv"]
+[ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="26_y6n0a"]
+[ext_resource type="Texture2D" uid="uid://dye4skkapqudh" path="res://assets/card_sprites/jul-tanzaku.png" id="27_5e7lv"]
+[ext_resource type="Texture2D" uid="uid://bnm0tu3fjgcdu" path="res://assets/card_sprites/jul-normal-1.png" id="28_c2xmm"]
+[ext_resource type="Texture2D" uid="uid://dgmcaxjw0pmdn" path="res://assets/card_sprites/jul-normal-2.png" id="29_6heyn"]
+[ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="30_g5pjd"]
+[ext_resource type="Texture2D" uid="uid://dj1eajqk4hqw1" path="res://assets/card_sprites/aug-animal.png" id="31_npoin"]
+[ext_resource type="Texture2D" uid="uid://bx6i8lydad5cw" path="res://assets/card_sprites/aug-normal-1.png" id="32_wg26v"]
+[ext_resource type="Texture2D" uid="uid://q65ycwchd05f" path="res://assets/card_sprites/aug-normal-2.png" id="33_bjgcq"]
+[ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="34_pmhkg"]
+[ext_resource type="Texture2D" uid="uid://bop0f0inmeyfk" path="res://assets/card_sprites/sep-tanzaku.png" id="35_vcs2i"]
+[ext_resource type="Texture2D" uid="uid://c4oygd8kmaijm" path="res://assets/card_sprites/sep-normal-1.png" id="36_sbtwh"]
+[ext_resource type="Texture2D" uid="uid://cxl8io8ln2vr2" path="res://assets/card_sprites/sep-normal-2.png" id="37_e3tw6"]
+[ext_resource type="Texture2D" uid="uid://xfg0asyi4n1l" path="res://assets/card_sprites/oct-animal.png" id="38_hr85e"]
+[ext_resource type="Texture2D" uid="uid://bowbna7sqpkgq" path="res://assets/card_sprites/oct-tanzaku.png" id="39_vpe7m"]
+[ext_resource type="Texture2D" uid="uid://cu5mpfjksue0l" path="res://assets/card_sprites/oct-normal-1.png" id="40_is0di"]
+[ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="41_vad34"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="42_t2md3"]
+[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="43_og0bi"]
+[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="44_bsmtg"]
+[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="45_28nsb"]
+[ext_resource type="Texture2D" uid="uid://badwrfode8dop" path="res://assets/card_sprites/dec-bright.png" id="46_ithi8"]
+[ext_resource type="Texture2D" uid="uid://ckymnd0jr5k25" path="res://assets/card_sprites/dec-normal-1.png" id="47_e70vg"]
+[ext_resource type="Texture2D" uid="uid://c0bu4wf18pw3g" path="res://assets/card_sprites/dec-normal-2.png" id="48_if6x0"]
+[ext_resource type="Texture2D" uid="uid://btgvk2xwg7x2d" path="res://assets/card_sprites/dec-normal-3.png" id="49_sjp36"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+layer = 2
+
+[node name="DeckView" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fi3wj")
+
+[node name="bg" type="Sprite2D" parent="DeckView"]
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("1_r7ntb")
+
+[node name="big text box" type="Sprite2D" parent="DeckView"]
+position = Vector2(-273.75, 331.5)
+scale = Vector2(2.345, 2.18)
+texture = ExtResource("3_7oi2s")
+
+[node name="Label" type="Label" parent="DeckView"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = 253.0
+offset_right = 176.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 40
+text = "Grayed out cards have been used."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Done" type="Button" parent="DeckView"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 277.0
+offset_right = 742.0
+offset_bottom = 394.0
+scale = Vector2(0.8, 0.8)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 45
+text = "Done"
+
+[node name="Cards" type="HBoxContainer" parent="DeckView"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -695.0
+offset_top = -339.0
+offset_right = 2091.0
+offset_bottom = 820.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_constants/separation = 70
+alignment = 1
+
+[node name="Jan" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Jan"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Jan"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JanBright" type="TextureRect" parent="DeckView/Cards/Jan"]
+layout_mode = 2
+texture = ExtResource("3_1xaad")
+
+[node name="JanRibbon" type="TextureRect" parent="DeckView/Cards/Jan"]
+layout_mode = 2
+texture = ExtResource("4_s2flu")
+
+[node name="JanNormal1" type="TextureRect" parent="DeckView/Cards/Jan"]
+layout_mode = 2
+texture = ExtResource("5_qjn44")
+
+[node name="JanNormal2" type="TextureRect" parent="DeckView/Cards/Jan"]
+layout_mode = 2
+texture = ExtResource("6_wkrdj")
+
+[node name="Feb" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Feb"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Feb"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FebAnimal" type="TextureRect" parent="DeckView/Cards/Feb"]
+layout_mode = 2
+texture = ExtResource("8_p6rwl")
+
+[node name="FebRibbon" type="TextureRect" parent="DeckView/Cards/Feb"]
+layout_mode = 2
+texture = ExtResource("8_fms87")
+
+[node name="FebNormal1" type="TextureRect" parent="DeckView/Cards/Feb"]
+layout_mode = 2
+texture = ExtResource("9_hisph")
+
+[node name="FebNormal2" type="TextureRect" parent="DeckView/Cards/Feb"]
+layout_mode = 2
+texture = ExtResource("10_0kckv")
+
+[node name="Mar" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Mar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Mar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarBright" type="TextureRect" parent="DeckView/Cards/Mar"]
+layout_mode = 2
+texture = ExtResource("11_apkq2")
+
+[node name="MarTanzaku" type="TextureRect" parent="DeckView/Cards/Mar"]
+layout_mode = 2
+texture = ExtResource("12_aljnr")
+
+[node name="MarNormal1" type="TextureRect" parent="DeckView/Cards/Mar"]
+layout_mode = 2
+texture = ExtResource("13_hy48w")
+
+[node name="MarNormal2" type="TextureRect" parent="DeckView/Cards/Mar"]
+layout_mode = 2
+texture = ExtResource("14_3d0qc")
+
+[node name="Apr" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Apr"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Apr"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AprAnimal" type="TextureRect" parent="DeckView/Cards/Apr"]
+layout_mode = 2
+texture = ExtResource("15_ku00k")
+
+[node name="AprRibbon" type="TextureRect" parent="DeckView/Cards/Apr"]
+layout_mode = 2
+texture = ExtResource("16_hh076")
+
+[node name="AprNormal1" type="TextureRect" parent="DeckView/Cards/Apr"]
+layout_mode = 2
+texture = ExtResource("17_iduvj")
+
+[node name="AprNormal2" type="TextureRect" parent="DeckView/Cards/Apr"]
+layout_mode = 2
+texture = ExtResource("18_ewg8n")
+
+[node name="May" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/May"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "May
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MayAnimal" type="TextureRect" parent="DeckView/Cards/May"]
+layout_mode = 2
+texture = ExtResource("19_cd11l")
+
+[node name="MayRibbon" type="TextureRect" parent="DeckView/Cards/May"]
+layout_mode = 2
+texture = ExtResource("20_0jmdl")
+
+[node name="MayNormal1" type="TextureRect" parent="DeckView/Cards/May"]
+layout_mode = 2
+texture = ExtResource("21_1f7dd")
+
+[node name="MayNormal2" type="TextureRect" parent="DeckView/Cards/May"]
+layout_mode = 2
+texture = ExtResource("22_6fe5o")
+
+[node name="Jun" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Jun"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Jun"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JunAnimal" type="TextureRect" parent="DeckView/Cards/Jun"]
+layout_mode = 2
+texture = ExtResource("22_w1a1g")
+
+[node name="JunRibbon" type="TextureRect" parent="DeckView/Cards/Jun"]
+layout_mode = 2
+texture = ExtResource("23_c612i")
+
+[node name="JunNormal1" type="TextureRect" parent="DeckView/Cards/Jun"]
+layout_mode = 2
+texture = ExtResource("24_3n5fl")
+
+[node name="JunNormal2" type="TextureRect" parent="DeckView/Cards/Jun"]
+layout_mode = 2
+texture = ExtResource("25_ldlxv")
+
+[node name="Jul" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Jul"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Jul"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JulAnimal" type="TextureRect" parent="DeckView/Cards/Jul"]
+layout_mode = 2
+texture = ExtResource("26_y6n0a")
+
+[node name="JulRibbon" type="TextureRect" parent="DeckView/Cards/Jul"]
+layout_mode = 2
+texture = ExtResource("27_5e7lv")
+
+[node name="JulNormal1" type="TextureRect" parent="DeckView/Cards/Jul"]
+layout_mode = 2
+texture = ExtResource("28_c2xmm")
+
+[node name="JulNormal2" type="TextureRect" parent="DeckView/Cards/Jul"]
+layout_mode = 2
+texture = ExtResource("29_6heyn")
+
+[node name="Aug" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Aug"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Aug"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AugBright" type="TextureRect" parent="DeckView/Cards/Aug"]
+layout_mode = 2
+texture = ExtResource("30_g5pjd")
+
+[node name="AugAnimal" type="TextureRect" parent="DeckView/Cards/Aug"]
+layout_mode = 2
+texture = ExtResource("31_npoin")
+
+[node name="AugNormal1" type="TextureRect" parent="DeckView/Cards/Aug"]
+layout_mode = 2
+texture = ExtResource("32_wg26v")
+
+[node name="AugNormal2" type="TextureRect" parent="DeckView/Cards/Aug"]
+layout_mode = 2
+texture = ExtResource("33_bjgcq")
+
+[node name="Sep" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Sep"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Sep
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SepAnimal" type="TextureRect" parent="DeckView/Cards/Sep"]
+layout_mode = 2
+texture = ExtResource("34_pmhkg")
+
+[node name="SepRibbon" type="TextureRect" parent="DeckView/Cards/Sep"]
+layout_mode = 2
+texture = ExtResource("35_vcs2i")
+
+[node name="SepNormal1" type="TextureRect" parent="DeckView/Cards/Sep"]
+layout_mode = 2
+texture = ExtResource("36_sbtwh")
+
+[node name="SepNormal2" type="TextureRect" parent="DeckView/Cards/Sep"]
+layout_mode = 2
+texture = ExtResource("37_e3tw6")
+
+[node name="Oct" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Oct"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Oct"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OctAnimal" type="TextureRect" parent="DeckView/Cards/Oct"]
+layout_mode = 2
+texture = ExtResource("38_hr85e")
+
+[node name="OctRibbon" type="TextureRect" parent="DeckView/Cards/Oct"]
+layout_mode = 2
+texture = ExtResource("39_vpe7m")
+
+[node name="OctNormal1" type="TextureRect" parent="DeckView/Cards/Oct"]
+layout_mode = 2
+texture = ExtResource("40_is0di")
+
+[node name="OctNormal2" type="TextureRect" parent="DeckView/Cards/Oct"]
+layout_mode = 2
+texture = ExtResource("41_vad34")
+
+[node name="Nov" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Nov"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Nov"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NovBright" type="TextureRect" parent="DeckView/Cards/Nov"]
+layout_mode = 2
+texture = ExtResource("42_t2md3")
+
+[node name="NovAnimal" type="TextureRect" parent="DeckView/Cards/Nov"]
+layout_mode = 2
+texture = ExtResource("43_og0bi")
+
+[node name="NovRibbon" type="TextureRect" parent="DeckView/Cards/Nov"]
+layout_mode = 2
+texture = ExtResource("44_bsmtg")
+
+[node name="NovNormal" type="TextureRect" parent="DeckView/Cards/Nov"]
+layout_mode = 2
+texture = ExtResource("45_28nsb")
+
+[node name="Dec" type="VBoxContainer" parent="DeckView/Cards"]
+layout_mode = 2
+
+[node name="Month" type="Label" parent="DeckView/Cards/Dec"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_32scp")
+theme_override_font_sizes/font_size = 70
+text = "Dec"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DecBright" type="TextureRect" parent="DeckView/Cards/Dec"]
+layout_mode = 2
+texture = ExtResource("46_ithi8")
+
+[node name="DecNormal1" type="TextureRect" parent="DeckView/Cards/Dec"]
+layout_mode = 2
+texture = ExtResource("47_e70vg")
+
+[node name="DecNormal2" type="TextureRect" parent="DeckView/Cards/Dec"]
+layout_mode = 2
+texture = ExtResource("48_if6x0")
+
+[node name="DecNormal3" type="TextureRect" parent="DeckView/Cards/Dec"]
+layout_mode = 2
+texture = ExtResource("49_sjp36")
+
+[connection signal="pressed" from="DeckView/Done" to="DeckView" method="_on_done_pressed"]

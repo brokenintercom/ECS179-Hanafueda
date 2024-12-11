@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="12_vcdsx"]
 [ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="13_fp7wc"]
 [ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="13_h78jn"]
-[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/feb-animal.png" id="14_4xm7f"]
+[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/JunRibbon.png" id="14_4xm7f"]
 [ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="15_rhj7d"]
 [ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="16_705au"]
 [ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="17_0wnoo"]

@@ -7,6 +7,7 @@ const GRAY := Color.WEB_GRAY
 @export var month:CardSpec.Month
 @export var type:CardSpec.Type
 @export var synergy:CardSpec.Synergy
+var index := -1  # Index within its month
 @onready var highlight:Sprite2D = $Highlight
 @onready var state_machine:CardStateMachine = $CardStateMachine
 
@@ -34,6 +35,7 @@ func update_card(spec:CardSpec) -> void:
 	type = spec.type
 	synergy = spec.synergy
 	texture_normal = spec.texture
+	index = spec.index
 
 
 func disable_input() -> void:
