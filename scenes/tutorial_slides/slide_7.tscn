@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c8bhhhofiptj1"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_8hj1k"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_8hj1k"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_pbnud"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_f54u0"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_01p68"]
@@ -38,8 +38,7 @@ offset_right = 448.0
 offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_8hj1k")
 theme_override_font_sizes/font_size = 40
 text = "And Animal Cards that have an animal on them!"
@@ -85,8 +84,7 @@ offset_right = 464.0
 offset_bottom = -729.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_8hj1k")
 theme_override_font_sizes/font_size = 38
 text = "November Animal Card"

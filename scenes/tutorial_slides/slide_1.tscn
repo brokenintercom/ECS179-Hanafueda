@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://8eep0f7l71kk"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_4ynjf"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_4ynjf"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_u24fd"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_3nk8g"]
 [ext_resource type="Texture2D" uid="uid://ceaii0dr7vpjr" path="res://assets/tutorial/Player Health.PNG" id="3_5h1lc"]
@@ -39,8 +39,7 @@ offset_right = 408.0
 offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4ynjf")
 theme_override_font_sizes/font_size = 40
 text = "Looks like you found yourself in a high-risk game of HanaFEUDa, where you gotta defeat your opponent before THEY defeat YOU! 
@@ -87,8 +86,7 @@ offset_right = 280.0
 offset_bottom = -657.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4ynjf")
 theme_override_font_sizes/font_size = 35
 text = "The Enemy's Health"
@@ -114,8 +112,7 @@ offset_right = 272.0
 offset_bottom = -497.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_4ynjf")
 theme_override_font_sizes/font_size = 35
 text = "Your Health

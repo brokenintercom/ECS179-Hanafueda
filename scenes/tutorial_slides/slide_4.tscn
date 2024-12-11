@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://fgyvbmstf5ml"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_cfham"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="2_15y71"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_15y71"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_pxc1u"]
 [ext_resource type="Texture2D" uid="uid://d0embhatd2frk" path="res://assets/card_sprites/apr-animal.png" id="3_10320"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_ywqud"]
@@ -49,8 +49,7 @@ offset_right = 392.0
 offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_15y71")
 theme_override_font_sizes/font_size = 40
 text = "The deck is made up of 48 cards, each one assigned with a Month of the year and a type.

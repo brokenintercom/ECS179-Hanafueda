@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://dgfh4bygff62d"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="1_2l5hc"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2l5hc"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_q7r5k"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_keo7w"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_pg8qc"]
@@ -45,8 +45,7 @@ offset_right = 368.0
 offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 42
 text = "Not all months have the same number of type cards, with Normals being more common than animal and ribbon cards.
@@ -117,8 +116,7 @@ offset_right = 631.0
 offset_bottom = -710.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 35
 text = "June Cards have 2 Normals, 1 Ribbon, and 1 Animal Card"
@@ -168,8 +166,7 @@ offset_right = 631.0
 offset_bottom = -438.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 35
 text = "November Cards have 1 Normal, 1 Ribbon, 1 Animal, and 1 Bright Card"
