@@ -23,6 +23,7 @@ card_spec_factory="*res://scripts/card/card_spec_factory.gd"
 player="*res://scenes/player.tscn"
 enemy="*res://scenes/enemy.tscn"
 tutorial="*res://scripts/tutorial/tutorial_slide_selector.gd"
+help_menu="*res://scripts/help/help_manager.gd"
 
 [display]
 

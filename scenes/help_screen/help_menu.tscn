@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cqmkahscombh2"]
+[gd_scene load_steps=15 format=3 uid="uid://cqmkahscombh2"]
 
 [ext_resource type="PackedScene" uid="uid://b6kesiltr8mx8" path="res://scenes/help_screen/help_base.tscn" id="1_2cwla"]
 [ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/card_displays/jan_cards.tscn" id="1_4n2rx"]
+[ext_resource type="Script" path="res://scripts/help/help_manager.gd" id="1_bnkkb"]
 [ext_resource type="PackedScene" uid="uid://pp8ebcowkx0u" path="res://scenes/help_screen/card_displays/feb_cards.tscn" id="2_araxl"]
 [ext_resource type="PackedScene" uid="uid://b5csqnwtpgvvc" path="res://scenes/help_screen/card_displays/mar_cards.tscn" id="3_6gp77"]
 [ext_resource type="PackedScene" uid="uid://cos1kdqqwjux4" path="res://scenes/help_screen/card_displays/apr_cards.tscn" id="4_3goy5"]
@@ -14,7 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://c2pubnf3drwji" path="res://scenes/help_screen/card_displays/nov_cards.tscn" id="11_qd5d0"]
 [ext_resource type="PackedScene" uid="uid://cf4uf614u4uah" path="res://scenes/help_screen/card_displays/dec_cards.tscn" id="12_54vmf"]
 
-[node name="Control" type="CanvasLayer"]
+[node name="HelpMenu" type="CanvasLayer" node_paths=PackedStringArray("displays")]
+script = ExtResource("1_bnkkb")
+displays = [NodePath("jan_cards"), NodePath("feb_cards"), NodePath("mar_cards"), NodePath("apr_cards"), NodePath("may_cards"), NodePath("jun_cards"), NodePath("jul_cards"), NodePath("aug_cards"), NodePath("sept_cards"), NodePath("oct_cards"), NodePath("nov_Cards"), NodePath("dec_cards")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0

@@ -8,7 +8,8 @@ var current_slide:int = 0
 func _ready():
 	signals.next_page.connect(_next_page)
 	signals.previous_page.connect(_previous_page)
-	
+
+	# Set every slide to !visible at the beginning
 	for slide in slides:
 		if slide != null:
 			slide.visible = false

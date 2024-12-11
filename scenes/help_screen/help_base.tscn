@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6kesiltr8mx8"]
 
-[ext_resource type="Script" path="res://scripts/help_manager.gd" id="1_2o423"]
+[ext_resource type="Script" path="res://scripts/help/help_buttons.gd" id="1_2o423"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="1_do8if"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="2_pc7ap"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_o7flw"]
@@ -318,3 +318,14 @@ text = "December"
 autowrap_mode = 3
 
 [connection signal="pressed" from="January" to="." method="_on_january_pressed"]
+[connection signal="pressed" from="February" to="." method="_on_february_pressed"]
+[connection signal="pressed" from="March" to="." method="_on_march_pressed"]
+[connection signal="pressed" from="April" to="." method="_on_april_pressed"]
+[connection signal="pressed" from="May" to="." method="_on_may_pressed"]
+[connection signal="pressed" from="June" to="." method="_on_june_pressed"]
+[connection signal="pressed" from="July" to="." method="_on_july_pressed"]
+[connection signal="pressed" from="August" to="." method="_on_august_pressed"]
+[connection signal="pressed" from="September" to="." method="_on_september_pressed"]
+[connection signal="pressed" from="October" to="." method="_on_october_pressed"]
+[connection signal="pressed" from="November" to="." method="_on_november_pressed"]
+[connection signal="pressed" from="December" to="." method="_on_december_pressed"]

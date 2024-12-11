@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bag2adxxdkftd"]
+[gd_scene load_steps=26 format=3 uid="uid://bag2adxxdkftd"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2oupu"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_twjpw"]
@@ -26,19 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="20_n3gxv"]
 [ext_resource type="Texture2D" uid="uid://4efqyu13c2ny" path="res://assets/tutorial/info_button.png" id="23_caraq"]
 
-
-[sub_resource type="Animation" id="Animation_hhevb"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_hrrya"]
-resource_name = "show"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3ci4"]
-_data = {
-"RESET": SubResource("Animation_hhevb"),
-"show": SubResource("Animation_hrrya")
-}
-
 [node name="Slide10" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -56,12 +43,6 @@ texture = ExtResource("2_vd24u")
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
 texture = ExtResource("3_ejs61")
-
-[node name="show_text" type="AnimationPlayer" parent="."]
-root_node = NodePath("")
-libraries = {
-"": SubResource("AnimationLibrary_k3ci4")
-}
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
