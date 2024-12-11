@@ -77,26 +77,68 @@ func play_cards() -> void:
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
-func _finish_turn() -> void:
-	await _apply_synergy()  # Synergies are applied right before the end of the turn
+func reset() -> void:
+	# Update health
+	super()
+	
+	# Update hand
+	hand.max_hand_size = 8
+	hand.num_cards = 0
+	hand.category_match = Hand.Match.NONE
+	hand.running_month = CardSpec.Month.NONE
+	hand.running_type = CardSpec.Type.NONE
+	hand.visible = false
 	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
-	# Handle the selected cards
 	for card in card_nodes:
-		if card.is_selected():
-			# Extract the spec form of the card
-			var spec_version := CardSpecFactory.card_to_spec(card)
-			
-			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
-			
-			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
-			# TODO could turn the above line into another wrapper function
-			
-			# Deselect the card since we will play it now
-			hand.num_cards -= 1
+		if not card.is_empty():
+			card.get_curr_card_state().transition_to_empty()
 	
-	super()
+	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
+	deck = Deck.new()
+	
+	if _synergy_ui != null:
+		_synergy_ui.get_node("Label").text = "None"
+
+
+func _disable_player() -> void:
+	print("disabling player...")
+	var card_nodes := hand.get_node("GridContainer").get_children()
+	
+	# Make sure all enabled cards (cards the user could've selected, but didn't) become disabled
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.ENABLED:
+			curr_card_state.transition_to_disabled()
+
+
+func _enable_player() -> void:
+	var card_nodes := hand.get_node("GridContainer").get_children()
+	
+	for card in card_nodes:
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if curr_card_state.state == CardState.State.DISABLED:
+			curr_card_state.transition_to_enabled()
+
+
+func _draw_card(card:Card) -> bool:
+	# Double-check before trying to taking an element from the deck
+	# Return whether or not drawing the card was successful
+	if deck.is_empty():
+		return false
+	
+	var new_card = deck.draw_card()
+	
+	# Fill in empty spot with the new card spec
+	if card.is_empty():
+		card.get_curr_card_state().transition_to_enabled(new_card)
+		
+	hand.num_cards += 1
+	
+	return true
 
 
 func _attack() -> void:
@@ -147,43 +189,26 @@ func _apply_synergy() -> void:
 	await get_tree().create_timer(1.2).timeout
 
 
-func _draw_card(card:Card) -> bool:
-	# Double-check before trying to taking an element from the deck
-	# Return whether or not drawing the card was successful
-	if deck.is_empty():
-		return false
+func _finish_turn() -> void:
+	await _apply_synergy()  # Synergies are applied right before the end of the turn
 	
-	var new_card = deck.draw_card()
-	
-	# Fill in empty spot with the new card spec
-	if card.is_empty():
-		card.get_curr_card_state().transition_to_enabled(new_card)
-		
-	hand.num_cards += 1
-	
-	return true
-
-
-func _disable_player() -> void:
-	print("disabling player...")
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
-	# Make sure all enabled cards (cards the user could've selected, but didn't) become disabled
+	# Handle the selected cards
 	for card in card_nodes:
-		var curr_card_state:CardState = card.get_curr_card_state()
-		
-		if curr_card_state.state == CardState.State.ENABLED:
-			curr_card_state.transition_to_disabled()
-
-
-func _enable_player() -> void:
-	var card_nodes := hand.get_node("GridContainer").get_children()
+		if card.is_selected():
+			# Extract the spec form of the card
+			var spec_version := CardSpecFactory.card_to_spec(card)
+			
+			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
+			
+			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
+			# TODO could turn the above line into another wrapper function
+			
+			# Deselect the card since we will play it now
+			hand.num_cards -= 1
 	
-	for card in card_nodes:
-		var curr_card_state:CardState = card.get_curr_card_state()
-		
-		if curr_card_state.state == CardState.State.DISABLED:
-			curr_card_state.transition_to_enabled()
+	super()
 
 
 func _on_battle_scene_loaded(synergy_ui:Node2D) -> void:
@@ -209,29 +234,3 @@ func _on_player_recover_hp(amount:float) -> void:
 		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
 		await health_bar.update_health(curr_health)
 		print("After player heal: ", curr_health)
-
-
-func reset() -> void:
-	# Update health
-	super()
-	
-	# Update hand
-	hand.max_hand_size = 8
-	hand.num_cards = 0
-	hand.category_match = Hand.Match.NONE
-	hand.running_month = CardSpec.Month.NONE
-	hand.running_type = CardSpec.Type.NONE
-	hand.visible = false
-	
-	var card_nodes := hand.get_node("GridContainer").get_children()
-	
-	for card in card_nodes:
-		if not card.is_empty():
-			card.get_curr_card_state().transition_to_empty()
-	
-	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
-	deck = Deck.new()
-	
-	if _synergy_ui != null:
-		_synergy_ui.get_node("Label").text = "None"
-	

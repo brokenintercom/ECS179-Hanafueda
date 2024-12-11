@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj5id2qqtq3h4"]
+[gd_scene load_steps=9 format=3 uid="uid://dj5id2qqtq3h4"]
 
 [ext_resource type="PackedScene" uid="uid://b37px5yamuk8i" path="res://scenes/hand.tscn" id="1_5gh7w"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_bs5ar"]
 [ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/healthbar.tscn" id="3_jfvdn"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="3_spis3"]
 [ext_resource type="PackedScene" uid="uid://bdi3ywqh32rxc" path="res://scenes/player_effect.tscn" id="5_xykok"]
+[ext_resource type="PackedScene" uid="uid://dym3lkpths880" path="res://scenes/synergy.tscn" id="6_d4ryk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1td1v"]
 atlas = ExtResource("3_spis3")
@@ -40,3 +41,7 @@ texture = SubResource("AtlasTexture_rt5gt")
 
 [node name="PlayerEffect" parent="." instance=ExtResource("5_xykok")]
 position = Vector2(249, 926)
+
+[node name="Synergy" parent="." instance=ExtResource("6_d4ryk")]
+unique_name_in_owner = true
+position = Vector2(246, -768)

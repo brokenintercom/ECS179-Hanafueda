@@ -52,7 +52,6 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_mu
 static func _calc_month_bonus_dmg(num_selected:int) -> int:
 	# Extra 3 damage for every matching month card
 	return (num_selected - 1) * 3
-	
 
 
 static func _calc_type_bonus_dmg(type:CardSpec.Type, num_selected:int) -> int:

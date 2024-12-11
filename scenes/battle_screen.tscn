@@ -1971,7 +1971,6 @@ animations = [{
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_m0yuu")
-_num_turns_left = 10
 
 [node name="tutorial" parent="." instance=ExtResource("3_g6onw")]
 

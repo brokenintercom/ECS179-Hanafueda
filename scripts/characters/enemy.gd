@@ -4,11 +4,11 @@ extends Character
 @export var base_atk:int
 
 
-# TODO can access player as a global -- simplpy do "player"
 func _ready() -> void:
 	super()
 	signals.enemy_hit.connect(_on_enemy_hit)
 	
+	# TODO
 	# reset enemy healthbar color to red
 	#var sb = StyleBoxFlat.new()
 	#health_bar.add_theme_stylebox_override("fill", sb)
