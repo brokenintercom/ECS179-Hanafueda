@@ -1,15 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqmkahscombh2"]
+[gd_scene load_steps=4 format=3 uid="uid://cqmkahscombh2"]
 
 [ext_resource type="PackedScene" uid="uid://b6kesiltr8mx8" path="res://scenes/help_screen/help_base.tscn" id="1_2cwla"]
-[ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/jan_cards.tscn" id="1_4n2rx"]
+[ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/card_displays/jan_cards.tscn" id="1_4n2rx"]
+[ext_resource type="PackedScene" uid="uid://pp8ebcowkx0u" path="res://scenes/help_screen/card_displays/feb_cards.tscn" id="2_araxl"]
 
 [node name="Control" type="CanvasLayer"]
 
-[node name="CardDisplay" parent="." instance=ExtResource("1_4n2rx")]
-offset_left = 256.0
-offset_top = -284.0
-offset_right = 256.0
-offset_bottom = -284.0
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.364706)
+
+[node name="jan_cards" parent="." instance=ExtResource("1_4n2rx")]
+offset_left = 253.0
+offset_top = -278.0
+offset_right = 253.0
+offset_bottom = -278.0
+
+[node name="feb_cards" parent="." instance=ExtResource("2_araxl")]
+offset_left = 253.0
+offset_top = -277.0
+offset_right = 253.0
+offset_bottom = -277.0
 
 [node name="HelpBase" parent="." instance=ExtResource("1_2cwla")]
 offset_left = -336.0

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="6_n32te"]
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="7_y5sio"]
 
-[node name="CardDisplay" type="Control"]
+[node name="jan_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
