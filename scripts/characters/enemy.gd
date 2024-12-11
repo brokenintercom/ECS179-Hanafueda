@@ -15,14 +15,22 @@ func _ready() -> void:
 	#sb.bg_color = Color("f44355")
 	
 	health_bar.init_health(max_health)
-	print("enemy starting health ", max_health)
 
 
 func actions():
-	signals.player_hit.emit(base_atk * atk_multiplier)
+	var dmg_taken := max_health - curr_health
+	var random_factor := randf_range(0.1, 0.3)
+	var damage:int = max(3, int(dmg_taken * random_factor))
+	
+	signals.player_hit.emit(damage * atk_multiplier)
+	
 	# TODO Chris: enemy needs to randomly decide whether to do an effect or not
 	# TODO if yes, then pick between debuffing attack, damage it takes next turn, shrink hand, etc.
 	_finish_turn()
+
+
+func _finish_turn() -> void:
+	super()
 
 
 func _on_enemy_hit(dmg:int) -> void:

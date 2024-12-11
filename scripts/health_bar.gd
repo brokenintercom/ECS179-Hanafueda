@@ -11,7 +11,8 @@ var health:int
 func update_health(new_health):
 	var prev_health = health
 	
-	health = min(max_value, new_health)
+	# TODO old: health = min(max_value, new_health)
+	health = clampi(new_health, 0, max_value)
 	value = health
 	
 	await get_tree().create_timer(0.3).timeout
@@ -30,6 +31,7 @@ func init_health(_health):
 	value = health
 	dmg_bar.max_value = health
 	dmg_bar.value = health
+
 
 func _on_timer_timeout() -> void:
 	dmg_bar.value = health

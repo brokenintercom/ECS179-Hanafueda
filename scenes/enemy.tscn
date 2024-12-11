@@ -17,7 +17,7 @@ region = Rect2(795, 30, 45, 42)
 position = Vector2(58, 40)
 script = ExtResource("1_bi4tv")
 base_atk = 10
-max_health = 80
+max_health = 100
 
 [node name="HealthBarBG" type="Sprite2D" parent="."]
 position = Vector2(199, 45)

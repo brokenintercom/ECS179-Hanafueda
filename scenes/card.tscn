@@ -12,17 +12,6 @@
 custom_minimum_size = Vector2(168, 268)
 script = ExtResource("1_r3fpk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-z_index = -1
-layout_mode = 0
-offset_left = -12.0
-offset_top = -8.0
-offset_right = 180.0
-offset_bottom = 278.0
-mouse_filter = 2
-color = Color(0, 0.597299, 0.597681, 1)
-
 [node name="CardStateMachine" type="Node" parent="."]
 script = ExtResource("3_xl3h2")
 

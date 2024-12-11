@@ -11,9 +11,11 @@ var ino_shika_cho_active := false
 var did_win := false
 
 @onready var hand := %Hand  # Hand of cards
+var _synergy_ui:Node2D
 
 
 func _ready():
+	signals.battle_scene_loaded.connect(_on_battle_scene_loaded)
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
 	
@@ -21,18 +23,19 @@ func _ready():
 	heal_eff = HealEffect.new()
 	atk_buff_eff = AttackBuffEffect.new()
 	block_eff = BlockEffect.new()
-
-
-	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
 	
 	health_bar.init_health(max_health)
-	print("player starting health ", max_health)
 
 	super()
 
 
 func actions() -> void:
 	_enable_player()
+	
+	if ino_shika_cho_active:
+		_synergy_ui.get_node("Label").text = "x2 attack this turn"
+	else:
+		_synergy_ui.get_node("Label").text = "None"
 	
 	# Draw enough cards such that the player's hand would have max_hand_size cards
 	var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
@@ -70,14 +73,13 @@ func play_cards() -> void:
 	
 	# Actually use the selected cards to perform the attack on the enemy
 	await _attack()
-	
-	await _apply_synergy()  # Synergies are applied right before the end of the turn
-	
-	_finish_turn()
+	await _finish_turn()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
 func _finish_turn() -> void:
+	await _apply_synergy()  # Synergies are applied right before the end of the turn
+	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
 	# Handle the selected cards
@@ -111,37 +113,38 @@ func _attack() -> void:
 
 func _apply_synergy() -> void:
 	var num_selected := len(selected_cards)
+	var synergy_to_match := CardSpec.Synergy.NONE if num_selected == 0 else selected_cards[0].synergy
 	
-	# TODO may have to modify if no longer synergies that are only 3 cards
-	if num_selected != CardSpec.MAX_SYNERGY_CARDS:
+	if num_selected != CardSpec.MAX_SYNERGY_CARDS or synergy_to_match == CardSpec.Synergy.NONE:
+		_synergy_ui.get_node("Label").text = "None"
 		return
 	
-	var synergy_to_match := selected_cards[0].synergy
 	print("synergy_to_match: ", CardSpec.Synergy.keys()[synergy_to_match])
 	
 	for i in range(1, num_selected):
 		# TODO there's no matches_syergy for CardSpec, only for Card
 		if not selected_cards[i].synergy == synergy_to_match:
-			print("No synergy")
+			_synergy_ui.get_node("Label").text = "None"
 			return
 	
-	print("waiting delay for synergy application...")
+	print("check synergy_to_match timer 0.5")
 	await get_tree().create_timer(0.5).timeout
-	# TODO Yujin: update the synergy text at this point
 
+	# TODO Yujin update for scenario where 2 effects at same time
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
-			print("BLUE RIBBON SYNERGY: nullify damage")
+			_synergy_ui.get_node("Label").text = "Nullify dmg"
 			block_eff.apply(enemy, 0.0)
 		CardSpec.Synergy.POETRY_RIBBON:
-			print("POETRY RIBBON SYNERGY: heal 20% of health back, with floor for integer values")
+			_synergy_ui.get_node("Label").text = "Heal 20%"
 			heal_eff.apply(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
+			_synergy_ui.get_node("Label").text = "x2 attack next turn"
 			print("INO SHIKA CHO SYNERGY: apply x2 damage for *next* attack")  # TODO player's next turn
 			ino_shika_cho_active = true
 	
-	print("waiting more delay after synergy was applied (and text updated?)")
-	await get_tree().create_timer(0.5).timeout
+	print("synergy additional timer 1.2")
+	await get_tree().create_timer(1.2).timeout
 
 
 func _draw_card(card:Card) -> bool:
@@ -182,13 +185,21 @@ func _enable_player() -> void:
 		if curr_card_state.state == CardState.State.DISABLED:
 			curr_card_state.transition_to_enabled()
 
+
+func _on_battle_scene_loaded(synergy_ui:Node2D) -> void:
+	_synergy_ui = synergy_ui
+
+
 func _on_player_hit(dmg:int) -> void:
+	if dmg == 0:
+		return
+	
 	# Internally update health
 	print("Before player hit: ", curr_health)
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	print("After player hit: ", curr_health)
 	
-	health_bar.update_health(curr_health)
+	await health_bar.update_health(curr_health)
 
 
 func _on_player_recover_hp(amount:float) -> void:
@@ -196,7 +207,7 @@ func _on_player_recover_hp(amount:float) -> void:
 		# Increase by integer amount, not float
 		print("Before player heal: ", curr_health)
 		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
-		health_bar.health = curr_health
+		await health_bar.update_health(curr_health)
 		print("After player heal: ", curr_health)
 
 
@@ -220,4 +231,7 @@ func reset() -> void:
 	
 	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
 	deck = Deck.new()
+	
+	if _synergy_ui != null:
+		_synergy_ui.get_node("Label").text = "None"
 	

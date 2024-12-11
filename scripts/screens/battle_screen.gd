@@ -12,10 +12,12 @@ enum PhaseType {
 
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
+@onready var synergy_ui := %Synergy
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	signals.battle_scene_loaded.emit(synergy_ui)
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 	tutorial.visible = true
 	player.hand.visible = true
@@ -24,7 +26,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	player.deck.shuffle()
+	#player.deck.shuffle()
 	_player_phase()
 
 
@@ -43,9 +45,9 @@ func _process(_delta: float) -> void:
 
 
 func _on_switch_battle_phase() -> void:
-	print("switching phases")
+	print("switching phases timeout 0.5")
 	# Delay before switching
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.5).timeout
 	
 	# Player turn just ended
 	if _curr_phase == PhaseType.PLAYER: # swtich to ENEMY turn
@@ -87,12 +89,9 @@ func _player_phase() -> void:
 
 func _enemy_phase() -> void:
 	if _win_condition():
-		print("player won")
 		player.did_win = true
 		_show_results()
 	else:
-		print("before enemy timeout...")
-		print("after enemy timeout...")
 		enemy.actions()
 
 
@@ -114,8 +113,6 @@ func _reset_battle() -> void:
 
 
 func _win_condition() -> bool:
-	print("win condition -- check curr_health: ", enemy.curr_health <= 0)
-	print("enemy curr health: ", enemy.curr_health)
 	return enemy.curr_health <= 0
 
 

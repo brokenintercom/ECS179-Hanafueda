@@ -2005,6 +2005,7 @@ offset_bottom = 1120.0
 grow_vertical = 0
 
 [node name="Synergy" parent="Control" instance=ExtResource("5_yi53n")]
+unique_name_in_owner = true
 position = Vector2(246, -768)
 
 [node name="PlayCardsButton" type="Button" parent="Control"]
