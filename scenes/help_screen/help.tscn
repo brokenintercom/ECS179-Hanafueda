@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqmkahscombh2"]
+
+[ext_resource type="PackedScene" uid="uid://byjdc0ucd0wx3" path="res://scenes/sidebar.tscn" id="1_1ja8j"]
+[ext_resource type="PackedScene" uid="uid://b6kesiltr8mx8" path="res://scenes/help_screen/help_base.tscn" id="1_2cwla"]
+[ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/card_display.tscn" id="1_4n2rx"]
+[ext_resource type="PackedScene" uid="uid://dg3r32qr53ron" path="res://scenes/table.tscn" id="2_4limc"]
+
+[node name="Control" type="CanvasLayer"]
+
+[node name="SidebarBackground" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 501.0
+offset_bottom = 1080.0
+color = Color(0.258824, 0.0117647, 0.00784314, 1)
+
+[node name="Sidebar" parent="SidebarBackground" instance=ExtResource("1_1ja8j")]
+position = Vector2(8, 0)
+
+[node name="Table" parent="." instance=ExtResource("2_4limc")]
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.363)
+
+[node name="CardDisplay" parent="." instance=ExtResource("1_4n2rx")]
+offset_left = 256.0
+offset_top = -284.0
+offset_right = 256.0
+offset_bottom = -284.0
+
+[node name="HelpBase" parent="." instance=ExtResource("1_2cwla")]
+offset_left = -336.0
+offset_top = 4.0
+offset_right = -336.0
+offset_bottom = 4.0
