@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqmkahscombh2"]
 
 [ext_resource type="PackedScene" uid="uid://b6kesiltr8mx8" path="res://scenes/help_screen/help_base.tscn" id="1_2cwla"]
-[ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/card_display.tscn" id="1_4n2rx"]
+[ext_resource type="PackedScene" uid="uid://fk4udfktjafx" path="res://scenes/help_screen/jan_cards.tscn" id="1_4n2rx"]
 
 [node name="Control" type="CanvasLayer"]
 
