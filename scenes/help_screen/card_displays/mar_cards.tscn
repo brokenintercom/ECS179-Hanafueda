@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d01ur1mqdxhv2" path="res://assets/card_sprites/mar-normal-1.png" id="6_qexal"]
 [ext_resource type="Texture2D" uid="uid://dadu4ai5gt8cq" path="res://assets/card_sprites/mar-normal-2.png" id="7_ngv23"]
 
-[node name="feb_cards" type="Control"]
+[node name="mar_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

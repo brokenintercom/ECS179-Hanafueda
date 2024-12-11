@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="6_vseft"]
 [ext_resource type="Texture2D" uid="uid://cu5mpfjksue0l" path="res://assets/card_sprites/oct-normal-1.png" id="7_q3lr3"]
 
-[node name="feb_cards" type="Control"]
+[node name="oct_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

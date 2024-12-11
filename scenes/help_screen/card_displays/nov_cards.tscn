@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="6_y7k64"]
 [ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="7_vudmq"]
 
-[node name="feb_cards" type="Control"]
+[node name="nov_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
