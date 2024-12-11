@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyojgoginv1ht"]
+[gd_scene load_steps=8 format=3 uid="uid://dyojgoginv1ht"]
 
 [ext_resource type="Texture2D" uid="uid://8rca8elstfks" path="res://assets/help_menu/card_display.png" id="1_6ycs8"]
 [ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="2_7m3ad"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_1ynw8"]
 [ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="4_1oldn"]
+[ext_resource type="Texture2D" uid="uid://csjlu8ux7n0u" path="res://assets/card_sprites/may-animal.png" id="4_g1edb"]
 [ext_resource type="Texture2D" uid="uid://b37s8vtpadefh" path="res://assets/card_sprites/may-normal-2.png" id="5_4notx"]
 [ext_resource type="Texture2D" uid="uid://ci323ucbp1jxw" path="res://assets/card_sprites/may-normal-1.png" id="6_hgyf4"]
 
-[node name="feb_cards" type="Control"]
+[node name="may_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,6 +41,7 @@ vertical_alignment = 1
 [node name="animal" type="Sprite2D" parent="."]
 position = Vector2(-260, 30)
 scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_g1edb")
 
 [node name="text_ribbon" type="Sprite2D" parent="."]
 position = Vector2(-90, -93)

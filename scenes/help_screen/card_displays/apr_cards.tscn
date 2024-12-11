@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cjntkw3qdkvhq" path="res://assets/card_sprites/apr-normal-1.png" id="6_8p7r1"]
 [ext_resource type="Texture2D" uid="uid://dr35g46fqdovt" path="res://assets/card_sprites/apr-normal-2.png" id="7_1rkon"]
 
-[node name="feb_cards" type="Control"]
+[node name="apr_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
