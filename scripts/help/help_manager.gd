@@ -5,6 +5,7 @@ extends CanvasLayer
 var curr_display:int = 0
 
 func _ready() -> void:
+	signals.show_guide.connect(_show_guide)
 	signals.display_jan.connect(_display_jan)
 	signals.display_feb.connect(_display_feb)
 	signals.display_mar.connect(_display_mar)
@@ -23,6 +24,13 @@ func _ready() -> void:
 		if display != null:
 			display.visible = false
 	
+func _show_guide() -> void:
+	print("clicked guide")
+	if self.visible == false:
+		self.visible = true
+	else:
+		self.visible = false
+
 # When the player clicks the January button, show the january cards display
 func _display_jan() -> void:
 	curr_display = 0
@@ -154,3 +162,12 @@ func _display_dec() -> void:
 				displays[curr_display].visible = true
 			else:
 				displays[index].visible = false
+
+
+func _on_help_button_pressed() -> void:
+	
+	for display in displays:
+		if display != null:
+			display.visible = false
+			
+	signals.show_guide.emit()
