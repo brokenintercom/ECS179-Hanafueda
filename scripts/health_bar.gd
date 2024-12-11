@@ -35,6 +35,7 @@ func update_health(new_health:int):
 	
 	await get_tree().create_timer(1.5).timeout
 
+
 func _on_timer_timeout() -> void:
 	dmg_bar.value = health
 

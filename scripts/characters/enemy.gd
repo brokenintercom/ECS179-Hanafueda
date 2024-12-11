@@ -8,7 +8,6 @@ func _ready() -> void:
 	signals.enemy_hit.connect(_on_enemy_hit)
 	
 	health_bar.init_health(max_health)
-	print("enemy starting health ", max_health)
 	
 	super()
 

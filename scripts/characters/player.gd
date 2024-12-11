@@ -21,14 +21,8 @@ func _ready():
 	heal_eff = HealEffect.new()
 	atk_buff_eff = AttackBuffEffect.new()
 	block_eff = BlockEffect.new()
-	
-	# make player healthbar green
-	#health_bar.add_theme_stylebox_override("fill", sb)
 
-	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
-	
 	health_bar.init_health(max_health)
-	print("player starting health ", max_health)
 
 	super()
 
@@ -205,9 +199,7 @@ func _finish_turn() -> void:
 			_discard_pile.append(spec_version)  # Will enter the discard pile shortly after being played
 			
 			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
-			# TODO could turn the above line into another wrapper function
 			
-			# Deselect the card since we will play it now
 			hand.num_cards -= 1
 	
 	super()
@@ -215,7 +207,6 @@ func _finish_turn() -> void:
 
 func _on_battle_scene_loaded(synergy_ui:Node2D) -> void:
 	_synergy_ui = synergy_ui
-
 
 
 func _on_player_hit(dmg:int) -> void:
