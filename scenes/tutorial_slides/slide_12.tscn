@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_w7gni"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="3_yctfg"]
 
+
 [node name="Slide12" type="Control"]
 layout_mode = 3
 anchors_preset = 15

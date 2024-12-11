@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_2jbvg"]
 [ext_resource type="Script" path="res://scripts/custom_label.gd" id="3_dkpss"]
 
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_06q3a"]
 atlas = ExtResource("1_aujd4")
 region = Rect2(24, 264, 291, 93)

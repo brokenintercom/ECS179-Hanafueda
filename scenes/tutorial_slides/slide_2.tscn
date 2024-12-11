@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_l7gkh"]
 [ext_resource type="Texture2D" uid="uid://82rabbn8og55" path="res://assets/tutorial/play_button.png" id="6_t6nv2"]
 
+
 [node name="Slide2" type="Control"]
 layout_mode = 3
 anchors_preset = 15

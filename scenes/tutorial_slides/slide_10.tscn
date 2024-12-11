@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="20_n3gxv"]
 [ext_resource type="Texture2D" uid="uid://4efqyu13c2ny" path="res://assets/tutorial/info_button.png" id="23_caraq"]
 
+
 [sub_resource type="Animation" id="Animation_hhevb"]
 length = 0.001
 

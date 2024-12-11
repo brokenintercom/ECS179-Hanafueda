@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6kesiltr8mx8"]
+[gd_scene load_steps=4 format=3 uid="uid://b6kesiltr8mx8"]
 
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="1_do8if"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="2_pc7ap"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_o7flw"]
 
 [node name="HelpBase" type="Control"]
 layout_mode = 3
@@ -14,6 +16,97 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="box" type="Sprite2D" parent="."]
 rotation = 1.5708
 texture = ExtResource("1_do8if")
+
+[node name="damage" type="Sprite2D" parent="."]
+position = Vector2(0, -435)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_pc7ap")
+
+[node name="Label" type="Label" parent="damage"]
+offset_left = -145.0
+offset_top = -19.0
+offset_right = 143.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_o7flw")
+theme_override_font_sizes/font_size = 35
+text = "Card Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="October" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 300.0
+offset_right = 82.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o7flw")
+theme_override_font_sizes/font_size = 30
+text = "October
+"
+autowrap_mode = 3
+
+[node name="November" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = 359.0
+offset_right = 79.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o7flw")
+theme_override_font_sizes/font_size = 30
+text = "November
+"
+autowrap_mode = 3
+
+[node name="December" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 413.0
+offset_right = 80.0
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o7flw")
+theme_override_font_sizes/font_size = 30
+text = "December"
+autowrap_mode = 3
+
+[node name="September" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 300.0
+offset_right = 82.0
+offset_bottom = 341.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_o7flw")
+theme_override_font_sizes/font_size = 30
+text = "September"
+autowrap_mode = 3
