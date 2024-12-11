@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dym3lkpths880"]
 
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="1_aujd4"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/C&C Red Alert [INET].ttf" id="2_2jbvg"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_2jbvg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_06q3a"]
 atlas = ExtResource("1_aujd4")

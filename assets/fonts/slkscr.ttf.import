@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://jakixrafesro"
-path="res://.godot/imported/C&C Red Alert [INET].ttf-f1040d0424051885c96b497b6f3fdae0.fontdata"
+uid="uid://dm2rmmhs7n068"
+path="res://.godot/imported/slkscr.ttf-e2ab88759afcb36d0607690a2e6ace57.fontdata"
 
 [deps]
 
-source_file="res://assets/C&C Red Alert [INET].ttf"
-dest_files=["res://.godot/imported/C&C Red Alert [INET].ttf-f1040d0424051885c96b497b6f3fdae0.fontdata"]
+source_file="res://assets/fonts/slkscr.ttf"
+dest_files=["res://.godot/imported/slkscr.ttf-e2ab88759afcb36d0607690a2e6ace57.fontdata"]
 
 [params]
 

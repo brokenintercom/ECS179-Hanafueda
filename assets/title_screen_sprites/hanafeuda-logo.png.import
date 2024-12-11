@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drbu8i0g1c06c"
-path="res://.godot/imported/title-lines.png-6b2e304205e511109b43de01e53c36c5.ctex"
+uid="uid://c5486o7cbw0ly"
+path="res://.godot/imported/hanafeuda-logo.png-96e73bb17759569121dafbf68060f365.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/title-screen/title-lines.png"
-dest_files=["res://.godot/imported/title-lines.png-6b2e304205e511109b43de01e53c36c5.ctex"]
+source_file="res://assets/title_screen_sprites/hanafeuda-logo.png"
+dest_files=["res://.godot/imported/hanafeuda-logo.png-96e73bb17759569121dafbf68060f365.ctex"]
 
 [params]
 

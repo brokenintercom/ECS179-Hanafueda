@@ -3,15 +3,13 @@ extends Character
 
 const WHITE = Color.WHITE
 const GRAY = Color.WEB_GRAY
-
 var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
 var deck := Deck.new()
-var _discard_pile:Array[CardSpec]
 var ino_shika_cho_active := false
 var did_win := false
-
-@onready var hand := %Hand  # Hand of cards
+var _discard_pile:Array[CardSpec]
 var _synergy_ui:Node2D
+@onready var hand := %Hand  # Hand of cards
 
 
 func _ready():
@@ -24,7 +22,13 @@ func _ready():
 	atk_buff_eff = AttackBuffEffect.new()
 	block_eff = BlockEffect.new()
 	
+	# make player healthbar green
+	#health_bar.add_theme_stylebox_override("fill", sb)
+
+	print("PLAYER READY -- ", hand.get_node("GridContainer/Card0"))
+	
 	health_bar.init_health(max_health)
+	print("player starting health ", max_health)
 
 	super()
 
@@ -64,15 +68,13 @@ func draw_cards(num_draw:int):
 		if _draw_card(card):
 			# Successfully drew a card
 			num_draw -= 1
-	
-	print("deck length:", len(deck._cards))
 
 
 func play_cards() -> void:
 	_disable_player()
 	
 	# Actually use the selected cards to perform the attack on the enemy
-	await _attack()
+	_attack()
 	await _finish_turn()
 	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
@@ -215,13 +217,18 @@ func _on_battle_scene_loaded(synergy_ui:Node2D) -> void:
 	_synergy_ui = synergy_ui
 
 
+
 func _on_player_hit(dmg:int) -> void:
 	if dmg == 0:
 		return
 	
 	# Internally update health
 	print("Before player hit: ", curr_health)
+	
 	curr_health = clampi(curr_health - dmg, 0, max_health)
+	
+	health_bar.update_health(curr_health)
+		
 	print("After player hit: ", curr_health)
 	
 	await health_bar.update_health(curr_health)
@@ -231,6 +238,6 @@ func _on_player_recover_hp(amount:float) -> void:
 	if 0.0 < amount and amount < 1.0:
 		# Increase by integer amount, not float
 		print("Before player heal: ", curr_health)
-		curr_health = clampi(curr_health * (1.0 + amount), curr_health, max_health)
+		curr_health = clampi(int(curr_health * (1.0 + amount)), curr_health, max_health)
 		await health_bar.update_health(curr_health)
 		print("After player heal: ", curr_health)

@@ -5,16 +5,12 @@ extends Character
 
 
 func _ready() -> void:
-	super()
 	signals.enemy_hit.connect(_on_enemy_hit)
 	
-	# TODO
-	# reset enemy healthbar color to red
-	#var sb = StyleBoxFlat.new()
-	#health_bar.add_theme_stylebox_override("fill", sb)
-	#sb.bg_color = Color("f44355")
-	
 	health_bar.init_health(max_health)
+	print("enemy starting health ", max_health)
+	
+	super()
 
 
 func actions():
@@ -39,4 +35,6 @@ func _on_enemy_hit(dmg:int) -> void:
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	print("Enemy health after: ", curr_health)
 	
-	await health_bar.update_health(curr_health)
+	health_bar.update_health(curr_health)
+	
+	await get_tree().create_timer(0.7).timeout
