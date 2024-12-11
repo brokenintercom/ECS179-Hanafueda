@@ -2,7 +2,7 @@ class_name SelectedState
 extends CardState
 
 var spec_version:CardSpec
-
+@onready var deck_cards := deck_view.get_node("DeckView/Cards").get_children()
 
 func _ready() -> void:
 	state = CardState.State.SELECTED
@@ -47,4 +47,10 @@ func transition_to_enabled() -> void:
 func transition_to_empty() -> void:
 	# Just played the card, so it's no longer selected
 	player.selected_cards.erase(spec_version)
+	
+	# Mark card as used in the deck view
+	if spec_version.month != CardSpec.Month.NONE and spec_version.index != -1:
+		var month_index := spec_version.month - 1
+		deck_cards[month_index].get_children()[spec_version.index].modulate = player.GRAY
+	
 	super()

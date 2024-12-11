@@ -23,7 +23,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	#player.deck.shuffle()
+	player.deck.shuffle()
 	_player_phase()
 
 
@@ -107,3 +107,7 @@ func _on_switch_battle_phase() -> void:
 		print("Player turn...")
 		_play_btn.disabled = false
 		_player_phase()
+
+
+func _on_deck_pressed() -> void:
+	deck_view.visible = true

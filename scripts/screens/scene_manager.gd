@@ -9,6 +9,8 @@ func _ready() -> void:
 	# Hide the player's canvas layer when starting
 	player.hand.visible = false
 	player.health_bar.visible = false
+	
+	deck_view.visible = false
 	signals.switch_scene.connect(_on_switch_scene)
 
 

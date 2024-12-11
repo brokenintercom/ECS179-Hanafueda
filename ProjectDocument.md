@@ -104,7 +104,7 @@ The `CardSpec` object is like the `ShieldSpec` or `ProjectileSpec` objects from 
 
 
 #### Deck
-[card_pile.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/card_pile.gd) is simply an array of `CardSpecs`. The card pile is extended by [deck.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/deck.gd), which is initialized using [deck.csv](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/assets/deck_csv/deck.csv).
+[card_pile.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/card_pile.gd) is simply an array of `CardSpecs`. The card pile is extended by [deck.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/deck.gd), which is initialized using [deck.csv](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/assets/deck_csv/deck.csv). Ideally, other card-pile-like variables like the `selected_cards` variable in `player.gd` would be of class `CardPile`, though then we may have had to implement a custom iterator and handle other sorts of complexities (given how we manipulate `selected_cards` in the code). So for simplicity, we left `selected_cards` as simply `Array[CardSpec]`.
 
 When `draw_card()` is called, the card at the top of the deck is drawn since an actual deck is drawn as if it's a stack (popping from the end of the array is more efficient too, as opposed to the beginning). The function returns a `CardSpec`, and in the player's `draw_cards()`, the `CardSpec` is used to update the current card button's attributes.
 

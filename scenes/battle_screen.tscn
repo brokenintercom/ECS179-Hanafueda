@@ -2034,7 +2034,11 @@ theme = SubResource("Theme_acbkx")
 text = "          "
 
 [node name="Deck" parent="Control" instance=ExtResource("6_chuoq")]
-position = Vector2(260, -426)
+layout_mode = 0
+offset_left = 177.0
+offset_top = -520.0
+offset_right = 321.0
+offset_bottom = -301.0
 
 [node name="Boss" type="AnimatedSprite2D" parent="."]
 position = Vector2(1185, 221)
@@ -2044,3 +2048,4 @@ sprite_frames = SubResource("SpriteFrames_ag61o")
 [connection signal="pressed" from="Control/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Control/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="Control/Deck" to="." method="_on_deck_pressed"]

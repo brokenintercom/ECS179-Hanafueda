@@ -3,7 +3,7 @@ extends Character
 
 const WHITE = Color.WHITE
 const GRAY = Color.WEB_GRAY
-var selected_cards:Array[CardSpec]  # TODO it would be nice if this could be CardPile too, but then you have to define iterator and indexing...
+var selected_cards:Array[CardSpec]
 var deck := Deck.new()
 var ino_shika_cho_active := false
 var did_win := false
@@ -72,7 +72,6 @@ func play_cards() -> void:
 	# Actually use the selected cards to perform the attack on the enemy
 	_attack()
 	await _finish_turn()
-	# TODO possibly a replenish_deck() to move the discard to the deck, and shuffle also
 
 
 func reset() -> void:
@@ -97,7 +96,7 @@ func reset() -> void:
 	deck = Deck.new()
 	
 	if _synergy_ui != null:
-		_synergy_ui.get_node("Label").text = "None"
+		_synergy_ui.get_node("CustomLabel").text = "None"
 
 
 func _disable_player() -> void:
