@@ -30,10 +30,12 @@ func _ready():
 func actions() -> void:
 	_enable_player()
 	
+	var synergy_label = _synergy_ui.get_node("CustomLabel")
+	
 	if ino_shika_cho_active:
-		_synergy_ui.get_node("Label").text = "x2 attack this turn"
+		synergy_label.reset_and_update_text("x2 attack this turn")
 	else:
-		_synergy_ui.get_node("Label").text = "None"
+		synergy_label.reset_text()
 	
 	# Draw enough cards such that the player's hand would have max_hand_size cards
 	var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
@@ -152,9 +154,10 @@ func _attack() -> void:
 func _apply_synergy() -> void:
 	var num_selected := len(selected_cards)
 	var synergy_to_match := CardSpec.Synergy.NONE if num_selected == 0 else selected_cards[0].synergy
+	var synergy_label = _synergy_ui.get_node("CustomLabel")
 	
 	if num_selected != CardSpec.MAX_SYNERGY_CARDS or synergy_to_match == CardSpec.Synergy.NONE:
-		_synergy_ui.get_node("Label").text = "None"
+		synergy_label.text = "None"
 		return
 	
 	print("synergy_to_match: ", CardSpec.Synergy.keys()[synergy_to_match])
@@ -162,25 +165,27 @@ func _apply_synergy() -> void:
 	for i in range(1, num_selected):
 		# TODO there's no matches_syergy for CardSpec, only for Card
 		if not selected_cards[i].synergy == synergy_to_match:
-			_synergy_ui.get_node("Label").text = "None"
+			synergy_label.text = "None"
 			return
 	
 	print("check synergy_to_match timer 0.5")
 	await get_tree().create_timer(0.5).timeout
+	
+	var text = ""
 
 	# TODO Yujin update for scenario where 2 effects at same time
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
-			_synergy_ui.get_node("Label").text = "Nullify dmg"
+			text = "Block enemy atk"
 			block_eff.apply(enemy, 0.0)
 		CardSpec.Synergy.POETRY_RIBBON:
-			_synergy_ui.get_node("Label").text = "Heal 20%"
+			text = "Heal 20%"
 			heal_eff.apply(self, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
-			_synergy_ui.get_node("Label").text = "x2 attack next turn"
-			print("INO SHIKA CHO SYNERGY: apply x2 damage for *next* attack")  # TODO player's next turn
+			text = "x2 attack next turn"
 			ino_shika_cho_active = true
 	
+	synergy_label.update_text(text)
 	print("synergy additional timer 1.2")
 	await get_tree().create_timer(1.2).timeout
 

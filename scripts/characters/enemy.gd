@@ -21,6 +21,8 @@ func actions():
 	
 	# TODO Chris: enemy needs to randomly decide whether to do an effect or not
 	# TODO if yes, then pick between debuffing attack, damage it takes next turn, shrink hand, etc.
+	# TODO modify the "effect_text" attribute (in character.gd) or player.effect_text
+	# TODO depending on whether the effect is on the enemy itself (buff) or on the player (debuff)
 	_finish_turn()
 
 

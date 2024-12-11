@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbreec63ylm48"]
+[gd_scene load_steps=5 format=3 uid="uid://bbreec63ylm48"]
 
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="1_dilqn"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_x1dl7"]
+[ext_resource type="Script" path="res://scripts/custom_label.gd" id="3_l13bm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l6hyl"]
 atlas = ExtResource("1_dilqn")
@@ -11,3 +13,15 @@ region = Rect2(24, 120, 297, 96)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_l6hyl")
+
+[node name="CustomLabel" type="Label" parent="."]
+offset_left = -149.0
+offset_right = 150.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("2_x1dl7")
+theme_override_font_sizes/font_size = 38
+text = "None"
+vertical_alignment = 1
+autowrap_mode = 1
+justification_flags = 131
+script = ExtResource("3_l13bm")

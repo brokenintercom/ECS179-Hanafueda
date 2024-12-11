@@ -24,7 +24,7 @@ script = ExtResource("1_bi4tv")
 base_atk = 10
 max_health = 100
 
-[node name="EnemyEffect" parent="." instance=ExtResource("4_e0sod")]
+[node name="Effect" parent="." instance=ExtResource("4_e0sod")]
 position = Vector2(190, 118)
 
 [node name="HealthBarUI" type="Node" parent="."]
