@@ -24,6 +24,7 @@ player="*res://scenes/player.tscn"
 enemy="*res://scenes/enemy.tscn"
 tutorial="*res://scripts/tutorial/tutorial_slide_selector.gd"
 deck_view="*res://scenes/deck_view.tscn"
+help_menu="*res://scripts/help/help_manager.gd"
 
 [display]
 

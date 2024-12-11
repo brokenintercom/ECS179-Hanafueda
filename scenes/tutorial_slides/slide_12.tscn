@@ -54,7 +54,12 @@ offset_right = 1279.0
 offset_bottom = 645.0
 theme_override_fonts/font = ExtResource("1_oolrj")
 theme_override_font_sizes/font_size = 45
+<<<<<<< HEAD
 text = "Done"
+=======
+text = "Thanks for
+The Tip..."
+>>>>>>> 2eaf258ddde3d7cf405d20e2dcca5ec31e6ab569
 
 [node name="Previous" type="Button" parent="."]
 layout_mode = 0

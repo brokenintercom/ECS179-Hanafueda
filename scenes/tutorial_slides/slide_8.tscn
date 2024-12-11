@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="8_seddx"]
 [ext_resource type="Texture2D" uid="uid://dy8jdemy47oje" path="res://assets/card_sprites/mar-bright.png" id="9_hiogu"]
 
+
 [node name="Slide8" type="Control"]
 layout_mode = 3
 anchors_preset = 15
