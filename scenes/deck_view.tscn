@@ -463,4 +463,4 @@ texture = ExtResource("48_if6x0")
 layout_mode = 2
 texture = ExtResource("49_sjp36")
 
-[connection signal="pressed" from="DeckView/Done" to="DeckView" method="_on_done_pressed"]
+[connection signal="pressed" from="DeckView/Done" to="." method="_on_done_pressed"]
