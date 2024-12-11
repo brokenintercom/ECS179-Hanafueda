@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cxl8io8ln2vr2" path="res://assets/card_sprites/sep-normal-2.png" id="6_43ceu"]
 [ext_resource type="Texture2D" uid="uid://c4oygd8kmaijm" path="res://assets/card_sprites/sep-normal-1.png" id="7_xh6tq"]
 
-[node name="feb_cards" type="Control"]
+[node name="sep_cards" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

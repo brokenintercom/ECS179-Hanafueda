@@ -94,6 +94,8 @@ func reset() -> void:
 	
 	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
 	deck = Deck.new()
+	selected_cards.clear()
+	_discard_pile.clear()
 	
 	if _synergy_ui != null:
 		_synergy_ui.get_node("CustomLabel").text = "None"

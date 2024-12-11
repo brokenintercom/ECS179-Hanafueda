@@ -71,6 +71,7 @@ func _reset_battle() -> void:
 	print("Resetting...")
 	player.reset()
 	enemy.reset()
+	deck_view.reset()
 
 
 func _on_help_button_pressed() -> void:
