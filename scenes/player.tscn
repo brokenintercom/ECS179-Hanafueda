@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b37px5yamuk8i" path="res://scenes/hand.tscn" id="1_5gh7w"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_bs5ar"]
-[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/healthbar.tscn" id="3_jfvdn"]
+[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/health_bar.tscn" id="3_jfvdn"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="3_spis3"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="4_15peq"]
 [ext_resource type="PackedScene" uid="uid://bdi3ywqh32rxc" path="res://scenes/player_effect.tscn" id="5_xykok"]
@@ -26,18 +26,23 @@ max_health = 100
 [node name="Hand" parent="." instance=ExtResource("1_5gh7w")]
 unique_name_in_owner = true
 
-[node name="HealthBarBG" type="Sprite2D" parent="."]
+[node name="PlayerEffect" parent="." instance=ExtResource("5_xykok")]
+position = Vector2(249, 926)
+
+[node name="HealthBarUI" type="Node" parent="."]
+
+[node name="HealthBarBG" type="Sprite2D" parent="HealthBarUI"]
 position = Vector2(255, 1000)
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_1td1v")
 
-[node name="Heart" type="Sprite2D" parent="HealthBarBG"]
+[node name="Heart" type="Sprite2D" parent="HealthBarUI/HealthBarBG"]
 z_index = 2
 position = Vector2(-146.667, 15.8333)
 scale = Vector2(1.04167, 1.04167)
 texture = SubResource("AtlasTexture_rt5gt")
 
-[node name="HealthNumber" type="Label" parent="HealthBarBG"]
+[node name="HealthNumber" type="Label" parent="HealthBarUI/HealthBarBG"]
 offset_left = 6.66666
 offset_top = -26.6667
 offset_right = 129.667
@@ -49,12 +54,9 @@ theme_override_font_sizes/font_size = 25
 text = ":3"
 horizontal_alignment = 1
 
-[node name="HealthBar" parent="." instance=ExtResource("3_jfvdn")]
+[node name="HealthBar" parent="HealthBarUI" instance=ExtResource("3_jfvdn")]
 z_index = 1
 offset_left = 90.0
 offset_top = 1004.0
 offset_right = 435.0
 offset_bottom = 1028.0
-
-[node name="PlayerEffect" parent="." instance=ExtResource("5_xykok")]
-position = Vector2(249, 926)

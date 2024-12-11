@@ -15,6 +15,41 @@ var running_month := CardSpec.Month.NONE
 var running_type := CardSpec.Type.NONE
 
 
+func is_empty() -> bool:
+	return num_cards == 0
+
+
+func update_matches(selected_cards:Array[CardSpec]) -> void:
+	_update_category_match(selected_cards)
+	
+	var card_nodes := get_node("GridContainer").get_children()
+	
+	# TODO print("--------UPDATING MATCHES--------")
+	# TODO print("Category match: ", Match.keys()[category_match])
+	
+	for card in card_nodes:
+		# Only look at non-selected cards
+		if card.is_selected():
+			continue
+		
+		# TODO delete
+		#print("--CARD ATTRIBUTES--")
+		#print("Month: ", CardSpec.Month.keys()[card.month])
+		#print("Type: ", card.type)  # Using type directly here since we use custom values for type
+		#print("Synergy: ", CardSpec.Synergy.keys()[card.synergy])
+		
+		# Update the card's state
+		var curr_card_state:CardState = card.get_curr_card_state()
+		
+		if _does_match(card):
+			# Matches the category -- transition to ENABLED state as needed
+			if curr_card_state.state == CardState.State.DISABLED:
+				curr_card_state.transition_to_enabled()
+		elif curr_card_state.state == CardState.State.ENABLED:
+			# Doesn't match the category -- transition to DISABLED state
+			curr_card_state.transition_to_disabled()
+
+
 func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 	# TODO may have to update so that we start over from the beginning every time to account for edge cases
 	var num_selected := len(selected_cards)
@@ -58,37 +93,6 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 		#print("--> Type: ", selected_cards[0].type)
 
 
-func update_matches(selected_cards:Array[CardSpec]) -> void:
-	_update_category_match(selected_cards)
-	
-	var card_nodes := get_node("GridContainer").get_children()
-	
-	# TODO print("--------UPDATING MATCHES--------")
-	# TODO print("Category match: ", Match.keys()[category_match])
-	
-	for card in card_nodes:
-		# Only look at non-selected cards
-		if card.is_selected():
-			continue
-		
-		# TODO delete
-		#print("--CARD ATTRIBUTES--")
-		#print("Month: ", CardSpec.Month.keys()[card.month])
-		#print("Type: ", card.type)  # Using type directly here since we use custom values for type
-		#print("Synergy: ", CardSpec.Synergy.keys()[card.synergy])
-		
-		# Update the card's state
-		var curr_card_state:CardState = card.get_curr_card_state()
-		
-		if _does_match(card):
-			# Matches the category -- transition to ENABLED state as needed
-			if curr_card_state.state == CardState.State.DISABLED:
-				curr_card_state.transition_to_enabled()
-		elif curr_card_state.state == CardState.State.ENABLED:
-			# Doesn't match the category -- transition to DISABLED state
-			curr_card_state.transition_to_disabled()
-
-
 func _does_match(card:Card) -> bool:
 	if category_match == Match.NONE:
 		# category_match == Match.NONE, so no cards have been selected yet -- no cards to match with yet!
@@ -103,9 +107,4 @@ func _does_match(card:Card) -> bool:
 	if not does_match and (category_match == Match.BOTH or category_match == Match.TYPE):
 		does_match = card.matches_type(running_type)
 	
-	
 	return does_match
-
-
-func is_empty() -> bool:
-	return num_cards == 0

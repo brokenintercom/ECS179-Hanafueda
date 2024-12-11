@@ -2,13 +2,25 @@ class_name Deck
 extends CardPile
 
 
-func _init() -> void:
+# TODO for testing synergies
+#func _init() -> void:
+	#for i in range(0, 40):
+		#_cards.append(CardSpec.new(CardSpec.Month.OCT, CardSpec.Type.NORMAL, CardSpec.Synergy.NONE, load("res://assets/card_sprites/" + "oct-normal-1" + ".png")))
+	#
+	#_cards.append(CardSpec.new(CardSpec.Month.JUN, CardSpec.Type.ANIMAL, CardSpec.Synergy.INO_SHIKA_CHO, load("res://assets/card_sprites/" + "jun-animal" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.JUL, CardSpec.Type.ANIMAL, CardSpec.Synergy.INO_SHIKA_CHO, load("res://assets/card_sprites/" + "jul-animal" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.OCT, CardSpec.Type.ANIMAL, CardSpec.Synergy.INO_SHIKA_CHO, load("res://assets/card_sprites/" + "oct-animal" + ".png")))
+	#
+	#_cards.append(CardSpec.new(CardSpec.Month.JAN, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/card_sprites/" + "jan-tanzaku" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.FEB, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/card_sprites/" + "feb-tanzaku" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.MAR, CardSpec.Type.RIBBON, CardSpec.Synergy.POETRY_RIBBON, load("res://assets/card_sprites/" + "mar-tanzaku" + ".png")))
+	#
+	#_cards.append(CardSpec.new(CardSpec.Month.JUN, CardSpec.Type.RIBBON, CardSpec.Synergy.BLUE_RIBBON, load("res://assets/card_sprites/" + "jun-tanzaku" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.SEP, CardSpec.Type.RIBBON, CardSpec.Synergy.BLUE_RIBBON, load("res://assets/card_sprites/" + "sep-tanzaku" + ".png")))
+	#_cards.append(CardSpec.new(CardSpec.Month.OCT, CardSpec.Type.RIBBON, CardSpec.Synergy.BLUE_RIBBON, load("res://assets/card_sprites/" + "oct-tanzaku" + ".png")))
 
-	#if FileAccess.file_exists("res://assets/deck_csv/deck.csv"):
-		#print("File Exists")
-	#else:
-		#print("oof")
-	
+
+func _init() -> void:
 	# Access the CSV file containing the cards in the deck
 	var deck_file = FileAccess.open("res://resources/data/deck.csv", FileAccess.READ)
 	
