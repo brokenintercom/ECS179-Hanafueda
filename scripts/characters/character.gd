@@ -8,6 +8,7 @@ var heal_eff:Effect
 var atk_buff_eff:Effect
 var block_eff:Effect
 @onready var health_bar = $HealthBarUI/HealthBar
+@onready var effect_text := $Effect/CustomLabel
 
 
 func _ready() -> void:
