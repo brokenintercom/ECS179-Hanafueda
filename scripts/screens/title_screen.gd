@@ -12,9 +12,10 @@ func _process(_delta):
 
 
 func _input(event):
-	if Input.is_action_just_pressed("ui_select"):
-		print("Switching to battle screen...")
-		signals.switch_scene.emit("battle_screen")
-		
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+		
+	if event.is_pressed():
+		print("Switching to battle screen...")
+		signals.switch_scene.emit("battle_screen")
+	

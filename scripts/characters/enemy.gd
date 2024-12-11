@@ -7,6 +7,7 @@ extends Character
 # TODO can access player as a global -- simplpy do "player"
 func _ready() -> void:
 	signals.enemy_hit.connect(_on_enemy_hit)
+	signals.switch_scene.connect(_reset_hp)
 	
 	format_health(max_health, max_health)
 	
@@ -40,3 +41,8 @@ func _on_enemy_hit(dmg:int) -> void:
 	format_health(curr_health, max_health)
 	
 	await get_tree().create_timer(0.7).timeout
+
+
+func _reset_hp(scene_name:String) -> void:
+	if scene_name == "results_screen":
+		format_health(max_health, max_health)
