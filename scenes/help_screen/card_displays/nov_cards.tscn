@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://c2pubnf3drwji"]
+
+[ext_resource type="Texture2D" uid="uid://8rca8elstfks" path="res://assets/help_menu/card_display.png" id="1_1aid2"]
+[ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="2_oa6co"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_jv3tc"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="4_g1j4s"]
+[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="5_pqbhh"]
+[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="6_y7k64"]
+[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="7_vudmq"]
+
+[node name="feb_cards" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="box" type="Sprite2D" parent="."]
+texture = ExtResource("1_1aid2")
+
+[node name="text_bright" type="Sprite2D" parent="."]
+position = Vector2(-260, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oa6co")
+
+[node name="Label" type="Label" parent="text_bright"]
+offset_left = -116.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jv3tc")
+theme_override_font_sizes/font_size = 35
+text = "Bright"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bright" type="Sprite2D" parent="."]
+position = Vector2(-260, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_g1j4s")
+
+[node name="text_animal" type="Sprite2D" parent="."]
+position = Vector2(-90, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oa6co")
+
+[node name="Label" type="Label" parent="text_animal"]
+offset_left = -116.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jv3tc")
+theme_override_font_sizes/font_size = 35
+text = "Animal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animal" type="Sprite2D" parent="."]
+position = Vector2(-90, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_pqbhh")
+
+[node name="text_ribbon2" type="Sprite2D" parent="."]
+position = Vector2(90, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oa6co")
+
+[node name="Label" type="Label" parent="text_ribbon2"]
+offset_left = -116.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jv3tc")
+theme_override_font_sizes/font_size = 35
+text = "Ribbon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ribbon" type="Sprite2D" parent="."]
+position = Vector2(90, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_y7k64")
+
+[node name="text_normal2" type="Sprite2D" parent="."]
+position = Vector2(260, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_oa6co")
+
+[node name="Label" type="Label" parent="text_normal2"]
+offset_left = -116.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_jv3tc")
+theme_override_font_sizes/font_size = 35
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="normal2" type="Sprite2D" parent="."]
+position = Vector2(260, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("7_vudmq")

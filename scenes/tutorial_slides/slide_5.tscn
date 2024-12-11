@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="3_5hta0"]
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="4_qpnlc"]
 
+
 [node name="Slide5" type="Control"]
 layout_mode = 3
 anchors_preset = 15

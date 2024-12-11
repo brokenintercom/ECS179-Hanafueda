@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cgdfhh3qqkuh5" path="res://assets/tutorial/Enemy Health.PNG" id="4_sxmkj"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="7_bcwd1"]
 
+
 [node name="Slide1" type="Control"]
 layout_mode = 3
 anchors_preset = 15

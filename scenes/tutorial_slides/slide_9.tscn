@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="12_gvct1"]
 [ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="13_itc3u"]
 
+
 [node name="Slide9" type="Control"]
 layout_mode = 3
 anchors_preset = 15

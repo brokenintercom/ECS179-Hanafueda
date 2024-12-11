@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="13_2augi"]
 [ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="14_42ank"]
 
+
 [node name="Slide4" type="Control"]
 layout_mode = 3
 anchors_preset = 15
