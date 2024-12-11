@@ -5,7 +5,7 @@ extends ProgressBar
 
 var health:int
 @onready var timer := $Timer
-@onready var health_number = $HealthBarBG/HealthNumber
+@onready var health_number = $"../HealthBarBG/HealthNumber"
 @onready var dmg_bar = $DamageBar
 
 
@@ -24,6 +24,7 @@ func update_health(new_health:int):
 	
 	health = clampi(new_health, 0, max_value)
 	value = health
+	_format_health()
 	
 	await get_tree().create_timer(0.3).timeout
 	
@@ -32,13 +33,10 @@ func update_health(new_health:int):
 	else: 
 		dmg_bar.value = health
 	
-	await get_tree().create_timer(0.3).timeout
-
+	await get_tree().create_timer(1.5).timeout
 
 func _on_timer_timeout() -> void:
 	dmg_bar.value = health
-	
-	_format_health()
 
 
 func _format_health():

@@ -228,7 +228,7 @@ func _on_player_hit(dmg:int) -> void:
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	
 	health_bar.update_health(curr_health)
-		
+	
 	print("After player hit: ", curr_health)
 	
 	await health_bar.update_health(curr_health)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_bi4tv"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="2_qwjdf"]
-[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/healthbar.tscn" id="2_ug75x"]
+[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/health_bar.tscn" id="2_ug75x"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="3_iw1xe"]
 [ext_resource type="PackedScene" uid="uid://bbreec63ylm48" path="res://scenes/enemy_effect.tscn" id="4_e0sod"]
 
@@ -24,18 +24,23 @@ script = ExtResource("1_bi4tv")
 base_atk = 10
 max_health = 100
 
-[node name="HealthBarBG" type="Sprite2D" parent="."]
-position = Vector2(199, 45)
+[node name="EnemyEffect" parent="." instance=ExtResource("4_e0sod")]
+position = Vector2(190, 118)
+
+[node name="HealthBarUI" type="Node" parent="."]
+
+[node name="HealthBarBG" type="Sprite2D" parent="HealthBarUI"]
+position = Vector2(257, 85)
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_2w6o2")
 
-[node name="Heart" type="Sprite2D" parent="HealthBarBG"]
+[node name="Heart" type="Sprite2D" parent="HealthBarUI/HealthBarBG"]
 z_index = 2
 position = Vector2(-139.167, -15.8333)
 scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_0a3b7")
 
-[node name="HealthNumber" type="Label" parent="HealthBarBG"]
+[node name="HealthNumber" type="Label" parent="HealthBarUI/HealthBarBG"]
 z_index = 2
 offset_left = 2.5
 offset_right = 132.5
@@ -46,12 +51,9 @@ theme_override_font_sizes/font_size = 25
 text = ":3"
 horizontal_alignment = 1
 
-[node name="HealthBar" parent="." instance=ExtResource("2_ug75x")]
+[node name="HealthBar" parent="HealthBarUI" instance=ExtResource("2_ug75x")]
 z_index = 1
-offset_left = 58.0
-offset_top = 13.0
-offset_right = 379.0
-offset_bottom = 36.0
-
-[node name="EnemyEffect" parent="." instance=ExtResource("4_e0sod")]
-position = Vector2(190, 118)
+offset_left = 116.0
+offset_top = 53.0
+offset_right = 437.0
+offset_bottom = 76.0

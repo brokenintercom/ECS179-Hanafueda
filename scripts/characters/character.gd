@@ -7,7 +7,7 @@ var atk_multiplier := 1.0
 var heal_eff:Effect
 var atk_buff_eff:Effect
 var block_eff:Effect
-@onready var health_bar = $HealthBar
+@onready var health_bar = $HealthBarUI/HealthBar
 
 
 func _ready() -> void:
