@@ -19,10 +19,8 @@ func _process(_delta):
 
 
 func _on_back_button_pressed() -> void:
-	print("Switching to title screen...")
 	signals.switch_scene.emit("title_screen")
 
 
 func _on_quit_button_pressed() -> void:
-	print("quitting...")
 	get_tree().quit()
