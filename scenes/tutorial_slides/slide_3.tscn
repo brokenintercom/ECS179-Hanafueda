@@ -67,12 +67,12 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
-position = Vector2(786.442, 454.413)
+position = Vector2(786.442, 430.413)
 scale = Vector2(1.26717, 1.24189)
 texture = ExtResource("5_sdm4i")
 
 [node name="card2" type="Sprite2D" parent="."]
-position = Vector2(1146.44, 454.413)
+position = Vector2(1146.44, 430.413)
 scale = Vector2(1.26717, 1.24189)
 texture = ExtResource("6_basbe")
 

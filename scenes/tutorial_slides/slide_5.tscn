@@ -1,31 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://byfmfsrm2q7ar"]
+[gd_scene load_steps=9 format=3 uid="uid://c8bhhhofiptj1"]
 
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_cfham"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_15y71"]
-[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_pxc1u"]
-[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_ywqud"]
-[ext_resource type="Texture2D" uid="uid://doquaikhlaied" path="res://assets/card_sprites/feb-tanzaku.png" id="5_xvdhr"]
-[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="6_cb54t"]
-[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="8_vdex1"]
-[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="8_vwtc5"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_c66k8"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wjc3w"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_04omg"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_3cbc6"]
+[ext_resource type="Texture2D" uid="uid://dkn306au380cn" path="res://assets/card_sprites/jun-animal.png" id="5_e8fle"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="5_pi8xm"]
+[ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="7_g0qwq"]
+[ext_resource type="Texture2D" uid="uid://xfg0asyi4n1l" path="res://assets/card_sprites/oct-animal.png" id="8_s4oe5"]
 
-[node name="slide_4" type="Control"]
+[node name="slide_5" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_cfham")
+script = ExtResource("1_wjc3w")
 
 [node name="tutorial bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
-texture = ExtResource("2_pxc1u")
+texture = ExtResource("2_04omg")
 
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
-texture = ExtResource("3_ywqud")
+texture = ExtResource("3_3cbc6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -34,16 +34,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -416.0
-offset_top = -328.0
-offset_right = 408.0
-offset_bottom = -169.0
+offset_left = -448.0
+offset_top = -336.0
+offset_right = 448.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 40
-text = "Ribbon Cards have a red border and a Ribbon on them…"
+text = "And Animal Cards have an Animal on them, with a
+red border and golden corners!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -54,7 +55,7 @@ offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
@@ -64,18 +65,18 @@ offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
 position = Vector2(526, 464)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("5_xvdhr")
+texture = ExtResource("5_e8fle")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(526, 257)
-texture = ExtResource("6_cb54t")
+texture = ExtResource("5_pi8xm")
 
 [node name="Label2" type="Label" parent="Sprite2D2"]
 anchors_preset = 7
@@ -90,9 +91,9 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 28
-text = "February Ribbon Card"
+text = "June Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -101,11 +102,11 @@ metadata/_edit_use_anchors_ = true
 [node name="card2" type="Sprite2D" parent="."]
 position = Vector2(958, 464)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("8_vdex1")
+texture = ExtResource("7_g0qwq")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(958, 257)
-texture = ExtResource("6_cb54t")
+texture = ExtResource("5_pi8xm")
 
 [node name="Label2" type="Label" parent="Sprite2D3"]
 anchors_preset = 7
@@ -120,9 +121,9 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 28
-text = "June Ribbon Card"
+text = "July Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -131,11 +132,11 @@ metadata/_edit_use_anchors_ = true
 [node name="card3" type="Sprite2D" parent="."]
 position = Vector2(1398, 464)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("8_vwtc5")
+texture = ExtResource("8_s4oe5")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
 position = Vector2(1398, 257)
-texture = ExtResource("6_cb54t")
+texture = ExtResource("5_pi8xm")
 
 [node name="Label2" type="Label" parent="Sprite2D4"]
 anchors_preset = 7
@@ -143,16 +144,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -334.0
-offset_top = -130.0
-offset_right = 34.0
-offset_bottom = 32.0
+offset_left = -332.0
+offset_top = -131.0
+offset_right = 36.0
+offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_fonts/font = ExtResource("1_c66k8")
 theme_override_font_sizes/font_size = 28
-text = "November Ribbon Card"
+text = "October Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

@@ -1,14 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://byfmfsrm2q7ar"]
+[gd_scene load_steps=12 format=3 uid="uid://dvxvoe4gg6qga"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_r02at"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_wih8n"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_nw885"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_io6w1"]
-[ext_resource type="Texture2D" uid="uid://dye4skkapqudh" path="res://assets/card_sprites/jul-tanzaku.png" id="3_wh8hy"]
+[ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="6_c5wnv"]
 [ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="6_dcm7v"]
+[ext_resource type="Texture2D" uid="uid://badwrfode8dop" path="res://assets/card_sprites/dec-bright.png" id="7_scyy0"]
+[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="8_feshw"]
+[ext_resource type="Texture2D" uid="uid://dy8jdemy47oje" path="res://assets/card_sprites/mar-bright.png" id="9_chx5x"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="10_qfr7q"]
+[ext_resource type="Texture2D" uid="uid://d16rtjntm4ook" path="res://assets/tutorial/bright_symbol.png" id="11_45m5g"]
 
-
-[node name="Slide6" type="Control"]
+[node name="Slide8" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,16 +37,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -416.0
-offset_top = -328.0
-offset_right = 408.0
-offset_bottom = -169.0
+offset_left = -408.0
+offset_top = -352.0
+offset_right = 368.0
+offset_bottom = -125.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_wih8n")
-theme_override_font_sizes/font_size = 40
-text = "There are also Ribbon cards that have a ribbon on them…"
+theme_override_font_sizes/font_size = 35
+text = "Brights are the rarest card, with only 5 in the deck! They have the same border as Animal Cards, but unlike them have a symbol indicating their Bright status. 
+
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -68,35 +74,60 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
-position = Vector2(968, 496)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_wh8hy")
+position = Vector2(400, 420)
+scale = Vector2(1.1, 1.079)
+texture = ExtResource("6_c5wnv")
 
-[node name="skinny text box" type="Sprite2D" parent="."]
-position = Vector2(976, 272)
-scale = Vector2(1.26717, 1.24189)
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(960, 560)
+scale = Vector2(1.1, 1.079)
+texture = ExtResource("7_scyy0")
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(1520, 420)
+scale = Vector2(1.1, 1.079)
+texture = ExtResource("8_feshw")
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(680, 500)
+scale = Vector2(1.1, 1.079)
+texture = ExtResource("9_chx5x")
+
+[node name="card5" type="Sprite2D" parent="."]
+position = Vector2(1240, 500)
+scale = Vector2(1.1, 1.079)
+texture = ExtResource("10_qfr7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1528, 600)
+scale = Vector2(0.84, 1.02)
 texture = ExtResource("6_dcm7v")
 
-[node name="july ribbon card" type="Label" parent="."]
+[node name="selected" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -432.0
-offset_top = -888.0
-offset_right = 464.0
-offset_bottom = -729.0
+offset_left = 440.0
+offset_top = -544.0
+offset_right = 704.0
+offset_bottom = -411.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_wih8n")
-theme_override_font_sizes/font_size = 42
-text = "July Ribbon Card"
+theme_override_font_sizes/font_size = 30
+text = "NOT an Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(960, 256)
+scale = Vector2(2.59, 2.59)
+texture = ExtResource("11_45m5g")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

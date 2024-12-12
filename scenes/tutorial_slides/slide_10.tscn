@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bag2adxxdkftd"]
+[gd_scene load_steps=28 format=3 uid="uid://bag2adxxdkftd"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2oupu"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_twjpw"]
@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="12_vcdsx"]
 [ext_resource type="Texture2D" uid="uid://blv2b28rmfk7g" path="res://assets/card_sprites/may-tanzaku.png" id="13_fp7wc"]
 [ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="13_h78jn"]
-[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/JunRibbon.png" id="14_4xm7f"]
+[ext_resource type="Texture2D" uid="uid://citcxun0auqt8" path="res://assets/card_sprites/feb-animal.png" id="14_4xm7f"]
 [ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="15_rhj7d"]
 [ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="16_705au"]
 [ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="17_0wnoo"]
@@ -25,6 +25,8 @@
 [ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="19_l6cc7"]
 [ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="20_n3gxv"]
 [ext_resource type="Texture2D" uid="uid://4efqyu13c2ny" path="res://assets/tutorial/info_button.png" id="23_caraq"]
+[ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="26_dyy4s"]
+[ext_resource type="Texture2D" uid="uid://badwrfode8dop" path="res://assets/card_sprites/dec-bright.png" id="27_3dj8a"]
 
 [node name="Slide10" type="Control"]
 layout_mode = 3
@@ -59,9 +61,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2oupu")
-theme_override_font_sizes/font_size = 35
-text = "Cards can either match by their type or by their month, with different combos doing different levels of damage
-"
+theme_override_font_sizes/font_size = 40
+text = "Cards deal damage based on their Card Type."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -86,19 +87,23 @@ theme_override_fonts/font = ExtResource("1_2oupu")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
-[node name="card1" type="Sprite2D" parent="."]
+[node name="previous_assets" type="Node" parent="."]
+
+[node name="card1" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(420, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("3_6xr36")
 metadata/_edit_group_ = true
 
-[node name="small text box" type="Sprite2D" parent="."]
+[node name="small text box" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(544, 210)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_kxdf1")
 
-[node name="selected" type="Label" parent="."]
-layout_mode = 1
+[node name="selected" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -119,24 +124,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="small text box2" type="Sprite2D" parent="."]
+[node name="small text box2" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(544, 345)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_kxdf1")
 
-[node name="card5" type="Sprite2D" parent="."]
+[node name="card5" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(420, 347.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("4_wpwve")
 metadata/_edit_group_ = true
 
-[node name="small text box3" type="Sprite2D" parent="."]
+[node name="small text box3" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(544, 480.69)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_kxdf1")
 
-[node name="selected2" type="Label" parent="."]
-layout_mode = 1
+[node name="selected2" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -157,14 +165,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card2" type="Sprite2D" parent="."]
+[node name="card2" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(420, 480)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("5_tbr76")
 metadata/_edit_group_ = true
 
-[node name="selected3" type="Label" parent="."]
-layout_mode = 1
+[node name="selected3" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -185,19 +194,21 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card3" type="Sprite2D" parent="."]
+[node name="card3" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(420, 616)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("6_jm3yq")
 metadata/_edit_group_ = true
 
-[node name="small text box4" type="Sprite2D" parent="."]
+[node name="small text box4" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(544, 618)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_kxdf1")
 
-[node name="selected4" type="Label" parent="."]
-layout_mode = 1
+[node name="selected4" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -218,38 +229,43 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card4" type="Sprite2D" parent="."]
+[node name="card4" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(693.8, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("7_tk7lk")
 metadata/_edit_group_ = true
 
-[node name="card6" type="Sprite2D" parent="."]
+[node name="card6" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(733.8, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("8_d47hc")
 metadata/_edit_group_ = true
 
-[node name="card7" type="Sprite2D" parent="."]
+[node name="card7" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(773.8, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("9_i3kta")
 metadata/_edit_group_ = true
 
-[node name="card8" type="Sprite2D" parent="."]
+[node name="card8" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(813.8, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("10_7p2er")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Sprite2D2" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(993, 221)
 rotation = -3.13636
 scale = Vector2(0.645, 0.645)
 texture = ExtResource("13_h78jn")
 
-[node name="selected5" type="Label" parent="."]
-layout_mode = 1
+[node name="selected5" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -272,33 +288,37 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card9" type="Sprite2D" parent="."]
+[node name="card9" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(736.34, 351.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("11_bq4ew")
 metadata/_edit_group_ = true
 
-[node name="card10" type="Sprite2D" parent="."]
+[node name="card10" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(776.34, 351.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("12_vcdsx")
 metadata/_edit_group_ = true
 
-[node name="card11" type="Sprite2D" parent="."]
+[node name="card11" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(816.34, 351.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("13_fp7wc")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D3" type="Sprite2D" parent="."]
+[node name="Sprite2D3" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(992, 346.325)
 rotation = 0.000335623
 scale = Vector2(0.645, 0.632)
 skew = 0.000211358
 texture = ExtResource("13_h78jn")
 
-[node name="selected6" type="Label" parent="."]
-layout_mode = 1
+[node name="selected6" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -321,32 +341,36 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card12" type="Sprite2D" parent="."]
+[node name="card12" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(736.34, 487.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("14_4xm7f")
 metadata/_edit_group_ = true
 
-[node name="card13" type="Sprite2D" parent="."]
+[node name="card13" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(776.34, 487.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("15_rhj7d")
 metadata/_edit_group_ = true
 
-[node name="card14" type="Sprite2D" parent="."]
+[node name="card14" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(816.34, 487.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("16_705au")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
+[node name="Sprite2D4" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(992, 487.19)
 rotation = -3.13754
 scale = Vector2(0.645, 0.645)
 texture = ExtResource("13_h78jn")
 
-[node name="selected7" type="Label" parent="."]
-layout_mode = 1
+[node name="selected7" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -369,25 +393,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card15" type="Sprite2D" parent="."]
+[node name="card15" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(778.165, 623.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("17_0wnoo")
 metadata/_edit_group_ = true
 
-[node name="card16" type="Sprite2D" parent="."]
+[node name="card16" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(815.625, 623.094)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("18_b8sje")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
+[node name="Sprite2D5" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(990, 621)
 scale = Vector2(0.645, 0.645)
 texture = ExtResource("13_h78jn")
 
-[node name="selected8" type="Label" parent="."]
-layout_mode = 1
+[node name="selected8" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -410,37 +437,42 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card17" type="Sprite2D" parent="."]
+[node name="card17" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1203.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("19_l6cc7")
 metadata/_edit_group_ = true
 
-[node name="card18" type="Sprite2D" parent="."]
+[node name="card18" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1243.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("20_n3gxv")
 metadata/_edit_group_ = true
 
-[node name="card19" type="Sprite2D" parent="."]
+[node name="card19" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1283.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("11_bq4ew")
 metadata/_edit_group_ = true
 
-[node name="card20" type="Sprite2D" parent="."]
+[node name="card20" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1323.26, 215.67)
 scale = Vector2(0.45, 0.441)
 texture = ExtResource("6_jm3yq")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D6" type="Sprite2D" parent="."]
+[node name="Sprite2D6" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1501, 217)
 scale = Vector2(0.645, 0.645)
 texture = ExtResource("13_h78jn")
 
-[node name="selected9" type="Label" parent="."]
-layout_mode = 1
+[node name="selected9" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -462,18 +494,20 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1262, 501)
 scale = Vector2(2.03, 2.03)
 texture = ExtResource("23_caraq")
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Sprite2D7" type="Sprite2D" parent="previous_assets"]
+visible = false
 position = Vector2(1501, 492)
 scale = Vector2(0.645, 0.645)
 texture = ExtResource("13_h78jn")
 
-[node name="selected10" type="Label" parent="."]
-layout_mode = 1
+[node name="selected10" type="Label" parent="previous_assets"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -494,6 +528,134 @@ and combos!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(468, 290)
+scale = Vector2(0.9, 0.882)
+texture = ExtResource("26_dyy4s")
+
+[node name="small text box" type="Sprite2D" parent="."]
+position = Vector2(730, 280)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kxdf1")
+
+[node name="Label2" type="Label" parent="small text box"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.25
+offset_top = -136.923
+offset_right = -17.25
+offset_bottom = -56.9231
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 35
+text = "Normal: 
+1 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(468, 580)
+scale = Vector2(0.9, 0.882)
+texture = ExtResource("13_fp7wc")
+
+[node name="small text box2" type="Sprite2D" parent="."]
+position = Vector2(730, 570)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kxdf1")
+
+[node name="Label2" type="Label" parent="small text box2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.25
+offset_top = -136.923
+offset_right = -17.25
+offset_bottom = -56.9231
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 35
+text = "Ribbon:
+2 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(1100, 290)
+scale = Vector2(0.9, 0.882)
+texture = ExtResource("16_705au")
+
+[node name="small text box3" type="Sprite2D" parent="."]
+position = Vector2(1360, 280)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kxdf1")
+
+[node name="Label2" type="Label" parent="small text box3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.25
+offset_top = -136.923
+offset_right = -17.25
+offset_bottom = -56.9231
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 35
+text = "Animal:
+3 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(1100, 580)
+scale = Vector2(0.9, 0.882)
+texture = ExtResource("27_3dj8a")
+
+[node name="small text box4" type="Sprite2D" parent="."]
+position = Vector2(1360, 570)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("2_kxdf1")
+
+[node name="Label2" type="Label" parent="small text box4"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -241.25
+offset_top = -136.923
+offset_right = -17.25
+offset_bottom = -56.9231
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2oupu")
+theme_override_font_sizes/font_size = 35
+text = "Bright:
+5 Damage"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
