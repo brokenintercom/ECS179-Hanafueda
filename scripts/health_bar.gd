@@ -25,22 +25,19 @@ func update_health(new_health:int):
 	# reset from preview health dmg
 	health = cur_health
 	value = health
-	var prev_health = health
+	var prev_health := health
 	
 	health = clampi(new_health, 0, max_value)
 	cur_health = health # update cur health so that it matches health
 	value = health
 	_format_health(health)
 	
-	await get_tree().create_timer(0.3).timeout
-	
 	if health < prev_health:
 		timer.start()
 	else: 
 		dmg_bar.value = health
-	
-	await get_tree().create_timer(1.5).timeout
-	
+
+
 func preview_health(dmg:int):
 	value = cur_health # make sure preview starts w cur health
 	
@@ -50,6 +47,7 @@ func preview_health(dmg:int):
 
 
 func _on_timer_timeout() -> void:
+	print("timeout: updating health bar...")
 	dmg_bar.value = health
 
 
@@ -57,4 +55,3 @@ func _format_health(health:int):
 	var health_number_format = "%s/%s"
 	var health_number_string = health_number_format % [str(health), str(max_value)]
 	health_number.text = health_number_string
-	print("character's health number:", health_number_string)

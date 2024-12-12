@@ -27,6 +27,7 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	# TODO print("--------UPDATING MATCHES--------")
 	# TODO print("Category match: ", Match.keys()[category_match])
 	
+	# TODO if possible, combine the code here...so that you don't have to do the if statement again
 	# calc preview dmg and edit helathbar
 	var atk_mult = 1.0
 	if player.ino_shika_cho_active:

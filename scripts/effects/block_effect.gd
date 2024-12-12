@@ -3,5 +3,4 @@ extends Effect
 
 
 func apply(target:Character, amount:float) -> void:
-	print("Nullifying...")
-	target.atk_multiplier = 0.0
+	target.atk_multiplier = amount

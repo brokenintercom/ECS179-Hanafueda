@@ -23,7 +23,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	player.deck.shuffle()
+	#player.deck.shuffle()
 	_player_phase()
 
 
@@ -37,7 +37,6 @@ func _process(_delta: float) -> void:
 
 func _player_phase() -> void:
 	if _lose_condition():
-		print("player lost")
 		player.did_win = false
 		_show_results()
 	elif not _drew_cards:
@@ -68,14 +67,12 @@ func _show_results() -> void:
 
 
 func _reset_battle() -> void:
-	print("Resetting...")
 	player.reset()
 	enemy.reset()
 	deck_view.reset()
 
 
 func _on_help_button_pressed() -> void:
-	print("Showing guide...")
 	signals.show_guide.emit()
 
 
@@ -85,27 +82,19 @@ func _on_play_cards_button_pressed() -> void:
 
 
 func _on_title_screen_button_pressed() -> void:
-	print("Switching to title screen...")
 	_reset_battle()
 	signals.switch_scene.emit("title_screen")
 
 
 func _on_switch_battle_phase() -> void:
-	print("switching phases timeout 0.5")
-	# Delay before switching
-	await get_tree().create_timer(0.5).timeout
-	
 	# Player turn just ended
 	if _curr_phase == PhaseType.PLAYER: # swtich to ENEMY turn
 		_curr_phase = PhaseType.ENEMY
-		#_play_btn.disabled = true
-		print("Enemy turn...")
 		_play_btn.disabled = true
 		_enemy_phase()
 	else:  # Enemy turn just ended, so switch to PLAYER turn
 		_curr_phase = PhaseType.PLAYER
 		_drew_cards = false
-		print("Player turn...")
 		_play_btn.disabled = false
 		_player_phase()
 

@@ -7,6 +7,5 @@ func _input(event):
 		get_tree().quit()
 		
 	if event.is_pressed():
-		print("Switching to battle screen...")
 		signals.switch_scene.emit("battle_screen")
 	
