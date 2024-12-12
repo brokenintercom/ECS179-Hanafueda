@@ -8,7 +8,9 @@ enum Match {
 	BOTH,
 }
 
-var max_hand_size := 8
+const MAX_HAND := 8
+
+var max_hand_size := MAX_HAND
 var num_cards := 0
 var category_match:Match
 var running_month := CardSpec.Month.NONE
@@ -34,11 +36,10 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	
 	# TODO if possible, combine the code here...so that you don't have to do the if statement again
 	# calc preview dmg and edit helathbar
-	var atk_mult = 1.0
-	
-	if player.ino_shika_cho_active:
-		atk_mult = 2.0
-	
+
+
+	var atk_mult = player.atk_multiplier
+
 	var potential_dmg = DamageEngine.calc_dmg(selected_cards, category_match, atk_mult)
 	enemy.health_bar.preview_health(potential_dmg)
 	

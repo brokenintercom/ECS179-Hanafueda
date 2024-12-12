@@ -138,8 +138,48 @@ The player's finish_turn() function moves all selected cards into the discard pi
 **Document the sound style.** 
 
 ## Gameplay Testing (Yoobin Jin)
+[Folder with all the gameplay testing feedback](https://drive.google.com/drive/folders/1DyaJhIkGbmhw26LUqKUENERbS_XLwIGB?usp=sharing)
 
-**Add a link to the full results of your gameplay tests.**
+### Tutorial
+* There’s a lot of detail at first (overwhelming)
+    * **Fix:** Main thing would probably be to take out the detailed math calculations in the tutorial. That could be reserved for the help menu if the user wants to learn more
+* Some things are not explicitly said which causes confusion
+    * All 8 cards are yours (the enemy does not use any cards)
+    * You draw until there are 8 cards in your hand, and any unused cards will remain in your hand for your next turn
+    * You can select as many cards as you want
+    * The strategy is to either match by type or by month!! Really emphasize this (e.g., if matching by type, they are all ribbons)
+    * Make it even clearer why the cards get grayed out, and that cards that are still colored in can still be selected
+    * After you play your cards, the enemy will automatically attack you back, then it will be your turn again. i.e., make explicit what the enemy is doing
+    * **Fix:** Rework the tutorial to explicitly mention these things
+
+
+### Common suggestions
+* Having a help button to remind you of important details in the tutorial would be great, especially considering the tutorial's length and detail
+    * We were already planning on doing this, it just wasn’t implemented yet when some of the testers played the game. Still, this feedback was useful because it emphasized how important it was that we implement this feature
+* When you have cards selected, visually show in the health bar how much damage you would deal
+    * Similarly with the previous suggestion, we were planning on doing this, but it hadn't been implemented yet. Regardless, we now know how important this feature would be to players.
+* Have a list of all the cards that show what they look like and how they are grouped by month and type
+    * Like above, we were planning on implementing this (though it had a lower priority compared to the other features)
+* There should be a clear indication about the battle phase changes and the results of every action
+    * **Fixes:** 
+        * Add delays between the enemy's health bar being updated (after the player attacked) and when it's actually the enemy's turn.
+            * This is because currently the health bars appear to be updated at the same time because there is no delay between the player's action (attacking the enemy) and the enemy's action (attacking the player).
+        * Visually change the enemy (e.g., add a simple animation to the enemy like its eye flashing) when it's attacking. We can also have a specific sound clip that plays when it attacks so that it's obvious the enemy is taking its turn
+* Show where your selected cards are matching by month, or type
+    * **Fix:** We could add another text box like synergy and effects on the battle screen, though we need to find a good place to put it...
+
+### Misc.
+* Length of game was either just right or possibly a little short
+   * **Fix:** Add more battles! However, we likely cannot do this given our time constraints
+   * Though, the tutorial sometimes felt somewhat long. To be fair, there’s a lot of rule stuff going on
+      * **Fix:** Introduce parts of the game gradually to the user, perhaps a tutorial game before doing the real fight. However, we likely can’t do this because of time constraints
+* Having a battle log that shows the past actions taken would be helpful (this would be a good idea, but unfortunately we didn't have the time to do this either)
+* Having a player opponent may be more challenging
+* The art/visuals were interesting and engaging!
+* The testers liked the yakuza premise
+* The UI was easy to use
+* The testers felt more excited when their attacks did a lot (reward for doing good combos!) and also when they lost more and more health (challenge!)
+* Dialogue with the enemy would make things feel more engaging
 
 **Summarize the key findings from your gameplay tests.**
 

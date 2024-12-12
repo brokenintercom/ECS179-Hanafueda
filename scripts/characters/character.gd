@@ -4,9 +4,9 @@ extends Node2D
 @export var max_health:int
 var curr_health:int
 var atk_multiplier := 1.0
-var heal_eff:Effect
-var atk_buff_eff:Effect
-var block_eff:Effect
+var heal_eff:EffectFactory
+var atk_buff_eff:EffectFactory
+var block_eff:EffectFactory
 @onready var health_bar = $HealthBarUI/HealthBar
 @onready var effect_text := $Effect/CustomLabel
 
