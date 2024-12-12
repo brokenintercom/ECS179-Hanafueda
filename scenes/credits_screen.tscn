@@ -61,6 +61,6 @@ offset_bottom = 922.0
 theme_override_colors/icon_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
 theme_override_fonts/font = ExtResource("2_qckxt")
 theme_override_font_sizes/font_size = 34
-text = "BACK TO TITLE SCREEN"
+text = "Back"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
