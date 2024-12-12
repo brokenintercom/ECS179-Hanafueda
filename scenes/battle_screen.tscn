@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=39 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dlr0eudm2wl45" path="res://assets/battle_sprites/buttons.png" id="5_rqr5q"]
 [ext_resource type="PackedScene" uid="uid://dym3lkpths880" path="res://scenes/synergy.tscn" id="5_yi53n"]
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
+[ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_pish7"]
 
 [sub_resource type="Image" id="Image_jphgh"]
 data = {
@@ -3774,16 +3775,42 @@ Button/styles/hover = SubResource("StyleBoxTexture_ctwuq")
 Button/styles/normal = SubResource("StyleBoxTexture_p01fr")
 Button/styles/pressed = SubResource("StyleBoxTexture_430x7")
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ag61o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_cx8l7")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_5i2po"]
+resource_name = "attack"
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333334, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.937255, 0, 0.2, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k3dq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
+_data = {
+"RESET": SubResource("Animation_k3dq0"),
+"attack": SubResource("Animation_5i2po")
+}
 
 [node name="BattleScreen" type="Node2D"]
 script = ExtResource("1_m0yuu")
@@ -3811,6 +3838,18 @@ position = Vector2(8, 0)
 [node name="Table" parent="." instance=ExtResource("2_udycx")]
 mouse_filter = 1
 metadata/_edit_lock_ = true
+
+[node name="Match" type="Label" parent="."]
+offset_left = 1559.0
+offset_top = 1039.0
+offset_right = 1857.0
+offset_bottom = 1067.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_pish7")
+theme_override_font_sizes/font_size = 25
+text = "Matching By: None"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
@@ -3859,10 +3898,15 @@ offset_top = -520.0
 offset_right = 321.0
 offset_bottom = -301.0
 
-[node name="Boss" type="AnimatedSprite2D" parent="."]
+[node name="Boss" type="Sprite2D" parent="."]
 position = Vector2(1185, 221)
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_ag61o")
+texture = ExtResource("5_cx8l7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
+libraries = {
+"": SubResource("AnimationLibrary_uux5f")
+}
 
 [connection signal="pressed" from="Control/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]

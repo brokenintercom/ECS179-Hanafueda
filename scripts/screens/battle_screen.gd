@@ -8,13 +8,15 @@ enum PhaseType {
 
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
+@onready var match_label := $Match
 @onready var synergy_ui := %Synergy
+@onready var enemy_anim_player := $Boss/AnimationPlayer
 @onready var _play_btn := $Control/PlayCardsButton
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	signals.battle_scene_loaded.emit(synergy_ui)
+	signals.battle_scene_loaded.emit(match_label, synergy_ui, enemy_anim_player)
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 	tutorial.visible = true
 	player.hand.visible = true
@@ -23,7 +25,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	#player.deck.shuffle()
+	player.deck.shuffle()
 	_player_phase()
 
 

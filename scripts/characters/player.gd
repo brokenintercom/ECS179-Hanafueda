@@ -8,6 +8,7 @@ var deck := Deck.new()
 var ino_shika_cho_active := false
 var did_win := false
 var _discard_pile:Array[CardSpec]
+var _match_label:Label
 var _synergy_ui:Node2D
 @onready var hand := %Hand  # Hand of cards
 
@@ -95,6 +96,8 @@ func reset() -> void:
 	deck = Deck.new()
 	selected_cards.clear()
 	_discard_pile.clear()
+	
+	_match_label.text = "Matching By: None"
 	
 	if _synergy_ui != null:
 		_synergy_ui.get_node("CustomLabel").text = "None"
@@ -201,7 +204,8 @@ func _finish_turn() -> void:
 	super()
 
 
-func _on_battle_scene_loaded(synergy_ui:Node2D) -> void:
+func _on_battle_scene_loaded(match_label:Label, synergy_ui:Node2D, _enemy_anim_player:AnimationPlayer) -> void:
+	_match_label = match_label
 	_synergy_ui = synergy_ui
 
 

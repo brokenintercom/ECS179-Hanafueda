@@ -2,7 +2,7 @@ class_name Signals
 extends Node
 
 signal switch_scene(next_scene:String)
-signal battle_scene_loaded(synergy:Node2D)
+signal battle_scene_loaded(match_label:Label, synergy_ui:Node2D, enemy_anim_player:AnimationPlayer)
 signal switch_battle_phase
 signal player_hit(dmg:float)
 signal enemy_hit(dmg:float)
