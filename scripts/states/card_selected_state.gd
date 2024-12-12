@@ -1,4 +1,6 @@
-class_name SelectedState
+# CREDITS: following code is based off of GodotGameLab's Tutorial
+# link: https://youtu.be/Pa0P1lUoC-M
+
 extends CardState
 
 var spec_version:CardSpec

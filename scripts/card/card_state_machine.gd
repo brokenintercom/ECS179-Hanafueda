@@ -1,3 +1,6 @@
+# CREDITS: following code is based off of GodotGameLab's Tutorial
+# link: https://youtu.be/Pa0P1lUoC-M
+
 class_name CardStateMachine
 extends Node
 

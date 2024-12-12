@@ -99,6 +99,7 @@ icon_alignment = 1
 
 [node name="CreditsButton" type="Button" parent="Control/HBoxContainer"]
 layout_mode = 2
+
 theme_override_fonts/font = ExtResource("2_3lal6")
 theme_override_font_sizes/font_size = 40
 text = "Credits"
