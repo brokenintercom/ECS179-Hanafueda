@@ -41,6 +41,9 @@ func actions() -> void:
 func draw_cards(num_draw:int):
 	num_draw = clampi(num_draw, 0, hand.max_hand_size - hand.num_cards)
 	
+	if num_draw > 0:
+		_play($Audio/DrawCard)
+	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
 	# Update the displayed cards
@@ -142,6 +145,7 @@ func _attack() -> void:
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 	
 	signals.enemy_hit.emit(dmg)
+	_play($Audio/Attack)
 	print("player just emitted atk signal, now waiting 1.0 timeout...")
 	await get_tree().create_timer(1.0).timeout
 
@@ -220,3 +224,8 @@ func _on_player_recover_hp(amount:float) -> void:
 		# Increase by integer amount, not float
 		curr_health = clampi(int(curr_health * (1.0 + amount)), curr_health, max_health)
 		await health_bar.update_health(curr_health)
+
+
+func _play(player:AudioStreamPlayer) -> void:
+	if !player.playing:
+		player.play()

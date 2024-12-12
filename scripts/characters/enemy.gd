@@ -48,6 +48,7 @@ func actions():
 	
 	_animation_player.play("attack")
 	signals.player_hit.emit(damage * atk_multiplier)
+	_play($Audio/Attack)
 	print("Enemy just emitted player_hit, now waiting 1.0 sec")
 	await get_tree().create_timer(1.0).timeout
 	
@@ -81,3 +82,8 @@ func _on_enemy_recover_hp(amount:float) -> void:
 		# Increase by integer amount, not float
 		curr_health = clampi(int(curr_health * (1.0 + amount)), curr_health, max_health)
 		await health_bar.update_health(curr_health)
+
+
+func _play(player:AudioStreamPlayer) -> void:
+	if !player.playing:
+		player.play()
