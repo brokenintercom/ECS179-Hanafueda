@@ -29,10 +29,18 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	# TODO print("--------UPDATING MATCHES--------")
 	# TODO print("Category match: ", Match.keys()[category_match])
 	
+	# TODO if possible, combine the code here...so that you don't have to do the if statement again
+	# calc preview dmg and edit helathbar
+	var atk_mult = 1.0
+	if player.ino_shika_cho_active:
+		atk_mult = 2.0
+	var potential_dmg = DamageEngine.calc_dmg(selected_cards, category_match, atk_mult)
+	enemy.health_bar.preview_health(potential_dmg)
+	
 	for card in card_nodes:
-		# Only look at non-selected cards
+		# Only look at non-selected cardsvar dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 		if card.is_selected():
-			continue
+			continue # add dmg calc here
 		
 		# TODO delete
 		#print("--CARD ATTRIBUTES--")

@@ -25,7 +25,6 @@ func _ready() -> void:
 			display.visible = false
 	
 func _show_guide() -> void:
-	print("clicked guide")
 	if self.visible == false:
 		self.visible = true
 	else:

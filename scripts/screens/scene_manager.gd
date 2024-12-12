@@ -14,11 +14,6 @@ func _ready() -> void:
 	signals.switch_scene.connect(_on_switch_scene)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
 func _on_switch_scene(next_scene_name:String) -> void:
 	if current_scene is BattleScreen:
 		player.hand.visible = false

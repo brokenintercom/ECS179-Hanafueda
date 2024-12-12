@@ -43,7 +43,6 @@ func actions() -> void:
 
 func draw_cards(num_draw:int):
 	num_draw = clampi(num_draw, 0, hand.max_hand_size - hand.num_cards)
-	print("Attempting to draw %d cards..." % num_draw)
 	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
@@ -69,8 +68,8 @@ func play_cards() -> void:
 	_disable_player()
 	
 	# Actually use the selected cards to perform the attack on the enemy
-	_attack()
-	await _finish_turn()
+	await _attack()
+	_finish_turn()
 
 
 func reset() -> void:
@@ -93,13 +92,14 @@ func reset() -> void:
 	
 	# Update deck. Also, don't update did_win since it affects which upcoming scenes are displayed
 	deck = Deck.new()
+	selected_cards.clear()
+	_discard_pile.clear()
 	
 	if _synergy_ui != null:
 		_synergy_ui.get_node("CustomLabel").text = "None"
 
 
 func _disable_player() -> void:
-	print("disabling player...")
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
 	# Make sure all enabled cards (cards the user could've selected, but didn't) become disabled
@@ -143,6 +143,8 @@ func _attack() -> void:
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 	
 	signals.enemy_hit.emit(dmg)
+	print("player just emitted atk signal, now waiting 1.0 timeout...")
+	await get_tree().create_timer(1.0).timeout
 
 
 func _apply_synergy() -> void:
@@ -154,20 +156,14 @@ func _apply_synergy() -> void:
 		synergy_label.text = "None"
 		return
 	
-	print("synergy_to_match: ", CardSpec.Synergy.keys()[synergy_to_match])
-	
 	for i in range(1, num_selected):
 		# TODO there's no matches_syergy for CardSpec, only for Card
 		if not selected_cards[i].synergy == synergy_to_match:
 			synergy_label.text = "None"
 			return
 	
-	print("check synergy_to_match timer 0.5")
-	await get_tree().create_timer(0.5).timeout
-	
 	var text = ""
-
-	# TODO Yujin update for scenario where 2 effects at same time
+	
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
 			text = "Block enemy atk"
@@ -180,12 +176,10 @@ func _apply_synergy() -> void:
 			atk_buff_eff.generate(self, 1, 2.0)
 	
 	synergy_label.update_text(text)
-	print("synergy additional timer 1.2")
-	await get_tree().create_timer(1.2).timeout
 
 
 func _finish_turn() -> void:
-	await _apply_synergy()  # Synergies are applied right before the end of the turn
+	_apply_synergy()  # Synergies are applied right before the end of the turn
 	
 	var card_nodes := hand.get_node("GridContainer").get_children()
 	
@@ -213,13 +207,8 @@ func _on_player_hit(dmg:int) -> void:
 		return
 	
 	# Internally update health
-	print("Before player hit: ", curr_health)
-	
 	curr_health = clampi(curr_health - dmg, 0, max_health)
-	
-	health_bar.update_health(curr_health)
-	
-	print("After player hit: ", curr_health)
+	print("about to await player health update")
 	
 	await health_bar.update_health(curr_health)
 
@@ -227,7 +216,5 @@ func _on_player_hit(dmg:int) -> void:
 func _on_player_recover_hp(amount:float) -> void:
 	if 0.0 < amount and amount < 1.0:
 		# Increase by integer amount, not float
-		print("Before player heal: ", curr_health)
 		curr_health = clampi(int(curr_health * (1.0 + amount)), curr_health, max_health)
 		await health_bar.update_health(curr_health)
-		print("After player heal: ", curr_health)
