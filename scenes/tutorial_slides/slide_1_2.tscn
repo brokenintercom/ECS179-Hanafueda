@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bktbv53wdg3k8"]
+
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_to3mb"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_n1h8t"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_j8t4o"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="4_2uacr"]
+[ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="5_5d2nu"]
+[ext_resource type="Texture2D" uid="uid://2eqljtiskdhs" path="res://assets/tutorial/board_default.png" id="6_5lkvh"]
+[ext_resource type="Texture2D" uid="uid://bhegt5k3nirod" path="res://assets/tutorial/arrow.png" id="7_od0yy"]
+
+[node name="slide_1_2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_to3mb")
+
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_n1h8t")
+
+[node name="big text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_j8t4o")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -312.0
+offset_right = 448.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2uacr")
+theme_override_font_sizes/font_size = 40
+text = "At the beginning of every turn, cards will be drawn
+from the deck until you have 8 cards (or the deck
+runs out)
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_2uacr")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_2uacr")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[node name="Deck" parent="." instance=ExtResource("5_5d2nu")]
+offset_left = 416.0
+offset_top = 360.0
+offset_right = 560.0
+offset_bottom = 579.0
+scale = Vector2(0.81, 0.81)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1144, 448)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("6_5lkvh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(656, 448)
+texture = ExtResource("7_od0yy")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

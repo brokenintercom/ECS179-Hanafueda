@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=9 format=3 uid="uid://dhdw8hgrbvxvi"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2t0a3"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_7lmxu"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="2_57ebi"]
-[ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_l7gkh"]
+[ext_resource type="Texture2D" uid="uid://dxwo3gnx0renk" path="res://assets/tutorial/board_cards_selected.png" id="5_uco1j"]
 [ext_resource type="Texture2D" uid="uid://82rabbn8og55" path="res://assets/tutorial/play_button.png" id="6_t6nv2"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="7_flcqi"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="8_m65ca"]
 
 [node name="Slide2" type="Control"]
 layout_mode = 3
@@ -33,16 +35,15 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -448.0
-offset_top = -312.0
+offset_top = -336.0
 offset_right = 448.0
-offset_bottom = -153.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2t0a3")
 theme_override_font_sizes/font_size = 40
-text = "You deal damage by selecting cards and clicking the play button! 
-
+text = "You deal damage by selecting cards that match by having the same month (Jan-Dec) OR the same type (Normal, Ribbon, Animal, Bright)
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -69,14 +70,91 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="Board" type="Sprite2D" parent="."]
-position = Vector2(1168, 456)
+position = Vector2(960, 432)
 scale = Vector2(0.705, 0.705)
-texture = ExtResource("5_l7gkh")
+texture = ExtResource("5_uco1j")
 
 [node name="Play Button" type="Sprite2D" parent="."]
-position = Vector2(472, 464)
-scale = Vector2(2.012, 1.933)
+visible = false
+position = Vector2(384, 448)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_t6nv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1424, 536)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("7_flcqi")
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -276.0
+offset_right = -16.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_font_sizes/font_size = 40
+text = "By selecting an April Normal Card, you can either..."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1048, 200)
+texture = ExtResource("8_m65ca")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_font_sizes/font_size = 28
+text = "Match by Month (April)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1048, 664)
+texture = ExtResource("8_m65ca")
+
+[node name="Label2" type="Label" parent="Sprite2D3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_font_sizes/font_size = 28
+text = "Match by Type (Normal)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
