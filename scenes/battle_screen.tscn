@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=42 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_pish7"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="10_23bth"]
+[ext_resource type="AudioStream" uid="uid://bdg0kao8sqer1" path="res://assets/audio/bgm/Battle.ogg" id="12_on3jc"]
 
 [sub_resource type="Image" id="Image_jphgh"]
 data = {
@@ -3859,8 +3860,9 @@ script = ExtResource("1_m0yuu")
 [node name="help" parent="." instance=ExtResource("2_j8vmt")]
 visible = false
 
-[node name="tutorial" parent="." instance=ExtResource("3_g6onw")]
+[node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
 visible = false
+slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -3995,6 +3997,11 @@ texture = ExtResource("5_cx8l7")
 libraries = {
 "": SubResource("AnimationLibrary_uux5f")
 }
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_on3jc")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="pressed" from="Control/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
