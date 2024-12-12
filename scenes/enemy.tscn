@@ -22,6 +22,10 @@ spacing_glyph = -2
 position = Vector2(58, 40)
 script = ExtResource("1_bi4tv")
 base_atk = 10
+atk_buff_chance = 0.5
+block_chance = 0.5
+heal_chance = 0.5
+shrink_hand_chance = 0.5
 max_health = 100
 
 [node name="Effect" parent="." instance=ExtResource("4_e0sod")]

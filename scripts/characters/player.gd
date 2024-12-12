@@ -16,11 +16,6 @@ func _ready():
 	signals.battle_scene_loaded.connect(_on_battle_scene_loaded)
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
-	
-	# Set up effects
-	heal_eff = HealEffectFactory.new()
-	atk_buff_eff = AttackBuffEffectFactory.new()
-	block_eff = BlockEffectFactory.new()
 
 	health_bar.init_health(max_health)
 
@@ -37,7 +32,8 @@ func actions() -> void:
 	else:
 		synergy_label.reset_text()
 	
-	# Draw enough cards such that the player's hand would have max_hand_size cards
+	# Draw enough cards such that the player's hand would have max_hand_size 
+	print(player.hand.max_hand_size)
 	var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
 	draw_cards(num_draw)
 
@@ -197,6 +193,8 @@ func _finish_turn() -> void:
 			card.get_curr_card_state().transition_to_empty()  # Change this card to empty state
 			
 			hand.num_cards -= 1
+	
+	player.effect_text.reset_text()
 	
 	super()
 

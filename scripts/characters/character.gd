@@ -13,6 +13,11 @@ var block_eff:EffectFactory
 
 func _ready() -> void:
 	curr_health = max_health
+	
+	# Set up effects
+	heal_eff = HealEffectFactory.new()
+	atk_buff_eff = AttackBuffEffectFactory.new()
+	block_eff = BlockEffectFactory.new()
 
 
 # Reset back to original
