@@ -1,30 +1,30 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhdw8hgrbvxvi"]
+[gd_scene load_steps=8 format=3 uid="uid://djxcnn14jywg6"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2t0a3"]
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_h12yl"]
-[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_7lmxu"]
-[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="2_57ebi"]
-[ext_resource type="Texture2D" uid="uid://dxwo3gnx0renk" path="res://assets/tutorial/board_cards_selected.png" id="5_uco1j"]
-[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="7_flcqi"]
-[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="8_m65ca"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_2uln2"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_p38rw"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_71olp"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="4_5c1v8"]
+[ext_resource type="Texture2D" uid="uid://dxwo3gnx0renk" path="res://assets/tutorial/board_cards_selected.png" id="5_2pkd3"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="6_in207"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="7_4bnjn"]
 
-[node name="Slide2" type="Control"]
+[node name="slide_10" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_h12yl")
+script = ExtResource("1_2uln2")
 
 [node name="tutorial bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
-texture = ExtResource("2_7lmxu")
+texture = ExtResource("2_p38rw")
 
 [node name="big text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
-texture = ExtResource("2_57ebi")
+texture = ExtResource("3_71olp")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -33,16 +33,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -336.0
-offset_right = 448.0
-offset_bottom = -177.0
+offset_left = -424.0
+offset_top = -328.0
+offset_right = 424.0
+offset_bottom = -136.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_2t0a3")
-theme_override_font_sizes/font_size = 40
-text = "You deal damage by selecting cards that match by having the same month (Jan-Dec) OR the same type (Normal, Ribbon, Animal, Bright)
+theme_override_fonts/font = ExtResource("4_5c1v8")
+theme_override_font_sizes/font_size = 34
+text = "You can select as many cards as you want. Cards that can’t match with your currently selected cards will automatically be grayed out. Cards that can still be selected will remain colored.
+
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,7 +55,7 @@ offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("4_5c1v8")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
@@ -64,19 +65,19 @@ offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("4_5c1v8")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="Board" type="Sprite2D" parent="."]
 position = Vector2(960, 432)
 scale = Vector2(0.705, 0.705)
-texture = ExtResource("5_uco1j")
+texture = ExtResource("5_2pkd3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1424, 536)
 scale = Vector2(0.74, 0.74)
-texture = ExtResource("7_flcqi")
+texture = ExtResource("6_in207")
 
 [node name="Label2" type="Label" parent="Sprite2D"]
 anchors_preset = 7
@@ -91,7 +92,7 @@ offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("4_5c1v8")
 theme_override_font_sizes/font_size = 40
 text = "By selecting an April Normal Card, you can either..."
 horizontal_alignment = 1
@@ -101,7 +102,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(1048, 200)
-texture = ExtResource("8_m65ca")
+texture = ExtResource("7_4bnjn")
 
 [node name="Label2" type="Label" parent="Sprite2D2"]
 anchors_preset = 7
@@ -116,7 +117,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("4_5c1v8")
 theme_override_font_sizes/font_size = 28
 text = "Match by Month (April)"
 horizontal_alignment = 1
@@ -126,7 +127,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 position = Vector2(1048, 664)
-texture = ExtResource("8_m65ca")
+texture = ExtResource("7_4bnjn")
 
 [node name="Label2" type="Label" parent="Sprite2D3"]
 anchors_preset = 7
@@ -141,7 +142,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_2t0a3")
+theme_override_fonts/font = ExtResource("4_5c1v8")
 theme_override_font_sizes/font_size = 28
 text = "Match by Type (Normal)"
 horizontal_alignment = 1

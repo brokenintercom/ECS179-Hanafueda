@@ -26,7 +26,7 @@ position = Vector2(952, 824)
 texture = ExtResource("3_pg8qc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1128, 488)
+position = Vector2(1122.44, 446.413)
 texture = ExtResource("4_5xokp")
 
 [node name="Label" type="Label" parent="."]
@@ -36,16 +36,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -320.0
-offset_right = 448.0
-offset_bottom = -185.0
+offset_left = -408.0
+offset_top = -344.0
+offset_right = 384.0
+offset_bottom = -163.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_2l5hc")
-theme_override_font_sizes/font_size = 42
-text = "There are also certain synergies between cards but… that’s for you to find out ;D
+theme_override_font_sizes/font_size = 32
+text = "There are also special SYNERGIES that activate special effects. There's 3 different synergies, and they activate when you play 3 specific cards buuuut, you'll have to discover them yourselves ;D
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -72,7 +72,7 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
-position = Vector2(832, 480)
+position = Vector2(826.442, 438.413)
 scale = Vector2(1.26717, 1.24189)
 texture = ExtResource("7_hbwse")
 
@@ -83,10 +83,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -760.0
-offset_right = 280.0
-offset_bottom = -378.0
+offset_left = 74.4423
+offset_top = -801.587
+offset_right = 274.442
+offset_bottom = -419.587
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
