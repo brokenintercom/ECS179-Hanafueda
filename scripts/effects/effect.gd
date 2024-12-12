@@ -2,10 +2,12 @@ class_name Effect
 extends Node2D
 
 var _turns:int
+var _parent:Character
 
 
-func _init(turns:int) -> void:
+func _init(parent:Character, turns:int) -> void:
 	_turns = turns
+	_parent = parent
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 
 

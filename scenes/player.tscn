@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj5id2qqtq3h4"]
+[gd_scene load_steps=18 format=3 uid="uid://dj5id2qqtq3h4"]
 
 [ext_resource type="PackedScene" uid="uid://b37px5yamuk8i" path="res://scenes/hand.tscn" id="1_5gh7w"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_bs5ar"]
@@ -6,6 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="3_spis3"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="4_15peq"]
 [ext_resource type="PackedScene" uid="uid://bdi3ywqh32rxc" path="res://scenes/player_effect.tscn" id="5_xykok"]
+[ext_resource type="AudioStream" uid="uid://d0ppvfrequgl" path="res://assets/audio/cards/draw/CardDraw1.wav" id="7_4fhfb"]
+[ext_resource type="AudioStream" uid="uid://dkoe8jabmtvw3" path="res://assets/audio/cards/draw/CardDraw2.wav" id="8_e2206"]
+[ext_resource type="AudioStream" uid="uid://dwlejx7diuh5d" path="res://assets/audio/cards/draw/CardDraw3.wav" id="9_wx46y"]
+[ext_resource type="AudioStream" uid="uid://c0kkblap33tj5" path="res://assets/audio/cards/draw/CardDraw4.wav" id="10_yhq8s"]
+[ext_resource type="AudioStream" uid="uid://dxtf3wld1recm" path="res://assets/audio/cards/draw/CardDraw5.wav" id="11_vhoae"]
+[ext_resource type="AudioStream" uid="uid://0mj7c6fn6siu" path="res://assets/audio/cards/draw/CardDraw6.wav" id="12_5jrqs"]
+[ext_resource type="AudioStream" uid="uid://cpt645kqvv0hr" path="res://assets/audio/attack/PlayerAttack.wav" id="13_pcrk3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1td1v"]
 atlas = ExtResource("3_spis3")
@@ -18,6 +25,16 @@ region = Rect2(795, 30, 45, 42)
 [sub_resource type="FontVariation" id="FontVariation_2p6sy"]
 base_font = ExtResource("4_15peq")
 spacing_glyph = -2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_umoq7"]
+playback_mode = 1
+streams_count = 6
+stream_0/stream = ExtResource("7_4fhfb")
+stream_1/stream = ExtResource("8_e2206")
+stream_2/stream = ExtResource("9_wx46y")
+stream_3/stream = ExtResource("10_yhq8s")
+stream_4/stream = ExtResource("11_vhoae")
+stream_5/stream = ExtResource("12_5jrqs")
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_bs5ar")
@@ -60,3 +77,11 @@ offset_left = 90.0
 offset_top = 1004.0
 offset_right = 435.0
 offset_bottom = 1028.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="DrawCard" type="AudioStreamPlayer" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_umoq7")
+
+[node name="Attack" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("13_pcrk3")
