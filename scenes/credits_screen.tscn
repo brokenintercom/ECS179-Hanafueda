@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1bq3a08im68x"]
+
+[ext_resource type="Script" path="res://scripts/screens/credits_screen.gd" id="1_7hyww"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_ith6q"]
+[ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="2_qckxt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf08h"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CreditsScreen" type="CanvasLayer"]
+script = ExtResource("1_7hyww")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -20.0
+offset_top = -16.0
+offset_right = 1929.0
+offset_bottom = 1072.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jf08h")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 124.0
+offset_right = 1094.0
+offset_bottom = 265.0
+theme_override_fonts/font = ExtResource("1_ith6q")
+theme_override_font_sizes/font_size = 88
+text = "C R E D I T S"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 343.0
+offset_top = 276.0
+offset_right = 1505.0
+offset_bottom = 806.0
+theme_override_fonts/font = ExtResource("2_qckxt")
+theme_override_font_sizes/font_size = 37
+text = "Producer . . . . . . . . . . . . . . . . . . . . . Tim Dela Cruz
+UIUX . . . . . . . . . . . . . . . . . . . . . . . . . Jamie Hsi
+Enemy Effects/AI . . . . . . . . . . . . . . Chris Wang 
+Animation and Visuals . . . . . . . . .  Yujin Cho
+Game Logic . . . . . . . . . . . . . . . . . . . Yoobin Jin
+
+Audio. . . . . . . . . . . . . . . . . . . . . . . . . Chris Wang 
+Gameplay Testing . . . . . . . . . . . . . .  Yoobin Jin
+Narrative Design  . . . . . . . . . . . . . . . Yujin Cho
+Press Kit and Trailer . . . . . . . . . . . . .  Tim Dela Cruz
+Game Feel and Polish. . . . . . . . . . . .  Jamie Hsi
+
+
+"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 626.0
+offset_top = 816.0
+offset_right = 1121.0
+offset_bottom = 916.0
+theme_override_colors/icon_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
+theme_override_fonts/font = ExtResource("2_qckxt")
+theme_override_font_sizes/font_size = 34
+text = "BACK TO TITLE SCREEN"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

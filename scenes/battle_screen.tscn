@@ -3792,8 +3792,10 @@ Button/styles/normal = SubResource("StyleBoxTexture_tmwec")
 Button/styles/pressed = SubResource("StyleBoxTexture_ke4yd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sn5r7"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.301961)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_odm3l"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.301961)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4c7i"]
 texture = ExtResource("5_rqr5q")
@@ -3930,6 +3932,7 @@ offset_right = 321.0
 offset_bottom = -301.0
 
 [node name="PauseButton" type="Button" parent="Control"]
+process_mode = 3
 layout_mode = 0
 offset_left = 70.0
 offset_top = -692.0
