@@ -5,7 +5,6 @@ const WHITE = Color.WHITE
 const GRAY = Color.WEB_GRAY
 var selected_cards:Array[CardSpec]
 var deck := Deck.new()
-var ino_shika_cho_active := false
 var did_win := false
 var _discard_pile:Array[CardSpec]
 var _match_label:Label
@@ -19,9 +18,9 @@ func _ready():
 	signals.player_recover_hp.connect(_on_player_recover_hp)
 	
 	# Set up effects
-	heal_eff = HealEffect.new()
-	atk_buff_eff = AttackBuffEffect.new()
-	block_eff = BlockEffect.new()
+	heal_eff = HealEffectFactory.new()
+	atk_buff_eff = AttackBuffEffectFactory.new()
+	block_eff = BlockEffectFactory.new()
 
 	health_bar.init_health(max_health)
 
@@ -33,7 +32,7 @@ func actions() -> void:
 	
 	var synergy_label = _synergy_ui.get_node("CustomLabel")
 	
-	if ino_shika_cho_active:
+	if atk_multiplier == 2.0:
 		synergy_label.reset_and_update_text("x2 attack this turn")
 	else:
 		synergy_label.reset_text()
@@ -142,9 +141,7 @@ func _draw_card(card:Card) -> bool:
 
 
 func _attack() -> void:
-	if ino_shika_cho_active:
-		atk_buff_eff.apply(self, 2.0)
-		ino_shika_cho_active = false
+	print("Player attacking...")
 	
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 	
@@ -173,13 +170,13 @@ func _apply_synergy() -> void:
 	match synergy_to_match:
 		CardSpec.Synergy.BLUE_RIBBON:
 			text = "Block enemy atk"
-			block_eff.apply(enemy, 0.0)
+			block_eff.generate(enemy, 1, 0.0)
 		CardSpec.Synergy.POETRY_RIBBON:
 			text = "Heal 20%"
-			heal_eff.apply(self, 0.2)
+			heal_eff.generate(self, 0, 0.2)
 		CardSpec.Synergy.INO_SHIKA_CHO:
 			text = "x2 attack next turn"
-			ino_shika_cho_active = true
+			atk_buff_eff.generate(self, 1, 2.0)
 	
 	synergy_label.update_text(text)
 
