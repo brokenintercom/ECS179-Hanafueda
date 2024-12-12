@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://xwqtlogjmebe"]
+[gd_scene load_steps=7 format=3 uid="uid://y1n6ywnolwxr"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_jxo7w"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_l5shl"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_xenqw"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_rrjht"]
-[ext_resource type="Texture2D" uid="uid://domc7nhkv32io" path="res://assets/tutorial/cards_selected.png" id="5_rfb8q"]
-[ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="6_fl8gs"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="5_sdm4i"]
+[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="6_basbe"]
 
-[node name="Slide3" type="Control"]
+[node name="Slide5" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxo7w")
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="tutorial bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
 texture = ExtResource("2_xenqw")
@@ -32,18 +32,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -312.0
-offset_right = 448.0
-offset_bottom = -153.0
+offset_left = -424.0
+offset_top = -336.0
+offset_right = 400.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 40
-text = "However, cards have to Match with each other in order for them to be played
-
-"
+theme_override_font_sizes/font_size = 35
+text = "Both of these cards are Normal-Type January Cards! All January Cards have a similar background, with Normal Cards only having the background."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -68,63 +66,15 @@ theme_override_fonts/font = ExtResource("1_l5shl")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
-[node name="card_selected" type="Sprite2D" parent="."]
-position = Vector2(940.016, 431.834)
-scale = Vector2(0.732, 0.717)
-texture = ExtResource("5_rfb8q")
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(786.442, 430.413)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("5_sdm4i")
 
-[node name="small text box" type="Sprite2D" parent="."]
-position = Vector2(504, 560)
-texture = ExtResource("6_fl8gs")
-
-[node name="selected" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -560.0
-offset_top = -576.0
-offset_right = -350.0
-offset_bottom = -464.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 25
-text = "Selected cards are Highlighted in blue"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="small text box2" type="Sprite2D" parent="."]
-position = Vector2(1368, 344)
-rotation = -3.14336
-texture = ExtResource("6_fl8gs")
-
-[node name="greyed" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 237.0
-offset_top = -793.0
-offset_right = 580.0
-offset_bottom = -681.0
-grow_horizontal = 2
-grow_vertical = 0
-rotation = -6.28319
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_l5shl")
-theme_override_font_sizes/font_size = 25
-text = "Greyed out cards
-can't be chosen"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(1146.44, 430.413)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("6_basbe")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

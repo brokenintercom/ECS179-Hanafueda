@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8tdkqfe83mt2"]
+
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_04ank"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_lv38k"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_eunt2"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="4_2ycx7"]
+[ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="5_ykb2r"]
+[ext_resource type="Texture2D" uid="uid://ceaii0dr7vpjr" path="res://assets/tutorial/Player Health.PNG" id="6_vv2pl"]
+[ext_resource type="Texture2D" uid="uid://drpsgwx20w5xp" path="res://assets/battle_sprites/boss.png" id="7_buisl"]
+[ext_resource type="Texture2D" uid="uid://cgdfhh3qqkuh5" path="res://assets/tutorial/Enemy Health.PNG" id="8_i5n4o"]
+
+[node name="slide_1_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_04ank")
+
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_lv38k")
+
+[node name="big text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_eunt2")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -312.0
+offset_right = 448.0
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_2ycx7")
+theme_override_font_sizes/font_size = 40
+text = "You'll use a shuffled deck of cards to fight back
+against the Yakuza who will attack you directly
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_2ycx7")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_2ycx7")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[node name="Deck" parent="." instance=ExtResource("5_ykb2r")]
+layout_mode = 0
+offset_left = 439.25
+offset_top = 312.0
+offset_right = 583.25
+offset_bottom = 531.0
+scale = Vector2(0.81, 0.81)
+
+[node name="Player health" type="Sprite2D" parent="."]
+position = Vector2(511.25, 560)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("6_vv2pl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1209.1, 428.4)
+scale = Vector2(0.78, 0.78)
+texture = ExtResource("7_buisl")
+
+[node name="Enemy health" type="Sprite2D" parent="."]
+position = Vector2(1209.1, 556.4)
+scale = Vector2(1.5, 1.391)
+texture = ExtResource("8_i5n4o")
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

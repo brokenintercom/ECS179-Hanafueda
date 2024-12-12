@@ -1,0 +1,372 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbb4ngrgnudom"]
+
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_x2b1p"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_e0og2"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_s3k7p"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="4_pt8n8"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="5_8emto"]
+[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="6_aj58f"]
+[ext_resource type="Texture2D" uid="uid://c0bu4wf18pw3g" path="res://assets/card_sprites/dec-normal-2.png" id="7_s4tvm"]
+[ext_resource type="Texture2D" uid="uid://ckymnd0jr5k25" path="res://assets/card_sprites/dec-normal-1.png" id="8_merp6"]
+[ext_resource type="Texture2D" uid="uid://dj0kbe7gwrchg" path="res://assets/tutorial/text boxes/smaller text box.png" id="10_dw35l"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="10_xobpb"]
+
+[node name="slide_8_3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2b1p")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_e0og2")
+
+[node name="text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_s3k7p")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -424.0
+offset_top = -320.0
+offset_right = 408.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 40
+text = "If the selected cards’ month and type both match, then the damage will automatically be calculated based on type matching (i.e. Playing Normals).
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1504, 472)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("5_8emto")
+
+[node name="Label2" type="Label" parent="Sprite2D"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -276.0
+offset_right = -16.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 35
+text = "Playing more than 1 Card of the Same Month grants a bonus!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(450, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("6_aj58f")
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(700, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("7_s4tvm")
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(950, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("8_merp6")
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(1200, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("7_s4tvm")
+
+[node name="Card1 Dmg" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -568.0
+offset_top = -864.0
+offset_right = -456.0
+offset_bottom = -776.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 60
+text = "+5
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card1 Desc" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -576.0
+offset_top = -912.0
+offset_right = -448.0
+offset_bottom = -824.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+text = "Base Dmg"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card2 Dmg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -864.0
+offset_right = -208.0
+offset_bottom = -776.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 60
+text = "+1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card2 Desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -312.0
+offset_top = -912.0
+offset_right = -192.0
+offset_bottom = -824.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card3 Dmg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -864.0
+offset_right = 40.0
+offset_bottom = -776.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 60
+text = "+1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card3 Desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -912.0
+offset_right = 48.0
+offset_bottom = -824.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card4 Dmg" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -864.0
+offset_right = 296.0
+offset_bottom = -776.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 60
+text = "+1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Card4 Desc" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -912.0
+offset_right = 296.0
+offset_bottom = -824.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1509, 346)
+texture = ExtResource("10_dw35l")
+
+[node name="Label10" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 429.0
+offset_top = -774.0
+offset_right = 669.0
+offset_bottom = -686.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+text = "Total Dmg = 
++3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1504, 472)
+scale = Vector2(0.74, 0.74)
+texture = ExtResource("5_8emto")
+
+[node name="Label2" type="Label" parent="Sprite2D3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -276.0
+offset_right = -16.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 33
+text = "Playing 4+ Normal Cards gives bonus damage for each card!... so no Bonus Damage occurs here"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1496, 360)
+scale = Vector2(0.77, 1)
+texture = ExtResource("10_xobpb")
+
+[node name="Label11" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 448.0
+offset_top = -760.0
+offset_right = 616.0
+offset_bottom = -672.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_pt8n8")
+theme_override_font_sizes/font_size = 30
+text = "Total Dmg = 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

@@ -1,24 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://fgyvbmstf5ml"]
+[gd_scene load_steps=9 format=3 uid="uid://byfmfsrm2q7ar"]
 
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_cfham"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_15y71"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_pxc1u"]
-[ext_resource type="Texture2D" uid="uid://d0embhatd2frk" path="res://assets/card_sprites/apr-animal.png" id="3_10320"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_ywqud"]
-[ext_resource type="Texture2D" uid="uid://bx6i8lydad5cw" path="res://assets/card_sprites/aug-normal-1.png" id="4_q4a1f"]
 [ext_resource type="Texture2D" uid="uid://doquaikhlaied" path="res://assets/card_sprites/feb-tanzaku.png" id="5_xvdhr"]
-[ext_resource type="Texture2D" uid="uid://b0nwd456jvv14" path="res://assets/card_sprites/jan-bright.png" id="6_5v10g"]
-[ext_resource type="Texture2D" uid="uid://bnm0tu3fjgcdu" path="res://assets/card_sprites/jul-normal-1.png" id="7_ro523"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="6_cb54t"]
 [ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="8_vdex1"]
-[ext_resource type="Texture2D" uid="uid://dy8jdemy47oje" path="res://assets/card_sprites/mar-bright.png" id="9_kulcm"]
-[ext_resource type="Texture2D" uid="uid://bh8debl3g8pkp" path="res://assets/card_sprites/may-animal.png" id="10_b35mm"]
-[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="11_t1lrr"]
-[ext_resource type="Texture2D" uid="uid://dj2sn4riv5pem" path="res://assets/card_sprites/oct-normal-2.png" id="12_lyp58"]
-[ext_resource type="Texture2D" uid="uid://djkdu8roubyju" path="res://assets/card_sprites/aug-bright.png" id="13_2augi"]
-[ext_resource type="Texture2D" uid="uid://yge6vuf2rjyh" path="res://assets/card_sprites/sep-animal.png" id="14_42ank"]
+[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="8_vwtc5"]
 
-
-[node name="Slide4" type="Control"]
+[node name="slide_4" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,9 +23,8 @@ position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
 texture = ExtResource("2_pxc1u")
 
-[node name="text box" type="Sprite2D" parent="tutorial bg"]
-position = Vector2(-8.40778, 271.935)
-scale = Vector2(0.989151, 0.967742)
+[node name="text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
 texture = ExtResource("3_ywqud")
 
 [node name="Label" type="Label" parent="."]
@@ -44,17 +34,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -336.0
-offset_right = 392.0
-offset_bottom = -177.0
+offset_left = -416.0
+offset_top = -328.0
+offset_right = 408.0
+offset_bottom = -169.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_15y71")
 theme_override_font_sizes/font_size = 40
-text = "The deck is made up of 48 cards, each one assigned with a Month of the year and a type.
-"
+text = "Ribbon Cards have a red border and a Ribbon on them…"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -79,76 +68,95 @@ theme_override_fonts/font = ExtResource("2_15y71")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(376, 560)
-rotation = -0.523599
-texture = ExtResource("3_10320")
-metadata/_edit_group_ = true
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(526, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("5_xvdhr")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(448, 512)
-rotation = -0.436332
-texture = ExtResource("4_q4a1f")
-metadata/_edit_group_ = true
+position = Vector2(526, 257)
+texture = ExtResource("6_cb54t")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_font_sizes/font_size = 28
+text = "February Ribbon Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(958, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("8_vdex1")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(552, 464)
-rotation = -0.349066
-texture = ExtResource("5_xvdhr")
-metadata/_edit_group_ = true
+position = Vector2(958, 257)
+texture = ExtResource("6_cb54t")
+
+[node name="Label2" type="Label" parent="Sprite2D3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_font_sizes/font_size = 28
+text = "June Ribbon Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(1398, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("8_vwtc5")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(664, 432)
-rotation = -0.261799
-texture = ExtResource("6_5v10g")
-metadata/_edit_group_ = true
+position = Vector2(1398, 257)
+texture = ExtResource("6_cb54t")
 
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(768, 408)
-rotation = -0.174533
-texture = ExtResource("7_ro523")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(864, 392)
-rotation = -0.0872665
-texture = ExtResource("8_vdex1")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D7" type="Sprite2D" parent="."]
-position = Vector2(952, 384)
-texture = ExtResource("9_kulcm")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
-position = Vector2(1088, 400)
-rotation = 0.174533
-texture = ExtResource("10_b35mm")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D9" type="Sprite2D" parent="."]
-position = Vector2(1216, 424)
-rotation = 0.261799
-texture = ExtResource("11_t1lrr")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D10" type="Sprite2D" parent="."]
-position = Vector2(1328, 456)
-rotation = 0.349066
-texture = ExtResource("12_lyp58")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D12" type="Sprite2D" parent="."]
-position = Vector2(1432, 504)
-rotation = 0.436332
-texture = ExtResource("13_2augi")
-metadata/_edit_group_ = true
-
-[node name="Sprite2D11" type="Sprite2D" parent="."]
-position = Vector2(1536, 568)
-rotation = 0.523599
-texture = ExtResource("14_42ank")
-metadata/_edit_group_ = true
+[node name="Label2" type="Label" parent="Sprite2D4"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_15y71")
+theme_override_font_sizes/font_size = 28
+text = "November Ribbon Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
