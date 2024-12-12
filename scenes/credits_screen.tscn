@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1bq3a08im68x"]
+[gd_scene load_steps=5 format=3 uid="uid://gslscpfhtcnw"]
 
 [ext_resource type="Script" path="res://scripts/screens/credits_screen.gd" id="1_7hyww"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_ith6q"]
@@ -19,9 +19,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_jf08h")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 679.0
+offset_left = 755.0
 offset_top = 124.0
-offset_right = 1094.0
+offset_right = 1174.0
 offset_bottom = 265.0
 theme_override_fonts/font = ExtResource("1_ith6q")
 theme_override_font_sizes/font_size = 88
@@ -31,9 +31,9 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 343.0
+offset_left = 407.0
 offset_top = 276.0
-offset_right = 1505.0
+offset_right = 1569.0
 offset_bottom = 806.0
 theme_override_fonts/font = ExtResource("2_qckxt")
 theme_override_font_sizes/font_size = 37
@@ -54,10 +54,10 @@ Game Feel and Polish. . . . . . . . . . . .  Jamie Hsi
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
-offset_left = 626.0
-offset_top = 816.0
-offset_right = 1121.0
-offset_bottom = 916.0
+offset_left = 704.0
+offset_top = 822.0
+offset_right = 1199.0
+offset_bottom = 922.0
 theme_override_colors/icon_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
 theme_override_fonts/font = ExtResource("2_qckxt")
 theme_override_font_sizes/font_size = 34

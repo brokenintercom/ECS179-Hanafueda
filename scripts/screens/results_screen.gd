@@ -16,6 +16,8 @@ func _process(_delta):
 	else:
 		big_message.text = "GAME OVER..."
 		small_message.text = "You lost :("
+		
+	
 
 
 func _on_back_button_pressed() -> void:

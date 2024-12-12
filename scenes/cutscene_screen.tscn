@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://7ye6qbfr8o2w"]
+
+[ext_resource type="Script" path="res://scripts/screens/cutscene_screen.gd" id="1_d6lcx"]
+[ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="2_sys1v"]
+[ext_resource type="PackedScene" uid="uid://bskmwtwn2dxm2" path="res://scenes/cutscene/scene_1.tscn" id="3_jef18"]
+
+[sub_resource type="FontVariation" id="FontVariation_636jv"]
+base_font = ExtResource("2_sys1v")
+spacing_glyph = -1
+
+[node name="Cutscene" type="CanvasLayer"]
+script = ExtResource("1_d6lcx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Text" type="Control" parent="."]
+z_index = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 596.0
+offset_top = 136.0
+offset_right = 636.0
+offset_bottom = 176.0
+
+[node name="Timer" type="Timer" parent="Text"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="ContinueText" type="Label" parent="Text"]
+layout_mode = 0
+offset_right = 710.0
+offset_bottom = 51.0
+theme_override_fonts/font = SubResource("FontVariation_636jv")
+theme_override_font_sizes/font_size = 50
+text = "Press click to continue"
+horizontal_alignment = 1
+
+[node name="EscapeText" type="Label" parent="Text"]
+layout_mode = 0
+offset_left = -43.0
+offset_top = 75.0
+offset_right = 765.0
+offset_bottom = 126.0
+theme_override_fonts/font = SubResource("FontVariation_636jv")
+theme_override_font_sizes/font_size = 50
+text = "Press ESC to skip cutscene"
+horizontal_alignment = 1
+
+[node name="Scene 1" parent="." instance=ExtResource("3_jef18")]
+
+[connection signal="timeout" from="Text/Timer" to="." method="_on_timer_timeout"]
