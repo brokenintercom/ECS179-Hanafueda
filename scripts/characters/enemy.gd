@@ -29,6 +29,7 @@ func actions():
 	var damage:int = randi_range(3, max(3, int(dmg_taken * random_factor)))
 	
 	random_factor = randf()
+	
 	if random_factor < atk_buff_chance:
 		print("enemy atk buff")
 		effect_text.update_text("x2 attack next turn")
@@ -46,7 +47,7 @@ func actions():
 		player.effect_text.reset_and_update_text("Reduce hand size")
 		shrink_hand_eff.generate(player, 1, 1)
 	
-	_animation_player.play("attack")
+	# TODO add animation play here for attack
 	signals.player_hit.emit(damage * atk_multiplier)
 	_play($Audio/Attack)
 	print("Enemy just emitted player_hit, now waiting 1.0 sec")
@@ -71,6 +72,7 @@ func _on_battle_scene_loaded(_match_label:Label, _synergy_ui:Node2D, enemy_anim_
 
 
 func _on_enemy_hit(dmg:int) -> void:
+	_animation_player.play("hit")
 	# Internally update health
 	curr_health = clampi(curr_health - dmg, 0, max_health)
 	print("about to await enemy health update")

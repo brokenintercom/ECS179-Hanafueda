@@ -7,7 +7,7 @@ func _input(event):
 		get_tree().quit()
 		
 	if event.is_pressed():
-		signals.switch_scene.emit("cutscene_screen")
+		signals.switch_scene.emit("battle_screen")
 	
 	#if Input.is_action_just_pressed("ui_accept"):
 		#signals.switch_scene.emit("cutscene_screen")

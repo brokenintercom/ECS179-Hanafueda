@@ -42,8 +42,8 @@ func update_health(new_health:int):
 func preview_health(dmg:int):
 	value = cur_health # make sure preview starts w cur health
 	
-	health = cur_health - dmg # preview health calc dmg
-	value = health # show preview health
+	health = clampi(cur_health - dmg, 0, max_value) # preview health calc dmg
+	value = health  # show preview health
 	_format_health(health)
 
 

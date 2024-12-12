@@ -92,6 +92,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_36gbu")
 text = "CREDITS"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 z_index = 2
 offset_left = 660.0
 offset_top = 969.0

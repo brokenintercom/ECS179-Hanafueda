@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=43 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_pish7"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="10_23bth"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="11_5x664"]
 [ext_resource type="AudioStream" uid="uid://bdg0kao8sqer1" path="res://assets/audio/bgm/Battle.ogg" id="12_on3jc"]
 
 [sub_resource type="Image" id="Image_jphgh"]
@@ -3851,7 +3852,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
 _data = {
 "RESET": SubResource("Animation_k3dq0"),
-"attack": SubResource("Animation_5i2po")
+"hit": SubResource("Animation_5i2po")
 }
 
 [node name="BattleScreen" type="Node2D"]
@@ -3861,7 +3862,6 @@ script = ExtResource("1_m0yuu")
 visible = false
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
-visible = false
 slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -3946,7 +3946,6 @@ theme = SubResource("Theme_v8ikm")
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Control/PauseButton/PauseLayer"]
-visible = false
 offset_top = -8.0
 offset_right = 1922.0
 offset_bottom = 1074.0
@@ -3954,23 +3953,22 @@ mouse_filter = 2
 color = Color(0.152941, 0.152941, 0.152941, 0.729412)
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/PauseButton/PauseLayer"]
-visible = false
 position = Vector2(993, 549)
 texture = ExtResource("10_23bth")
 
 [node name="Label" type="Label" parent="Control/PauseButton/PauseLayer"]
-visible = false
-offset_left = 763.0
-offset_top = 447.0
-offset_right = 1231.0
-offset_bottom = 522.0
+offset_left = 568.0
+offset_top = 445.0
+offset_right = 1434.0
+offset_bottom = 559.0
+theme_override_fonts/font = ExtResource("11_5x664")
+theme_override_font_sizes/font_size = 30
 text = "Are you sure you want to quit and return to the Title Screen? 
 
 Doing so will end the game."
 horizontal_alignment = 1
 
 [node name="TitleScreenButton" type="Button" parent="Control/PauseButton/PauseLayer"]
-visible = false
 anchors_preset = -1
 anchor_left = 0.002
 anchor_right = 0.002
@@ -3978,14 +3976,17 @@ offset_left = 1046.16
 offset_top = 573.0
 offset_right = 1152.16
 offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("11_5x664")
+theme_override_font_sizes/font_size = 25
 text = "YES"
 
 [node name="BackButton" type="Button" parent="Control/PauseButton/PauseLayer"]
-visible = false
-offset_left = 774.0
-offset_top = 569.0
-offset_right = 880.0
-offset_bottom = 629.0
+offset_left = 825.0
+offset_top = 573.0
+offset_right = 931.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("11_5x664")
+theme_override_font_sizes/font_size = 25
 text = "NO"
 
 [node name="Boss" type="Sprite2D" parent="."]
