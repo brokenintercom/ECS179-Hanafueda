@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://jyes6va7tke7"]
+
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_f2sdr"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="1_j3xqk"]
+[ext_resource type="Texture2D" uid="uid://bw16v85lwx0y7" path="res://assets/tutorial/banner transparent.png" id="2_dh3ub"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="2_w7rne"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_2ftyl"]
+
+[node name="slide_11_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2sdr")
+
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("1_j3xqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(944, 488)
+scale = Vector2(0.641, 0.803)
+texture = ExtResource("2_dh3ub")
+
+[node name="big text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("2_w7rne")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -425.0
+offset_top = -401.0
+offset_right = 400.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_2ftyl")
+theme_override_font_sizes/font_size = 31
+text = "After you play cards, the Yakuza will attack, dealing more damage out of desperation the lower it's health gets...The enemy may also unleash an effect on you. AFter they attack, it will be your turn once again!
+
+
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("3_2ftyl")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("3_2ftyl")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

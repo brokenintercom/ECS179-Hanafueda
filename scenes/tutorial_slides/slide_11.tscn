@@ -1,34 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://ek31jvy8oco6"]
+[gd_scene load_steps=7 format=3 uid="uid://cpcdoanchx1ex"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_5ytgk"]
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_thoxc"]
-[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_fnqdp"]
-[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_3k2my"]
-[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="3_5yt6n"]
-[ext_resource type="Texture2D" uid="uid://cm2wdtff88uvh" path="res://assets/tutorial/synergy-table.png" id="4_dxkwq"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_pk2y1"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_ffj5t"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_pgsgk"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="4_3rfco"]
+[ext_resource type="Texture2D" uid="uid://dxwo3gnx0renk" path="res://assets/tutorial/board_cards_selected.png" id="5_ba3he"]
+[ext_resource type="Texture2D" uid="uid://82rabbn8og55" path="res://assets/tutorial/play_button.png" id="6_i7a1i"]
 
-
-[node name="Slide11" type="Control"]
+[node name="slide_11" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_thoxc")
+script = ExtResource("1_pk2y1")
 
-[node name="bg" type="Sprite2D" parent="."]
+[node name="tutorial bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
-texture = ExtResource("2_fnqdp")
+texture = ExtResource("2_ffj5t")
 
-[node name="text box" type="Sprite2D" parent="."]
+[node name="big text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
-texture = ExtResource("3_3k2my")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1128, 488)
-texture = ExtResource("4_dxkwq")
+texture = ExtResource("3_pgsgk")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -37,66 +32,50 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -320.0
-offset_right = 448.0
-offset_bottom = -185.0
+offset_left = -424.0
+offset_top = -312.0
+offset_right = 424.0
+offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_5ytgk")
-theme_override_font_sizes/font_size = 42
-text = "There are also certain synergies between cards but… that’s for you to find out ;D
+theme_override_fonts/font = ExtResource("4_3rfco")
+theme_override_font_sizes/font_size = 34
+text = "Once you’ve made your selection of cards, press the Play button.cPlaying your cards will deal damage to the enemy, and then it will be the enemy’s turn.
+
+
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
-layout_mode = 0
 offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("4_3rfco")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
-layout_mode = 0
 offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("4_3rfco")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
-[node name="card1" type="Sprite2D" parent="."]
-position = Vector2(832, 480)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_5yt6n")
+[node name="Board" type="Sprite2D" parent="."]
+position = Vector2(960, 432)
+scale = Vector2(0.705, 0.705)
+texture = ExtResource("5_ba3he")
 
-[node name="selected" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 80.0
-offset_top = -760.0
-offset_right = 280.0
-offset_bottom = -378.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_5ytgk")
-theme_override_font_sizes/font_size = 291
-text = "?"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+[node name="Play Button" type="Sprite2D" parent="."]
+position = Vector2(416, 440)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("6_i7a1i")
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
