@@ -3861,7 +3861,6 @@ script = ExtResource("1_m0yuu")
 visible = false
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
-visible = false
 slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -3943,6 +3942,7 @@ offset_bottom = -626.0
 theme = SubResource("Theme_v8ikm")
 
 [node name="PauseLayer" type="CanvasLayer" parent="Control/PauseButton"]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Control/PauseButton/PauseLayer"]
 offset_top = -8.0
@@ -3980,9 +3980,9 @@ theme_override_font_sizes/font_size = 30
 text = "YES"
 
 [node name="BackButton" type="Button" parent="Control/PauseButton/PauseLayer"]
-offset_left = 776.0
+offset_left = 828.0
 offset_top = 591.0
-offset_right = 882.0
+offset_right = 934.0
 offset_bottom = 651.0
 theme_override_fonts/font = ExtResource("11_ofa77")
 theme_override_font_sizes/font_size = 30
