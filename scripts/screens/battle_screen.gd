@@ -8,13 +8,16 @@ enum PhaseType {
 
 var _curr_phase := PhaseType.PLAYER
 var _drew_cards := false
+@onready var match_label := $Match
 @onready var synergy_ui := %Synergy
+@onready var enemy_anim_player := $Boss/AnimationPlayer
 @onready var _play_btn := $Control/PlayCardsButton
+@onready var pause_screen := $Control/PauseButton/PauseLayer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	signals.battle_scene_loaded.emit(synergy_ui)
+	signals.battle_scene_loaded.emit(match_label, synergy_ui, enemy_anim_player)
 	signals.switch_battle_phase.connect(_on_switch_battle_phase)
 	tutorial.visible = true
 	player.hand.visible = true
@@ -23,7 +26,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	#player.deck.shuffle()
+	player.deck.shuffle()
 	_player_phase()
 
 
@@ -81,7 +84,22 @@ func _on_play_cards_button_pressed() -> void:
 	player.play_cards()
 
 
+func _on_pause_button_pressed() -> void:
+	get_tree().paused = true
+	pause_screen.visible = true
+	for node in pause_screen.get_children():
+		node.visible = true
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().paused = false
+	pause_screen.visible = false
+	for node in pause_screen.get_children():
+		node.visible = false
+
+
 func _on_title_screen_button_pressed() -> void:
+	get_tree().paused = false
 	_reset_battle()
 	signals.switch_scene.emit("title_screen")
 
