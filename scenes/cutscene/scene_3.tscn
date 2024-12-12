@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqy0s5c5ac04q"]
+
+[ext_resource type="Script" path="res://scenes/cutscene/scene1.gd" id="1_5jt4q"]
+[ext_resource type="Texture2D" uid="uid://jx1syw5v0mwr" path="res://assets/cutscene_sprites/scene3.png" id="1_prq38"]
+
+[node name="Scene3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5jt4q")
+
+[node name="Scene3" type="Sprite2D" parent="."]
+position = Vector2(959, 538)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_prq38")

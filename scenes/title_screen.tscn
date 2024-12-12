@@ -74,6 +74,7 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_h0xjm")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 z_index = 2
 offset_left = 797.0
 offset_top = 866.0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dopp8lnc4eiq5"]
+
+[ext_resource type="Texture2D" uid="uid://c5tbuldem8t7s" path="res://assets/cutscene_sprites/scene2-2.png" id="1_u77t0"]
+[ext_resource type="Texture2D" uid="uid://jjwe7e6fvci7" path="res://assets/cutscene_sprites/knock-knock.png" id="2_b8hn5"]
+
+[node name="Scene4" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scene2-2" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_u77t0")
+
+[node name="Knock" type="Sprite2D" parent="."]
+position = Vector2(540, 360)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_b8hn5")
