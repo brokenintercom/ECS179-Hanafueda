@@ -25,7 +25,7 @@ func _ready() -> void:
 	enemy.health_bar.visible = true
 	
 	# Shuffle the player's deck at the beginning of every battle
-	player.deck.shuffle()
+	#player.deck.shuffle()
 	_player_phase()
 
 
