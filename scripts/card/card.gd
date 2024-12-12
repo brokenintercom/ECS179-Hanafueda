@@ -1,7 +1,10 @@
+# CREDITS: following code is based off of Godot Game Lab's Tutorial
+# link: https://youtu.be/Pa0P1lUoC-M
+
 class_name Card
 extends TextureButton
 
-signal reparent_requested(which_card_ui: Card)
+#signal reparent_requested(which_card_ui: Card)
 const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 @export var month:CardSpec.Month
