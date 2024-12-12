@@ -1,34 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://ek31jvy8oco6"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_5ytgk"]
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_thoxc"]
-[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_fnqdp"]
-[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_3k2my"]
-[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="3_5yt6n"]
-[ext_resource type="Texture2D" uid="uid://cm2wdtff88uvh" path="res://assets/tutorial/synergy-table.png" id="4_dxkwq"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2l5hc"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_q7r5k"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_keo7w"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_pg8qc"]
+[ext_resource type="Texture2D" uid="uid://cm2wdtff88uvh" path="res://assets/tutorial/synergy-table.png" id="4_5xokp"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="7_hbwse"]
 
-
-[node name="Slide11" type="Control"]
+[node name="slide_9" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_thoxc")
+script = ExtResource("1_q7r5k")
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
-texture = ExtResource("2_fnqdp")
+texture = ExtResource("2_keo7w")
 
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
-texture = ExtResource("3_3k2my")
+texture = ExtResource("3_pg8qc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1128, 488)
-texture = ExtResource("4_dxkwq")
+texture = ExtResource("4_5xokp")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -44,7 +43,7 @@ offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 42
 text = "There are also certain synergies between cards but… that’s for you to find out ;D
 "
@@ -58,7 +57,7 @@ offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
@@ -68,14 +67,14 @@ offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
 position = Vector2(832, 480)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_5yt6n")
+texture = ExtResource("7_hbwse")
 
 [node name="selected" type="Label" parent="."]
 layout_mode = 1
@@ -91,7 +90,7 @@ offset_bottom = -378.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_5ytgk")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 291
 text = "?"
 horizontal_alignment = 1

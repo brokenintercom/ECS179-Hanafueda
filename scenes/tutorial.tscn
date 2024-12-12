@@ -1,11 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://clp5io7nkgngh"]
+[gd_scene load_steps=10 format=3 uid="uid://clp5io7nkgngh"]
 
 [ext_resource type="PackedScene" uid="uid://8eep0f7l71kk" path="res://scenes/tutorial_slides/slide_1.tscn" id="1_6v7yi"]
 [ext_resource type="Script" path="res://scripts/tutorial/tutorial_slide_selector.gd" id="1_27bve"]
+[ext_resource type="PackedScene" uid="uid://dhdw8hgrbvxvi" path="res://scenes/tutorial_slides/slide_2.tscn" id="2_rvcf5"]
+[ext_resource type="PackedScene" uid="uid://b8tdkqfe83mt2" path="res://scenes/tutorial_slides/slide_1_1.tscn" id="3_y53je"]
+[ext_resource type="PackedScene" uid="uid://y1n6ywnolwxr" path="res://scenes/tutorial_slides/slide_3.tscn" id="4_flwvy"]
+[ext_resource type="PackedScene" uid="uid://bktbv53wdg3k8" path="res://scenes/tutorial_slides/slide_1_2.tscn" id="4_v15ef"]
+[ext_resource type="PackedScene" uid="uid://byfmfsrm2q7ar" path="res://scenes/tutorial_slides/slide_4.tscn" id="5_jp0wl"]
+[ext_resource type="PackedScene" uid="uid://c8bhhhofiptj1" path="res://scenes/tutorial_slides/slide_5.tscn" id="6_32mpq"]
+[ext_resource type="PackedScene" uid="uid://du1m3jh7ms5ip" path="res://scenes/tutorial_slides/slide_3_1.tscn" id="7_q4o3w"]
 
 [node name="tutorial" type="CanvasLayer" node_paths=PackedStringArray("slides")]
 layer = 10
 script = ExtResource("1_27bve")
-slides = [NodePath("Slide1")]
+slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3_1"), null, null, null, null]
 
 [node name="Slide1" parent="." instance=ExtResource("1_6v7yi")]
+
+[node name="slide_1_1" parent="." instance=ExtResource("3_y53je")]
+
+[node name="slide_1_2" parent="." instance=ExtResource("4_v15ef")]
+
+[node name="Slide2" parent="." instance=ExtResource("2_rvcf5")]
+
+[node name="slide_3" parent="." instance=ExtResource("4_flwvy")]
+
+[node name="slide_3_1" parent="." instance=ExtResource("7_q4o3w")]
+
+[node name="slide_4" parent="." instance=ExtResource("5_jp0wl")]
+
+[node name="slide_5" parent="." instance=ExtResource("6_32mpq")]
