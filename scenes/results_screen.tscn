@@ -92,5 +92,12 @@ text = "Quit
 "
 icon_alignment = 1
 
+[node name="CreditsButton" type="Button" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+icon_alignment = 1
+
 [connection signal="pressed" from="Control/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
