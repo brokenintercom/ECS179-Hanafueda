@@ -190,7 +190,7 @@ I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking 
             * This is because currently the health bars appear to be updated at the same time because there is no delay between the player's action (attacking the enemy) and the enemy's action (attacking the player).
         * Visually change the enemy (e.g., add a simple animation to the enemy like its eye flashing) when it's attacking. We can also have a specific sound clip that plays when it attacks so that it's obvious the enemy is taking its turn
 * Show where your selected cards are matching by month, or type
-    * **Fix:** We could add another text box like synergy and effects on the battle screen, though we need to find a good place to put it...
+    * **Fix:** We could add another text box like synergy and effects on the battle screen.
 
 ### Misc.
 * Length of game was either just right or possibly a little short
