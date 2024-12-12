@@ -40,11 +40,11 @@ static func calc_dmg(selected_cards:Array[CardSpec], category:Hand.Match, atk_mu
 		
 		bonus_dmg = _calc_type_bonus_dmg(type_dmg_grid[selected_cards[0].type], num_selected)
 	
-	#print("Base damage: ", base_dmg)
-	#print("Month multiplier: ", month_multiplier)
-	#print("Attack multiplier: ", atk_multiplier)
-	#print("Bonus damage: ", bonus_dmg)
-	#print("Result: ", (base_dmg * month_multiplier * atk_multiplier) + bonus_dmg)
+	print("Base damage: ", base_dmg)
+	print("Month multiplier: ", month_multiplier)
+	print("Attack multiplier: ", atk_multiplier)
+	print("Bonus damage: ", bonus_dmg)
+	print("Result: ", (base_dmg * month_multiplier * atk_multiplier) + bonus_dmg)
 	
 	return (base_dmg * month_multiplier * atk_multiplier) + bonus_dmg
 
