@@ -3,12 +3,11 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dm2rmmhs7n068"
-path="res://.godot/imported/slkscr.ttf-e2ab88759afcb36d0607690a2e6ace57.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://assets/fonts/slkscr.ttf"
-dest_files=["res://.godot/imported/slkscr.ttf-e2ab88759afcb36d0607690a2e6ace57.fontdata"]
 
 [params]
 
