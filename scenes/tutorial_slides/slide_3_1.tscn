@@ -1,0 +1,192 @@
+[gd_scene load_steps=13 format=3 uid="uid://du1m3jh7ms5ip"]
+
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_s87bi"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_jmup1"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_55dkg"]
+[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="5_0fe55"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="5_22dko"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="6_hnru1"]
+[ext_resource type="Texture2D" uid="uid://bci56xu8i4lyx" path="res://assets/card_sprites/feb-normal-1.png" id="7_nw0ku"]
+[ext_resource type="Texture2D" uid="uid://cmk7inwjll7yk" path="res://assets/card_sprites/feb-normal-2.png" id="8_6w4g7"]
+[ext_resource type="Texture2D" uid="uid://d01ur1mqdxhv2" path="res://assets/card_sprites/mar-normal-1.png" id="9_f72rs"]
+[ext_resource type="Texture2D" uid="uid://dadu4ai5gt8cq" path="res://assets/card_sprites/mar-normal-2.png" id="10_55bdx"]
+[ext_resource type="Texture2D" uid="uid://dr35g46fqdovt" path="res://assets/card_sprites/apr-normal-2.png" id="11_gy38s"]
+[ext_resource type="Texture2D" uid="uid://cjntkw3qdkvhq" path="res://assets/card_sprites/apr-normal-1.png" id="12_lbs2o"]
+
+[node name="slide_3_1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s87bi")
+
+[node name="tutorial bg" type="Sprite2D" parent="."]
+position = Vector2(960.5, 543)
+scale = Vector2(1.01097, 1.03333)
+texture = ExtResource("2_jmup1")
+
+[node name="text box" type="Sprite2D" parent="."]
+position = Vector2(952, 824)
+texture = ExtResource("3_55dkg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -424.0
+offset_top = -336.0
+offset_right = 400.0
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 34
+text = "Normal Cards have the same background for their corresponding month. They all have a gray border, lacking a ribbon, animal, or bright symbol 
+(Discussed next)!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Next" type="Button" parent="."]
+offset_left = 1440.0
+offset_top = 776.0
+offset_right = 1656.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 45
+text = "Next"
+
+[node name="Previous" type="Button" parent="."]
+offset_left = 264.0
+offset_top = 776.0
+offset_right = 480.0
+offset_bottom = 893.0
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 45
+text = "Previous"
+
+[node name="Jan" type="Sprite2D" parent="."]
+position = Vector2(470.408, 443.777)
+rotation = -0.212819
+texture = ExtResource("5_0fe55")
+
+[node name="Jan2" type="Sprite2D" parent="."]
+position = Vector2(574.408, 435.777)
+rotation = 0.178364
+texture = ExtResource("5_0fe55")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(528, 257)
+texture = ExtResource("6_hnru1")
+
+[node name="Label2" type="Label" parent="Sprite2D3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 28
+text = "January Normals"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="feb" type="Sprite2D" parent="."]
+position = Vector2(918.408, 443.777)
+rotation = -0.174478
+texture = ExtResource("7_nw0ku")
+
+[node name="feb2" type="Sprite2D" parent="."]
+position = Vector2(1022.41, 435.777)
+rotation = 0.0639997
+texture = ExtResource("8_6w4g7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(976, 257)
+texture = ExtResource("6_hnru1")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 28
+text = "February Normals"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="mar" type="Sprite2D" parent="."]
+position = Vector2(1344, 441)
+rotation = -0.158526
+texture = ExtResource("9_f72rs")
+
+[node name="mar2" type="Sprite2D" parent="."]
+position = Vector2(1454.41, 443.777)
+rotation = 0.178364
+texture = ExtResource("10_55bdx")
+
+[node name="apr" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1430.41, 530.777)
+rotation = -0.212819
+texture = ExtResource("11_gy38s")
+
+[node name="apr2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1534.41, 522.777)
+rotation = 0.178364
+texture = ExtResource("12_lbs2o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1408, 257)
+texture = ExtResource("6_hnru1")
+
+[node name="Label2" type="Label" parent="Sprite2D4"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_22dko")
+theme_override_font_sizes/font_size = 28
+text = "April Normals"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

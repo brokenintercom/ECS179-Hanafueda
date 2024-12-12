@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://scripts/screens/results_screen.gd" id="1_n660e"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="2_xdt28"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ygxm8"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2led"]
+bg_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
 
 [node name="ResultsScreen" type="CanvasLayer"]
 script = ExtResource("1_n660e")
@@ -24,7 +25,9 @@ offset_top = 436.0
 offset_right = 107.5
 offset_bottom = 573.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_xdt28")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 70
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -38,7 +41,9 @@ offset_top = 165.0
 offset_right = 102.0
 offset_bottom = 215.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_xdt28")
+theme_override_colors/font_color = Color(0.903598, 0.903598, 0.903598, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 200
 horizontal_alignment = 1
 vertical_alignment = 1

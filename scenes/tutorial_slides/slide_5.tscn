@@ -1,14 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://y1n6ywnolwxr"]
+[gd_scene load_steps=9 format=3 uid="uid://c8bhhhofiptj1"]
 
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_c66k8"]
 [ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_wjc3w"]
 [ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_04omg"]
 [ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_3cbc6"]
-[ext_resource type="Texture2D" uid="uid://c1rnchuygqni" path="res://assets/card_sprites/jan-normal-1.png" id="3_5hta0"]
-[ext_resource type="Texture2D" uid="uid://bu6e5140wt161" path="res://assets/card_sprites/jan-normal-2.png" id="4_qpnlc"]
+[ext_resource type="Texture2D" uid="uid://dkn306au380cn" path="res://assets/card_sprites/jun-animal.png" id="5_e8fle"]
+[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="5_pi8xm"]
+[ext_resource type="Texture2D" uid="uid://bhhp8t0u32aso" path="res://assets/card_sprites/jul-animal.png" id="7_g0qwq"]
+[ext_resource type="Texture2D" uid="uid://xfg0asyi4n1l" path="res://assets/card_sprites/oct-animal.png" id="8_s4oe5"]
 
-
-[node name="Slide5" type="Control"]
+[node name="slide_5" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,16 +34,17 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -424.0
+offset_left = -448.0
 offset_top = -336.0
-offset_right = 400.0
+offset_right = 448.0
 offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_c66k8")
-theme_override_font_sizes/font_size = 35
-text = "Both of these cards are Normal-Type January Cards! All January Cards have a similar background, with Normal Cards only having the background."
+theme_override_font_sizes/font_size = 40
+text = "And Animal Cards have an Animal on them, with a
+red border and golden corners!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -68,14 +70,94 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="card1" type="Sprite2D" parent="."]
-position = Vector2(784, 488)
+position = Vector2(526, 464)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_5hta0")
+texture = ExtResource("5_e8fle")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(526, 257)
+texture = ExtResource("5_pi8xm")
+
+[node name="Label2" type="Label" parent="Sprite2D2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 28
+text = "June Animal Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="card2" type="Sprite2D" parent="."]
-position = Vector2(1144, 488)
+position = Vector2(958, 464)
 scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("4_qpnlc")
+texture = ExtResource("7_g0qwq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(958, 257)
+texture = ExtResource("5_pi8xm")
+
+[node name="Label2" type="Label" parent="Sprite2D3"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.0
+offset_top = -130.0
+offset_right = 34.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 28
+text = "July Animal Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(1398, 464)
+scale = Vector2(1.26717, 1.24189)
+texture = ExtResource("8_s4oe5")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1398, 257)
+texture = ExtResource("5_pi8xm")
+
+[node name="Label2" type="Label" parent="Sprite2D4"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -332.0
+offset_top = -131.0
+offset_right = 36.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_c66k8")
+theme_override_font_sizes/font_size = 28
+text = "October Animal Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

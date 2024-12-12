@@ -1,30 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8bhhhofiptj1"]
+[gd_scene load_steps=14 format=3 uid="uid://dgfh4bygff62d"]
 
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_8hj1k"]
-[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_pbnud"]
-[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_f54u0"]
-[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_01p68"]
-[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="3_sqfao"]
-[ext_resource type="Texture2D" uid="uid://dc4y3qct7ihfe" path="res://assets/tutorial/text boxes/skinny text box.png" id="5_6ryn3"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_2l5hc"]
+[ext_resource type="Script" path="res://scripts/tutorial/slide_text.gd" id="1_q7r5k"]
+[ext_resource type="Texture2D" uid="uid://dpsit3iavgavg" path="res://assets/tutorial/Tutorial Square.png" id="2_keo7w"]
+[ext_resource type="Texture2D" uid="uid://bf7heee8xaxvv" path="res://assets/tutorial/text boxes/text box.png" id="3_pg8qc"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="4_xckoq"]
+[ext_resource type="Texture2D" uid="uid://dkn306au380cn" path="res://assets/card_sprites/jun-animal.png" id="6_71huv"]
+[ext_resource type="Texture2D" uid="uid://iqrl0umrlluu" path="res://assets/card_sprites/nov-bright.png" id="7_2nrkb"]
+[ext_resource type="Texture2D" uid="uid://cp3eitdhyuio3" path="res://assets/card_sprites/jun-tanzaku.png" id="7_hbwse"]
+[ext_resource type="Texture2D" uid="uid://b383e1o5p1iu6" path="res://assets/card_sprites/jun-normal-1.png" id="8_53dbv"]
+[ext_resource type="Texture2D" uid="uid://pqkfioyi6qiv" path="res://assets/card_sprites/jun-normal-2.png" id="9_r2qlu"]
+[ext_resource type="Texture2D" uid="uid://or5884sttbaq" path="res://assets/card_sprites/nov-animal.png" id="11_4nyh4"]
+[ext_resource type="Texture2D" uid="uid://8k5ebo56dsta" path="res://assets/card_sprites/nov-tanzaku.png" id="12_gvct1"]
+[ext_resource type="Texture2D" uid="uid://doufk5fcwjjom" path="res://assets/card_sprites/nov-normal.png" id="13_itc3u"]
 
-
-[node name="Slide7" type="Control"]
+[node name="slide_7" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pbnud")
+script = ExtResource("1_q7r5k")
 
 [node name="tutorial bg" type="Sprite2D" parent="."]
 position = Vector2(960.5, 543)
 scale = Vector2(1.01097, 1.03333)
-texture = ExtResource("2_f54u0")
+texture = ExtResource("2_keo7w")
 
 [node name="text box" type="Sprite2D" parent="."]
 position = Vector2(952, 824)
-texture = ExtResource("3_01p68")
+texture = ExtResource("3_pg8qc")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -33,16 +39,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -448.0
-offset_top = -336.0
-offset_right = 448.0
-offset_bottom = -177.0
+offset_left = -392.0
+offset_top = -320.0
+offset_right = 368.0
+offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_8hj1k")
-theme_override_font_sizes/font_size = 40
-text = "And Animal Cards that have an animal on them!"
+theme_override_fonts/font = ExtResource("1_2l5hc")
+theme_override_font_sizes/font_size = 42
+text = "Not all Months have the same number of Card Types, with Normals being more common than Animal and Ribbon Cards.
+
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -53,7 +61,7 @@ offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_8hj1k")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Next"
 
@@ -63,40 +71,108 @@ offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
 offset_bottom = 893.0
-theme_override_fonts/font = ExtResource("1_8hj1k")
+theme_override_fonts/font = ExtResource("1_2l5hc")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
-[node name="skinny text box" type="Sprite2D" parent="."]
-position = Vector2(976, 272)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("5_6ryn3")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1416, 304)
+texture = ExtResource("4_xckoq")
 
-[node name="Label2" type="Label" parent="."]
+[node name="card1" type="Sprite2D" parent="."]
+position = Vector2(524, 299.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("6_71huv")
+metadata/_edit_group_ = true
+
+[node name="card2" type="Sprite2D" parent="."]
+position = Vector2(708, 299.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("7_hbwse")
+metadata/_edit_group_ = true
+
+[node name="card3" type="Sprite2D" parent="."]
+position = Vector2(892, 299.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("8_53dbv")
+metadata/_edit_group_ = true
+
+[node name="card4" type="Sprite2D" parent="."]
+position = Vector2(1076, 299.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("9_r2qlu")
+metadata/_edit_group_ = true
+
+[node name="selected" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -432.0
-offset_top = -888.0
-offset_right = 464.0
-offset_bottom = -729.0
+offset_left = 288.0
+offset_top = -824.0
+offset_right = 631.0
+offset_bottom = -710.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_8hj1k")
-theme_override_font_sizes/font_size = 38
-text = "November Animal Card"
+theme_override_fonts/font = ExtResource("1_2l5hc")
+theme_override_font_sizes/font_size = 35
+text = "June Cards have 2 Normals, 1 Ribbon, and 1 Animal Card"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="card1" type="Sprite2D" parent="."]
-position = Vector2(968, 496)
-scale = Vector2(1.26717, 1.24189)
-texture = ExtResource("3_sqfao")
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1416, 584)
+rotation = -3.13636
+texture = ExtResource("4_xckoq")
+
+[node name="card5" type="Sprite2D" parent="."]
+position = Vector2(524, 579.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("7_2nrkb")
+metadata/_edit_group_ = true
+
+[node name="card6" type="Sprite2D" parent="."]
+position = Vector2(708, 579.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("11_4nyh4")
+metadata/_edit_group_ = true
+
+[node name="card7" type="Sprite2D" parent="."]
+position = Vector2(892, 579.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("12_gvct1")
+metadata/_edit_group_ = true
+
+[node name="card8" type="Sprite2D" parent="."]
+position = Vector2(1076, 579.454)
+scale = Vector2(0.89, 0.873)
+texture = ExtResource("13_itc3u")
+metadata/_edit_group_ = true
+
+[node name="selected2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -552.0
+offset_right = 631.0
+offset_bottom = -438.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_2l5hc")
+theme_override_font_sizes/font_size = 35
+text = "November Cards have 1 Normal, 1 Ribbon, 1 Animal, and 1 Bright Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
