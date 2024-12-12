@@ -2,11 +2,16 @@ class_name HealEffect
 extends Effect
 
 
-func apply(target:Character, amount:float) -> void:
-	assert(target is Player, "Error: Target is not Player")
+var _heal_amt:float
+
+
+func _init(turns:int, amount:float) -> void:
+	super(turns)
+	_heal_amt = amount
+
+
+func _on_switch_battle_phase() -> void:
+	if _turns % 2 == 0:
+		signals.player_recover_hp.emit(_heal_amt)
 	
-	var player := target as Player
-	if not player:
-		return
-	
-	signals.player_recover_hp.emit(amount)
+	super()

@@ -8,7 +8,9 @@ enum Match {
 	BOTH,
 }
 
-var max_hand_size := 8
+const MAX_HAND := 8
+
+var max_hand_size := MAX_HAND
 var num_cards := 0
 var category_match:Match  
 var running_month := CardSpec.Month.NONE
