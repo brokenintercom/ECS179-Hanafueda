@@ -6,7 +6,7 @@ extends CanvasLayer
 
 @export var slides:Array[Node]
 var current_slide:int = 0
-var last_slide:int = 1
+var num_slides:int = len(slides) + 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -35,7 +35,7 @@ func _on_timer_timeout():
 
 func _next_page() -> void:
 	current_slide += 1
-	if current_slide == last_slide:
+	if current_slide >= num_slides:
 		signals.switch_scene.emit("battle_screen")
 	
 	if len(slides) < current_slide + 1:
