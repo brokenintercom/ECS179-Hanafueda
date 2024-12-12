@@ -7,7 +7,6 @@ enum PhaseType {
 }
 
 var _curr_phase := PhaseType.PLAYER
-var _drew_cards := false
 @onready var match_label := $Match
 @onready var synergy_ui := %Synergy
 @onready var enemy_anim_player := $Boss/AnimationPlayer
@@ -41,9 +40,8 @@ func _player_phase() -> void:
 	if _lose_condition():
 		player.did_win = false
 		_show_results()
-	elif not _drew_cards:
+	else:
 		player.actions()
-		_drew_cards = true
 
 
 func _enemy_phase() -> void:
@@ -96,7 +94,6 @@ func _on_switch_battle_phase() -> void:
 		_enemy_phase()
 	else:  # Enemy turn just ended, so switch to PLAYER turn
 		_curr_phase = PhaseType.PLAYER
-		_drew_cards = false
 		_play_btn.disabled = false
 		_player_phase()
 
