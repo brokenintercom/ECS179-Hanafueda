@@ -12,9 +12,14 @@ const MAX_HAND := 8
 
 var max_hand_size := MAX_HAND
 var num_cards := 0
-var category_match:Match  
+var category_match:Match
 var running_month := CardSpec.Month.NONE
 var running_type := CardSpec.Type.NONE
+var _match_label:Label
+
+
+func _ready() -> void:
+	signals.battle_scene_loaded.connect(_on_battle_scene_loaded)
 
 
 func is_empty() -> bool:
@@ -31,7 +36,10 @@ func update_matches(selected_cards:Array[CardSpec]) -> void:
 	
 	# TODO if possible, combine the code here...so that you don't have to do the if statement again
 	# calc preview dmg and edit helathbar
+
+
 	var atk_mult = player.atk_multiplier
+
 	var potential_dmg = DamageEngine.calc_dmg(selected_cards, category_match, atk_mult)
 	enemy.health_bar.preview_health(potential_dmg)
 	
@@ -65,15 +73,18 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 	# After selecting/deselecting, we have no cards selected now
 	if num_selected == 0:
 		category_match = Match.NONE
+		_match_label.text = "Matching By: None"
 		return
 	elif num_selected == 1:
 		category_match = Match.BOTH
+		_match_label.text = "Matching By: Type"
 	
 	running_month = selected_cards[0].month
 	running_type = selected_cards[0].type
 	
 	# Reset to Match.BOTH until we find something more specific
 	category_match = Match.BOTH
+	_match_label.text = "Matching By: Type"
 	
 	if num_selected > 1:
 		for index in range(1, num_selected):
@@ -86,9 +97,11 @@ func _update_category_match(selected_cards:Array[CardSpec]) -> void:
 			if category_match == Match.BOTH and type_match and month_match:
 				continue  # Keep the category_match as Match.BOTH
 			elif type_match:
+				_match_label.text = "Matching By: Type"
 				category_match = Match.TYPE
 				break
 			elif month_match:
+				_match_label.text = "Matching By: Month"
 				category_match = Match.MONTH
 				break
 	
@@ -116,3 +129,7 @@ func _does_match(card:Card) -> bool:
 		does_match = card.matches_type(running_type)
 	
 	return does_match
+
+
+func _on_battle_scene_loaded(match_label:Label, _synergy_ui:Node2D, _enemy_anim_player:AnimationPlayer) -> void:
+	_match_label = match_label
