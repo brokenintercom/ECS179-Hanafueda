@@ -90,6 +90,19 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_36gbu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_36gbu")
 text = "CREDITS"
 
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = 660.0
+offset_top = 969.0
+offset_right = 1251.0
+offset_bottom = 1009.0
+theme_override_colors/font_color = Color(0.91362, 0.854645, 0.888378, 1)
+theme_override_colors/font_shadow_color = Color(0.913725, 0.854902, 0.890196, 1)
+theme_override_colors/font_outline_color = Color(0.913725, 0.854902, 0.890196, 1)
+theme_override_fonts/font = ExtResource("6_gwcym")
+theme_override_font_sizes/font_size = 40
+text = "creator's note: press SPACE to begin"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_4b543")
 autoplay = true

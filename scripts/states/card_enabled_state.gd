@@ -1,3 +1,6 @@
+# CREDITS: following code is based off of GodotGameLab's Tutorial
+# link: https://youtu.be/Pa0P1lUoC-M
+
 class_name EnabledState
 extends CardState
 
@@ -11,7 +14,7 @@ func enter() -> void:
 		await card_ui.ready
 	
 	# TODO delete this later, probably
-	card_ui.reparent_requested.emit(card_ui)
+	#card_ui.reparent_requested.emit(card_ui)
 	card_ui.enable_input()
 
 
