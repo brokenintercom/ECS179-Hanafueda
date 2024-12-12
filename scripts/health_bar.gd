@@ -1,5 +1,6 @@
-# CREDITS: code based on [some youtube video input here i think?]
-# TODO we need to add the link
+# CREDITS: following code is based off of DashNothing's tutorial video
+# link:https://youtu.be/f90ieBOoIYQ
+
 class_name HealthBar
 extends ProgressBar
 

@@ -2,18 +2,22 @@ class_name BlockEffect
 extends Effect
 
 
-func _init(turns:int) -> void:
-	super(turns)
-	signals.player_hit.connect(_on_player_hit)
+func _init(parent:Character, turns:int) -> void:
+	super(parent, turns)
+	
+	_parent.atk_multiplier = 0.0
+	if _parent is Player:
+		signals.enemy_hit.connect(_remove_effect)
+		signals.player_hit.connect(_apply_effect)
+	else:
+		signals.player_hit.connect(_remove_effect)
+		signals.enemy_hit.connect(_apply_effect)
 
 
 # Effect removed after enemy does damage
-func _on_player_hit() -> void:
+func _remove_effect(dmg:float) -> void:
 	queue_free()
 
 
-func _on_switch_battle_phase() -> void:
-	super()
-
-	var parent := get_parent() as Character
-	parent.atk_multiplier = 0.0
+func _apply_effect(dmg:float) -> void:
+	_parent.atk_multiplier = 0.0

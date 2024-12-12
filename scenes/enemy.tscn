@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cteoy7ongb50t"]
+[gd_scene load_steps=10 format=3 uid="uid://cteoy7ongb50t"]
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_bi4tv"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="2_qwjdf"]
 [ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/health_bar.tscn" id="2_ug75x"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="3_iw1xe"]
 [ext_resource type="PackedScene" uid="uid://bbreec63ylm48" path="res://scenes/enemy_effect.tscn" id="4_e0sod"]
+[ext_resource type="AudioStream" uid="uid://c5ygdpy84i3xv" path="res://assets/audio/attack/EnemyAttack.wav" id="6_xepg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2w6o2"]
 atlas = ExtResource("2_qwjdf")
@@ -22,6 +23,10 @@ spacing_glyph = -2
 position = Vector2(58, 40)
 script = ExtResource("1_bi4tv")
 base_atk = 10
+atk_buff_chance = 0.05
+block_chance = 0.05
+heal_chance = 0.05
+shrink_hand_chance = 0.05
 max_health = 100
 
 [node name="Effect" parent="." instance=ExtResource("4_e0sod")]
@@ -57,3 +62,8 @@ offset_left = 116.0
 offset_top = 53.0
 offset_right = 437.0
 offset_bottom = 76.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Attack" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("6_xepg5")
