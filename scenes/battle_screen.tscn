@@ -3801,15 +3801,15 @@ bg_color = Color(0.101961, 0.101961, 0.101961, 0.301961)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4c7i"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(307, 74, 54, 59)
+region_rect = Rect2(306, 75, 54, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nrt6"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(232, 76, 59, 61)
+region_rect = Rect2(234, 75, 54, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_soipo"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(375, 80, 60, 55)
+region_rect = Rect2(378, 81, 54, 54)
 
 [sub_resource type="Theme" id="Theme_v8ikm"]
 Button/styles/disabled = SubResource("StyleBoxFlat_sn5r7")
@@ -3879,6 +3879,7 @@ script = ExtResource("1_m0yuu")
 visible = false
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+visible = false
 slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -3950,7 +3951,7 @@ offset_top = -529.0
 offset_right = 325.0
 offset_bottom = -310.0
 
-[node name="PauseButton" type="Button" parent="Control"]
+[node name="HomeButton" type="Button" parent="Control"]
 process_mode = 3
 layout_mode = 0
 offset_left = 70.0
@@ -3959,21 +3960,21 @@ offset_right = 137.0
 offset_bottom = -626.0
 theme = SubResource("Theme_v8ikm")
 
-[node name="PauseLayer" type="CanvasLayer" parent="Control/PauseButton"]
+[node name="HomeLayer" type="CanvasLayer" parent="Control/HomeButton"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Control/PauseButton/PauseLayer"]
+[node name="ColorRect" type="ColorRect" parent="Control/HomeButton/HomeLayer"]
 offset_top = -8.0
 offset_right = 1922.0
 offset_bottom = 1074.0
 mouse_filter = 2
 color = Color(0.152941, 0.152941, 0.152941, 0.729412)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/PauseButton/PauseLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Control/HomeButton/HomeLayer"]
 position = Vector2(993, 549)
 texture = ExtResource("10_23bth")
 
-[node name="Label" type="Label" parent="Control/PauseButton/PauseLayer"]
+[node name="Label" type="Label" parent="Control/HomeButton/HomeLayer"]
 offset_left = 627.0
 offset_top = 454.0
 offset_right = 1370.0
@@ -3985,7 +3986,7 @@ text = "Are you sure you want to quit and return to the Title Screen?
 Doing so will end the game."
 horizontal_alignment = 1
 
-[node name="TitleScreenButton" type="Button" parent="Control/PauseButton/PauseLayer"]
+[node name="TitleScreenButton" type="Button" parent="Control/HomeButton/HomeLayer"]
 anchors_preset = -1
 anchor_left = 0.002
 anchor_right = 0.002
@@ -3997,7 +3998,7 @@ theme_override_fonts/font = ExtResource("11_m7j0s")
 theme_override_font_sizes/font_size = 30
 text = "YES"
 
-[node name="BackButton" type="Button" parent="Control/PauseButton/PauseLayer"]
+[node name="BackButton" type="Button" parent="Control/HomeButton/HomeLayer"]
 offset_left = 774.0
 offset_top = 590.0
 offset_right = 880.0
@@ -4024,6 +4025,6 @@ autoplay = true
 [connection signal="pressed" from="Control/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Control/Deck" to="." method="_on_deck_pressed"]
-[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Control/PauseButton/PauseLayer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
-[connection signal="pressed" from="Control/PauseButton/PauseLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton/HomeLayer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton/HomeLayer/BackButton" to="." method="_on_back_button_pressed"]
