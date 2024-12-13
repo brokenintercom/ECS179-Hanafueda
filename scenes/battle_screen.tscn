@@ -4089,6 +4089,7 @@ theme_override_font_sizes/font_size = 30
 text = "NO"
 
 [node name="Boss" type="Sprite2D" parent="."]
+z_index = 6
 position = Vector2(1200, 296)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_ryqcp")

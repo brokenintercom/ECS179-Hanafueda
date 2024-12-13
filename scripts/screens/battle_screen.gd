@@ -64,6 +64,9 @@ func _lose_condition() -> bool:
 func _show_results() -> void:
 	_reset_battle()
 	
+	TransitionScreen.transition()
+	await signals.on_transition_finished
+	
 	signals.switch_scene.emit("results_screen")
 
 
