@@ -51,8 +51,8 @@ func _on_timer_timeout() -> void:
 	dmg_bar.value = health
 
 
-func _format_health(health:int):
-	health = clampi(health, 0, max_value)
+func _format_health(new_health:int):
+	health = new_health
 	
 	var health_number_format = "%s/%s"
 	var health_number_string = health_number_format % [str(health), str(max_value)]
