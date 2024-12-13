@@ -3878,6 +3878,7 @@ script = ExtResource("1_m0yuu")
 visible = false
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
+visible = false
 slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -3944,10 +3945,10 @@ text = "             "
 
 [node name="Deck" parent="Control" instance=ExtResource("6_chuoq")]
 layout_mode = 0
-offset_left = 177.0
-offset_top = -520.0
-offset_right = 321.0
-offset_bottom = -301.0
+offset_left = 181.0
+offset_top = -529.0
+offset_right = 325.0
+offset_bottom = -310.0
 
 [node name="PauseButton" type="Button" parent="Control"]
 process_mode = 3

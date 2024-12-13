@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://b2pru2p3jei3b"]
+
+[ext_resource type="Texture2D" uid="uid://b78o466suh3f4" path="res://assets/battle_sprites/player-healthbar-over.png" id="1_k7qhd"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="2_hx1qp"]
+[ext_resource type="Texture2D" uid="uid://c3ktknrsim1sh" path="res://assets/battle_sprites/healthbar-flash.png" id="4_c20tq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7almy"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sp8xi"]
+texture = ExtResource("1_k7qhd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pwsnk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m61jd"]
+texture = ExtResource("4_c20tq")
+
+[node name="HealthBar" type="ProgressBar"]
+z_index = 2
+offset_left = 29.0
+offset_top = 594.0
+offset_right = 634.0
+offset_bottom = 625.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_7almy")
+theme_override_styles/fill = SubResource("StyleBoxTexture_sp8xi")
+value = 60.0
+show_percentage = false
+script = ExtResource("2_hx1qp")
+
+[node name="DamageBar" type="ProgressBar" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_pwsnk")
+theme_override_styles/fill = SubResource("StyleBoxTexture_m61jd")
+value = 70.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
