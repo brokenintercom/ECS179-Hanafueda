@@ -3857,6 +3857,33 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_g3dx6"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.466667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.331296, 0.476855, 0.866667),
+"transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_ph111"]
 resource_name = "heal"
 step = 0.3333
@@ -3901,33 +3928,6 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_g3dx6"]
-resource_name = "attack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.466667, 0.866667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 3, 4, 0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.331296, 0.476855, 0.866667),
-"transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_e8h1x"]
 resource_name = "idle"
 length = 2.0
@@ -3961,7 +3961,6 @@ script = ExtResource("1_m0yuu")
 visible = false
 
 [node name="tutorial" parent="." node_paths=PackedStringArray("slides") instance=ExtResource("3_g6onw")]
-visible = false
 slides = [NodePath("Slide1"), NodePath("slide_1_1"), NodePath("slide_1_2"), NodePath("Slide2"), NodePath("slide_3"), NodePath("slide_3_1"), NodePath("slide_4"), NodePath("slide_5"), NodePath("slide_6"), NodePath("slide_7"), NodePath("slide_8"), NodePath("slide_8_1"), NodePath("slide_8_2"), NodePath("slide_8_3"), NodePath("slide_9"), NodePath("slide_10"), NodePath("slide_11"), NodePath("slide_11_1"), NodePath("slide_12"), NodePath("slide_13"), null]
 
 [node name="ColorRect" type="ColorRect" parent="."]
