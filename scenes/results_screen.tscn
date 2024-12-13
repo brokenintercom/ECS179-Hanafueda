@@ -10,10 +10,8 @@ bg_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
 script = ExtResource("1_n660e")
 
 [node name="Panel" type="Panel" parent="."]
-
 offset_right = 1920.0
 offset_bottom = 1080.0
-
 theme_override_styles/panel = SubResource("StyleBoxFlat_r2led")
 
 [node name="SmallMessage" type="Label" parent="."]
@@ -98,6 +96,7 @@ text = "Quit
 icon_alignment = 1
 
 [node name="CreditsButton" type="Button" parent="Control/HBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_3lal6")
 theme_override_font_sizes/font_size = 40
