@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=46 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
@@ -3818,76 +3818,6 @@ Button/styles/hover = SubResource("StyleBoxTexture_q4c7i")
 Button/styles/normal = SubResource("StyleBoxTexture_8nrt6")
 Button/styles/pressed = SubResource("StyleBoxTexture_soipo")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mdu5e"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(0, 0, 1248, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wfham"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(3744, 0, 1248, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eovh5"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(4992, 0, 1248, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlx4v"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(0, 0, 1248, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gt1ys"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(1248, 0, 1248, 480)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5v3n"]
-atlas = ExtResource("12_ryqcp")
-region = Rect2(2496, 0, 1248, 480)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y6cts"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mdu5e")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfham")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wfham")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eovh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eovh5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eovh5")
-}],
-"loop": false,
-"name": &"attack",
-"speed": 11.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlx4v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gt1ys")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5v3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gt1ys")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlx4v")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 3.5
-}]
-
 [sub_resource type="Animation" id="Animation_k3dq0"]
 length = 0.001
 tracks/0/type = "value"
@@ -3901,6 +3831,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ph111"]
@@ -3921,7 +3875,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5i2po"]
 resource_name = "attack"
-step = 0.3333
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3934,20 +3888,61 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.937255, 0, 0.2, 1), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.196917, 0.400678, 0.590176, 0.793937, 0.997698),
+"transitions": PackedFloat32Array(1, 1, 0.108819, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_g3dx6"]
 resource_name = "attack"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0, 0.2, 0.466667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": []
+"values": [0, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.466667, 0.866667),
+"transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e8h1x"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
@@ -3955,7 +3950,8 @@ _data = {
 "RESET": SubResource("Animation_k3dq0"),
 "attack": SubResource("Animation_g3dx6"),
 "heal": SubResource("Animation_ph111"),
-"hit": SubResource("Animation_5i2po")
+"hit": SubResource("Animation_5i2po"),
+"idle": SubResource("Animation_e8h1x")
 }
 
 [node name="BattleScreen" type="Node2D"]
@@ -4093,18 +4089,18 @@ theme_override_fonts/font = ExtResource("11_m7j0s")
 theme_override_font_sizes/font_size = 30
 text = "NO"
 
-[node name="Boss" type="AnimatedSprite2D" parent="."]
+[node name="Boss" type="Sprite2D" parent="."]
 position = Vector2(1200, 296)
 scale = Vector2(1.25, 1.25)
-sprite_frames = SubResource("SpriteFrames_y6cts")
-animation = &"idle"
-autoplay = "idle"
-frame_progress = 0.78648
+texture = ExtResource("12_ryqcp")
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
 "": SubResource("AnimationLibrary_uux5f")
 }
+autoplay = "idle"
+speed_scale = 1.5
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_on3jc")
