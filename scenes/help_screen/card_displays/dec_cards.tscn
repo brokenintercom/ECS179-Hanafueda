@@ -43,12 +43,12 @@ position = Vector2(-260, 30)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_xcqel")
 
-[node name="text_normal3" type="Sprite2D" parent="."]
+[node name="text_normal1" type="Sprite2D" parent="."]
 position = Vector2(-90, -93)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_l612r")
 
-[node name="Label" type="Label" parent="text_normal3"]
+[node name="Label" type="Label" parent="text_normal1"]
 offset_left = -116.0
 offset_top = -36.0
 offset_right = 112.0
@@ -60,35 +60,13 @@ text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="animal" type="Sprite2D" parent="."]
+[node name="normal1" type="Sprite2D" parent="."]
 position = Vector2(-90, 30)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("5_5bvhy")
-
-[node name="text_normal" type="Sprite2D" parent="."]
-position = Vector2(90, -93)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_l612r")
-
-[node name="Label" type="Label" parent="text_normal"]
-offset_left = -116.0
-offset_top = -36.0
-offset_right = 112.0
-offset_bottom = 38.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_yxxa7")
-theme_override_font_sizes/font_size = 35
-text = "Normal"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="normal" type="Sprite2D" parent="."]
-position = Vector2(90, 30)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("6_kc5jp")
+texture = ExtResource("7_q5jos")
 
 [node name="text_normal2" type="Sprite2D" parent="."]
-position = Vector2(260, -93)
+position = Vector2(90, -93)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_l612r")
 
@@ -105,6 +83,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="normal2" type="Sprite2D" parent="."]
+position = Vector2(90, 30)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_kc5jp")
+
+[node name="text_normal3" type="Sprite2D" parent="."]
+position = Vector2(260, -93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_l612r")
+
+[node name="Label" type="Label" parent="text_normal3"]
+offset_left = -116.0
+offset_top = -36.0
+offset_right = 112.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_yxxa7")
+theme_override_font_sizes/font_size = 35
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="normal3" type="Sprite2D" parent="."]
 position = Vector2(260, 30)
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("7_q5jos")
+texture = ExtResource("5_5bvhy")
