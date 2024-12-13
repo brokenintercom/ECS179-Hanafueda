@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bskmwtwn2dxm2"]
+
+[ext_resource type="Texture2D" uid="uid://b5t47qoi5jwyf" path="res://assets/cutscene_sprites/scene1.png" id="1_fktgq"]
+
+[node name="Scene1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scene1" type="Sprite2D" parent="."]
+position = Vector2(960, 539)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_fktgq")

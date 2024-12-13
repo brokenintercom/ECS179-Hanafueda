@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://br1kcgfay4e0p"]
+[gd_scene load_steps=13 format=3 uid="uid://br1kcgfay4e0p"]
 
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_i2f2q"]
 [ext_resource type="Texture2D" uid="uid://c5486o7cbw0ly" path="res://assets/title_screen_sprites/hanafeuda-logo.png" id="2_g6kbb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drbu8i0g1c06c" path="res://assets/title_screen_sprites/title-lines.png" id="4_ns4nn"]
 [ext_resource type="Texture2D" uid="uid://ct2ytuv7v1kmt" path="res://assets/title_screen_sprites/quit-text.png" id="5_mfvna"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="6_gwcym"]
+[ext_resource type="AudioStream" uid="uid://iwpb52p7tlmm" path="res://assets/audio/bgm/Title.ogg" id="7_4b543"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gany"]
 atlas = ExtResource("2_onukv")
@@ -73,6 +74,7 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_h0xjm")
 
 [node name="Button" type="Button" parent="."]
+visible = false
 z_index = 2
 offset_left = 797.0
 offset_top = 866.0
@@ -88,5 +90,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_36gbu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_36gbu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_36gbu")
 text = "CREDITS"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+z_index = 2
+offset_left = 660.0
+offset_top = 969.0
+offset_right = 1251.0
+offset_bottom = 1009.0
+theme_override_colors/font_color = Color(0.91362, 0.854645, 0.888378, 1)
+theme_override_colors/font_shadow_color = Color(0.913725, 0.854902, 0.890196, 1)
+theme_override_colors/font_outline_color = Color(0.913725, 0.854902, 0.890196, 1)
+theme_override_fonts/font = ExtResource("6_gwcym")
+theme_override_font_sizes/font_size = 40
+text = "creator's note: press SPACE to begin"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4b543")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

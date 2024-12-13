@@ -317,6 +317,8 @@ theme_override_font_sizes/font_size = 25
 text = "December"
 autowrap_mode = 3
 
+[connection signal="pressed" from="CardTypes" to="." method="_on_card_types_pressed"]
+[connection signal="pressed" from="Combos" to="." method="_on_combos_pressed"]
 [connection signal="pressed" from="January" to="." method="_on_january_pressed"]
 [connection signal="pressed" from="February" to="." method="_on_february_pressed"]
 [connection signal="pressed" from="March" to="." method="_on_march_pressed"]
