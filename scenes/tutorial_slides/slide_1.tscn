@@ -129,4 +129,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="PageNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 905.0
+offset_right = 1693.0
+offset_bottom = 944.0
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_fonts/font = ExtResource("1_4ynjf")
+theme_override_font_sizes/font_size = 36
+text = "1 / 20"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
