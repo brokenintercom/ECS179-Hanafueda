@@ -3922,7 +3922,7 @@ tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.466667, 0.866667),
+"times": PackedFloat32Array(0, 0.331296, 0.476855, 0.866667),
 "transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
