@@ -6,10 +6,10 @@ extends Character
 @export var block_chance := 0.0
 @export var heal_chance := 0.0
 @export var shrink_hand_chance := 0.0
+
 var shrink_hand_eff:EffectFactory
 var normal_difficulty := true
 var _animation_player:AnimationPlayer
-
 
 func _ready() -> void:
 	signals.battle_scene_loaded.connect(_on_battle_scene_loaded)

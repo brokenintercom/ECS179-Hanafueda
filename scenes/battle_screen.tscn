@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=52 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
@@ -3818,6 +3818,18 @@ Button/styles/hover = SubResource("StyleBoxTexture_q4c7i")
 Button/styles/normal = SubResource("StyleBoxTexture_8nrt6")
 Button/styles/pressed = SubResource("StyleBoxTexture_soipo")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdu5e"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(0, 0, 1248, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfham"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(3744, 0, 1248, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eovh5"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(4992, 0, 1248, 480)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vlx4v"]
 atlas = ExtResource("12_ryqcp")
 region = Rect2(0, 0, 1248, 480)
@@ -3832,6 +3844,29 @@ region = Rect2(2496, 0, 1248, 480)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y6cts"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdu5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfham")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfham")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovh5")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 11.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vlx4v")
@@ -3900,9 +3935,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.937255, 0, 0.2, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_g3dx6"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:sprite_frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
 _data = {
 "RESET": SubResource("Animation_k3dq0"),
+"attack": SubResource("Animation_g3dx6"),
 "heal": SubResource("Animation_ph111"),
 "hit": SubResource("Animation_5i2po")
 }
@@ -4048,7 +4099,7 @@ scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_y6cts")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.284687
+frame_progress = 0.78648
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
