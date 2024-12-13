@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/characters/enemy.gd" id="1_bi4tv"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="2_qwjdf"]
-[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/health_bar.tscn" id="2_ug75x"]
+[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/enemy_health_bar.tscn" id="2_ug75x"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="3_iw1xe"]
 [ext_resource type="PackedScene" uid="uid://bbreec63ylm48" path="res://scenes/enemy_effect.tscn" id="4_e0sod"]
 [ext_resource type="AudioStream" uid="uid://c5ygdpy84i3xv" path="res://assets/audio/attack/EnemyAttack.wav" id="6_xepg5"]
