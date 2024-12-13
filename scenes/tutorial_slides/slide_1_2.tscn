@@ -52,6 +52,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
@@ -61,6 +62,7 @@ theme_override_font_sizes/font_size = 45
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0
@@ -70,6 +72,7 @@ theme_override_font_sizes/font_size = 45
 text = "Previous"
 
 [node name="Deck" parent="." instance=ExtResource("5_5d2nu")]
+layout_mode = 0
 offset_left = 416.0
 offset_top = 360.0
 offset_right = 560.0

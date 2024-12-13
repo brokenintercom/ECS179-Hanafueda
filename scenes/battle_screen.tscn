@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_pish7"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="10_23bth"]
-[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="11_5x664"]
 [ext_resource type="AudioStream" uid="uid://bdg0kao8sqer1" path="res://assets/audio/bgm/Battle.ogg" id="12_on3jc"]
 
 [sub_resource type="Image" id="Image_jphgh"]
@@ -3833,6 +3832,22 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ph111"]
+resource_name = "heal"
+step = 0.3333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333334, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.112819, 0.793294, 0.491358, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_5i2po"]
 resource_name = "attack"
 step = 0.3333
@@ -3852,6 +3867,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
 _data = {
 "RESET": SubResource("Animation_k3dq0"),
+"heal": SubResource("Animation_ph111"),
 "hit": SubResource("Animation_5i2po")
 }
 
@@ -3958,12 +3974,11 @@ position = Vector2(993, 549)
 texture = ExtResource("10_23bth")
 
 [node name="Label" type="Label" parent="Control/PauseButton/PauseLayer"]
-offset_left = 568.0
-offset_top = 445.0
-offset_right = 1434.0
-offset_bottom = 559.0
-theme_override_fonts/font = ExtResource("11_5x664")
-theme_override_font_sizes/font_size = 30
+visible = false
+offset_left = 763.0
+offset_top = 447.0
+offset_right = 1231.0
+offset_bottom = 522.0
 text = "Are you sure you want to quit and return to the Title Screen? 
 
 Doing so will end the game."
@@ -3977,17 +3992,14 @@ offset_left = 1046.16
 offset_top = 573.0
 offset_right = 1152.16
 offset_bottom = 633.0
-theme_override_fonts/font = ExtResource("11_5x664")
-theme_override_font_sizes/font_size = 25
 text = "YES"
 
 [node name="BackButton" type="Button" parent="Control/PauseButton/PauseLayer"]
-offset_left = 825.0
-offset_top = 573.0
-offset_right = 931.0
-offset_bottom = 633.0
-theme_override_fonts/font = ExtResource("11_5x664")
-theme_override_font_sizes/font_size = 25
+visible = false
+offset_left = 774.0
+offset_top = 569.0
+offset_right = 880.0
+offset_bottom = 629.0
 text = "NO"
 
 [node name="Boss" type="Sprite2D" parent="."]

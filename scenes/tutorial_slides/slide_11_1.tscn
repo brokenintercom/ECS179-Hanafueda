@@ -45,7 +45,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_2ftyl")
 theme_override_font_sizes/font_size = 31
-text = "After you play cards, the Yakuza will attack, dealing more damage out of desperation the lower it's health gets...The enemy may also unleash an effect on you. AFter they attack, it will be your turn once again!
+text = "After you play cards, the Yakuza will attack, dealing more damage out of desperation the lower its health gets...The enemy may also unleash an effect on you. AFter they attack, it will be your turn once again!
 
 
 
@@ -55,6 +55,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
@@ -64,6 +65,7 @@ theme_override_font_sizes/font_size = 45
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0

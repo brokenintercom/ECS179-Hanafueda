@@ -48,11 +48,12 @@ func preview_health(dmg:int):
 
 
 func _on_timer_timeout() -> void:
-	print("timeout: updating health bar...")
 	dmg_bar.value = health
 
 
 func _format_health(health:int):
+	health = clampi(health, 0, max_value)
+	
 	var health_number_format = "%s/%s"
 	var health_number_string = health_number_format % [str(health), str(max_value)]
 	health_number.text = health_number_string

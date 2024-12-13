@@ -12,17 +12,8 @@ func _ready() -> void:
 
 func enter() -> void:
 	card_ui.highlight.visible = true
-	
 	spec_version = CardSpecFactory.card_to_spec(card_ui)
-	
-	# TODO
-	#print("--SELECTED CARD ATTRIBUTES--")
-	#print("Month: ", CardSpec.Month.keys()[spec_version.month])
-	#print("Type: ", spec_version.type)  # Using type directly here since we use custom values for type
-	#print("Synergy: ", CardSpec.Synergy.keys()[spec_version.synergy])
-	
 	player.selected_cards.append(spec_version)
-	
 	player.hand.update_matches(player.selected_cards)
 
 

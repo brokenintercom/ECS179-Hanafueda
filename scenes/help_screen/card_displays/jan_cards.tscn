@@ -37,6 +37,7 @@ theme_override_font_sizes/font_size = 35
 text = "Bright"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="bright" type="Sprite2D" parent="."]
 position = Vector2(-260, 30)
@@ -60,6 +61,7 @@ text = "Ribbon
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="ribbon" type="Sprite2D" parent="."]
 position = Vector2(-90, 30)
@@ -82,6 +84,7 @@ theme_override_font_sizes/font_size = 35
 text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="normal" type="Sprite2D" parent="."]
 position = Vector2(90, 30)
@@ -104,6 +107,7 @@ theme_override_font_sizes/font_size = 35
 text = "Normal"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="normal2" type="Sprite2D" parent="."]
 position = Vector2(260, 30)

@@ -16,9 +16,9 @@ func _ready():
 	signals.battle_scene_loaded.connect(_on_battle_scene_loaded)
 	signals.player_hit.connect(_on_player_hit)
 	signals.player_recover_hp.connect(_on_player_recover_hp)
-
+	
 	health_bar.init_health(max_health)
-
+	
 	super()
 
 
@@ -33,7 +33,6 @@ func actions() -> void:
 		synergy_label.reset_text()
 	
 	# Draw enough cards such that the player's hand would have max_hand_size 
-	print(player.hand.max_hand_size)
 	var num_draw:int = player.hand.max_hand_size - player.hand.num_cards
 	draw_cards(num_draw)
 
@@ -140,13 +139,10 @@ func _draw_card(card:Card) -> bool:
 
 
 func _attack() -> void:
-	print("Player attacking...")
-	
 	var dmg = DamageEngine.calc_dmg(selected_cards, hand.category_match, atk_multiplier)
 	
 	signals.enemy_hit.emit(dmg)
 	_play($Audio/Attack)
-	print("player just emitted atk signal, now waiting 1.0 timeout...")
 	await get_tree().create_timer(1.0).timeout
 
 
@@ -160,7 +156,6 @@ func _apply_synergy() -> void:
 		return
 	
 	for i in range(1, num_selected):
-		# TODO there's no matches_syergy for CardSpec, only for Card
 		if not selected_cards[i].synergy == synergy_to_match:
 			synergy_label.text = "None"
 			return
@@ -199,6 +194,7 @@ func _finish_turn() -> void:
 			hand.num_cards -= 1
 	
 	player.effect_text.reset_text()
+	_match_label.text = "Matching By: None"
 	
 	super()
 
@@ -214,7 +210,6 @@ func _on_player_hit(dmg:int) -> void:
 	
 	# Internally update health
 	curr_health = clampi(curr_health - dmg, 0, max_health)
-	print("about to await player health update")
 	
 	await health_bar.update_health(curr_health)
 

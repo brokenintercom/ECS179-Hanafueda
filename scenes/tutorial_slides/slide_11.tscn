@@ -41,7 +41,7 @@ grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_3rfco")
 theme_override_font_sizes/font_size = 34
-text = "Once you’ve made your selection of cards, press the Play button.cPlaying your cards will deal damage to the enemy, and then it will be the enemy’s turn.
+text = "Once you’ve made your selection of cards, press the Play button. Playing your cards will deal damage to the enemy, and then it will be the enemy’s turn.
 
 
 "
@@ -50,6 +50,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Next" type="Button" parent="."]
+layout_mode = 0
 offset_left = 1440.0
 offset_top = 776.0
 offset_right = 1656.0
@@ -59,6 +60,7 @@ theme_override_font_sizes/font_size = 45
 text = "Next"
 
 [node name="Previous" type="Button" parent="."]
+layout_mode = 0
 offset_left = 264.0
 offset_top = 776.0
 offset_right = 480.0

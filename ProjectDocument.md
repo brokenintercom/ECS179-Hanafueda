@@ -31,6 +31,8 @@ If you used tutorials or other intellectual guidance to create aspects of your p
 
 @Jamie: https://www.youtube.com/watch?v=Pa0P1lUoC-M&list=PL6SABXRSlpH8CD71L7zye311cp9R4JazJ&index=3 (add more info)
 
+@Jamie: the health bar animation info too, not just the card state machine
+
 # Main Roles
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
@@ -66,7 +68,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
 
 ## Game Logic (Yoobin Jin)
-The game has 3 main states: the title screen, battle screen, and results screen. Each "screen" was its own scene that is "loaded" by a [scene manager](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/screens/scene_manager.gd) by deleting the node for the previous screen and adding the next screen as a child. Having a scene manager was inspired by how we went through the different mini games from discussion.
+The game has 3 main states: the title screen, battle screen, and results screen. Each "screen" was its own scene that is "loaded" by a [scene manager](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/screens/scene_manager.gd) by deleting the node for the previous screen and adding the next screen as a child. Having a scene manager was inspired by how we went through the different mini games from discussion. Besides switching scenes, the scene manager ensures that certain singletons (such as the player) are not visible at the start of the game.
 
 My goal was to try and incorporate ideas of the component pattern, breaking down the code into components, use inheritance, and try to generalize when possible.
 * [player.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/player.gd) and [enemy.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) inherit from [character.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/character.gd), which defines some common attributes and functions for both characters. For example, they both have `max_health`, `curr_health`, and `_finish_turn()` which does some clean up before switching phases (player to enemy and vice versa).
@@ -79,11 +81,19 @@ My goal was to try and incorporate ideas of the component pattern, breaking down
 ### Battle Screen
 The [battle screen](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/screens/battle_screen.gd) starts off by ensuring the player and enemy nodes (which are global) are visible since their `visible` attributes should have been disabled earlier. The battle screen also needs to listen for a `switch_battle_phase` signal to know when to update `_curr_phase` and call either `_player_phase()` or `_enemy_phase()` as needed. These functions check for the win/lose condition. If the player hasn't definitively won or lost, then the player (or enemy) can take their action. For example, the player's turn starts by drawing cards.
 
-
 The battle screen is connected to the signal emitted when the "play cards" button is pressed. The battle screen passes the signal onto the player by calling the player's `play_cards()` function. This function calculates the damage based on the player's selected cards, deals damage to the enemy via the `enemy_hit` signal, applies any synergy if the player's selected cards had a synergy, and cleans up (discussed further in the Player section)
+
+The battle screen also has a few other variables like `synergy_ui`, but these variables are mostly for passing onto the player or enemy since they need to access some of these variables. For example, when the player plays cards that activate a synergy, `synergy_ui`'s text needs to be updated on the screen.
 
 
 ### Player
+The player has a lot of data that needs to be managed. These include the hand, cards, deck, and selected cards. It also gets access to `_match_label` and `_synergy_ui` when the battle screen is loaded in order to update the text associated with these UI components on the screen whenever the player is matching by month/type and when the player has activated a synergy.
+
+The player also has a hand (which has cards and a card state machine), a deck, an array of selected cards, and an array of discarded/used cards. All of these except the discard pile is discussed below. The discard pile was supposed to be used for potentially adding more mechanics to the game, but due to time constraints, these mechanics were not implemented.
+
+The player also has a `did_win` variable which is primarily used when the results screen needs to display the correct message.
+
+
 #### Player hand/cards and state machine
 Based on Jamie's card state machine and card state skeleton code, I determined what states we would need, as well as the transitions between states as shown in the diagram below:
 ![IMG_4195](https://github.com/user-attachments/assets/bf9fad88-c596-44ee-89b9-0dea23fe0ba6)
@@ -108,11 +118,14 @@ The `CardSpec` object is like the `ShieldSpec` or `ProjectileSpec` objects from 
 
 When `draw_card()` is called, the card at the top of the deck is drawn since an actual deck is drawn as if it's a stack (popping from the end of the array is more efficient too, as opposed to the beginning). The function returns a `CardSpec`, and in the player's `draw_cards()`, the `CardSpec` is used to update the current card button's attributes.
 
+The player can also click on the deck to make the [deck view](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/deck_view.gd) visible. This shows the entire contents of the deck with all the cards arranged by month. The cards will be grayed out if they've been played already, helping players plan out their future moves by knowing which cards have been played and which ones haven't been played yet.
+
 
 #### Matching logic
 In [hand.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/hand.gd), its various functions are called every time a card is selected or deselected. First, we determine what category we're matching by (month or type). There is also an edge case where both month and type are viable categories, though the card damage will be calculated using the type by default in this case.
 
 Then, we iterate through all the card buttons and determine if they have the same month (if matching by month, and similarly with type) as the selected cards' month. If they match, the card remains in the enabled state. Otherwise, the card transitions to disabled.
+
 
 #### Damage Engine
 The [Damage Engine](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/damage_engine.gd) uses a similar approach as the one in exercise 3. Its functions are static, and enums are used to index into a grid/array to determine the damage. 
@@ -120,12 +133,27 @@ The [Damage Engine](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/
 This strategy also allows us to easily modify how many points each type does, which was better than our initial implementation where the type enum's internal integer values were hard-coded in the enum definition instead (which means the values cannot be dynamically changed anymore). This aspect of easily modifying the point value of each type was to help make it easier for a future possible addition of upgrading the player's deck so that each card does more damage than before.
 
 
+#### Enemy
+As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode.
+
+
+
 #### Misc.
-The player's finish_turn() function moves all selected cards into the discard pile. More specifically, each card button's attributes are encapsulated into a `CardSpec` and put into the discard pile, similar to how the deck is an array of `CardSpec` objects. Since the card is considered to be in the discard pile, the card button transitions to the "empty" state, and the number of hands in the player's hand decreases. Unselected cards transition to the enabled state if they are not already.
+The player's `finish_turn()` function moves all selected cards into the discard pile. More specifically, each card button's attributes are encapsulated into a `CardSpec` and put into the discard pile, similar to how the deck is an array of `CardSpec` objects. Since the card is considered to be in the discard pile, the card button transitions to the "empty" state, and the number of hands in the player's hand decreases. Unselected cards transition to the enabled state if they are not already.
 
-* 
+**Some various tasks I also helped with that don't necessarily fit in game logic:**
+* Assisting in the initial brainstorming/draft of the tutorial
+* Modifying delays (started by Jamie) to cleanly show when the player acts, when the enemy acts, etc.
+    * After the player emits the `enemy_hit` signal, the player waits 1 second for the enemy's health bar to finish updating
+    * At the start of the enemy's turn in `actions()`, it waits 1 second before doing anything
+    * After the enemy emits the `player_hit` signal, the enemy waits 1 second for the player's health bar to update
+* Arranging the cards to line up with the table sprite, plus general setup of the node hierarchy/tree for the player
+* Initial formatting of the results screen
+* Implementing a simple [CustomLabel](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/custom_label.gd) to do dynamic font size adjustments for the synergy UI since there is an edge case where multiple synergies could be active (and could be used for the Effects UI)
+    * There is a `MatchLabel` in the battle screen that works similarly to `CustomLabel` but is overall much simpler. It displays whether the player's currently selected cards will be calculated based on type or month
+* Simple animation of the enemy turning red and back to normal when the enemy is attacked to provide a visual cue that the enemy is reacting to the player's actions.
+* I created the [Card types scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) and [combos scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) based on the existing framework Tim made for the rest of the help screen
 
-**Document the game states and game data you managed and the design patterns you used to complete your task.**
 
 # Sub-Roles
 
@@ -139,6 +167,8 @@ The player's finish_turn() function moves all selected cards into the discard pi
 
 ## Gameplay Testing (Yoobin Jin)
 [Folder with all the gameplay testing feedback](https://drive.google.com/drive/folders/1DyaJhIkGbmhw26LUqKUENERbS_XLwIGB?usp=sharing)
+
+I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking gamer friends to test the game as well, so we have more variety. The summary/analysis of the feedback is below.
 
 ### Tutorial
 * There’s a lot of detail at first (overwhelming)
@@ -166,7 +196,8 @@ The player's finish_turn() function moves all selected cards into the discard pi
             * This is because currently the health bars appear to be updated at the same time because there is no delay between the player's action (attacking the enemy) and the enemy's action (attacking the player).
         * Visually change the enemy (e.g., add a simple animation to the enemy like its eye flashing) when it's attacking. We can also have a specific sound clip that plays when it attacks so that it's obvious the enemy is taking its turn
 * Show where your selected cards are matching by month, or type
-    * **Fix:** We could add another text box like synergy and effects on the battle screen, though we need to find a good place to put it...
+    * **Fix:** We could add another text box like synergy and effects on the battle screen.
+
 
 ### Misc.
 * Length of game was either just right or possibly a little short
@@ -174,14 +205,13 @@ The player's finish_turn() function moves all selected cards into the discard pi
    * Though, the tutorial sometimes felt somewhat long. To be fair, there’s a lot of rule stuff going on
       * **Fix:** Introduce parts of the game gradually to the user, perhaps a tutorial game before doing the real fight. However, we likely can’t do this because of time constraints
 * Having a battle log that shows the past actions taken would be helpful (this would be a good idea, but unfortunately we didn't have the time to do this either)
-* Having a player opponent may be more challenging
+* Having a player opponent (instead of AI) may be more challenging
 * The art/visuals were interesting and engaging!
 * The testers liked the yakuza premise
 * The UI was easy to use
 * The testers felt more excited when their attacks did a lot (reward for doing good combos!) and also when they lost more and more health (challenge!)
 * Dialogue with the enemy would make things feel more engaging
 
-**Summarize the key findings from your gameplay tests.**
 
 ## Narrative Design (Yujin Cho)
 

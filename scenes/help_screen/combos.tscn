@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjbh2nhkxxwcp"]
+
+[ext_resource type="Texture2D" uid="uid://8rca8elstfks" path="res://assets/help_menu/card_display.png" id="1_uj1m0"]
+[ext_resource type="Texture2D" uid="uid://dsw2buwi6shyd" path="res://assets/tutorial/text boxes/small text box.png" id="2_wo641"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="3_8mi02"]
+
+[node name="combos" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="box" type="Sprite2D" parent="."]
+texture = ExtResource("1_uj1m0")
+
+[node name="text_normal2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0.999969, -1)
+scale = Vector2(1.25133, 1.0275)
+texture = ExtResource("2_wo641")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -357.0
+offset_top = -142.0
+offset_right = 354.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_8mi02")
+theme_override_font_sizes/font_size = 22
+text = "More matches = more damage! You can also choose to save certain cards for future plays (click on the deck to see what cards you have left)!
+
+If you match by type, playing enough matching cards will deal bonus damage. The number of extra matches needed depends on the type.
+
+If you match by month, every extra match grants +3 bonus damage. If you play all 4 cards from the same month, your base damage is doubled too!
+
+If your selected cards could match by both month or type, the damage will be calculated using the type."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

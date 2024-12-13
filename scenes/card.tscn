@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://mnmhxw1j0krl"]
+[gd_scene load_steps=10 format=3 uid="uid://mnmhxw1j0krl"]
 
 [ext_resource type="Script" path="res://scripts/card/card.gd" id="1_r3fpk"]
 [ext_resource type="Script" path="res://scripts/card/card_state_machine.gd" id="3_xl3h2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://scripts/states/card_disabled_state.gd" id="6_fwfhy"]
 [ext_resource type="Texture2D" uid="uid://dgroie7myf5gq" path="res://assets/battle_sprites/card-highlight.png" id="7_0l7m6"]
 [ext_resource type="Script" path="res://scripts/states/card_empty_state.gd" id="7_jlodc"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="8_hegqf"]
+[ext_resource type="Script" path="res://scripts/custom_label.gd" id="9_cdc1f"]
 
 [node name="Card" type="TextureButton"]
 custom_minimum_size = Vector2(168, 268)
@@ -33,4 +35,22 @@ position = Vector2(83.5, 135.25)
 scale = Vector2(1.32639, 1.31279)
 texture = ExtResource("7_0l7m6")
 
+[node name="HoverLabel" type="Label" parent="."]
+offset_left = -19.0
+offset_top = 170.0
+offset_right = 84.0
+offset_bottom = 253.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("8_hegqf")
+theme_override_font_sizes/font_size = 40
+text = "Month:
+Type:"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_cdc1f")
+
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

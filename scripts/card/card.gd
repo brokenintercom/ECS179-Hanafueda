@@ -11,6 +11,7 @@ const GRAY := Color.WEB_GRAY
 @export var type:CardSpec.Type
 @export var synergy:CardSpec.Synergy
 var index := -1  # Index within its month
+@onready var hover_label:CustomLabel = $HoverLabel 
 @onready var highlight:Sprite2D = $Highlight
 @onready var state_machine:CardStateMachine = $CardStateMachine
 
@@ -39,12 +40,14 @@ func update_card(spec:CardSpec) -> void:
 	synergy = spec.synergy
 	texture_normal = spec.texture
 	index = spec.index
+	hover_label.text = "Month: " + CardSpec.Month.keys()[month] + "\nType: " + CardSpec.Type.keys()[type]
 
 
 func disable_input() -> void:
 	disabled = true
 	modulate = GRAY
 	highlight.visible = false
+	hover_label.visible = false
 
 
 func enable_input() -> void:
@@ -54,7 +57,7 @@ func enable_input() -> void:
 
 
 func is_selected() -> bool:
-	return state_machine.curr_card_state.state == CardState.State.SELECTED
+	return get_curr_card_state().state == CardState.State.SELECTED
 
 
 func is_empty() -> bool:
@@ -71,3 +74,13 @@ func matches_type(type_to_match:CardSpec.Type) -> bool:
 
 func matches_synergy(synergy_to_match:CardSpec.Synergy) -> bool:
 	return synergy == synergy_to_match
+
+
+func _on_mouse_entered() -> void:
+	if not is_empty():
+		hover_label.visible = true
+
+
+func _on_mouse_exited() -> void:
+	if not is_empty():
+		hover_label.visible = false

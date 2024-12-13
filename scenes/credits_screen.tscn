@@ -51,6 +51,7 @@ Game Feel and Polish. . . . . . . . . . . . . . .  Jamie Hsi
 
 
 "
+horizontal_alignment = 3
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
