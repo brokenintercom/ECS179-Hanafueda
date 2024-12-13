@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://gslscpfhtcnw"]
+[gd_scene load_steps=6 format=3 uid="uid://gslscpfhtcnw"]
 
 [ext_resource type="Script" path="res://scripts/screens/credits_screen.gd" id="1_7hyww"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="1_ith6q"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jf08h"]
 bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l24ld"]
 
 [node name="CreditsScreen" type="CanvasLayer"]
 script = ExtResource("1_7hyww")
@@ -54,14 +56,17 @@ Game Feel and Polish. . . . . . . . . . . . . . .  Jamie Hsi
 horizontal_alignment = 3
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="."]
-offset_left = 704.0
-offset_top = 822.0
-offset_right = 1199.0
-offset_bottom = 922.0
+[node name="Back" type="Button" parent="Panel"]
+offset_left = 728.0
+offset_top = 801.0
+offset_right = 1223.0
+offset_bottom = 901.0
+scale = Vector2(0.985604, 0.770993)
+theme_override_colors/font_pressed_color = Color(0.226707, 0.226707, 0.226707, 1)
 theme_override_colors/icon_hover_color = Color(0.290196, 0.290196, 0.290196, 1)
 theme_override_fonts/font = ExtResource("2_qckxt")
 theme_override_font_sizes/font_size = 34
-text = "Back"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_l24ld")
+text = "BACK"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Back" to="." method="_on_back_pressed"]
