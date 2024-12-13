@@ -1,17 +1,18 @@
-[gd_scene load_steps=43 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=46 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
 [ext_resource type="PackedScene" uid="uid://dg3r32qr53ron" path="res://scenes/table.tscn" id="2_udycx"]
 [ext_resource type="PackedScene" uid="uid://clp5io7nkgngh" path="res://scenes/tutorial.tscn" id="3_g6onw"]
 [ext_resource type="PackedScene" uid="uid://byjdc0ucd0wx3" path="res://scenes/sidebar.tscn" id="4_j8tp3"]
-[ext_resource type="Texture2D" uid="uid://drpsgwx20w5xp" path="res://assets/battle_sprites/boss.png" id="5_cx8l7"]
 [ext_resource type="Texture2D" uid="uid://dlr0eudm2wl45" path="res://assets/battle_sprites/buttons.png" id="5_rqr5q"]
 [ext_resource type="PackedScene" uid="uid://dym3lkpths880" path="res://scenes/synergy.tscn" id="5_yi53n"]
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_pish7"]
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="10_23bth"]
+[ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="11_m7j0s"]
 [ext_resource type="AudioStream" uid="uid://bdg0kao8sqer1" path="res://assets/audio/bgm/Battle.ogg" id="12_on3jc"]
+[ext_resource type="Texture2D" uid="uid://csfxkxqekqcq" path="res://assets/battle_sprites/boss-animation.png" id="12_ryqcp"]
 
 [sub_resource type="Image" id="Image_jphgh"]
 data = {
@@ -3800,15 +3801,15 @@ bg_color = Color(0.101961, 0.101961, 0.101961, 0.301961)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q4c7i"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(307, 74, 54, 59)
+region_rect = Rect2(306, 75, 54, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nrt6"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(232, 76, 59, 61)
+region_rect = Rect2(234, 75, 54, 60)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_soipo"]
 texture = ExtResource("5_rqr5q")
-region_rect = Rect2(375, 80, 60, 55)
+region_rect = Rect2(378, 81, 54, 54)
 
 [sub_resource type="Theme" id="Theme_v8ikm"]
 Button/styles/disabled = SubResource("StyleBoxFlat_sn5r7")
@@ -3831,6 +3832,30 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ph111"]
 resource_name = "heal"
@@ -3850,7 +3875,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_5i2po"]
 resource_name = "attack"
-step = 0.3333
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -3863,12 +3888,70 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.937255, 0, 0.2, 1), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.196917, 0.400678, 0.590176, 0.793937, 0.997698),
+"transitions": PackedFloat32Array(1, 1, 0.108819, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(20, 0), Vector2(-20, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g3dx6"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.466667, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 3, 4, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.466667, 0.866667),
+"transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e8h1x"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uux5f"]
 _data = {
 "RESET": SubResource("Animation_k3dq0"),
+"attack": SubResource("Animation_g3dx6"),
 "heal": SubResource("Animation_ph111"),
-"hit": SubResource("Animation_5i2po")
+"hit": SubResource("Animation_5i2po"),
+"idle": SubResource("Animation_e8h1x")
 }
 
 [node name="BattleScreen" type="Node2D"]
@@ -3950,7 +4033,7 @@ offset_top = -529.0
 offset_right = 325.0
 offset_bottom = -310.0
 
-[node name="PauseButton" type="Button" parent="Control"]
+[node name="HomeButton" type="Button" parent="Control"]
 process_mode = 3
 layout_mode = 0
 offset_left = 70.0
@@ -3959,58 +4042,65 @@ offset_right = 137.0
 offset_bottom = -626.0
 theme = SubResource("Theme_v8ikm")
 
-[node name="PauseLayer" type="CanvasLayer" parent="Control/PauseButton"]
+[node name="HomeLayer" type="CanvasLayer" parent="Control/HomeButton"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Control/PauseButton/PauseLayer"]
+[node name="ColorRect" type="ColorRect" parent="Control/HomeButton/HomeLayer"]
 offset_top = -8.0
 offset_right = 1922.0
 offset_bottom = 1074.0
 mouse_filter = 2
 color = Color(0.152941, 0.152941, 0.152941, 0.729412)
 
-[node name="Sprite2D" type="Sprite2D" parent="Control/PauseButton/PauseLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Control/HomeButton/HomeLayer"]
 position = Vector2(993, 549)
 texture = ExtResource("10_23bth")
 
-[node name="Label" type="Label" parent="Control/PauseButton/PauseLayer"]
-visible = false
-offset_left = 763.0
-offset_top = 447.0
-offset_right = 1231.0
-offset_bottom = 522.0
+[node name="Label" type="Label" parent="Control/HomeButton/HomeLayer"]
+offset_left = 627.0
+offset_top = 454.0
+offset_right = 1370.0
+offset_bottom = 553.0
+theme_override_fonts/font = ExtResource("11_m7j0s")
+theme_override_font_sizes/font_size = 30
 text = "Are you sure you want to quit and return to the Title Screen? 
 
 Doing so will end the game."
 horizontal_alignment = 1
 
-[node name="TitleScreenButton" type="Button" parent="Control/PauseButton/PauseLayer"]
+[node name="TitleScreenButton" type="Button" parent="Control/HomeButton/HomeLayer"]
 anchors_preset = -1
 anchor_left = 0.002
 anchor_right = 0.002
-offset_left = 1046.16
-offset_top = 573.0
-offset_right = 1152.16
-offset_bottom = 633.0
+offset_left = 1099.16
+offset_top = 590.0
+offset_right = 1205.16
+offset_bottom = 650.0
+theme_override_fonts/font = ExtResource("11_m7j0s")
+theme_override_font_sizes/font_size = 30
 text = "YES"
 
-[node name="BackButton" type="Button" parent="Control/PauseButton/PauseLayer"]
-visible = false
+[node name="BackButton" type="Button" parent="Control/HomeButton/HomeLayer"]
 offset_left = 774.0
-offset_top = 569.0
+offset_top = 590.0
 offset_right = 880.0
-offset_bottom = 629.0
+offset_bottom = 650.0
+theme_override_fonts/font = ExtResource("11_m7j0s")
+theme_override_font_sizes/font_size = 30
 text = "NO"
 
 [node name="Boss" type="Sprite2D" parent="."]
-position = Vector2(1185, 221)
+position = Vector2(1200, 296)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("5_cx8l7")
+texture = ExtResource("12_ryqcp")
+hframes = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
 "": SubResource("AnimationLibrary_uux5f")
 }
+autoplay = "idle"
+speed_scale = 1.5
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_on3jc")
@@ -4020,6 +4110,6 @@ autoplay = true
 [connection signal="pressed" from="Control/PlayCardsButton" to="." method="_on_play_cards_button_pressed"]
 [connection signal="pressed" from="Control/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="Control/Deck" to="." method="_on_deck_pressed"]
-[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
-[connection signal="pressed" from="Control/PauseButton/PauseLayer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
-[connection signal="pressed" from="Control/PauseButton/PauseLayer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton/HomeLayer/TitleScreenButton" to="." method="_on_title_screen_button_pressed"]
+[connection signal="pressed" from="Control/HomeButton/HomeLayer/BackButton" to="." method="_on_back_button_pressed"]
