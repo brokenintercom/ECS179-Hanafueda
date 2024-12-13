@@ -1,11 +1,10 @@
-[gd_scene load_steps=44 format=4 uid="uid://dsrai2qw7g6sb"]
+[gd_scene load_steps=48 format=4 uid="uid://dsrai2qw7g6sb"]
 
 [ext_resource type="Script" path="res://scripts/screens/battle_screen.gd" id="1_m0yuu"]
 [ext_resource type="PackedScene" uid="uid://cqmkahscombh2" path="res://scenes/help_screen/help_menu.tscn" id="2_j8vmt"]
 [ext_resource type="PackedScene" uid="uid://dg3r32qr53ron" path="res://scenes/table.tscn" id="2_udycx"]
 [ext_resource type="PackedScene" uid="uid://clp5io7nkgngh" path="res://scenes/tutorial.tscn" id="3_g6onw"]
 [ext_resource type="PackedScene" uid="uid://byjdc0ucd0wx3" path="res://scenes/sidebar.tscn" id="4_j8tp3"]
-[ext_resource type="Texture2D" uid="uid://drpsgwx20w5xp" path="res://assets/battle_sprites/boss.png" id="5_cx8l7"]
 [ext_resource type="Texture2D" uid="uid://dlr0eudm2wl45" path="res://assets/battle_sprites/buttons.png" id="5_rqr5q"]
 [ext_resource type="PackedScene" uid="uid://dym3lkpths880" path="res://scenes/synergy.tscn" id="5_yi53n"]
 [ext_resource type="PackedScene" uid="uid://e24whar4ha5u" path="res://scenes/deck.tscn" id="6_chuoq"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bobubu0x2f8gd" path="res://assets/help_menu/help_base.png" id="10_23bth"]
 [ext_resource type="FontFile" uid="uid://jakixrafesro" path="res://assets/fonts/C&C Red Alert [INET].ttf" id="11_m7j0s"]
 [ext_resource type="AudioStream" uid="uid://bdg0kao8sqer1" path="res://assets/audio/bgm/Battle.ogg" id="12_on3jc"]
+[ext_resource type="Texture2D" uid="uid://csfxkxqekqcq" path="res://assets/battle_sprites/boss-animation.png" id="12_ryqcp"]
 
 [sub_resource type="Image" id="Image_jphgh"]
 data = {
@@ -3818,6 +3818,41 @@ Button/styles/hover = SubResource("StyleBoxTexture_q4c7i")
 Button/styles/normal = SubResource("StyleBoxTexture_8nrt6")
 Button/styles/pressed = SubResource("StyleBoxTexture_soipo")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlx4v"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(0, 0, 1248, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gt1ys"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(1248, 0, 1248, 480)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5v3n"]
+atlas = ExtResource("12_ryqcp")
+region = Rect2(2496, 0, 1248, 480)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y6cts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlx4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt1ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5v3n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gt1ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlx4v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.5
+}]
+
 [sub_resource type="Animation" id="Animation_k3dq0"]
 length = 0.001
 tracks/0/type = "value"
@@ -4007,10 +4042,13 @@ theme_override_fonts/font = ExtResource("11_m7j0s")
 theme_override_font_sizes/font_size = 30
 text = "NO"
 
-[node name="Boss" type="Sprite2D" parent="."]
-position = Vector2(1185, 221)
+[node name="Boss" type="AnimatedSprite2D" parent="."]
+position = Vector2(1200, 296)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("5_cx8l7")
+sprite_frames = SubResource("SpriteFrames_y6cts")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.284687
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Boss"]
 libraries = {
