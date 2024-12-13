@@ -67,5 +67,18 @@ theme_override_fonts/font = ExtResource("4_7p1h4")
 theme_override_font_sizes/font_size = 45
 text = "Previous"
 
+[node name="PageNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1232.0
+offset_top = 647.0
+offset_right = 1348.0
+offset_bottom = 686.0
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_fonts/font = ExtResource("4_7p1h4")
+theme_override_font_sizes/font_size = 36
+text = "20 / 20"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]

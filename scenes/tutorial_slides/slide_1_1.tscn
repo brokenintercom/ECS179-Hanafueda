@@ -94,5 +94,18 @@ position = Vector2(1209.1, 556.4)
 scale = Vector2(1.5, 1.391)
 texture = ExtResource("8_i5n4o")
 
+[node name="PageNum" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1577.0
+offset_top = 905.0
+offset_right = 1693.0
+offset_bottom = 944.0
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_fonts/font = ExtResource("4_2ycx7")
+theme_override_font_sizes/font_size = 36
+text = "2 / 20"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [connection signal="pressed" from="Next" to="." method="_on_next_pressed"]
 [connection signal="pressed" from="Previous" to="." method="_on_previous_pressed"]
