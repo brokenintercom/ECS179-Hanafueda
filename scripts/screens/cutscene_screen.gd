@@ -28,7 +28,6 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout():
-	print("go away text")
 	continue_text.visible = !continue_text.visible
 	escape_text.visible = !escape_text.visible
 

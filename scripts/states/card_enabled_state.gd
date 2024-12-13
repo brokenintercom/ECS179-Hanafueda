@@ -13,15 +13,10 @@ func enter() -> void:
 	if not card_ui.is_node_ready():
 		await card_ui.ready
 	
-	# TODO delete this later, probably
-	#card_ui.reparent_requested.emit(card_ui)
 	card_ui.enable_input()
 
 
 func on_gui_input(event:InputEvent) -> void:
-	# TODO also, look for an InputEvent for when the mouse hovers over a card
-	# TODO on_mouse_entered and on_mouse_exited signals
-
 	if event.is_action_pressed("click"):
 		transition_requested.emit(self, CardState.State.SELECTED)
 

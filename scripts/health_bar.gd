@@ -48,7 +48,6 @@ func preview_health(dmg:int):
 
 
 func _on_timer_timeout() -> void:
-	print("timeout: updating health bar...")
 	dmg_bar.value = health
 
 

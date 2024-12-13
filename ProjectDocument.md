@@ -133,6 +133,11 @@ The [Damage Engine](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/
 This strategy also allows us to easily modify how many points each type does, which was better than our initial implementation where the type enum's internal integer values were hard-coded in the enum definition instead (which means the values cannot be dynamically changed anymore). This aspect of easily modifying the point value of each type was to help make it easier for a future possible addition of upgrading the player's deck so that each card does more damage than before.
 
 
+#### Enemy
+As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode.
+
+
+
 #### Misc.
 The player's `finish_turn()` function moves all selected cards into the discard pile. More specifically, each card button's attributes are encapsulated into a `CardSpec` and put into the discard pile, similar to how the deck is an array of `CardSpec` objects. Since the card is considered to be in the discard pile, the card button transitions to the "empty" state, and the number of hands in the player's hand decreases. Unselected cards transition to the enabled state if they are not already.
 
@@ -146,7 +151,8 @@ The player's `finish_turn()` function moves all selected cards into the discard 
 * Initial formatting of the results screen
 * Implementing a simple [CustomLabel](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/custom_label.gd) to do dynamic font size adjustments for the synergy UI since there is an edge case where multiple synergies could be active (and could be used for the Effects UI)
     * There is a `MatchLabel` in the battle screen that works similarly to `CustomLabel` but is overall much simpler. It displays whether the player's currently selected cards will be calculated based on type or month
-* Simple animation of the enemy turning red and back to normal when it attacks to provide a visual cue that the enemy is reacting/taking its turn. This was mainly so that we'd have some visual cue ready for the demo but will be improved by Yujin
+* Simple animation of the enemy turning red and back to normal when the enemy is attacked to provide a visual cue that the enemy is reacting to the player's actions.
+* I created the [Card types scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) and [combos scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) based on the existing framework Tim made for the rest of the help screen
 
 
 # Sub-Roles
@@ -192,20 +198,20 @@ I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking 
 * Show where your selected cards are matching by month, or type
     * **Fix:** We could add another text box like synergy and effects on the battle screen.
 
+
 ### Misc.
 * Length of game was either just right or possibly a little short
    * **Fix:** Add more battles! However, we likely cannot do this given our time constraints
    * Though, the tutorial sometimes felt somewhat long. To be fair, there’s a lot of rule stuff going on
       * **Fix:** Introduce parts of the game gradually to the user, perhaps a tutorial game before doing the real fight. However, we likely can’t do this because of time constraints
 * Having a battle log that shows the past actions taken would be helpful (this would be a good idea, but unfortunately we didn't have the time to do this either)
-* Having a player opponent may be more challenging
+* Having a player opponent (instead of AI) may be more challenging
 * The art/visuals were interesting and engaging!
 * The testers liked the yakuza premise
 * The UI was easy to use
 * The testers felt more excited when their attacks did a lot (reward for doing good combos!) and also when they lost more and more health (challenge!)
 * Dialogue with the enemy would make things feel more engaging
 
-**Summarize the key findings from your gameplay tests.**
 
 ## Narrative Design (Yujin Cho)
 
