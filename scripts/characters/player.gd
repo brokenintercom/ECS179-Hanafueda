@@ -194,6 +194,7 @@ func _finish_turn() -> void:
 			hand.num_cards -= 1
 	
 	player.effect_text.reset_text()
+	_match_label.text = "Matching By: None"
 	
 	super()
 
