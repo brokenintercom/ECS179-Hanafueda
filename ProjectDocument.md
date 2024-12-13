@@ -120,9 +120,11 @@ When `draw_card()` is called, the card at the top of the deck is drawn since an 
 
 The player can also click on the deck to make the [deck view](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/deck_view.gd) visible. This shows the entire contents of the deck with all the cards arranged by month. The cards will be grayed out if they've been played already, helping players plan out their future moves by knowing which cards have been played and which ones haven't been played yet.
 
+The deck view primarily consists of a horizontal container called `Cards` which contains a vertical box container for each month, and overall `Cards` contains *all* the cards in the deck view. To get the right month (vertical box) container, we index into `Cards.get_children()` using the card's month enum. To get the appropriate sprite within this vertical container, the card has an `index` variable that's used to index into the container's `get_children()`.
+
 
 #### Matching logic
-In [hand.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/hand.gd), its various functions are called every time a card is selected or deselected. First, we determine what category we're matching by (month or type). There is also an edge case where both month and type are viable categories, though the card damage will be calculated using the type by default in this case.
+In [hand.gd](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/hand.gd), its various functions are called every time a card is selected or deselected. We iterate through the array of selected cards starting from the beginning. First, we determine what category we're matching by (month or type). There is also an edge case where both month and type are viable categories, though the card damage will be calculated using the type by default in this case.
 
 Then, we iterate through all the card buttons and determine if they have the same month (if matching by month, and similarly with type) as the selected cards' month. If they match, the card remains in the enabled state. Otherwise, the card transitions to disabled.
 
@@ -150,9 +152,11 @@ The player's `finish_turn()` function moves all selected cards into the discard 
 * Arranging the cards to line up with the table sprite, plus general setup of the node hierarchy/tree for the player
 * Initial formatting of the results screen
 * Implementing a simple [CustomLabel](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/custom_label.gd) to do dynamic font size adjustments for the synergy UI since there is an edge case where multiple synergies could be active (and could be used for the Effects UI)
+    * It decreases the label's font size by 1 while there is more than 1 line in the label
     * There is a `MatchLabel` in the battle screen that works similarly to `CustomLabel` but is overall much simpler. It displays whether the player's currently selected cards will be calculated based on type or month
 * Simple animation of the enemy turning red and back to normal when the enemy is attacked to provide a visual cue that the enemy is reacting to the player's actions.
-* I created the [Card types scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) and [combos scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) based on the existing framework Tim made for the rest of the help screen
+* I created the [card types scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) and [combos scene](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scenes/help_screen/card_types.tscn) based on the existing framework Tim made for the rest of the help screen
+* Implementing a feature where a card's month and type are shown [when hovering over the card](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/card/card.gd). This was added due to a suggestion by a player during the final festival!
 
 
 # Sub-Roles

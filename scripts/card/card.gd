@@ -4,7 +4,6 @@
 class_name Card
 extends TextureButton
 
-#signal reparent_requested(which_card_ui: Card)
 const WHITE := Color.WHITE
 const GRAY := Color.WEB_GRAY
 @export var month:CardSpec.Month
