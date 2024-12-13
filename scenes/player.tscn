@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://b37px5yamuk8i" path="res://scenes/hand.tscn" id="1_5gh7w"]
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_bs5ar"]
-[ext_resource type="PackedScene" uid="uid://drysrffamrvhn" path="res://scenes/health_bar.tscn" id="3_jfvdn"]
 [ext_resource type="Texture2D" uid="uid://d0tmlkjdp5so8" path="res://assets/battle_sprites/sidebar-assets.png" id="3_spis3"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="4_15peq"]
 [ext_resource type="PackedScene" uid="uid://bdi3ywqh32rxc" path="res://scenes/player_effect.tscn" id="5_xykok"]
+[ext_resource type="PackedScene" uid="uid://b2pru2p3jei3b" path="res://scenes/player_health_bar.tscn" id="6_40xi7"]
 [ext_resource type="AudioStream" uid="uid://d0ppvfrequgl" path="res://assets/audio/cards/draw/CardDraw1.wav" id="7_4fhfb"]
 [ext_resource type="AudioStream" uid="uid://dkoe8jabmtvw3" path="res://assets/audio/cards/draw/CardDraw2.wav" id="8_e2206"]
 [ext_resource type="AudioStream" uid="uid://dwlejx7diuh5d" path="res://assets/audio/cards/draw/CardDraw3.wav" id="9_wx46y"]
@@ -71,7 +71,7 @@ theme_override_font_sizes/font_size = 25
 text = ":3"
 horizontal_alignment = 1
 
-[node name="HealthBar" parent="HealthBarUI" instance=ExtResource("3_jfvdn")]
+[node name="HealthBar" parent="HealthBarUI" instance=ExtResource("6_40xi7")]
 z_index = 1
 offset_left = 90.0
 offset_top = 1004.0

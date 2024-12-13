@@ -14,7 +14,7 @@ script = ExtResource("1_7hyww")
 offset_left = -20.0
 offset_top = -16.0
 offset_right = 1929.0
-offset_bottom = 1072.0
+offset_bottom = 1085.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_jf08h")
 
 [node name="Label" type="Label" parent="Panel"]
@@ -38,16 +38,16 @@ offset_bottom = 806.0
 theme_override_fonts/font = ExtResource("2_qckxt")
 theme_override_font_sizes/font_size = 37
 text = "Producer . . . . . . . . . . . . . . . . . . . . . Tim Dela Cruz
-UIUX . . . . . . . . . . . . . . . . . . . . . . . . . Jamie Hsi
-Enemy Effects/AI . . . . . . . . . . . . . . Chris Wang 
-Animation and Visuals . . . . . . . . .  Yujin Cho
-Game Logic . . . . . . . . . . . . . . . . . . . Yoobin Jin
+UIUX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Jamie Hsi
+Enemy Effects/AI . . . . .  . . . . . . . . . . . Chris Wang 
+Animation and Visuals . . . . . . . . . . . .  Yujin Cho
+Game Logic . . . . . . . . . . . . . . . . . . . . . . Yoobin Jin
 
-Audio. . . . . . . . . . . . . . . . . . . . . . . . . Chris Wang 
-Gameplay Testing . . . . . . . . . . . . . .  Yoobin Jin
-Narrative Design  . . . . . . . . . . . . . . . Yujin Cho
-Press Kit and Trailer . . . . . . . . . . . . .  Tim Dela Cruz
-Game Feel and Polish. . . . . . . . . . . .  Jamie Hsi
+Audio. . . . . . . . . . . . . . . . . . . . . . . . . . . Chris Wang 
+Gameplay Testing . . . . . . . . . . . . . . . .  Yoobin Jin
+Narrative Design  . . . . . . . . . . . . . . . . . Yujin Cho
+Press Kit and Trailer . . . . . . . . . . . Tim Dela Cruz
+Game Feel and Polish. . . . . . . . . . . . . . .  Jamie Hsi
 
 
 "
