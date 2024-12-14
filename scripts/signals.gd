@@ -12,3 +12,4 @@ signal next_page
 signal previous_page
 signal show_guide
 signal display(new_display:int)
+signal on_transition_finished

@@ -22,7 +22,7 @@ func _ready() -> void:
 
 
 func actions():
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.1).timeout
 	var dmg_taken := max_health - curr_health
 	var random_factor := 0.0
 	var damage := 0
@@ -45,16 +45,19 @@ func actions():
 		block_eff.generate(player, 1, 0.0)
 	elif random_factor < atk_buff_chance + block_chance + heal_chance:
 		effect_text.update_text("Heal 15%")
-		_animation_player.play("heal")
 		heal_eff.generate(self, 0, 0.15)
+		await get_tree().create_timer(1).timeout
+		_animation_player.play("idle")
 	elif random_factor < atk_buff_chance + block_chance + heal_chance + shrink_hand_chance:
 		player.effect_text.reset_and_update_text("Reduce hand size")
 		shrink_hand_eff.generate(player, 1, 1)
 	
 	_animation_player.play("attack")
+	await get_tree().create_timer(0.3).timeout
 	signals.player_hit.emit(damage * atk_multiplier)
 	_play($Audio/Attack)
 	await get_tree().create_timer(1.0).timeout
+	_animation_player.play("idle")
 	
 	if effect_text.text.contains("x2 attack next turn"):
 		effect_text.reset_and_update_text("x2 attack this turn")

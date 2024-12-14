@@ -15,7 +15,9 @@ func _ready() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	signals.switch_scene.emit("battle_screen")
+	TransitionScreen.transition()
+	await signals.on_transition_finished
+	signals.switch_scene.emit("intro_cutscene_screen")
 
 
 func _on_credits_button_pressed() -> void:
