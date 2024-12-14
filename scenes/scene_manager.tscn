@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://bj87sqcmu8u00"]
+[gd_scene load_steps=4 format=3 uid="uid://bj87sqcmu8u00"]
 
 [ext_resource type="Script" path="res://scripts/screens/scene_manager.gd" id="1_lm3b8"]
 [ext_resource type="PackedScene" uid="uid://br1kcgfay4e0p" path="res://scenes/title_screen.tscn" id="2_fjovt"]
+[ext_resource type="AudioStream" uid="uid://b6d7jmx88jx1l" path="res://assets/audio/bgm/Title.ogg" id="3_1gsup"]
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_lm3b8")
 
 [node name="TitleScreen" parent="." instance=ExtResource("2_fjovt")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1gsup")
+autoplay = true
