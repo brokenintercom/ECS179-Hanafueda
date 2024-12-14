@@ -33,8 +33,6 @@ And of course... **GAMBLING!**
 
 <img width="400" alt="Main Menu" src="https://github.com/user-attachments/assets/10954642-75ba-4054-a668-a5653fd7e99d">
 
-<img width="400" alt="Main Menu" src="https://github.com/user-attachments/assets/132e1b6c-e803-4832-9308-0908e5672b0a">
-
 
 **Intro**
 
@@ -66,6 +64,11 @@ And of course... **GAMBLING!**
 <img width="400" alt="Brights" src="https://github.com/user-attachments/assets/de356bdc-e484-4d0d-814a-5c0216d8f638">
 
 <img width="400" alt="Board" src="https://github.com/user-attachments/assets/78f78dd4-d3e4-413d-b92b-d7f1354fd54c">
+
+**Credits**
+
+
+<img width="400" alt="Main Menu" src="https://github.com/user-attachments/assets/132e1b6c-e803-4832-9308-0908e5672b0a">
 
 
 ## Developers
