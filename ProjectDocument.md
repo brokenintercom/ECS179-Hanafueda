@@ -7,7 +7,7 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 ## Project Resources
 
 [Web-playable version of your game.](https://brokenintercom.itch.io/hanafueda)  
-[Trailer](https://youtube.com)  
+[Trailer](https://www.youtube.com/watch?v=cYJ0Ghhl8wc)  
 [Press Kit](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/presskit.md)  
 [Proposal](https://docs.google.com/document/d/1ReKk03qQ22jLba2pAbRc38L8XjvmlNclLAPEhN9LdHg/edit?usp=sharing)  
 
