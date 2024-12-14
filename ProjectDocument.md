@@ -17,6 +17,8 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 ### Controls
 For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons.
 
+After clicking start, you can choose between normal and hard difficulty, which affects how much damage the enemy will deal to you. This will especially make a difference towards the end of the battle.
+
 ### Card matching
 In this game, you must match cards either by Month or Type. Within a month, you match by January cards, February cards, ..., OR December cards. Within types, you can match by Normal cards, Ribbon cards, Animal cards, OR Bright cards.  There are 4 cards for each month
 
@@ -33,23 +35,24 @@ Hovering over a card will make a text box appear indicating the card's month and
 ### Damage calculation
 **Normal:**
 * Base dmg: 1
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 3 matching cards to get +1 for each extra card (e.g., if you play 5 matching cards, you get +2 bonus dmg)
 
 **Ribbon:**
 * Base dmg: 2
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 2 matching cards to get +1 for each extra card
 
 **Animal:**
 * Base dmg: 3
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 2 matching cards to get +1 for each extra card
 
-Bright:
+**Bright:**
 * Base dmg: 5
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 1 matching card to get +1 for each extra card. Furthermore, your bonus damage will be doubled (e.g., if you play 3 matching cards, you get (1 + 1) * 2 bonus damage)
 
 If you select cards with the same *type*, you deal some extra bonus damage depending on how many cards you matched together, as indicated above.
 
-If you select cards with the same *month*, then for extra matching card, you deal a bonus +3 damage. If you use all four cards from the same month, then your base damage is doubled as well!
+If you select cards with the same *month*, then for 
+*extra* matching card, you deal a bonus +3 damage. For example, playing three cards will give +6 bonus damage. If you use all four cards from the same month, then your base damage is doubled as well!
 
 If your selected cards technically match by both month and type, it will be considered a *type* matching.
 
@@ -57,7 +60,6 @@ You can see a preview of the total damage you'll deal to the enemy by looking at
 
 ### Synergies
 There are 3 synergies in the game. Each synergy requires a specific combination of exactly 3 cards. If you successfully play just those 3 cards, the Synergy text box on the left will be updated.
-
 
 ### Selecting a card
 Clicking on a card that is colored in (not grayed out) will select it, giving the card a blue outline. The remaining cards will automatically be grayed out if they can't match the selected card(s) in any way. If they *can* possibly be matched, then they will remain colored. The bottom right of the screen will also tell you whether your selected cards will be considered as matching by Month, or by Type. Note that you can select as many (non-grayed-out) cards as you'd like, but consider saving certain cards for future plays.
@@ -70,11 +72,17 @@ Once you've selected the cards you want to play, click the Play button on the le
 You lose if you run out of cards to play or if you run out of health. You win when the enemy runs out of health.
 
 ### Strategies
+At the beginning of the game, playing as many cards (by type) at once is the easiest. If you happen to have all four cards from a month, this should be prioritized, but it's unlikely you'll get all four cards this early on. Clearing out your Normal cards is a higher priority because they don't deal as much damage as the other cards, and you want to reach those cards more quickly. Furthermore, the enemy will not deal much damage in the beginning, so playing Normals is safe at this point. If you get Brights, it may be a good idea to save them, but if you have too many and they're taking up too much space in your limited hand, you may want to play some.
 
+As the enemy takes more damage, it will deal more damage to you (especially in hard mode). Saving your better cards and matches at this point will be helpful. With less cards in the deck, it will also be easier to get matches by month. Alternatively, it's also easier to get the cards needed for synergies (play your synergies wisely too!)
+
+In hard mode, once the enemy has low HP, you should try to one-shot the boss -- otherwise, it may one-shot *you!*
+
+In general, always pay attention to the two Effects text boxes on the left side of the screen. For example, if the enemy has put an effect on the player that will block the player's attack, then don't play your hard hitting cards that turn.
+
+Try selecting different combinations of cards and see which one to play based on the previewed damage in the enemy's health bar too!
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-
-links to resources and whatnot...
 
 # External Code, Ideas, and Structure
 
