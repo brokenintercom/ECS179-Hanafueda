@@ -124,9 +124,34 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Animation and Visuals (Yujin Cho)
 
-**List your assets, including their sources and licenses.**
+### Theme/Inspirations
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+The theme for our game was inspired by the Hanafuda deck of cards, which I was familiar with through playing Min-Hwatu/Go-Stop (which are Korean card games that use a derivative of this deck of cards) with my family. I thought it would be interesting to create a Balatro-like game using a deck of cards that is organized differently than the traditional deck of cards we know. The mechanics of the game wrote themselves pretty easily after establishing how this deck of cards is organized (12 months and 4 types).
+
+Aesthetically, I was inspired by Balatro and other table-top like pixel art games. Balatro was the main inspiration for the layout of the battle scene, with the menu/sidebar to the left, and the main card playing area to the right. I was also particularly inspired by Papers Please for the intro cutscene (with all the papers on the desk), the lineless/simple artstyle, and the mimicking of the hectic nature of reorganizing objects on a desk. 
+
+I designed the characters based on the animals on the cards. The main boss/yakuza is a red-crowned crane, which is the animal on the January card. If I was to extend this game, I would go through all the months and make an animal-themed boss for each of them. The player character is a rabbit, which is a humble character used often in Japanese folklore. Additionally, my initial game pitch was a burrowing rabbit rogue-like, so it was a small callback to that.
+
+### Assets
+
+I created all of our visual assets myself using Aseprite.
+
+I created my own font for the main Hanafeuda logo and the skip/play buttons, but the other fonts used in game are either [Silkscreen](https://fonts.google.com/specimen/Silkscreen) or [C&C Red Alert](https://www.dafont.com/c-c-red-alert-inet.font). Both fonts are free both for personal and commercial use.
+
+I am satisfied with the overall theming I created for the game with the assets and narrative design. I really wanted to make a game that looked like a cohesive and unique product, and I think that taking the time to make all the assets made a product fulfilled that.
+
+### Implementation 
+
+Implementation wise, all of the sprites were exported as PNGs and put into the game in some sort of Sprite2D node. If I had done this again, I would have exported them all as SVGs, which would make the pixels more crisp when viewed at a larger scale. 
+
+The player and enemy are both separate scenes, and all of the UI related to them (their corresponding health bars and the player's hand) are also contained in that scene. The healthbar UI is built of separate Sprite2D nodes layered on top of each other through Z axis offsetting. The healthbars themselves are two different instances of a TexturedHealthBar that Jamie made, so that the boss and the player could have separate colored bars.
+
+The animation for the boss was a combination of simple "puppet" animation in Aseprite (creating separate sprites in a sprite sheet) and using the offset function in AnimationPlayer to make the sprite move back and forth smoothly during the attack and hit animations. The [animation timing](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/characters/enemy.gd#L57) was done in code using timers, which ensured that the attack sound/player's HP bar depleting happened at the bottom of the enemy animation. It also ensures that the enemy's animation returns to idle after it attacks.
+
+All other assets were static assets, implemented mainly by cutting the sprites out of sprite sheets using Godot's AtlasTexture function.
+
+The cutscene consists of one video edited by Tim, which was implemented through the AnimationPlayer node. This allowed us to achieve a more dynamic cutscene than if we animated everything straight in Godot. The skip button for the cutscene was implemented using a [signal](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/screens/intro_cutscene_screen.gd#L4) attached to a button, which would notify the scene manager to load in the battle_screen.
+
 
 ## Game Logic (Yoobin Jin)
 The game has 3 main states: the title screen, battle screen, and results screen. Each "screen" was its own scene that is "loaded" by a [scene manager](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/screens/scene_manager.gd) by deleting the node for the previous screen and adding the next screen as a child. Having a scene manager was inspired by how we went through the different mini games from discussion. Besides switching scenes, the scene manager ensures that certain singletons (such as the player) are not visible at the start of the game.
@@ -280,7 +305,11 @@ I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking 
 
 ## Narrative Design (Yujin Cho)
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+The narrative of this game was inspired by the general attitude around Hanafuda games that I have noticed - basically that they are gambling games and are pretty taboo in Asian cultures (I was never allowed to look at my parents playing these games as a kid). As a result, I thought it would be interesting to have gambling to be the major driving force behind the conflict of the story. 
+
+The cutscene also explains the use of cards as an offensive weapon, though if I had more time, I would have liked to go into how this character is fighting off a boss using cards (maybe they were given magic powers within the cards or something?).
+
+I implemented the game's story using the intro cutscene and by using assets that have a common style throughout all scenes. The main character's table in the cutscene is also the table that is used to play cards in battle scene, and the positioning of the two characters also flows between scenes. 
 
 ## Press Kit and Trailer (Tim Dela Cruz)
 
