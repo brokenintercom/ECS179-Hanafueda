@@ -156,7 +156,7 @@ There are many ascepts of the battle screen that were pieced together and placed
     - **enemy effects**: This is where we can see the effects the player has placed on the enemy. Since it is still part of the enemy's info, it is grouped on the top of the screen, just below the healthbar. [enemy effects scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_effect.tscn)
     - **synergy**: This is where we can see the synergies of the cards we have played displayed. [synergy scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/synergy.tscn)
     - **home, help, play**: Here we have a line of buttons. All of the following buttons have different sprites to differentiate hovering, pressing and no action.
-       ![home.img](https://github.com/user-attachments/assets/a964647c-efeb-48e5-8cbb-9a2cc22a12a2)
+  ![home.img](https://github.com/user-attachments/assets/a964647c-efeb-48e5-8cbb-9a2cc22a12a2)
         - home: At the most left and furthest away from the main card area, is the home button. Clicking on the button will reseult in a confirmation popup that checks if the player wishes to return to the title and end game.
   ![help.img](https://github.com/user-attachments/assets/6bbcf8be-10d5-479a-bd1a-f90954a99ad3)
         - help: At the center is the help button which will popup an index of subjects to look for help on. Selecting one of the listed elements will result in a side bar. The side bar is place convienently above the card area, so that the player can look at both the help and their cards to decide their next move. 
