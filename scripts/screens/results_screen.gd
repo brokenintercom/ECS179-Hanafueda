@@ -1,4 +1,4 @@
-class_name EndScreen
+class_name ResultsScreen
 extends Node
 
 @onready var small_message:Label = $SmallMessage
@@ -13,16 +13,19 @@ func _ready() -> void:
 
 func _process(_delta):
 	if player.did_win:
+
 		big_message.text = "YOU WIN!!"
 		win_screen.visible = true
+    _stop($Audio/Lose)
+		_play($Audio/Win)
 	else:
 		big_message.text = "YOU LOST..."
 		loss_screen.visible = true
-		
-	
 
 
 func _on_back_button_pressed() -> void:
+	_stop($Audio/Win)
+	_stop($Audio/Lose)
 	signals.switch_scene.emit("title_screen")
 
 
@@ -32,3 +35,12 @@ func _on_quit_button_pressed() -> void:
 
 #func _on_credits_button_pressed() -> void:
 	#signals.switch_scene.emit("credits_screen")
+
+
+func _play(player:AudioStreamPlayer) -> void:
+	if !player.playing:
+		player.play()
+
+
+func _stop(player:AudioStreamPlayer) -> void:
+	player.stop()
