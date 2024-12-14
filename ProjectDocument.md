@@ -125,8 +125,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 There are 5 main UI screens that require user input: the title screen, the cutscenes, the battlescreen, the results screen and the credits screen. The game is purely played via mouse, allowing the userBy making the user input purely mouse-only (click-based), we have simplified how the user can interact with the game.
 
 ### title screen
-
-TODO: show title screen img here
+![title.img](https://github.com/user-attachments/assets/8af45e01-70ea-4dfd-bf58-2b9f9567f249)
 
 This is the first screen the user sees when starting the game - the title screen. We have the logo placed in the center closer to the top for emphasis and make the buttons below (`difficultly`, `start`, `credits`, `quit`) easier to see. The difference in text color and the red lines seperating `difficultly` and the rest of the buttons show that the two sections are different. [title scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/title_screen.tscn)
 
@@ -136,13 +135,18 @@ This is the first screen the user sees when starting the game - the title screen
 
 In general, all buttons do not have a background behind the text showing, making it seem as if there is only text on the screen. Due to this UI decision, the button text will change color when hovering and clicking, indicating that the user is indeed hovering over the button and clicking it.
 
-### battle screen
+### cutscene
+![cutscene.img](https://github.com/user-attachments/assets/db4120e2-7ea5-477a-9ecf-62bab4db0237)
 
-TODO  add battle screen img
+The cutscene will automatically play on its own. The player is also given the option to skip the cutscene completely with the `skip button` and head straight to the tutorial. [cutscene scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/intro_cutscene_screen.tscn)
+
+### battle screen
+![battlescreen.img](https://github.com/user-attachments/assets/84da780b-7b78-4737-b72d-437c209f1e1b)
 
 There are many ascepts of the battle screen that were pieced together and placed thoughfully to maximize user interface. [battle scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/battle_screen.tscn)
 
-TODO add tutorial img
+![tutorial.img](https://github.com/user-attachments/assets/54e93bbb-5411-479a-892b-1050bfab6b82)
+
 **tutorial**: After the cutscene, the user is introduced to the tutorial popup which can be scrolled past by clicking `next` or going back to the previous slide with `previous`. The popup is meant to give the player a slight breather as well as the rules and how-to's of the game, so they can prepare themselves for the final battle against the enemy. [tutorial scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/tutorial.tscn)
 
 **card area (player area)**: This is where the player will be able to see their hand of cards. 8 cards are placed evenly spread on the mat. Here, each card is a button, allowing the user to select the card they want to play. By selecting a card, the possible matches for the card is shown by fading out the cards that cannot be matched. To futher indicate that a card has been selected, a blue highlight will surround the chosen card. When cards have been played, their spot will remain empty while the enemy makes his move. This section was styled to have the largest section of the screen to have the player have a clear view of their cards and emphasize that this is the part that requires the most of their attention. [player scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player.tscn)
@@ -152,23 +156,23 @@ TODO add tutorial img
     - **enemy effects**: This is where we can see the effects the player has placed on the enemy. Since it is still part of the enemy's info, it is grouped on the top of the screen, just below the healthbar. [enemy effects scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_effect.tscn)
     - **synergy**: This is where we can see the synergies of the cards we have played displayed. [synergy scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/synergy.tscn)
     - **home, help, play**: Here we have a line of buttons. All of the following buttons have different sprites to differentiate hovering, pressing and no action.
-            TODO insert home img
+       ![home.img](https://github.com/user-attachments/assets/a964647c-efeb-48e5-8cbb-9a2cc22a12a2)
         - home: At the most left and furthest away from the main card area, is the home button. Clicking on the button will reseult in a confirmation popup that checks if the player wishes to return to the title and end game.
-            TODO insert help img
+  ![help.img](https://github.com/user-attachments/assets/6bbcf8be-10d5-479a-bd1a-f90954a99ad3)
         - help: At the center is the help button which will popup an index of subjects to look for help on. Selecting one of the listed elements will result in a side bar. The side bar is place convienently above the card area, so that the player can look at both the help and their cards to decide their next move. 
         - play: Closest to the main play area is the play button. Unlike the other two buttons, if no cards are selected, this button is disabled. We disabled the button because the player cannot play their hand if they do not select a card, thus disabling simply takes away the ability to play no cards.
     - **deck**: By clicking on the deck, the player is able to see their whole deck of cards, such as the ones currently on hand, ones that have already been played, and ones that have not been drawn yet. The point of this mechanism is so that players can plan ahead and/or keep track of what they have played already. [deck view scene]((https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/deck_view.tscn))
     - **player effects**: Similar to the enemy effects, except this shows what effects the enemy has *placed on* the player. 
     - **player healthbar**: The color green is often used to indicate the player's healthbarin various games, thus our player's healthbar is also green. It has the same mechanisms as the enemy's healthbar and it serves to allow the player to have both a visual sense (bar decreasing/increasing) and numerical sense (the XX/100 HP) of their health. [player healthbar scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player_health_bar.tscn)
+      
 ### results screen
 
-TODO add results screen
+![win.img](https://github.com/user-attachments/assets/b21f3254-d296-484a-adc6-ac0a03b68e4e) ![lost.img](https://github.com/user-attachments/assets/3c6f4ee5-4aec-4f06-a153-64cc2601cda2)
 
 The results screen has two endings: a lose and win screen. The game result is printed nice and large to remove any ambiguity on the results of the game. Both endings will have the option to immediately quit the game or go back to the title screen where player can view credits or play again by clicking start on the title screen. The quit button comes after the return to title since it acts as an ending to the game, where  once clicked player will exit the game permanently (until restarted again). [results scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/results_screen.tscn)
 
 ### credits screen
-
-TODO add credits screen
+![credits.img](https://github.com/user-attachments/assets/7d76cf21-0849-4644-9783-adb2541228a5)
 
 The credits list out the roles and subroles and their names of our team. There is a back button that leads the player back to the title screen. We decided that it was better to have the credits in the begining than at the end since this way, if the player is curious, we have our credits easily reachable. The title screen is also the most swtiched to screen, so it was simply easier this way. [credits scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/credits_screen.tscn)
 
