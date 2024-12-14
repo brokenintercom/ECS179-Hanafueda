@@ -1,4 +1,7 @@
 # Presskit
+
+## Itch.io
+https://brokenintercom.itch.io/hanafueda
 <body style="text-align: center;">
     <h3>
         Trailer for Hanafueda!
@@ -21,6 +24,7 @@ Hanafueda pits you against the Yakuza, having you balance between saving card co
 * Orignal 2D sprites and cutscenes!
 * Original musical compositions!
 * Secret synergies that trigger effects!
+  
 And of course... **GAMBLING!**
 
 ## Screenshots
