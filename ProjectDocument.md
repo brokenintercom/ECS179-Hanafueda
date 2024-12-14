@@ -94,6 +94,9 @@ If you used tutorials or other intellectual guidance to create aspects of your p
 
 @Jamie: the health bar animation info too, not just the card state machine
 
+**Fade-in/fade-out animations:** [Link to YouTube video](https://www.youtube.com/watch?v=Shj_QVwrefY)
+* (Yujin) I used this tutorial for creating the fade-in/fade-out animations that happen between the intro, cutscene, battle, and results scenes. The [transition_screen.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/transition_screen.gd#L1) file and the [instances in which they were used](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/screens/intro_cutscene_screen.gd#L5) were drawn from the YouTube video linked above.
+
 # Main Roles
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
