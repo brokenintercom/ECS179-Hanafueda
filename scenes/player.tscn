@@ -82,6 +82,7 @@ offset_bottom = 1028.0
 
 [node name="DrawCard" type="AudioStreamPlayer" parent="Audio"]
 stream = SubResource("AudioStreamRandomizer_umoq7")
+volume_db = -3.0
 
 [node name="Attack" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("13_pcrk3")

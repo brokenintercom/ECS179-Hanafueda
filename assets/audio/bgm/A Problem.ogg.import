@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b74eo3i1ex3ug"
+path="res://.godot/imported/A Problem.ogg-58837348d6c11859c92b72aa0e254213.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/bgm/A Problem.ogg"
+dest_files=["res://.godot/imported/A Problem.ogg-58837348d6c11859c92b72aa0e254213.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=150.0
+beat_count=96
+bar_beats=4
