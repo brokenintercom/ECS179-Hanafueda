@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://br1kcgfay4e0p"]
+[gd_scene load_steps=22 format=3 uid="uid://br1kcgfay4e0p"]
 
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_i2f2q"]
 [ext_resource type="Texture2D" uid="uid://c5486o7cbw0ly" path="res://assets/title_screen_sprites/hanafeuda-logo.png" id="2_g6kbb"]
@@ -7,6 +7,18 @@
 [ext_resource type="Texture2D" uid="uid://ct2ytuv7v1kmt" path="res://assets/title_screen_sprites/quit-text.png" id="5_mfvna"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_8qb6d"]
 [ext_resource type="AudioStream" uid="uid://iwpb52p7tlmm" path="res://assets/audio/bgm/Title.ogg" id="7_4b543"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kthko"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ul1sb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40ljr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u2g67"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrm7p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ron4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6gany"]
 atlas = ExtResource("2_onukv")
@@ -56,6 +68,72 @@ scale = Vector2(1.05091, 1.0113)
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = 658.0
+offset_top = 678.0
+offset_right = 937.0
+offset_bottom = 725.0
+theme_override_colors/font_color = Color(0.83564, 0.713492, 0.35715, 1)
+theme_override_fonts/font = ExtResource("6_8qb6d")
+theme_override_font_sizes/font_size = 42
+text = "Difficulty "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LeftArrow" type="Button" parent="."]
+z_index = 2
+offset_left = 964.0
+offset_top = 632.0
+offset_right = 991.0
+offset_bottom = 763.0
+theme_override_colors/font_disabled_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.637843, 0.637843, 0.637843, 1)
+theme_override_colors/font_color = Color(0.835294, 0.713726, 0.356863, 1)
+theme_override_fonts/font = ExtResource("6_8qb6d")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kthko")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ul1sb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_40ljr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u2g67")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lrm7p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ron4v")
+text = "<"
+
+[node name="Difficulty" type="Label" parent="."]
+z_index = 2
+offset_left = 1009.99
+offset_top = 674.475
+offset_right = 1212.99
+offset_bottom = 721.475
+theme_override_colors/font_color = Color(0.835294, 0.713726, 0.356863, 1)
+theme_override_fonts/font = ExtResource("6_8qb6d")
+theme_override_font_sizes/font_size = 42
+text = "NORMAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightArrow" type="Button" parent="."]
+z_index = 2
+offset_left = 1233.0
+offset_top = 631.0
+offset_right = 1260.0
+offset_bottom = 762.0
+theme_override_colors/font_disabled_color = Color(0.299547, 0.299547, 0.299547, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.637843, 0.637843, 0.637843, 1)
+theme_override_colors/font_color = Color(0.835294, 0.713726, 0.356863, 1)
+theme_override_fonts/font = ExtResource("6_8qb6d")
+theme_override_font_sizes/font_size = 46
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kthko")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ul1sb")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_40ljr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_u2g67")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_lrm7p")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ron4v")
+text = ">"
+
 [node name="Text" type="AnimatedSprite2D" parent="."]
 visible = false
 z_index = 2
@@ -74,7 +152,7 @@ texture = ExtResource("4_ns4nn")
 
 [node name="Logo" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(960, 426)
+position = Vector2(960, 401)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_g6kbb")
 
@@ -87,9 +165,9 @@ texture = SubResource("AtlasTexture_h0xjm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 821.0
-offset_top = 704.0
+offset_top = 779.0
 offset_right = 1105.0
-offset_bottom = 905.0
+offset_bottom = 979.0
 theme_override_constants/separation = 22
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
@@ -144,6 +222,8 @@ text = "QUIT"
 stream = ExtResource("7_4b543")
 autoplay = true
 
+[connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
+[connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/CreditButton" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
