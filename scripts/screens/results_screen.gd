@@ -3,21 +3,24 @@ extends Node
 
 @onready var small_message:Label = $SmallMessage
 @onready var big_message:Label = $BigMessage
-
+@onready var win_screen = $WinScreen
+@onready var loss_screen = $LossScreen
 
 func _ready() -> void:
-	pass
-
+	win_screen.visible = false
+	loss_screen.visible = false
+	
 
 func _process(_delta):
 	if player.did_win:
-		big_message.text = "WAHOO!!!"
-		small_message.text = "You won!"
-		_stop($Audio/Lose)
+
+		big_message.text = "YOU WIN!!"
+		win_screen.visible = true
+    _stop($Audio/Lose)
 		_play($Audio/Win)
 	else:
-		big_message.text = "GAME OVER..."
-		small_message.text = "You lost :("
+		big_message.text = "YOU LOST..."
+		loss_screen.visible = true
 
 
 func _on_back_button_pressed() -> void:

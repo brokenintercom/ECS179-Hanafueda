@@ -69,10 +69,10 @@ metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 z_index = 2
-offset_left = 658.0
-offset_top = 678.0
-offset_right = 937.0
-offset_bottom = 725.0
+offset_left = 675.0
+offset_top = 688.0
+offset_right = 954.0
+offset_bottom = 735.0
 theme_override_colors/font_color = Color(0.83564, 0.713492, 0.35715, 1)
 theme_override_fonts/font = ExtResource("6_8qb6d")
 theme_override_font_sizes/font_size = 42
@@ -82,10 +82,10 @@ vertical_alignment = 1
 
 [node name="LeftArrow" type="Button" parent="."]
 z_index = 2
-offset_left = 964.0
-offset_top = 632.0
-offset_right = 991.0
-offset_bottom = 763.0
+offset_left = 969.0
+offset_top = 644.0
+offset_right = 996.0
+offset_bottom = 775.0
 theme_override_colors/font_disabled_color = Color(0.299547, 0.299547, 0.299547, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.637843, 0.637843, 0.637843, 1)
@@ -102,10 +102,10 @@ text = "<"
 
 [node name="Difficulty" type="Label" parent="."]
 z_index = 2
-offset_left = 1009.99
-offset_top = 674.475
-offset_right = 1212.99
-offset_bottom = 721.475
+offset_left = 1016.0
+offset_top = 686.0
+offset_right = 1219.0
+offset_bottom = 733.0
 theme_override_colors/font_color = Color(0.835294, 0.713726, 0.356863, 1)
 theme_override_fonts/font = ExtResource("6_8qb6d")
 theme_override_font_sizes/font_size = 42
@@ -116,9 +116,9 @@ vertical_alignment = 1
 [node name="RightArrow" type="Button" parent="."]
 z_index = 2
 offset_left = 1233.0
-offset_top = 631.0
+offset_top = 643.0
 offset_right = 1260.0
-offset_bottom = 762.0
+offset_bottom = 774.0
 theme_override_colors/font_disabled_color = Color(0.299547, 0.299547, 0.299547, 1)
 theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(0.637843, 0.637843, 0.637843, 1)
@@ -145,8 +145,8 @@ frame_progress = 0.62491
 
 [node name="Lines" type="Sprite2D" parent="."]
 z_index = 2
-position = Vector2(955, 720)
-scale = Vector2(1.3, 1)
+position = Vector2(960, 800)
+scale = Vector2(1.20763, 1.16667)
 texture = ExtResource("4_ns4nn")
 
 [node name="Logo" type="Sprite2D" parent="."]
