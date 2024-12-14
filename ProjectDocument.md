@@ -129,7 +129,17 @@ Here's an example of a general **Merge Conflict "Discussion"** I'd have with the
 
 Aside from tasks related to the producer, I helped out with multiple odd-jobs that my group members needed help in. 
 
+*Deck Creation and Shuffle* - At the beginning of the battle_screen, the deck needed to created and shuffled before cards could be added to the player's hand. To do so, I created a [CSV File](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/resources/data/deck.csv) that would hold all the attributes/enums for each card (Month, Type, Synergies, Sprite name), and then referenced [this](https://www.youtube.com/watch?v=4Sy7vzVNPTU&ab_channel=AverageGodotEnjoyer) tutorial to get an idea of what I needed to do in order to read through and create the cards for the deck. After that was done, I simply added a line to shuffle the player's deck at the beginning of the battle screen [(here is the mentioned line)](https://github.com/brokenintercom/ECS179-Hanafueda/blob/cc9b994c75458b1a2689ae6c843a2e9f1f7339c4/scripts/screens/battle_screen.gd#L28).  However, when trying to actually export the project I realized that the CSV file wasn't be exported with the project. After some help from Josh and looking through online resources with Yoobin, we realized we had to add a setting when exporting so that it would include CSV files in the export, but ALSO had to find where the "re-import" button was to re-import the CSV and set it to "keep file". [Here's the Deck Creation Script](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/deck.gd)
 
+*Tutorial* - I created a tutorial scene that the player would read through at the beginning of the battle in order to help them understand the basic mechanics of our complex card game. To do this, I created multiple scenes that acted as the "slides" for the tutorial. Each slide would have buttons and a [slide_text_script](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/tutorial/slide_text.gd) that would emit signals whenever these buttons were pressed. The tutorial scene would have a [tutorial_slide_selecter](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/tutorial/tutorial_slide_selector.gd) script that would then recieve these signals and activate functions to move between the different "slides". The tutorial was heavily based on the camera selector from Exercise 2.
+
+*Help Menu* - I also created and laid out a useful Help Menu that would act as the player's on-hand reference to help ease players into the gameplay until they become more accustomed to the rules and cards. It's very similar to how the tutorial functions, but instead of moving through "slides", the buttons on the help menu would send signals to the [help_manager](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/help/help_manager.gd) that would toggle the visibility of each sub-menu.
+
+I also created these assets to help the tutorial and help menu look more in theme with the board and UI, trying to make the tutorial look like a wooden message board with rough-looking signs/posters.
+![Tutorial Square](https://github.com/user-attachments/assets/3f351ae2-1547-4bca-a82d-d56172fc4587)
+![small text box](https://github.com/user-attachments/assets/4c1f4b77-a678-46fa-b901-64334a9c593e)
+
+*Intro Cutscene Animation* - Finally
 ## User Interface and Input (Jamie Hsi)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
