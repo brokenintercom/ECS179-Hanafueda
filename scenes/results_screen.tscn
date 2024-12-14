@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfmunflda7188"]
+[gd_scene load_steps=6 format=3 uid="uid://cfmunflda7188"]
 
 [ext_resource type="Script" path="res://scripts/screens/results_screen.gd" id="1_n660e"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="2_3lal6"]
-[ext_resource type="AudioStream" uid="uid://do7tp2ydvvafu" path="res://assets/audio/bgm/Lose.wav" id="3_lyhea"]
+[ext_resource type="AudioStream" uid="uid://b0s00t1ac1qww" path="res://assets/audio/bgm/Lose.ogg" id="3_euan2"]
+[ext_resource type="AudioStream" uid="uid://dir0snunm523j" path="res://assets/audio/bgm/Win.ogg" id="4_ggu6e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2led"]
 bg_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
@@ -107,7 +108,11 @@ icon_alignment = 1
 [node name="Audio" type="Node" parent="."]
 
 [node name="Lose" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource("3_lyhea")
+stream = ExtResource("3_euan2")
+autoplay = true
+
+[node name="Win" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_ggu6e")
 
 [connection signal="pressed" from="Control/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

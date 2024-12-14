@@ -13,13 +13,16 @@ func _process(_delta):
 	if player.did_win:
 		big_message.text = "WAHOO!!!"
 		small_message.text = "You won!"
+		_stop($Audio/Lose)
+		_play($Audio/Win)
 	else:
 		big_message.text = "GAME OVER..."
 		small_message.text = "You lost :("
-		_play($Audio/Lose)
 
 
 func _on_back_button_pressed() -> void:
+	_stop($Audio/Win)
+	_stop($Audio/Lose)
 	signals.switch_scene.emit("title_screen")
 
 
@@ -34,3 +37,7 @@ func _on_quit_button_pressed() -> void:
 func _play(player:AudioStreamPlayer) -> void:
 	if !player.playing:
 		player.play()
+
+
+func _stop(player:AudioStreamPlayer) -> void:
+	player.stop()
