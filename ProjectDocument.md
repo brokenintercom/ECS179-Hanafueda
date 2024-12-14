@@ -197,7 +197,7 @@ This strategy also allows us to easily modify how many points each type does, wh
 
 
 #### Enemy
-As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode.
+As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode. Jamie implemented the difficulty selection in the title screen.
 
 
 
