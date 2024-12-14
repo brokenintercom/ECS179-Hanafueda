@@ -119,6 +119,17 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 **Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
 
+As the producer I first created a Gantt chart to start creating and scheduling the tasks that each person/role would have to do in the upcoming weeks. I'd document or meeting times, when we'd check in with each other regarding our progress, a tasks completion, and deadlines that acted less like **hard** deadlines and instead markers to allow us to pace ourselves and prioritize certains tasks in the three weeks we had. [Here is the Gantt Chart I created.](https://docs.google.com/spreadsheets/d/15Q5yrb7toZaSl7X5K2HURjT_NXRHZWix1-5klmkH1pE/edit?gid=0#gid=0)
+
+We also created a When2Meet that we all filled out to start figuring out when and where we'd meet up. During our meetings (which were either held online or at the library) I'd take meeting notes on the tasks we were currently working on and note tasks/changes we wanted to do/make for different parts of a project (ranged from general brainstorming such as card values to assignment of roles we needed to get done). If the meeting was *less* of a meeting and more of a work session, I'd choose not to make notes and simply update the Gantt chart instead.
+[Here is the link to our meeting notes.](https://drive.google.com/drive/u/0/folders/1HBj92A8nnGT9mGMbC4WiPfpSyjiPmDIw)
+
+I also created the Github, and handled the pull requests and merge conflicts that would occur, making sure to check in with the person who made the request.
+Here's an example of a general **Merge Conflict "Discussion"** I'd have with the group ![merge conflict](https://github.com/user-attachments/assets/eb702310-769e-40e7-9fdd-05dc62ad23a6)
+
+Aside from tasks related to the producer, I helped out with multiple odd-jobs that my group members needed help in. 
+
+
 ## User Interface and Input (Jamie Hsi)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
