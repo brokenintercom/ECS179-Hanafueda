@@ -45,6 +45,7 @@ func actions():
 		block_eff.generate(player, 1, 0.0)
 	elif random_factor < atk_buff_chance + block_chance + heal_chance:
 		effect_text.update_text("Heal 15%")
+		_animation_player.play("heal")
 		heal_eff.generate(self, 0, 0.15)
 		await get_tree().create_timer(1).timeout
 		_animation_player.play("idle")

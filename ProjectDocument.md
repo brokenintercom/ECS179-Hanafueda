@@ -7,15 +7,17 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 ## Project Resources
 
 [Web-playable version of your game.](https://brokenintercom.itch.io/hanafueda)  
-[Trailer](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
+[Trailer](https://www.youtube.com/watch?v=cYJ0Ghhl8wc)  
+[Press Kit](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/presskit.md)  
 [Proposal](https://docs.google.com/document/d/1ReKk03qQ22jLba2pAbRc38L8XjvmlNclLAPEhN9LdHg/edit?usp=sharing)  
 
 ## Gameplay Explanation
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 ### Controls
-For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. For example, on the Title Screen, there is an option to change the difficultly of the Boss. To do so, simply click on the `<` and `>` arrows to change the level. The deck and the cards shown during the battle screen are also clickable buttons.
+For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons. The title screen indicates that the difficulty is by default "normal". To switch to hard mode, click on the yellow arrow to the right of "normal", and the text saying "normal" will turn into "hard". To go back to normal mode, click on the yellow arrow to the left of "hard".
+
+The difficulty affects how much damage the enemy will deal to you. This will especially make a difference towards the end of the battle.
 
 ### Card matching
 In this game, you must match cards either by Month or Type. Within a month, you match by January cards, February cards, ..., OR December cards. Within types, you can match by Normal cards, Ribbon cards, Animal cards, OR Bright cards.  There are 4 cards for each month
@@ -33,23 +35,24 @@ Hovering over a card will make a text box appear indicating the card's month and
 ### Damage calculation
 **Normal:**
 * Base dmg: 1
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 3 matching cards to get +1 for each extra card (e.g., if you play 5 matching cards, you get +2 bonus dmg)
 
 **Ribbon:**
 * Base dmg: 2
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 2 matching cards to get +1 for each extra card
 
 **Animal:**
 * Base dmg: 3
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 2 matching cards to get +1 for each extra card
 
-Bright:
+**Bright:**
 * Base dmg: 5
-* Bonus dmg (type matching only):
+* Bonus dmg (type matching only): play more than 1 matching card to get +1 for each extra card. Furthermore, your bonus damage will be doubled (e.g., if you play 3 matching cards, you get (1 + 1) * 2 bonus damage)
 
 If you select cards with the same *type*, you deal some extra bonus damage depending on how many cards you matched together, as indicated above.
 
-If you select cards with the same *month*, then for extra matching card, you deal a bonus +3 damage. If you use all four cards from the same month, then your base damage is doubled as well!
+If you select cards with the same *month*, then for 
+*extra* matching card, you deal a bonus +3 damage. For example, playing three cards will give +6 bonus damage. If you use all four cards from the same month, then your base damage is doubled as well!
 
 If your selected cards technically match by both month and type, it will be considered a *type* matching.
 
@@ -57,7 +60,6 @@ You can see a preview of the total damage you'll deal to the enemy by looking at
 
 ### Synergies
 There are 3 synergies in the game. Each synergy requires a specific combination of exactly 3 cards. If you successfully play just those 3 cards, the Synergy text box on the left will be updated.
-
 
 ### Selecting a card
 Clicking on a card that is colored in (not grayed out) will select it, giving the card a blue outline. The remaining cards will automatically be grayed out if they can't match the selected card(s) in any way. If they *can* possibly be matched, then they will remain colored. The bottom right of the screen will also tell you whether your selected cards will be considered as matching by Month, or by Type. Note that you can select as many (non-grayed-out) cards as you'd like, but consider saving certain cards for future plays.
@@ -70,11 +72,17 @@ Once you've selected the cards you want to play, click the Play button on the le
 You lose if you run out of cards to play or if you run out of health. You win when the enemy runs out of health.
 
 ### Strategies
+At the beginning of the game, playing as many cards (by type) at once is the easiest. If you happen to have all four cards from a month, this should be prioritized, but it's unlikely you'll get all four cards this early on. Clearing out your Normal cards is a higher priority because they don't deal as much damage as the other cards, and you want to reach those cards more quickly. Furthermore, the enemy will not deal much damage in the beginning, so playing Normals is safe at this point. If you get Brights, it may be a good idea to save them, but if you have too many and they're taking up too much space in your limited hand, you may want to play some.
 
+As the enemy takes more damage, it will deal more damage to you (especially in hard mode). Saving your better cards and matches at this point will be helpful. With less cards in the deck, it will also be easier to get matches by month. Alternatively, it's also easier to get the cards needed for synergies (play your synergies wisely too!)
+
+In hard mode, once the enemy has low HP, you should try to one-shot the boss -- otherwise, it may one-shot *you!*
+
+In general, always pay attention to the two Effects text boxes on the left side of the screen. For example, if the enemy has put an effect on the player that will block the player's attack, then don't play your hard hitting cards that turn.
+
+Try selecting different combinations of cards and see which one to play based on the previewed damage in the enemy's health bar too!
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
-
-links to resources and whatnot...
 
 # External Code, Ideas, and Structure
 
@@ -82,18 +90,9 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
- 
-For our Card State Machine, we took inspiration from GodotGameLab's Youtube video ["Slay the Spire Clone Godot 4 Tutorial: Card Dragging & State Machines(02/08)"](https://youtu.be/Pa0P1lUoC-M). The author has provided a [Github page](https://github.com/guladam/deck_builder_tutorial/tree/season-1-code) for the project, which is also [MIT Licensed](https://github.com/guladam/deck_builder_tutorial/blob/season-1-code/LICENSE). 
-We have implemented parts of the tutorial's code in these following files: 
-- [states folder](https://github.com/brokenintercom/ECS179-Hanafueda/tree/main/scripts/states) - all the state scripts were built off of how the tutorial handled swtiching states
-- [card.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card.gd) -  the functions/signals regarding card states were based off on the tutorial, 
-- [card_state_machine.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card_state_machine.gd) - we followed the tutorial on how to create the state machine base that had the code for swtiching between states.
+@Jamie: https://www.youtube.com/watch?v=Pa0P1lUoC-M&list=PL6SABXRSlpH8CD71L7zye311cp9R4JazJ&index=3 (add more info)
 
-
-For our health bar, we took inspiration from DashNothing's Youtube video ["How to Make a Great Health Barin Godot 4 | Let's Godot"](https://youtu.be/f90ieBOoIYQ). This tutorial video does not have a license shown nor a Github page with links to the code, however in the video summary, the autor encourages usage of the code. 
-We implemented parts of from the tutorial in the following files: 
-- [health_bar.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/health_bar.gd) - majority of how the health bar was animated is from the tutorial, 
-- [player_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player_health_bar.tscn) and [enemy_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_health_bar.tscn) - both of these health bar scenes were from the tutorial (the idea to use two overlaying progress bars nodes and a timer node)
+@Jamie: the health bar animation info too, not just the card state machine
 
 # Main Roles
 
@@ -150,9 +149,34 @@ Additionally, as the game can be accessed on the web, it can also be played on t
 
 ## Animation and Visuals (Yujin Cho)
 
-**List your assets, including their sources and licenses.**
+### Theme/Inspirations
 
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+The theme for our game was inspired by the Hanafuda deck of cards, which I was familiar with through playing Min-Hwatu/Go-Stop (which are Korean card games that use a derivative of this deck of cards) with my family. I thought it would be interesting to create a Balatro-like game using a deck of cards that is organized differently than the traditional deck of cards we know. The mechanics of the game wrote themselves pretty easily after establishing how this deck of cards is organized (12 months and 4 types).
+
+Aesthetically, I was inspired by Balatro and other table-top like pixel art games. Balatro was the main inspiration for the layout of the battle scene, with the menu/sidebar to the left, and the main card playing area to the right. I was also particularly inspired by Papers Please for the intro cutscene (with all the papers on the desk), the lineless/simple artstyle, and the mimicking of the hectic nature of reorganizing objects on a desk. 
+
+I designed the characters based on the animals on the cards. The main boss/yakuza is a red-crowned crane, which is the animal on the January card. If I was to extend this game, I would go through all the months and make an animal-themed boss for each of them. The player character is a rabbit, which is a humble character used often in Japanese folklore. Additionally, my initial game pitch was a burrowing rabbit rogue-like, so it was a small callback to that.
+
+### Assets
+
+I created all of our visual assets myself using Aseprite.
+
+I created my own font for the main Hanafeuda logo and the skip/play buttons, but the other fonts used in game are either [Silkscreen](https://fonts.google.com/specimen/Silkscreen) or [C&C Red Alert](https://www.dafont.com/c-c-red-alert-inet.font). Both fonts are free both for personal and commercial use.
+
+I am satisfied with the overall theming I created for the game with the assets and narrative design. I really wanted to make a game that looked like a cohesive and unique product, and I think that taking the time to make all the assets made a product fulfilled that.
+
+### Implementation 
+
+Implementation wise, all of the sprites were exported as PNGs and put into the game in some sort of Sprite2D node. If I had done this again, I would have exported them all as SVGs, which would make the pixels more crisp when viewed at a larger scale. 
+
+The player and enemy are both separate scenes, and all of the UI related to them (their corresponding health bars and the player's hand) are also contained in that scene. The healthbar UI is built of separate Sprite2D nodes layered on top of each other through Z axis offsetting. The healthbars themselves are two different instances of a TexturedHealthBar that Jamie made, so that the boss and the player could have separate colored bars.
+
+The animation for the boss was a combination of simple "puppet" animation in Aseprite (creating separate sprites in a sprite sheet) and using the offset function in AnimationPlayer to make the sprite move back and forth smoothly during the attack and hit animations. The [animation timing](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/characters/enemy.gd#L57) was done in code using timers, which ensured that the attack sound/player's HP bar depleting happened at the bottom of the enemy animation. It also ensures that the enemy's animation returns to idle after it attacks.
+
+All other assets were static assets, implemented mainly by cutting the sprites out of sprite sheets using Godot's AtlasTexture function.
+
+The cutscene consists of one video edited by Tim, which was implemented through the AnimationPlayer node. This allowed us to achieve a more dynamic cutscene than if we animated everything straight in Godot. The skip button for the cutscene was implemented using a [signal](https://github.com/brokenintercom/ECS179-Hanafueda/blob/1ab07ca66e3e1c6f2397a703dd238b03c3417fd7/scripts/screens/intro_cutscene_screen.gd#L4) attached to a button, which would notify the scene manager to load in the battle_screen.
+
 
 ## Game Logic (Yoobin Jin)
 The game has 3 main states: the title screen, battle screen, and results screen. Each "screen" was its own scene that is "loaded" by a [scene manager](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/screens/scene_manager.gd) by deleting the node for the previous screen and adding the next screen as a child. Having a scene manager was inspired by how we went through the different mini games from discussion. Besides switching scenes, the scene manager ensures that certain singletons (such as the player) are not visible at the start of the game.
@@ -223,7 +247,7 @@ This strategy also allows us to easily modify how many points each type does, wh
 
 
 #### Enemy
-As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode.
+As a placeholder, the [enemy](https://github.com/brokenintercom/ECS179-Hanafuda/blob/main/scripts/characters/enemy.gd) originally always did 10 damage to the player on its turn. Later, I adjusted the enemy's attack to deal more damage as it loses more HP. There is some randomness still. We get a `random_factor` between 0.1 and 0.3, then determine the damage as either 3 or `int(dmg_taken * random_factor)`, (we pick whichever one is bigger). As someone who has adjusted to the game, this provided a sufficient challenge, but since some people noted its difficulty (especially considering that they were new to the game), this became a "hard" mode, and Chris made an easier damage calculation, becoming the "normal" mode. Jamie implemented the difficulty selection in the title screen.
 
 
 
@@ -306,7 +330,11 @@ I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking 
 
 ## Narrative Design (Yujin Cho)
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+The narrative of this game was inspired by the general attitude around Hanafuda games that I have noticed - basically that they are gambling games and are pretty taboo in Asian cultures (I was never allowed to look at my parents playing these games as a kid). As a result, I thought it would be interesting to have gambling to be the major driving force behind the conflict of the story. 
+
+The cutscene also explains the use of cards as an offensive weapon, though if I had more time, I would have liked to go into how this character is fighting off a boss using cards (maybe they were given magic powers within the cards or something?).
+
+I implemented the game's story using the intro cutscene and by using assets that have a common style throughout all scenes. The main character's table in the cutscene is also the table that is used to play cards in battle scene, and the positioning of the two characters also flows between scenes. 
 
 ## Press Kit and Trailer (Tim Dela Cruz)
 
