@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://br1kcgfay4e0p"]
+[gd_scene load_steps=21 format=3 uid="uid://br1kcgfay4e0p"]
 
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_i2f2q"]
 [ext_resource type="Texture2D" uid="uid://c5486o7cbw0ly" path="res://assets/title_screen_sprites/hanafeuda-logo.png" id="2_g6kbb"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://drbu8i0g1c06c" path="res://assets/title_screen_sprites/title-lines.png" id="4_ns4nn"]
 [ext_resource type="Texture2D" uid="uid://ct2ytuv7v1kmt" path="res://assets/title_screen_sprites/quit-text.png" id="5_mfvna"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="6_8qb6d"]
-[ext_resource type="AudioStream" uid="uid://iwpb52p7tlmm" path="res://assets/audio/bgm/Title.ogg" id="7_4b543"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kthko"]
 
@@ -217,10 +216,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_36gbu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_36gbu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_36gbu")
 text = "QUIT"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_4b543")
-autoplay = true
 
 [connection signal="pressed" from="LeftArrow" to="." method="_on_left_arrow_pressed"]
 [connection signal="pressed" from="RightArrow" to="." method="_on_right_arrow_pressed"]
