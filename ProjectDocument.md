@@ -7,7 +7,7 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 ## Project Resources
 
 [Web-playable version of your game.](https://brokenintercom.itch.io/hanafueda)  
-[Trailer](https://youtube.com)  
+[Trailer](https://www.youtube.com/watch?v=cYJ0Ghhl8wc)  
 [Press Kit](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/presskit.md)  
 [Proposal](https://docs.google.com/document/d/1ReKk03qQ22jLba2pAbRc38L8XjvmlNclLAPEhN9LdHg/edit?usp=sharing)  
 
@@ -15,7 +15,9 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 ### Controls
-For this game, you only need to use the mouse (specifically left button click) and possibly the left/right arrow keys if you want to pick the difficulty. You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons. On the title screen, you can choose between normal and hard difficulty using the arrow keys. The difficulty affects how much damage the enemy will deal to you. This will especially make a difference towards the end of the battle.
+For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons. The title screen indicates that the difficulty is by default "normal". To switch to hard mode, click on the yellow arrow to the right of "normal", and the text saying "normal" will turn into "hard". To go back to normal mode, click on the yellow arrow to the left of "hard".
+
+The difficulty affects how much damage the enemy will deal to you. This will especially make a difference towards the end of the battle.
 
 ### Card matching
 In this game, you must match cards either by Month or Type. Within a month, you match by January cards, February cards, ..., OR December cards. Within types, you can match by Normal cards, Ribbon cards, Animal cards, OR Bright cards.  There are 4 cards for each month
