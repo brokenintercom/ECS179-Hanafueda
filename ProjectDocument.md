@@ -90,9 +90,17 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
-@Jamie: https://www.youtube.com/watch?v=Pa0P1lUoC-M&list=PL6SABXRSlpH8CD71L7zye311cp9R4JazJ&index=3 (add more info)
+For our Card State Machine, we took inspiration from GodotGameLab's Youtube video ["Slay the Spire Clone Godot 4 Tutorial: Card Dragging & State Machines(02/08)"](https://youtu.be/Pa0P1lUoC-M). The author has provided a [Github page](https://github.com/guladam/deck_builder_tutorial/tree/season-1-code) for the project, which is also [MIT Licensed](https://github.com/guladam/deck_builder_tutorial/blob/season-1-code/LICENSE). 
+We have implemented parts of the tutorial's code in these following files: 
+- [states folder](https://github.com/brokenintercom/ECS179-Hanafueda/tree/main/scripts/states) - all the state scripts were built off of how the tutorial handled swtiching states
+- [card.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card.gd) -  the functions/signals regarding card states were based off on the tutorial, 
+- [card_state_machine.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card_state_machine.gd) - we followed the tutorial on how to create the state machine base that had the code for swtiching between states.
 
-@Jamie: the health bar animation info too, not just the card state machine
+
+For our health bar, we took inspiration from DashNothing's Youtube video ["How to Make a Great Health Barin Godot 4 | Let's Godot"](https://youtu.be/f90ieBOoIYQ). This tutorial video does not have a license shown nor a Github page with links to the code, however in the video summary, the autor encourages usage of the code. 
+We implemented parts of from the tutorial in the following files: 
+- [health_bar.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/health_bar.gd) - majority of how the health bar was animated is from the tutorial, 
+- [player_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player_health_bar.tscn) and [enemy_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_health_bar.tscn) - both of these health bar scenes were from the tutorial (the idea to use two overlaying progress bars nodes and a timer node)
 
 # Main Roles
 
@@ -120,23 +128,52 @@ There are 5 main UI screens that require user input: the title screen, the cutsc
 
 TODO: show title screen img here
 
-This is the first screen the user sees when starting the game - the [title screen](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/screens/title_screen.gd). We have the logo placed in the center closer to the top for emphasis and make the buttons below (`difficultly`, `start`, `credits`, `quit`) easier to see. The difference in text color and the red lines seperating `difficultly` and the rest of the buttons show that the two sections are different. 
-- **difficulty**: this UI allows the user to click on either the `<` or `>` buttons to choose the difficultly level of the game. Currently, we have `normal` and `hard` mode. The arrow like buttons are meant to give the user a sense of going up (increasing difficulty) or going down (decreasing difficulty). At the end of the list, the side that cannot continue (past hard on the right sde and past normal on the left) has its button disable to prevent the user from thinking that there is more to the list. This is also meant to give a sense of limit, where the player can not go any further.
-- **start, credits, quit**: the buttons were ordered specifically this way to create a sense of order and logic. The `start` button allows the user to begin the game, so it is the first on the list. The `credits` button is sandwiched between the other two, as it is neither the beginning nor the end. the `quit` button wraps the list up as pressing this will exit the game, thus ending it, so it comes last.
+This is the first screen the user sees when starting the game - the title screen. We have the logo placed in the center closer to the top for emphasis and make the buttons below (`difficultly`, `start`, `credits`, `quit`) easier to see. The difference in text color and the red lines seperating `difficultly` and the rest of the buttons show that the two sections are different. [title scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/title_screen.tscn)
+
+- **difficulty**: This UI allows the user to click on either the `<` or `>` buttons to choose the difficultly level of the game. Currently, we have `normal` and `hard` mode. The arrow like buttons are meant to give the user a sense of going up (increasing difficulty) or going down (decreasing difficulty). At the end of the list, the side that cannot continue (past hard on the right sde and past normal on the left) has its button disable to prevent the user from thinking that there is more to the list. This is also meant to give a sense of limit, where the player can not go any further.
+
+- **start, credits, quit**: The buttons were ordered specifically this way to create a sense of order and logic. The `start` button allows the user to begin the game, so it is the first on the list. The `credits` button is sandwiched between the other two, as it is neither the beginning nor the end. the `quit` button wraps the list up as pressing this will exit the game, thus ending it, so it comes last.
 
 In general, all buttons do not have a background behind the text showing, making it seem as if there is only text on the screen. Due to this UI decision, the button text will change color when hovering and clicking, indicating that the user is indeed hovering over the button and clicking it.
 
 ### battle screen
 
+TODO  add battle screen img
+
+There are many ascepts of the battle screen that were pieced together and placed thoughfully to maximize user interface. [battle scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/battle_screen.tscn)
+
+TODO add tutorial img
+**tutorial**: After the cutscene, the user is introduced to the tutorial popup which can be scrolled past by clicking `next` or going back to the previous slide with `previous`. The popup is meant to give the player a slight breather as well as the rules and how-to's of the game, so they can prepare themselves for the final battle against the enemy. [tutorial scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/tutorial.tscn)
+
+**card area (player area)**: This is where the player will be able to see their hand of cards. 8 cards are placed evenly spread on the mat. Here, each card is a button, allowing the user to select the card they want to play. By selecting a card, the possible matches for the card is shown by fading out the cards that cannot be matched. To futher indicate that a card has been selected, a blue highlight will surround the chosen card. When cards have been played, their spot will remain empty while the enemy makes his move. This section was styled to have the largest section of the screen to have the player have a clear view of their cards and emphasize that this is the part that requires the most of their attention. [player scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player.tscn)
+- **enemy**: This is where the player can see their opponent. The enemy boss takes up a noticebly smaller space than the main card area to give the illusion that he is just above our line of sight. [enemy scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy.tscn)
+- **left side bar**: Here is where a lot of information can be found. 
+    - **enemy healthbar**: At the top is the enemy healthbar, where is is close to where the enemy physically is on the screen (at the top). It is set an orange color to denote it as an enemy. When taking damage, the healthbar will indicate damage taken with a white color before the white disappears and the orange bar is left. This allows the player to visually see how much life is left in the boss. [enemy healthbar scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_health_bar.tscn)
+    - **enemy effects**: This is where we can see the effects the player has placed on the enemy. Since it is still part of the enemy's info, it is grouped on the top of the screen, just below the healthbar. [enemy effects scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_effect.tscn)
+    - **synergy**: This is where we can see the synergies of the cards we have played displayed. [synergy scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/synergy.tscn)
+    - **home, help, play**: Here we have a line of buttons. All of the following buttons have different sprites to differentiate hovering, pressing and no action.
+            TODO insert home img
+        - home: At the most left and furthest away from the main card area, is the home button. Clicking on the button will reseult in a confirmation popup that checks if the player wishes to return to the title and end game.
+            TODO insert help img
+        - help: At the center is the help button which will popup an index of subjects to look for help on. Selecting one of the listed elements will result in a side bar. The side bar is place convienently above the card area, so that the player can look at both the help and their cards to decide their next move. 
+        - play: Closest to the main play area is the play button. Unlike the other two buttons, if no cards are selected, this button is disabled. We disabled the button because the player cannot play their hand if they do not select a card, thus disabling simply takes away the ability to play no cards.
+    - **deck**: By clicking on the deck, the player is able to see their whole deck of cards, such as the ones currently on hand, ones that have already been played, and ones that have not been drawn yet. The point of this mechanism is so that players can plan ahead and/or keep track of what they have played already. [deck view scene]((https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/deck_view.tscn))
+    - **player effects**: Similar to the enemy effects, except this shows what effects the enemy has *placed on* the player. 
+    - **player healthbar**: The color green is often used to indicate the player's healthbarin various games, thus our player's healthbar is also green. It has the same mechanisms as the enemy's healthbar and it serves to allow the player to have both a visual sense (bar decreasing/increasing) and numerical sense (the XX/100 HP) of their health. [player healthbar scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player_health_bar.tscn)
 ### results screen
+
+TODO add results screen
+
+The results screen has two endings: a lose and win screen. The game result is printed nice and large to remove any ambiguity on the results of the game. Both endings will have the option to immediately quit the game or go back to the title screen where player can view credits or play again by clicking start on the title screen. The quit button comes after the return to title since it acts as an ending to the game, where  once clicked player will exit the game permanently (until restarted again). [results scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/results_screen.tscn)
 
 ### credits screen
 
+TODO add credits screen
 
-
+The credits list out the roles and subroles and their names of our team. There is a back button that leads the player back to the title screen. We decided that it was better to have the credits in the begining than at the end since this way, if the player is curious, we have our credits easily reachable. The title screen is also the most swtiched to screen, so it was simply easier this way. [credits scene](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/credits_screen.tscn)
 
 ### default input configuration
-From the beginning, for the sake of simplicity, we decided to have our user input be done completely with mouse only. This means that all user input is done through clicking various buttons to play the game. Our game has various buttons set up such that users can play the game smoothly as well as move between screens.
+From the beginning, for the sake of simplicity, we decided to have our user input be done completely with mouse only (specifically left-mouse click only). This means that all user input is done through clicking various buttons to play the game. Our game has various buttons set up such that users can play the game smoothly as well as move between screens.
 
 ### website
 Using itch.io, Tim uploaded our game to our [website](https://brokenintercom.itch.io/hanafueda), making it playable without having to download the game itself.
@@ -344,12 +381,10 @@ I implemented the game's story using the intro cutscene and by using assets that
 
 ## Game Feel and Polish (Jamie Hsi)
 
-**Document what you added to and how you tweaked your game to improve its game feel.**
-
-- timer delay (yoobin polished it)
-- adding confirmation pop-up when exiting out of the battle
-- enemy animation when attacking and taking dmg
-- slide numbers on the tutorial
-- adding difficulty levels 
-- dmg calculations
+- **timer delay**: When we first implmented the player and enemy turns, the healthbar would react so fast that it felt as if the action was instantaneous. To counter this and make it feel like we can actually see the steps of a turn based game (player attacks, enemy takes damage, enemy attacks, player takes damage, repeat), we added multiple delays. I created the base of the timer delay which delayed before and after the enemy moves, for which while the enemy is still "playing", all player input is disabled. This disabling feature is meant to futher emphasize that it is NOT the player's turn and it is the enemy's. It also helps prevent any sudden crashes of the game due to user interaction. Yoobin later polished the delays to make them smoother.
+- **confirmation pop-up**: While this has been mentioned in the UI/UX section, this was added on later to help polish game feel. Originally, if we had clicked the home button, the player would be instantly transported back to the title screen. The instant teleportation did not feel right, especially if the player was in the middle of a game, thus a confirmation popup was added.
+- **enemy animation**: While I personally did not code this and two of our teammates did (Yujin and Yoobin), I brought up the fact that orginally it was hard to tell when the enemy was taking action and it was hard to track the passing of time. To fix this, we have implemented a flashing red animation for when the enemy took damage and a slight swooping motion for when the enemy attacks. By visually seeing the order of enemy take damage -> enemy attak -> player take damage, the player is able to have a better grasp of timing in the game.
+- **tutorial slide numbers**: I noticed that it was hard to tell where in the tutorial the player was in, given that we had a very long tutorial. With the numbered slides, players are able to have a better grasp of where they are in the tutorial, once again giving them back a sense of time.
+- **adding difficulty levels**: It was mentioned that some people thought the game was too easy, so I have implemented a way for the player to choose thier difficulty level. However, this must be done at the very begining (title screen).
+- **dmg calculations preview**: We thought that giving the player the ability to see how much potential damage their cards will deal can be very helpful when playing, instead of playing cards blindly. Adding this feature allows players to visually see the damage they can deal to the enemy based on different selections and combinations of their cards. This helps the player feel less lost when choosing their cards.
 
