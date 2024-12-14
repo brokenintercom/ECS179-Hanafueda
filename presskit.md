@@ -6,7 +6,7 @@ https://brokenintercom.itch.io/hanafueda
     <h3>
         Trailer for Hanafueda!
     </h3>
-    <a href="https://www.youtube.com/watch?v=cYJ0Ghhl8wc">
+    <a href="https://www.youtube.com/watch?v=h86qCHci8jo">
         <img src=
 "https://github.com/user-attachments/assets/148947d7-6bdb-40d5-9132-cb1bee019bd4"
             alt="Click to view the trailer!">
