@@ -139,7 +139,8 @@ I also created these assets to help the tutorial and help menu look more in them
 ![Tutorial Square](https://github.com/user-attachments/assets/3f351ae2-1547-4bca-a82d-d56172fc4587)
 ![small text box](https://github.com/user-attachments/assets/4c1f4b77-a678-46fa-b901-64334a9c593e)
 
-*Intro Cutscene Animation* - Finally
+*Intro Cutscene Animation* - Finally, due to issues implementing the cutscene, we decided to have myself edit the cutscene together using an editing software called Davinci Resolve. I asked Yujin for the individual layers/sprites of the characters/backgrounds so that I'd be able to animate the different parts inside of the editor. If I had more time, I would've added SFX for the text and actions. Once complete, I exported and converted the MP4 into an OGV, and uploaded it to the group project google drive. [Here is the rough draft of the intro cutscene](https://youtu.be/OqUpK-FjvxA) 
+
 ## User Interface and Input (Jamie Hsi)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
