@@ -1,4 +1,4 @@
-class_name EndScreen
+class_name ResultsScreen
 extends Node
 
 @onready var small_message:Label = $SmallMessage
@@ -16,8 +16,7 @@ func _process(_delta):
 	else:
 		big_message.text = "GAME OVER..."
 		small_message.text = "You lost :("
-		
-	
+		_play($Audio/Lose)
 
 
 func _on_back_button_pressed() -> void:
@@ -30,3 +29,8 @@ func _on_quit_button_pressed() -> void:
 
 #func _on_credits_button_pressed() -> void:
 	#signals.switch_scene.emit("credits_screen")
+
+
+func _play(player:AudioStreamPlayer) -> void:
+	if !player.playing:
+		player.play()

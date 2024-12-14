@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfmunflda7188"]
+[gd_scene load_steps=5 format=3 uid="uid://cfmunflda7188"]
 
 [ext_resource type="Script" path="res://scripts/screens/results_screen.gd" id="1_n660e"]
 [ext_resource type="FontFile" uid="uid://dm2rmmhs7n068" path="res://assets/fonts/slkscr.ttf" id="2_3lal6"]
+[ext_resource type="AudioStream" uid="uid://do7tp2ydvvafu" path="res://assets/audio/bgm/Lose.wav" id="3_lyhea"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r2led"]
 bg_color = Color(0.0295066, 0.0295066, 0.0295066, 1)
@@ -102,6 +103,11 @@ theme_override_fonts/font = ExtResource("2_3lal6")
 theme_override_font_sizes/font_size = 40
 text = "Credits"
 icon_alignment = 1
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Lose" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("3_lyhea")
 
 [connection signal="pressed" from="Control/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

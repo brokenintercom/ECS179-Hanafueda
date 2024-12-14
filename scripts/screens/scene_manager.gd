@@ -15,6 +15,7 @@ func _ready() -> void:
 	signals.switch_scene.connect(_on_switch_scene)
 	signals.switch_scene.emit("title_screen")
 
+
 func _on_switch_scene(next_scene_name:String) -> void:
 	if current_scene is BattleScreen:
 		player.hand.visible = false
