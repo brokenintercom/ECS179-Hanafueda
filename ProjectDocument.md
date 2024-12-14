@@ -2,21 +2,74 @@
 
 ## Summary
 
-**A paragraph-length pitch for your game.**
+You are in debt to the yakuza, and they want you to pay up, but you simply cannot. The only way the yakuza will change their terms is if you beat them in a game of Hanafeuda in a world where card games have real consequences in reality (much like Yu-Gi-Oh!). Hanafeuda is a turn-based game inspired by the existing game Hanafuda in which you must strategically play cards to deal damage to the opponent before you run out of health or run out of cards, while the yakuza attacks you directly instead. Will your belief in the heart of the cards save you?
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
+[Web-playable version of your game.](https://brokenintercom.itch.io/hanafueda)  
 [Trailer](https://youtube.com)  
 [Press Kit](https://dopresskit.com/)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+[Proposal](https://docs.google.com/document/d/1ReKk03qQ22jLba2pAbRc38L8XjvmlNclLAPEhN9LdHg/edit?usp=sharing)  
 
 ## Gameplay Explanation
 
-insert damage engine calculation stuff, how we determined it...
-clicking on cards, the different buttons...
-
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+### Controls
+For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons.
+
+### Card matching
+In this game, you must match cards either by Month or Type. Within a month, you match by January cards, February cards, ..., OR December cards. Within types, you can match by Normal cards, Ribbon cards, Animal cards, OR Bright cards.  There are 4 cards for each month
+
+All 4 cards within a month share some similar background or characteristic (with a few exceptions) with each other. Normal cards have a gray border and lack a ribbon, animal, or bright symbol.
+
+Ribbon cards have a red border and a ribbon on them. The ribbon can look either blue, red, or red with some golden text.
+
+Animal cards have a red border with golden corners and an animal on them.
+
+Bright cards have a red border with golden corners and a special symbol (a red circle with writing on it, located on one of the corners of the cards). The main subject on the Bright card varies. These are also the rarest cards in the deck, as there are only 5 Brights.
+
+Hovering over a card will make a text box appear indicating the card's month and type as a reminder. You can also view which cards are in which month/type by clicking the **?** button on the left or by clicking on the deck (also on the left).
+
+### Damage calculation
+**Normal:**
+* Base dmg: 1
+* Bonus dmg (type matching only):
+
+**Ribbon:**
+* Base dmg: 2
+* Bonus dmg (type matching only):
+
+**Animal:**
+* Base dmg: 3
+* Bonus dmg (type matching only):
+
+Bright:
+* Base dmg: 5
+* Bonus dmg (type matching only):
+
+If you select cards with the same *type*, you deal some extra bonus damage depending on how many cards you matched together, as indicated above.
+
+If you select cards with the same *month*, then for extra matching card, you deal a bonus +3 damage. If you use all four cards from the same month, then your base damage is doubled as well!
+
+If your selected cards technically match by both month and type, it will be considered a *type* matching.
+
+You can see a preview of the total damage you'll deal to the enemy by looking at the enemy's health bar at the top left of the screen.
+
+### Synergies
+There are 3 synergies in the game. Each synergy requires a specific combination of exactly 3 cards. If you successfully play just those 3 cards, the Synergy text box on the left will be updated.
+
+
+### Selecting a card
+Clicking on a card that is colored in (not grayed out) will select it, giving the card a blue outline. The remaining cards will automatically be grayed out if they can't match the selected card(s) in any way. If they *can* possibly be matched, then they will remain colored. The bottom right of the screen will also tell you whether your selected cards will be considered as matching by Month, or by Type. Note that you can select as many (non-grayed-out) cards as you'd like, but consider saving certain cards for future plays.
+
+Clicking on the deck shows you all 48 cards. Grayed out cards have already been played. By looking at this deck view, you can see what cards are left and try to plan some of your future plays.
+
+### Playing cards and enemy action
+Once you've selected the cards you want to play, click the Play button on the left. Playing your cards will deal damage to the enemy, and then it will automatically be the enemy's turn. The enemy will attack you directly. The more damage the enemy has taken, the more damage the enemy may deal to you out of desperation. The enemy may unleash its own effects on itself (buff) or you (debuff). Pay close attention to the Effect text boxes on the left!
+
+You lose if you run out of cards to play or if you run out of health. You win when the enemy runs out of health.
+
+### Strategies
 
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
