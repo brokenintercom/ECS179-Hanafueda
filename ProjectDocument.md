@@ -15,7 +15,7 @@ You are in debt to the yakuza, and they want you to pay up, but you simply canno
 
 **In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
 ### Controls
-For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. The deck and the cards shown during the battle screen are also clickable buttons.
+For this game, you only need to use the mouse (specifically left button click). You use the mouse to interact with the various buttons. For example, on the Title Screen, there is an option to change the difficultly of the Boss. To do so, simply click on the `<` and `>` arrows to change the level. The deck and the cards shown during the battle screen are also clickable buttons.
 
 ### Card matching
 In this game, you must match cards either by Month or Type. Within a month, you match by January cards, February cards, ..., OR December cards. Within types, you can match by Normal cards, Ribbon cards, Animal cards, OR Bright cards.  There are 4 cards for each month
@@ -82,9 +82,18 @@ If your project contains code that: 1) your team did not write, and 2) does not 
 
 If you used tutorials or other intellectual guidance to create aspects of your project, include reference to that information as well.
 
-@Jamie: https://www.youtube.com/watch?v=Pa0P1lUoC-M&list=PL6SABXRSlpH8CD71L7zye311cp9R4JazJ&index=3 (add more info)
+ 
+For our Card State Machine, we took inspiration from GodotGameLab's Youtube video ["Slay the Spire Clone Godot 4 Tutorial: Card Dragging & State Machines(02/08)"](https://youtu.be/Pa0P1lUoC-M). The author has provided a [Github page](https://github.com/guladam/deck_builder_tutorial/tree/season-1-code) for the project, which is also [MIT Licensed](https://github.com/guladam/deck_builder_tutorial/blob/season-1-code/LICENSE). 
+We have implemented parts of the tutorial's code in these following files: 
+- [states folder](https://github.com/brokenintercom/ECS179-Hanafueda/tree/main/scripts/states) - all the state scripts were built off of how the tutorial handled swtiching states
+- [card.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card.gd) -  the functions/signals regarding card states were based off on the tutorial, 
+- [card_state_machine.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/card/card_state_machine.gd) - we followed the tutorial on how to create the state machine base that had the code for swtiching between states.
 
-@Jamie: the health bar animation info too, not just the card state machine
+
+For our health bar, we took inspiration from DashNothing's Youtube video ["How to Make a Great Health Barin Godot 4 | Let's Godot"](https://youtu.be/f90ieBOoIYQ). This tutorial video does not have a license shown nor a Github page with links to the code, however in the video summary, the autor encourages usage of the code. 
+We implemented parts of from the tutorial in the following files: 
+- [health_bar.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/health_bar.gd) - majority of how the health bar was animated is from the tutorial, 
+- [player_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/player_health_bar.tscn) and [enemy_health_bar.tscn](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scenes/enemy_health_bar.tscn) - both of these health bar scenes were from the tutorial (the idea to use two overlaying progress bars nodes and a timer node)
 
 # Main Roles
 
@@ -106,9 +115,34 @@ You should replay any **bold text** with your relevant information. Liberally us
 ## User Interface and Input (Jamie Hsi)
 
 **Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
+There are 5 main UI screens that require user input: the title screen, the cutscenes, the battlescreen, the results screen and the credits screen. The game is purely played via mouse, allowing the userBy making the user input purely mouse-only (click-based), we have simplified how the user can interact with the game.
 
-**Add an entry for each platform or input style your project supports.**
+### title screen
+
+TODO: show title screen img here
+
+This is the first screen the user sees when starting the game - the [title screen](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/screens/title_screen.gd). We have the logo placed in the center closer to the top for emphasis and make the buttons below (`difficultly`, `start`, `credits`, `quit`) easier to see. The difference in text color and the red lines seperating `difficultly` and the rest of the buttons show that the two sections are different. 
+- **difficulty**: this UI allows the user to click on either the `<` or `>` buttons to choose the difficultly level of the game. Currently, we have `normal` and `hard` mode. The arrow like buttons are meant to give the user a sense of going up (increasing difficulty) or going down (decreasing difficulty). At the end of the list, the side that cannot continue (past hard on the right sde and past normal on the left) has its button disable to prevent the user from thinking that there is more to the list. This is also meant to give a sense of limit, where the player can not go any further.
+- **start, credits, quit**: the buttons were ordered specifically this way to create a sense of order and logic. The `start` button allows the user to begin the game, so it is the first on the list. The `credits` button is sandwiched between the other two, as it is neither the beginning nor the end. the `quit` button wraps the list up as pressing this will exit the game, thus ending it, so it comes last.
+
+In general, all buttons do not have a background behind the text showing, making it seem as if there is only text on the screen. Due to this UI decision, the button text will change color when hovering and clicking, indicating that the user is indeed hovering over the button and clicking it.
+
+### battle screen
+
+### results screen
+
+### credits screen
+
+
+
+
+### default input configuration
+From the beginning, for the sake of simplicity, we decided to have our user input be done completely with mouse only. This means that all user input is done through clicking various buttons to play the game. Our game has various buttons set up such that users can play the game smoothly as well as move between screens.
+
+### website
+Using itch.io, Tim uploaded our game to our [website](https://brokenintercom.itch.io/hanafueda), making it playable without having to download the game itself.
+
+Additionally, as the game can be accessed on the web, it can also be played on the mobile phone as long as the game is acessed from our website.
 
 ## Enemy Effects/AI (Chris Wang)
 
@@ -283,3 +317,11 @@ I asked 5 non-gamers to help test the game. Tim and Chris also helped by asking 
 ## Game Feel and Polish (Jamie Hsi)
 
 **Document what you added to and how you tweaked your game to improve its game feel.**
+
+- timer delay (yoobin polished it)
+- adding confirmation pop-up when exiting out of the battle
+- enemy animation when attacking and taking dmg
+- slide numbers on the tutorial
+- adding difficulty levels 
+- dmg calculations
+
