@@ -198,7 +198,19 @@ Additionally, as the game can be accessed on the web, it can also be played on t
 
 ## Enemy Effects/AI (Chris Wang)
 
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
+### Combat Effects
+
+I implemented four different combat effects that could be used by either the player or enemy. To create these effects, I used the Factory design pattern to attach the effects to their target. As an example, [EffectFactory](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/factories/effect_factory.gd) is the parent class for all of the other effect factories and attaches an [Effect](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/effect.gd) to the target character. This Effect then interacts with the target before freeing itself when it has been in effect for the given number of turns.
+
+Three of the four effects can be used by both the player and enemy. [AttackBuffEffect](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/attack_buff_effect.gd) will change the damage multiplier of the target on subsequent turns. The character will use it on itself. [BlockEffect](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/block_effect.gd) sets the damage multiplier of the target to 0 so that it deals no damage. The character that does this effect will target the other character. The effect is removed either when the effect successfully stops the damage of one attack or when the turns run out. [HealEffect](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/heal_effect.gd) restores some of the target's health. This effect can last for multiple turns, but this long-term healing is not utilized in the current iteration of the game.
+
+The final effect can only be used by the enemy to impact the player. [ShrinkHandEffect](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/effects/shrink_hand_effect.gd) reduces the maximum number of cards that the player's hand can contain. This limits the player's possible card combinations and likely reducing the damage they would have dealt as well. While this was not included in the current game, this effect can be stacked to limit the player's hand even more than with just one card.
+
+### Enemy AI
+
+There are currently two enemy difficulties, each of which use a different attack damage calculation formula. At the normal difficulty, the enemy deals [a random damage amount between 3 and a fraction of the damage it has taken](https://github.com/brokenintercom/ECS179-Hanafueda/blob/28ebda09551a16cdc6273efec907934f2058866c/scripts/characters/enemy.gd#L31-L32). I implemented this upon feedback from one of the playtesters that the game was too difficult and took several attempts to finally win. At the harder difficulty, the enemy deals [a fraction of the damage it has taken directly](https://github.com/brokenintercom/ECS179-Hanafueda/blob/28ebda09551a16cdc6273efec907934f2058866c/scripts/characters/enemy.gd#L34-L35), with 3 damage being the minimum damage dealt. This original formula was created by Yoobin.
+
+Besides dealing direct damage, the enemy also has the chance to do an effect. The enemy can only do at most one effect each turn. The probabilities of these effects being activated are modifiable, allowing them to be easily changed if we want to create specific enemy types in the future. Currently, the probabilities of each effect being activated is 5%. This means that the player is likely to encounter most of the enemies effects but will not be inundated in them. To display active effects started by the enemy, I modified the `effect_text` of either the enemy or player, depending on which character the effect targeted.
 
 ## Animation and Visuals (Yujin Cho)
 
@@ -327,11 +339,27 @@ The player's `finish_turn()` function moves all selected cards into the discard 
 
 ## Audio (Chris Wang)
 
-**List your assets, including their sources and licenses.**
+### Assets
 
-**Describe the implementation of your audio system.**
+I created all assets inside the [audio folder](https://github.com/brokenintercom/ECS179-Hanafueda/tree/main/assets/audio). All of these assets except for the [card drawing audio](https://github.com/brokenintercom/ECS179-Hanafueda/tree/main/assets/audio/cards/draw) were created on [BeepBox](beepbox.co) using the square wave and chip noise. I chose this audio style to fit with the pixelated visuals.
 
-**Document the sound style.** 
+For card draws, I recorded myself scraping a Pokémon cards against each other. This was the only non-chipset-based audio as I did not know a good way to make an appropriate sound effect with that limitation.
+
+["A Problem"](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/assets/audio/bgm/A%20Problem.ogg) was the first piece I composed for the game. It only plays during the cutscene. As our game's story is a little silly, I decided to make the track very energetic with lots of jumps. At the same time, the enemy is the yakuza and the player has a lot of debt within the game, so I added dissonance to reflect the slight danger that the player is in.
+
+The next piece I composed was ["Battle"](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/assets/audio/bgm/Battle.ogg), which, as the name suggests, is the battle theme of the game. I originally intended to include three more variations that would play once the player's and/or enemy's health became dangerously low, but I ran out of time. This track is in C and G minor to reflect the dangers of battle. It is filled with 16th note to give it a frantic energy. Exporting this track actually gave me some issues since it kept skipping two notes. In the future, I might remake this on another piece of software in case the problem is just BeepBox specific.
+
+["Title"](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/assets/audio/bgm/Title.ogg) is played in the title and credits screens. This track is based on the melody line of "Battle." I turned the melody from major to minor as the title and credits are supposed to be more relaxing while still giving a hint of what the game has to offer.
+
+["Win"](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/assets/audio/bgm/Win.ogg) is a short track played on the results screen if the player wins. It was heavily inspired by a Pokémon track that I don't remember the name of. The ascending structure gives the sense of victory or reaching greater heights. ["Lose"](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/assets/audio/bgm/Lose.ogg), on the other hand, plays once on the results screen if the player loses. It is based on the [Sad Trombone sound effect](https://youtu.be/CQeezCdF4mkO) with some added chords based on the tritone to make it more crunchy and drive home that you lost.
+
+### Implementation
+
+The battle background music was the easiest to implement as I just added a `AudioStreamPlayer` with a looping track onto the battle screen. The title and credits background music was a little more difficult to implement as it needed to keep playing between those two screens. To do this, I added a `AudioStreamPlayer` to the scene manager. I added this audio handler to `on_switch_scene()` in [scene_manager.gd](https://github.com/brokenintercom/ECS179-Hanafueda/blob/630003fa26a4d72a4facbe656a25758453e6ebea/scripts/screens/scene_manager.gd#L29-L39). Only starting the audio if it wasn't currently playing and we were switching to either the title or credits screens. If we switch to any other screen, the audio stops.
+
+For the "Win" and "Lose" tracks, I set "Lose" as the default that would be played when the results screen is shown. Since this track should only be played once, I couldn't actively check it in `_process()`. "Win," on the other hand would be repeated as long as the player is on the results screen, so I would [stop the "Lose" track and play the "Win" track](https://github.com/brokenintercom/ECS179-Hanafueda/blob/cc9b994c75458b1a2689ae6c843a2e9f1f7339c4/scripts/screens/results_screen.gd#L14-L19) in `_process()`.
+
+The short sound effects are implemented within `player.gd` and `enemy.gd`. When the new hand is drawn, one of the [CardDraw sound effects is played once](https://github.com/brokenintercom/ECS179-Hanafueda/blob/cc9b994c75458b1a2689ae6c843a2e9f1f7339c4/scripts/characters/player.gd#L43-L44). When the player deals damage, [the PlayerAttack sound effect is played](https://github.com/brokenintercom/ECS179-Hanafueda/blob/cc9b994c75458b1a2689ae6c843a2e9f1f7339c4/scripts/characters/player.gd#L141-L146). When the enemy deals damage, [the EnemyAttack sound effect is played](https://github.com/brokenintercom/ECS179-Hanafueda/blob/cc9b994c75458b1a2689ae6c843a2e9f1f7339c4/scripts/characters/enemy.gd#L56-L59).
 
 ## Gameplay Testing (Yoobin Jin)
 [Folder with all the gameplay testing feedback](https://drive.google.com/drive/folders/1DyaJhIkGbmhw26LUqKUENERbS_XLwIGB?usp=sharing)
