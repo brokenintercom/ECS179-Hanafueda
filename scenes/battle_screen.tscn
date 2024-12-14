@@ -3878,7 +3878,7 @@ tracks/1/path = NodePath(".:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333, 0.466667, 0.866667),
+"times": PackedFloat32Array(0, 0.331296, 0.476855, 0.866667),
 "transitions": PackedFloat32Array(0.217638, 9.18957, 0.0358968, 14.9284),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 50), Vector2(0, 0)]
@@ -4089,6 +4089,7 @@ theme_override_font_sizes/font_size = 30
 text = "NO"
 
 [node name="Boss" type="Sprite2D" parent="."]
+z_index = 6
 position = Vector2(1200, 296)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_ryqcp")
