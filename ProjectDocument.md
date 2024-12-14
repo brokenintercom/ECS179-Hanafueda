@@ -133,9 +133,9 @@ Aside from tasks related to the producer, I helped out with multiple odd-jobs th
 
 *Tutorial* - I created a tutorial scene that the player would read through at the beginning of the battle in order to help them understand the basic mechanics of our complex card game. To do this, I created multiple scenes that acted as the "slides" for the tutorial. Each slide would have buttons and a [slide_text_script](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/tutorial/slide_text.gd) that would emit signals whenever these buttons were pressed. The tutorial scene would have a [tutorial_slide_selecter](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/tutorial/tutorial_slide_selector.gd) script that would then recieve these signals and activate functions to move between the different "slides". The tutorial was heavily based on the camera selector from Exercise 2.
 
-*Help Menu* - I also created and laid out a useful Help Menu that would act as the player's on-hand reference to help ease players into the gameplay until they become more accustomed to the rules and cards. It's very similar to how the tutorial functions, but instead of moving through "slides", the buttons on the help menu would send signals to the [help_manager](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/help/help_manager.gd) that would toggle the visibility of each sub-menu.
+*Help Menu* - I also created and laid out a useful Help Menu that would act as the player's on-hand reference to help ease players into the gameplay until they become more accustomed to the rules and cards. It's very similar to how the tutorial functions, but instead of moving through "slides", the buttons on the help menu would send signals to the [help_manager script](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/scripts/help/help_manager.gd) that would toggle the visibility of each sub-menu.
 
-I also created these assets to help the tutorial and help menu look more in theme with the board and UI, trying to make the tutorial look like a wooden message board with rough-looking signs/posters.
+I also created the assets to help the tutorial and help menu look more in theme with the board and UI, trying to make the tutorial look like a wooden message board with rough-looking signs/posters. Here are 2 of those assets.
 ![Tutorial Square](https://github.com/user-attachments/assets/3f351ae2-1547-4bca-a82d-d56172fc4587)
 ![small text box](https://github.com/user-attachments/assets/4c1f4b77-a678-46fa-b901-64334a9c593e)
 
@@ -431,8 +431,13 @@ I implemented the game's story using the intro cutscene and by using assets that
 ## Press Kit and Trailer (Tim Dela Cruz)
 
 **Include links to your presskit materials and trailer.**
+[Presskit]([https://brokenintercom.itch.io/hanafueda](https://github.com/brokenintercom/ECS179-Hanafueda/blob/main/presskit.md))
+[Trailer](https://www.youtube.com/watch?v=h86qCHci8jo&ab_channel=antercom)
 
 **Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+During the quarter, I had purchased a game called *Balatro* which is an Rogue-Lite Card Game that, although we didn't list as an inspiration in our Initial Plan Doc, slowly became more of an influence when approaching the creation of Hanafueda (when expanding the screen from 4:3 to 16:9, we decided to add the side menu to add more info for the player... "like *Balatro"). So when creating the trailer and the presskit, I ended up taking inspiration from how the game presented itself in the trailer: No Words, a bit of text, all gameplay!... that said, the character designs and art within the cutscenes was too good to NOT present to a viewer (especially when I had animated the scenes already). So for the trailer I combined elements of story and gameplay together to make the gameplay and world of our game more intriguing and enjoyable to watch! This can especially be seen at the end when having the character hold there last card, and in the actual gameplay having the same card as the final card played in the match before the enemy attacks and the title drops!
+
+For the screenshots, I simply wanted to present the main aspects of our game that make it stand out: The cutscenes, the cards, the UI, and the board! I wanted to get shots of the enemy attacking the player, but the animations were too quick for me to get a proper screenshot. 
 
 ## Game Feel and Polish (Jamie Hsi)
 
