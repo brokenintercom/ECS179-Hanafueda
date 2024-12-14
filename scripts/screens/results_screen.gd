@@ -13,10 +13,9 @@ func _ready() -> void:
 
 func _process(_delta):
 	if player.did_win:
-
 		big_message.text = "YOU WIN!!"
 		win_screen.visible = true
-    _stop($Audio/Lose)
+		_stop($Audio/Lose)
 		_play($Audio/Win)
 	else:
 		big_message.text = "YOU LOST..."
